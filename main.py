@@ -59,7 +59,8 @@ async def main():
         
         #order = await create_tpsl(api_key, api_secret, symbol='BTCUSDT', side='buy', price='70000', quantity='500$', order_type='STOP')
         
-        order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='now', quantity='500$', order_type='market')
+        #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='now', quantity='500$', order_type='market')
+        order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='20000', quantity='500$', order_type='limit')
         print(f"{order}")
         
     except Exception as e:
