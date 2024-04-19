@@ -10,7 +10,7 @@ from funtion.binance.futures.order.other.get_position_mode import get_position_m
 from funtion.binance.futures.order.other.get_create_order_adjusted_price import get_adjusted_price
 from funtion.binance.futures.order.other.get_create_order_adjusted_stop_price import get_adjusted_stop_price
 
-async def create_order(api_key, api_secret, symbol, side, price=0, quantity=0, order_type="MARKET", stop_price=None):
+async def create_order(api_key, api_secret, symbol, side, price="now", quantity="30$", order_type="MARKET", stop_price=None):
     try:
         exchange = ccxt.binance({
             'apiKey': api_key,
@@ -23,13 +23,16 @@ async def create_order(api_key, api_secret, symbol, side, price=0, quantity=0, o
         latest_price = await get_future_market_price(api_key, api_secret, symbol)
         price = await get_adjusted_price(api_key, api_secret, price, latest_price, side, symbol)
         quantity = await get_adjusted_quantity(api_key, api_secret, quantity, price, symbol)
-        mode = await get_position_mode(api_key, api_secret, symbol)
-
-        if mode == 'hedge':
-            await clear_order_and_position(api_key, api_secret)
-            await exchange.set_position_mode(hedged=False)
 
         params = {}
+
+        mode = await get_position_mode(api_key, api_secret, symbol)
+        print(mode)
+        if mode == 'hedge':
+            if side == "buy": params.update({'positionSide': 'long'})
+            else: params.update({'positionSide': 'short'})
+        #     await clear_order_and_position(api_key, api_secret)
+        #     await exchange.set_position_mode(hedged=False)
 
         if order_type.upper() == "MARKET":
             params.update({'type': 'market'})

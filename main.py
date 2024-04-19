@@ -44,6 +44,8 @@ async def main():
         # price = get_reduce_lastdecimal(symbol=symbol, price=price, reduce_amount=-2)
         # print(f"{symbol}: {price}")
 
+        #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='now', quantity='500$', order_type='market')
+
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='40000', quantity='500$', order_type='limit')
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='50000', quantity='500$', order_type='stop_market')
 
@@ -55,7 +57,9 @@ async def main():
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='1000_lastdecimal/1d/100_top_hight_candle', quantity='500$', order_type='stop_market')
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='55000', quantity='500$', order_type='stop_limit', stop_price='1000_lastdecimal/1d/100_top_hight_candle')
         
-        order = await create_tpsl(api_key, api_secret, symbol='BTCUSDT', side='buy', price='70000', quantity='500$', order_type='STOP')
+        #order = await create_tpsl(api_key, api_secret, symbol='BTCUSDT', side='buy', price='70000', quantity='500$', order_type='STOP')
+        
+        order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='now', quantity='500$', order_type='market')
         print(f"{order}")
         
     except Exception as e:
