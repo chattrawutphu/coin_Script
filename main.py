@@ -53,6 +53,10 @@ async def main():
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='5%', quantity='500$', order_type='limit')
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='5%', quantity='500$', order_type='stop_limit', stop_price='-0.1_lastint_from_price')
 
+        # lastint คือ เอาราคาปัจจุบัน + หรือ - ด้วยเลขด้านหน้าตามจำนวนเต็ม เช่น ใช้คำสั่ง stop market 5000_lastint ขณะที่ btc = 50000.00 จะสร้าง order ที่ btc 55000.00
+        # lastdecimal เอาราคาปัจจุบัน + หรือ - ด้วยเลขด้านหน้าตามจทศนิยมหลังสุด เช่น ใช้คำสั่ง stop market 5000_lastdecimal ขณะที่ btc = 50000.00 จะสร้าง order ที่ btc 50050.00
+        # _candle จะเอาราคาแท่งเทียนตามเงื่อนไขที่เลือก
+        
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='5000_lastint', quantity='500$', order_type='stop_limit', stop_price='-2500_lastint_from_price')
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='1000_lastdecimal/1d/100_top_hight_candle', quantity='500$', order_type='stop_market')
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='55000', quantity='500$', order_type='stop_limit', stop_price='1000_lastdecimal/1d/100_top_hight_candle')
