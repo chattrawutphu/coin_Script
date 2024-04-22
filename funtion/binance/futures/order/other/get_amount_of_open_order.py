@@ -1,14 +1,10 @@
 import ccxt.async_support as ccxt
 from config import default_testnet as testnet
+from funtion.binance.futures.system.create_future_exchange import create_future_exchange
 
 async def get_amount_of_open_order(api_key, api_secret, symbol):
 
-  exchange = ccxt.binance(config={
-    'apiKey': api_key,
-    'secret': api_secret,
-    'enableRateLimit': True,
-    'options': {'defaultType': 'future'},
-    })
+  exchange = await create_future_exchange(api_key, api_secret)
 
   exchange.set_sandbox_mode(testnet)
 

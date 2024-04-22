@@ -5,13 +5,9 @@ import traceback
 import ccxt
 import config
 from config import default_testnet as testnet
-from funtion.binance.futures.order.create_tpsl import create_tpsl
-from funtion.binance.futures.order.create_order import create_order
+#from funtion.binance.futures.order.create_order import create_order
+from funtion.binance.futures.order.get_all_order import get_all_order
 from funtion.message import message
-from funtion.binance.futures.order.other.get_adjust_precision_price import get_adjust_precision_price
-from funtion.binance.futures.order.other.get_future_available_balance import get_future_available_balance
-from funtion.binance.futures.order.other.get_reduce_lastdecimal import get_reduce_lastdecimal
-from funtion.binance.futures.order.other.get_future_market_price import get_future_market_price
 
 
 # api_key = "yRMHGar6ENAMDJ6w8vqWlU2p8d1sMQCIdBNx7nlqsUBlsqnTZr17aL7nSSv8CdEy"
@@ -64,8 +60,10 @@ async def main():
         #order = await create_tpsl(api_key, api_secret, symbol='BTCUSDT', side='buy', price='70000', quantity='500$', order_type='STOP')
         
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='now', quantity='500$', order_type='market')
-        order = await create_order(api_key, api_secret, symbol='XRPUSDT', side='buy', price='0.5_lastint', quantity='500$', order_type='stop_limit', stop_price='-0.1_lastint_from_price')
-        print(f"{order}")
+        # order = await create_order(api_key, api_secret, symbol='XRPUSDT', side='buy', price='0.5_lastint', quantity='500$', order_type='stop_limit', stop_price='-0.1_lastint_from_price')
+        
+        orders = await get_all_order(api_key, api_secret)
+        print(f"{orders}")
         
     except Exception as e:
         error_traceback = traceback.format_exc()

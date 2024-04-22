@@ -4,6 +4,7 @@ from config import default_testnet as testnet
 
 from funtion.binance.futures.order.other.cache.get_cache_position_mode import get_cache_position_mode
 from funtion.binance.futures.order.other.cache.change_cache_position_mode import change_cache_position_mode
+from funtion.binance.futures.system.create_future_exchange import create_future_exchange
 from funtion.message import message
 from funtion.binance.futures.order.other.get_future_available_balance import get_future_available_balance
 from funtion.binance.futures.order.other.get_adjust_precision_quantity import get_adjust_precision_quantity
@@ -14,12 +15,7 @@ from funtion.binance.futures.order.other.get_create_order_adjusted_stop_price im
 
 async def create_order(api_key, api_secret, symbol, side, price="now", quantity="30$", order_type="MARKET", stop_price=None):
     try:
-        exchange = ccxt.binance({
-            'apiKey': api_key,
-            'secret': api_secret,
-            'enableRateLimit': True,
-            'options': {'defaultType': 'future'},
-        })
+        exchange = await create_future_exchange(api_key, api_secret)
         exchange.set_sandbox_mode(testnet)
 
         latest_price = await get_future_market_price(api_key, api_secret, symbol)

@@ -3,6 +3,8 @@ import json
 import os
 import ccxt
 
+from funtion.binance.futures.system.create_future_exchange import create_future_exchange
+
 # ฟังก์ชั่นนี้เป็นการ อัพเดทข้อมูล pricePrecision ของ symbol ทั้งหมด ไปยังตัวแปรชื่อ symbol_data ในไฟล์ config.py
 
 def update_symbol_data(filtered_data):
@@ -36,13 +38,10 @@ def update_symbol_data(filtered_data):
 
 
 
+apiKey = "6041331240427dbbf26bd671beee93f6686b57dde4bde5108672963fad02bf2e"
+secret = "560764a399e23e9bc5e24d041bd3b085ee710bf08755d26ff4822bfd9393b11e"
 
-
-exchange = ccxt.binance({
-    'apiKey': '6041331240427dbbf26bd671beee93f6686b57dde4bde5108672963fad02bf2e',
-    'secret': '560764a399e23e9bc5e24d041bd3b085ee710bf08755d26ff4822bfd9393b11e',
-    'enableRateLimit': True,
-})
+exchange = create_future_exchange(apiKey, secret)
 exchange.set_sandbox_mode(True)
 
 data = exchange.fetch_markets()

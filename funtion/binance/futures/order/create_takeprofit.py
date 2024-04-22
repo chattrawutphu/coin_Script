@@ -2,6 +2,9 @@ import traceback
 import ccxt.async_support as ccxt
 from config import default_testnet as testnet
 
+from funtion.binance.futures.order.other.cache.get_cache_position_mode import get_cache_position_mode
+from funtion.binance.futures.order.other.cache.change_cache_position_mode import change_cache_position_mode
+from funtion.binance.futures.system.create_future_exchange import create_future_exchange
 from funtion.message import message
 from funtion.binance.futures.order.other.get_future_available_balance import get_future_available_balance
 from funtion.binance.futures.order.other.get_adjust_precision_quantity import get_adjust_precision_quantity
@@ -10,14 +13,9 @@ from funtion.binance.futures.order.other.get_position_mode import get_position_m
 from funtion.binance.futures.order.other.get_create_order_adjusted_price import get_adjusted_price
 from funtion.binance.futures.order.other.get_create_order_adjusted_stop_price import get_adjusted_stop_price
 
-async def create_tpsl(api_key, api_secret, symbol, side, price="now", quantity="30$", order_type="MARKET", stop_price=None):
+async def create_takeprofit(api_key, api_secret, symbol, side, price="now", quantity="30$", order_type="MARKET", stop_price=None):
     try:
-        exchange = ccxt.binance({
-            'apiKey': api_key,
-            'secret': api_secret,
-            'enableRateLimit': True,
-            'options': {'defaultType': 'future'},
-        })
+        exchange = await create_future_exchange(api_key, api_secret)
         exchange.set_sandbox_mode(testnet)
 
         latest_price = await get_future_market_price(api_key, api_secret, symbol)
@@ -26,7 +24,9 @@ async def create_tpsl(api_key, api_secret, symbol, side, price="now", quantity="
 
         params = {}
 
-        mode = await get_position_mode(api_key, api_secret, symbol)
+        #mode = await get_position_mode(api_key, api_secret, symbol)
+        mode = await get_cache_position_mode(api_key, api_secret)
+
         print(mode)
         if mode == 'hedge':
             if side == "buy": params.update({'positionSide': 'long'})
@@ -61,12 +61,26 @@ async def create_tpsl(api_key, api_secret, symbol, side, price="now", quantity="
 
         await exchange.close()
         return order
-
     except Exception as e:
         error_traceback = traceback.format_exc()
-        message(symbol, f"พบข้อผิดพลาด","yellow")
-        print(f"Error: {error_traceback}")
-        await exchange.close()
+        if "Order's position side does not match user's setting" in str(error_traceback):
+            if side == "buy": params.update({'positionSide': 'long'})
+            else: params.update({'positionSide': 'short'})
+            try:
+                message(symbol, f"Position Mode ไม่ถูกต้อง ลองเปลี่ยนอีกครั้ง และเก็บข้อมูลไว้","yellow")
+                await change_cache_position_mode(api_key, api_secret)
+                order = await exchange.create_order(**order_params)
+                await exchange.close()
+                return order
+            except Exception as e:
+                message(symbol, f"พบข้อผิดพลาด","yellow")
+                print(f"Error: {error_traceback}")
+                await exchange.close()
+            
+        else:
+            message(symbol, f"พบข้อผิดพลาด","yellow")
+            print(f"Error: {error_traceback}")
+            await exchange.close()
     return None
 
 async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol):
