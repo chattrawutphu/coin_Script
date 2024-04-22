@@ -59,8 +59,9 @@ for item in data:
             }
         }
         filtered_data.append(filtered_item)
-#print(filtered_data)
-#with open('result.json', 'w') as f:
-#    json.dump(filtered_data, f, indent=4)
 
-update_symbol_data(filtered_data)
+#print(filtered_data)
+with open('json/symbol_precision.json', 'w') as f:
+    json.dump(filtered_data, f, indent=4)
+
+#update_symbol_data(filtered_data)

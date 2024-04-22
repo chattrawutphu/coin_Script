@@ -1,0 +1,4071 @@
+[
+    {
+        "id": "BTCUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 1,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "ETHUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "BCHUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "XRPUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "EOSUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "LTCUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "TRXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ETCUSDT",
+        "precision": {
+            "amount": 2,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "LINKUSDT",
+        "precision": {
+            "amount": 2,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "XLMUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ADAUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "DASHUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "ZECUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "XTZUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "BNBUSDT",
+        "precision": {
+            "amount": 2,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "ATOMUSDT",
+        "precision": {
+            "amount": 2,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "ONTUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "IOTAUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "BATUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "VETUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "QTUMUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "IOSTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "THETAUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "ALGOUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "ZILUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "KNCUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ZRXUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "COMPUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "OMGUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "DOGEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "SXPUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "KAVAUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "BANDUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "RLCUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "WAVESUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "MKRUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 1,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "SNXUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "DOTUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "DEFIUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 1,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "1",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "YFIUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 1,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "1",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "BALUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "CRVUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "RUNEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "SUSHIUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "EGLDUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "SOLUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "STORJUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "UNIUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "AVAXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "FTMUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ENJUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "FLMUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "TOMOUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "RENUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "KSMUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "NEARUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "AAVEUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "FILUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "LRCUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "MATICUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "OCEANUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "CTKUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "AXSUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ZENUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "SKLUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "GRTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BNTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "1INCHUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "UNFIUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "CHZUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "SANDUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ANKRUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "LITUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "REEFUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "COTIUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "CHRUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "MANAUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ALICEUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "ONEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "LINAUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "STMXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "DENTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "CELRUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "HOTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "MTLUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "OGNUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "DGBUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "1000SHIBUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BTCDOMUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 1,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "1",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "MASKUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "IOTXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "AUDIOUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "C98USDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ATAUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "DYDXUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "1000XECUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "GALAUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "CELOUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "ARUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "KLAYUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "ARPAUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "CTSIUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ENSUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "PEOPLEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ANTUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "ROSEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "DUSKUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "FLOWUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "IMXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "API3USDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "GMTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "APEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "WOOUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "JASMYUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "DARUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "GALUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "OPUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "XMRUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "INJUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "STGUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "SPELLUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 7,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "1000LUNCUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "LUNA2USDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "LDOUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "CVXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "FOOTBALLUSDT",
+        "precision": {
+            "amount": 2,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "APTUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "QNTUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "BLUEBIRDUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "FXSUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "HOOKUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "MAGICUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "TUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "RNDRUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "HIGHUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "MINAUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ASTRUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "PHBUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "AGIXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "FETUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "GMXUSDT",
+        "precision": {
+            "amount": 2,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "CFXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "STXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BNXUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "ACHUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "SSVUSDT",
+        "precision": {
+            "amount": 2,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "CKBUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "PERPUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "LQTYUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "USDCUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ARBUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "IDUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "JOEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "AMBUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "LEVERUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 7,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "TRUUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "RDNTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ETHBTC",
+        "precision": {
+            "amount": 2,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "HFTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "XVSUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "BLURUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "EDUUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "IDEXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "1000PEPEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 7,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "RADUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "UMAUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "KEYUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "COMBOUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "SUIUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "NMRUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "MAVUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "MDTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "XVGUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "WLDUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "PENDLEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ARKMUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "AGLDUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "YGGUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "DODOXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "OXTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "SEIUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "CYBERUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "HIFIUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ARKUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "FRONTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "GLMRUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BICOUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "STRAXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "LOOMUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BIGTIMEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BONDUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "ORBSUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "STPTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "WAXPUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BSVUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "RIFUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "POLYXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "GASUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "POWRUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "SLPUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "TIAUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "SNTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "CAKEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "MEMEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "TOKENUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ORDIUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "STEEMUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BADGERUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ILVUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "NTRNUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "MBLUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "KASUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BEAMXUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "1000BONKUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "PYTHUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "SUPERUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "USTCUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ONGUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ETHWUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "JTOUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "1000SATSUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "AUCTIONUSDT",
+        "precision": {
+            "amount": 2,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "1000RATSUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ACEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "MOVRUSDT",
+        "precision": {
+            "amount": 2,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "TWTUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "NFPUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "BTCUSDC",
+        "precision": {
+            "amount": 3,
+            "price": 1,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "1",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "ETHUSDC",
+        "precision": {
+            "amount": 3,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "BNBUSDC",
+        "precision": {
+            "amount": 2,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "XRPUSDC",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "SOLUSDC",
+        "precision": {
+            "amount": 2,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "AIUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "XAIUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "DOGEUSDC",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "WIFUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "MANTAUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "ONDOUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "LSKUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ALTUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "JUPUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ZETAUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "RONINUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "SUIUSDC",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "DYMUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "OMUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "LINKUSDC",
+        "precision": {
+            "amount": 2,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "PIXELUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ORDIUSDC",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "STRKUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "MAVIAUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "GLMUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "PORTALUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "TONUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "AXLUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "MYROUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "1000PEPEUSDC",
+        "precision": {
+            "amount": 0,
+            "price": 7,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "METISUSDT",
+        "precision": {
+            "amount": 2,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "AEVOUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "WLDUSDC",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "VANRYUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BOMEUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "AVAXUSDC",
+        "precision": {
+            "amount": 2,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "1000SHIBUSDC",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ENAUSDT",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BCHUSDC",
+        "precision": {
+            "amount": 3,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "WIFUSDC",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "WUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "TNSRUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "SAGAUSDT",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "NEARUSDC",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "LTCUSDC",
+        "precision": {
+            "amount": 3,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "TAOUSDT",
+        "precision": {
+            "amount": 3,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "3"
+        }
+    },
+    {
+        "id": "ARBUSDC",
+        "precision": {
+            "amount": 1,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "NEOUSDC",
+        "precision": {
+            "amount": 2,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "FILUSDC",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1"
+        }
+    },
+    {
+        "id": "OMNIUSDT",
+        "precision": {
+            "amount": 2,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "2"
+        }
+    },
+    {
+        "id": "BTCUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 1,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "1",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "LINKUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BNBUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "TRXUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "DOTUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ADAUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "EOSUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "LTCUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "BCHUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "XRPUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ETCUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "EGLDUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "DOGEUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 6,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "UNIUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "THETAUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "SOLUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "FTMUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "SANDUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "MANAUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "AVAXUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "2",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "MATICUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "NEARUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ATOMUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "AAVEUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 2,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "3",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ROSEUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "XTZUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ICXUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ALGOUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "RUNEUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "APEUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "4",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "KNCUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "GMTUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "5",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "OPUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "ENSUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "CHZUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    },
+    {
+        "id": "APTUSD_PERP",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "info": {
+            "pricePrecision": "6",
+            "quantityPrecision": "0"
+        }
+    }
+]
