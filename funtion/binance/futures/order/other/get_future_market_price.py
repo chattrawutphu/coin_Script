@@ -5,8 +5,6 @@ from funtion.binance.futures.system.create_future_exchange import create_future_
 async def get_future_market_price(api_key, api_secret, symbol):
     exchange = await create_future_exchange(api_key, api_secret)
 
-    exchange.set_sandbox_mode(testnet)
-
     try:
         # เรียกใช้งาน API ของตลาดสินค้าปัจจุบัน
         ticker = await exchange.fetch_ticker(symbol)

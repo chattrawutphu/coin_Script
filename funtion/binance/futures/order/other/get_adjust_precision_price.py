@@ -2,7 +2,7 @@ import json
 from decimal import Decimal, ROUND_DOWN
 
 def load_symbol_data():
-    with open('symbol_precision.json', 'r') as file:
+    with open('json/symbol_precision.json', 'r') as file:
         return json.load(file)
 
 def get_adjust_precision_price(symbol, price):

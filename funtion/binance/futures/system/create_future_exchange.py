@@ -9,11 +9,12 @@ async def create_future_exchange(api_key, api_secret,warnOnFetchOpenOrdersWithou
         'options': {
             'defaultType': 'future',
             'adjustForTimeDifference': True,
-            'warnOnFetchOpenOrdersWithoutSymbol': warnOnFetchOpenOrdersWithoutSymbol
+            'warnOnFetchOpenOrdersWithoutSymbol': warnOnFetchOpenOrdersWithoutSymbol,
+            #'hedgeMode': True
         }
     })
 
     exchange.set_sandbox_mode(testnet)
 
-    await exchange.load_markets()
+    # await exchange.load_markets()
     return exchange

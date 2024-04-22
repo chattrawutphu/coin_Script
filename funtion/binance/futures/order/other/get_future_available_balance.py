@@ -4,7 +4,6 @@ from funtion.binance.futures.system.create_future_exchange import create_future_
 
 async def get_future_available_balance(api_key, api_secret, testnet = default_testnet):
     exchange = await create_future_exchange(api_key, api_secret)
-    exchange.set_sandbox_mode(testnet)
 
     try:
         balance = await exchange.fetch_balance()

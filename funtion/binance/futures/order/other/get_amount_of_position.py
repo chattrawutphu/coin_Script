@@ -6,8 +6,6 @@ async def get_amount_of_position(api_key, api_secret, symbol):
 
   exchange = await create_future_exchange(api_key, api_secret)
 
-  exchange.set_sandbox_mode(testnet)
-
   positions = await exchange.fetch_positions()
 
   for position in positions:

@@ -6,8 +6,6 @@ async def get_amount_of_open_order(api_key, api_secret, symbol):
 
   exchange = await create_future_exchange(api_key, api_secret)
 
-  exchange.set_sandbox_mode(testnet)
-
   orders = await exchange.fetch_open_orders(symbol)
 
   amount = 0

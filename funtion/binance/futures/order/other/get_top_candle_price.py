@@ -7,8 +7,6 @@ async def get_top_candle_price(api_key, api_secret, symbol, num_candles, candle_
     try:
         exchange = await create_future_exchange(api_key, api_secret)
 
-        exchange.set_sandbox_mode(testnet)
-
         candles = await exchange.fetch_ohlcv(symbol, timeframe)
 
         relevant_candles = candles[-num_candles:]

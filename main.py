@@ -5,7 +5,7 @@ import traceback
 import ccxt
 import config
 from config import default_testnet as testnet
-#from funtion.binance.futures.order.create_order import create_order
+from funtion.binance.futures.order.create_order import create_order
 from funtion.binance.futures.order.get_all_order import get_all_order
 from funtion.message import message
 
@@ -60,10 +60,12 @@ async def main():
         #order = await create_tpsl(api_key, api_secret, symbol='BTCUSDT', side='buy', price='70000', quantity='500$', order_type='STOP')
         
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='now', quantity='500$', order_type='market')
-        # order = await create_order(api_key, api_secret, symbol='XRPUSDT', side='buy', price='0.5_lastint', quantity='500$', order_type='stop_limit', stop_price='-0.1_lastint_from_price')
         
-        orders = await get_all_order(api_key, api_secret)
-        print(f"{orders}")
+        # TAKE_PROFIT_MARKET buy ใช้สำหรับปิด short position และราคาต้องต่ำกว่า market
+        order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='-5%', quantity='500$', order_type='TAKE_PROFIT_MARKET')
+        
+        # orders = await get_all_order(api_key, api_secret)
+        print(f"{order}")
         
     except Exception as e:
         error_traceback = traceback.format_exc()
