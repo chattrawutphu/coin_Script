@@ -13,7 +13,7 @@ async def get_amount_of_position(api_key, api_secret, symbol):
   for position in positions:
     if position['symbol'] == symbol:
       print(position)
-      amount = get_adjust_precision_quantity(symbol, float(position['amount']))
+      amount = await get_adjust_precision_quantity(symbol, float(position['amount']))
       return amount
 
   return 0

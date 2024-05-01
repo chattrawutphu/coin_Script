@@ -2,8 +2,8 @@ import traceback
 import ccxt.async_support as ccxt
 from config import default_testnet as testnet
 
-from funtion.binance.futures.order.other.cache.get_cache_position_mode import get_cache_position_mode
-from funtion.binance.futures.order.other.cache.change_cache_position_mode import change_cache_position_mode
+from funtion.binance.futures.order.other.cache.cache_position_mode import get_cache_position_mode
+from funtion.binance.futures.order.other.cache.cache_position_mode import change_cache_position_mode
 from funtion.binance.futures.order.other.get_amount_of_open_order import get_amount_of_open_order
 from funtion.binance.futures.order.other.get_amount_of_position import get_amount_of_position
 from funtion.binance.futures.system.create_future_exchange import create_future_exchange
@@ -11,7 +11,6 @@ from funtion.message import message
 from funtion.binance.futures.order.other.get_future_available_balance import get_future_available_balance
 from funtion.binance.futures.order.other.get_adjust_precision_quantity import get_adjust_precision_quantity
 from funtion.binance.futures.order.other.get_future_market_price import get_future_market_price
-from funtion.binance.futures.order.other.get_position_mode import get_position_mode
 from funtion.binance.futures.order.other.get_create_order_adjusted_price import get_adjusted_price
 from funtion.binance.futures.order.other.get_create_order_adjusted_stop_price import get_adjusted_stop_price
 
@@ -134,7 +133,7 @@ async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, or
             btc_quantity = float(quantity.strip('$')) / price
         else:
             btc_quantity = float(quantity)
-        return get_adjust_precision_quantity(symbol, btc_quantity)
+        return await get_adjust_precision_quantity(symbol, btc_quantity)
     else:
         available_balance = await get_future_available_balance(api_key, api_secret)
 
@@ -146,4 +145,4 @@ async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, or
             btc_quantity = float(quantity.strip('$')) / price
         else:
             btc_quantity = float(quantity)
-        return get_adjust_precision_quantity(symbol, btc_quantity)
+        return await get_adjust_precision_quantity(symbol, btc_quantity)

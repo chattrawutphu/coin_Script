@@ -21,6 +21,6 @@ async def get_amount_of_open_order(api_key, api_secret, symbol):
       elif order['info']['positionSide'] == "SHORT" and order['info']['side'] == "SELL":
           amount += float(order['amount'])
      
-  get_adjust_precision_quantity(symbol, amount)
+  amount = await get_adjust_precision_quantity(symbol, amount)
   return amount
 
