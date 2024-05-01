@@ -4,6 +4,8 @@ from config import default_testnet as testnet
 
 from funtion.binance.futures.order.other.cache.get_cache_position_mode import get_cache_position_mode
 from funtion.binance.futures.order.other.cache.change_cache_position_mode import change_cache_position_mode
+from funtion.binance.futures.order.other.get_amount_of_open_order import get_amount_of_open_order
+from funtion.binance.futures.order.other.get_amount_of_position import get_amount_of_position
 from funtion.binance.futures.system.create_future_exchange import create_future_exchange
 from funtion.message import message
 from funtion.binance.futures.order.other.get_future_available_balance import get_future_available_balance
@@ -20,7 +22,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
         latest_price = await get_future_market_price(api_key, api_secret, symbol)
         price = await get_adjusted_price(api_key, api_secret, price, latest_price, side, symbol)
         temp_quantity = quantity
-        quantity = await get_adjusted_quantity(api_key, api_secret, quantity, price, symbol)
+        quantity = await get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, order_type)
 
         params = {}
 
@@ -29,11 +31,11 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
 
         if mode == 'hedge':
             if order_type.upper() == "TAKE_PROFIT_MARKET" or order_type.upper() == "STOPLOSS_MARKET":
-                if side == "buy": params.update({'positionSide': 'long'})
-                else: params.update({'positionSide': 'short'})
-            else:
                 if side == "buy": params.update({'positionSide': 'short'})
                 else: params.update({'positionSide': 'long'})
+            else:
+                if side == "buy": params.update({'positionSide': 'long'})
+                else: params.update({'positionSide': 'short'})
 
             if order_type.upper() == "TAKE_PROFIT_MARKET" or order_type.upper() == "STOPLOSS_MARKET":
                 if temp_quantity.upper() == "MAX" or temp_quantity.endswith('100%'):
@@ -72,12 +74,12 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
         # if 'closePosition' in params:
         #    del order_params['amount']
 
-        message(symbol, f"{order_params}","yellow")
-
         if params['type'] != 'market' and params['type'] != 'stop_market' and params['type'] != 'take_profit_market':
             order_params['price'] = params['price']
         
         order = await exchange.create_order(**order_params)
+
+        message(symbol, f"{order_params}","yellow")
 
         await exchange.close()
         return order
@@ -86,6 +88,15 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
         if "Order's position side does not match user's setting" in str(error_traceback):
             if order_type.upper() == "TAKE_PROFIT_MARKET" or order_type.upper() == "STOPLOSS_MARKET":
                 if 'reduceOnly' in params:
+                    del params['reduceOnly']
+                else:
+                    params.update({'reduceOnly': True})
+                if 'positionSide' in params:
+                    del params['positionSide']
+                else:
+                    if side == "buy": params.update({'positionSide': 'short'})
+                    else: params.update({'positionSide': 'long'})
+                if 'closePosition' in params:
                     del params['reduceOnly']
             else:
                 if 'positionSide' in params:
@@ -97,6 +108,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                 message(symbol, f"Position Mode ไม่ถูกต้อง ลองเปลี่ยนอีกครั้ง และเก็บข้อมูลไว้","yellow")
                 await change_cache_position_mode(api_key, api_secret)
                 order = await exchange.create_order(**order_params)
+                message(symbol, f"{order_params}","yellow")
                 await exchange.close()
                 return order
             except Exception as e:
@@ -110,15 +122,28 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
             await exchange.close()
     return None
 
-async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol):
-    available_balance = await get_future_available_balance(api_key, api_secret)
+async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, order_type=None):
 
-    if quantity.upper() == "MAX" or quantity.endswith('100%'):
-        btc_quantity = available_balance / price
-    elif quantity.endswith('%'):
-        btc_quantity = (float(quantity.strip('%')) / 100) * available_balance / price
-    elif quantity.endswith('$'):
-        btc_quantity = float(quantity.strip('$')) / price
+    if order_type.upper() == "TAKE_PROFIT_MARKET" or order_type.upper() == "STOPLOSS_MARKET":
+
+        if quantity.upper() == "MAX" or quantity.endswith('100%'):
+            btc_quantity = (float(await get_amount_of_position(api_key, api_secret, symbol)) + float(await get_amount_of_open_order(api_key, api_secret, symbol)))
+        elif quantity.endswith('%'):
+            btc_quantity = ((float(await get_amount_of_position(api_key, api_secret, symbol)) + float(await get_amount_of_open_order(api_key, api_secret, symbol))) * float(quantity.strip('%'))) / 100
+        elif quantity.endswith('$'):
+            btc_quantity = float(quantity.strip('$')) / price
+        else:
+            btc_quantity = float(quantity)
+        return get_adjust_precision_quantity(symbol, btc_quantity)
     else:
-        btc_quantity = float(quantity)
-    return get_adjust_precision_quantity(symbol, btc_quantity)
+        available_balance = await get_future_available_balance(api_key, api_secret)
+
+        if quantity.upper() == "MAX" or quantity.endswith('100%'):
+            btc_quantity = available_balance / price
+        elif quantity.endswith('%'):
+            btc_quantity = (float(quantity.strip('%')) / 100) * available_balance / price
+        elif quantity.endswith('$'):
+            btc_quantity = float(quantity.strip('$')) / price
+        else:
+            btc_quantity = float(quantity)
+        return get_adjust_precision_quantity(symbol, btc_quantity)

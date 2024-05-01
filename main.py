@@ -62,10 +62,14 @@ async def main():
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='now', quantity='500$', order_type='market')
         
         # TAKE_PROFIT_MARKET buy ใช้สำหรับปิด short position และราคาต้องต่ำกว่า market
-        order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='-5%', quantity='500$', order_type='TAKE_PROFIT_MARKET')
+        order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='58000', quantity='500$', order_type='limit')
+        #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='now', quantity='500$', order_type='market')
+        order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='-10%', quantity='50%', order_type='STOPLOSS_MARKET')
+        order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='-20%', quantity='50%', order_type='STOPLOSS_MARKET')
+        order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='10%', quantity='100%', order_type='TAKE_PROFIT_MARKET')
         
         # orders = await get_all_order(api_key, api_secret)
-        print(f"{order}")
+        print(f"สำเร็จ")
         
     except Exception as e:
         error_traceback = traceback.format_exc()
