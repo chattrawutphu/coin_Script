@@ -20,4 +20,7 @@ def message(symbol='', message='', color='white'):
     else:
         color_prefix = ''
 
-    print(f"[{current_time}][{current_date}][{symbol}] {color_prefix}{message}{reset_code}")
+    if symbol != "":
+        print(f"[{current_time}][{current_date}][{symbol}] {color_prefix}{message}{reset_code}")
+    else:
+        print(f"[{current_time}][{current_date}] {color_prefix}{message}{reset_code}")

@@ -2,7 +2,7 @@ import ccxt.async_support as ccxt
 from config import default_testnet
 from funtion.binance.futures.system.create_future_exchange import create_future_exchange
 
-async def get_future_available_balance(api_key, api_secret, testnet = default_testnet):
+async def get_future_available_balance(api_key, api_secret):
     exchange = await create_future_exchange(api_key, api_secret)
 
     try:
