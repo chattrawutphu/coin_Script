@@ -4,7 +4,7 @@ from datetime import datetime
 
 from funtion.message import message
 
-def save_server_logs(api_key, api_secret, log_type, log_level, title, text, show_message=False):
+def save_server_logs(api_key, api_secret, log_type, log_level, catagory, sub_catagory, text, secondary_text="", show_message=False):
     # สร้างโฟลเดอร์เก็บ logs หากยังไม่มี
     timestamp = datetime.now().timestamp()
     logs_folder = os.path.join("json", "server_logs", api_key)
@@ -20,8 +20,10 @@ def save_server_logs(api_key, api_secret, log_type, log_level, title, text, show
         "timestamp": timestamp,
         "log_type": log_type,
         "log_level": log_level,
-        "title": title,
-        "message": text,
+        "catagory": catagory,
+        "sub_catagory": sub_catagory,
+        "text": text,
+        "secondary_text" : secondary_text,
         "api_key": api_key,
         "api_secret": api_secret
     }
@@ -50,7 +52,8 @@ def save_server_logs(api_key, api_secret, log_type, log_level, title, text, show
 # api_secret = "example_secret"
 # log_type = "server"
 # log_level = "info"
-# title = "Server started"
+# catagory = "Server started"
+# sub_catagory = "Server started"
 # text = "The server has been started successfully."
 
 # save_server_logs(api_key, api_secret, log_type, log_level, title, text)

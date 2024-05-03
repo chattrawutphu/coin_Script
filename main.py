@@ -5,9 +5,11 @@ import traceback
 import ccxt
 import config
 from config import default_testnet as testnet
+from funtion.binance.futures.check.check_future_available_balance import check_future_available_balance
 from funtion.binance.futures.check.check_price import check_price
 from funtion.binance.futures.order.create_order import create_order
 from funtion.binance.futures.order.get_all_order import get_all_order
+from funtion.codelog import codelog
 from funtion.message import message
 from funtion.server_logs import save_server_logs
 
@@ -64,15 +66,37 @@ async def main():
         #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='now', quantity='500$', order_type='market')
         
         # TAKE_PROFIT_MARKET buy ใช้สำหรับปิด short position และราคาต้องต่ำกว่า market
-        if await check_price(api_key, api_secret, symbol='BTCUSDT', price='80000', operator='<=', condition_price="add/10_lastint/1h"):
-            save_server_logs(api_key, api_secret, "success", "4", "condition result", "condition BTCUSD price <= 80000 is success", show_message=True)
-            #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='58000', quantity='500$', order_type='limit')
-            ##order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='now', quantity='500$', order_type='market')
-            #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='-10%', quantity='50%', order_type='STOPLOSS_MARKET')
-            #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='-20%', quantity='50%', order_type='STOPLOSS_MARKET')
-            #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='10%', quantity='100%', order_type='TAKE_PROFIT_MARKET')
-        else:
-            save_server_logs(api_key, api_secret, "warning", "4", "condition result", "condition BTCUSD price <= 80000 is fail", show_message=True)
+
+        try:
+            if await check_price(api_key, api_secret, symbol='BTCUSDT', price='80000', operator='<=', condition_price="add/10_lastint/1h"):
+                codelog(api_key, api_secret, "c1001t", param1='BTCUSDT', param2='80000', param3='<=')
+                if await check_future_available_balance(api_key, api_secret, '500', '>='):
+                    codelog(api_key, api_secret, "c1002t", param1='500', param2='>=')
+                    
+                    #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='58000', quantity='500$', order_type='limit')
+                    ##order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='now', quantity='500$', order_type='market')
+                    #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='-10%', quantity='50%', order_type='STOPLOSS_MARKET')
+                    #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='-20%', quantity='50%', order_type='STOPLOSS_MARKET')
+                    #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='10%', quantity='100%', order_type='TAKE_PROFIT_MARKET')\
+                else:
+                    codelog(api_key, api_secret, "c1002f", param1='500', param2='>=')
+
+            else:
+                codelog(api_key, api_secret, "c1001f", param1='BTCUSDT', param2='80000', param3='<=')
+        except ccxt.NetworkError as e:
+            error_traceback = traceback.format_exc()
+            print(f'Network error occurred: {error_traceback}')
+        except ccxt.ExchangeError as e:
+            error_traceback = traceback.format_exc()
+            print(f'Exchange error occurred: {error_traceback}')
+        except ccxt.BaseError as e:
+            error_traceback = traceback.format_exc()
+            print(f'CCXT Base error occurred: {error_traceback}')
+        except Exception as e:
+            error_traceback = traceback.format_exc()
+            print(f'An unexpected error occurred: {error_traceback}')
+        finally:
+            pass
         # orders = await get_all_order(api_key, api_secret)
         
         
