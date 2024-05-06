@@ -1,10 +1,11 @@
 import os
 import json
 from datetime import datetime
+from config import default_show_message, default_log_secondary_language
 
 from funtion.message import message
 
-def save_server_logs(api_key, api_secret, log_type, log_level, catagory, sub_catagory, text, secondary_text="", show_message=False):
+def save_server_logs(api_key, api_secret, log_type, log_level, catagory, sub_catagory, text, secondary_text=""):
     # สร้างโฟลเดอร์เก็บ logs หากยังไม่มี
     timestamp = datetime.now().timestamp()
     logs_folder = os.path.join("json", "server_logs", api_key)
@@ -38,14 +39,17 @@ def save_server_logs(api_key, api_secret, log_type, log_level, catagory, sub_cat
     logs.append(log_entry)
 
     # เขียนข้อมูล logs ลงในไฟล์ JSON
-    with open(filename, 'w') as file:
-        json.dump(logs, file, indent=4)
-    
-    if show_message == True:
-        if log_type == "success": color = "cyan"
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(logs, file, indent=4, ensure_ascii=False)
+
+    if default_show_message[((int(log_level))-1)] == True:
+        if log_type == "success": color = "green"
         if log_type == "warning": color = "yellow"
         else: color = "white"
-        message("",f"{text}",color)
+        if default_log_secondary_language == False:
+            message("",f"{text}",color)
+        else:
+            message("",f"{secondary_text}",color)
 
 # # ตัวอย่างการใช้งาน
 # api_key = "example_key"
