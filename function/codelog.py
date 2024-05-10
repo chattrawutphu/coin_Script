@@ -1,5 +1,5 @@
-from funtion.message import message
-from funtion.server_logs import save_server_logs
+from function.message import message
+from function.server_logs import save_server_logs
 
 async def codelog(api_key, api_secret, id, param1="", param2="", param3="", param4="", param5=""):
     if id == "c1001t":

@@ -1,7 +1,7 @@
 import traceback
 import ccxt.async_support as ccxt
 from config import default_testnet as testnet
-from funtion.binance.futures.system.create_future_exchange import create_future_exchange
+from function.binance.futures.system.create_future_exchange import create_future_exchange
 
 async def get_top_candle_price(api_key, api_secret, symbol, num_candles, candle_type, timeframe='4h'):
     try:

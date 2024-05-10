@@ -1,0 +1,57 @@
+[
+    {
+        "timestamp": 1715339193.911578,
+        "log_type": "warning",
+        "log_level": "5",
+        "catagory": "system result",
+        "sub_catagory": "server",
+        "text": "Server status condition is fail",
+        "secondary_text": "เช็คสถานะ server ไม่ถูกต้อง",
+        "api_key": "6041331240427dbbf26bd671beee93f6686b57dde4bde5108672963fad02bf2e",
+        "api_secret": "560764a399e23e9bc5e24d041bd3b085ee710bf08755d26ff4822bfd9393b11e"
+    },
+    {
+        "timestamp": 1715339200.497575,
+        "log_type": "warning",
+        "log_level": "5",
+        "catagory": "system result",
+        "sub_catagory": "server",
+        "text": "Server status condition is fail",
+        "secondary_text": "เช็คสถานะ server ไม่ถูกต้อง",
+        "api_key": "6041331240427dbbf26bd671beee93f6686b57dde4bde5108672963fad02bf2e",
+        "api_secret": "560764a399e23e9bc5e24d041bd3b085ee710bf08755d26ff4822bfd9393b11e"
+    },
+    {
+        "timestamp": 1715339216.61364,
+        "log_type": "warning",
+        "log_level": "5",
+        "catagory": "system result",
+        "sub_catagory": "server",
+        "text": "Server status condition is fail",
+        "secondary_text": "เช็คสถานะ server ไม่ถูกต้อง",
+        "api_key": "6041331240427dbbf26bd671beee93f6686b57dde4bde5108672963fad02bf2e",
+        "api_secret": "560764a399e23e9bc5e24d041bd3b085ee710bf08755d26ff4822bfd9393b11e"
+    },
+    {
+        "timestamp": 1715339222.766893,
+        "log_type": "warning",
+        "log_level": "5",
+        "catagory": "system result",
+        "sub_catagory": "server",
+        "text": "Server status condition is fail",
+        "secondary_text": "เช็คสถานะ server ไม่ถูกต้อง",
+        "api_key": "6041331240427dbbf26bd671beee93f6686b57dde4bde5108672963fad02bf2e",
+        "api_secret": "560764a399e23e9bc5e24d041bd3b085ee710bf08755d26ff4822bfd9393b11e"
+    },
+    {
+        "timestamp": 1715339226.507553,
+        "log_type": "warning",
+        "log_level": "5",
+        "catagory": "system result",
+        "sub_catagory": "server",
+        "text": "Server status condition is fail",
+        "secondary_text": "เช็คสถานะ server ไม่ถูกต้อง",
+        "api_key": "6041331240427dbbf26bd671beee93f6686b57dde4bde5108672963fad02bf2e",
+        "api_secret": "560764a399e23e9bc5e24d041bd3b085ee710bf08755d26ff4822bfd9393b11e"
+    }
+]

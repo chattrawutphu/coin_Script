@@ -1,8 +1,8 @@
 from binance.client import Client
 from funtion import *
-from funtion.binance.futures.order.get_limit_order import get_limit_order
-from funtion.binance.futures.order.get_open_position import get_open_position
-from funtion.binance.futures.order.get_stop_order import get_stop_order
+from function.binance.futures.order.get_limit_order import get_limit_order
+from function.binance.futures.order.get_open_position import get_open_position
+from function.binance.futures.order.get_stop_order import get_stop_order
 
 percent_gap_stop_loss = 0.00001
 

@@ -3,7 +3,7 @@ import json
 import os
 import ccxt
 
-from funtion.binance.futures.system.create_future_exchange import create_future_exchange
+from function.binance.futures.system.create_future_exchange import create_future_exchange
 
 # ฟังก์ชั่นนี้เป็นการ อัพเดทข้อมูล pricePrecision ของ symbol ทั้งหมด ไปยังตัวแปรชื่อ symbol_data ในไฟล์ config.py
 

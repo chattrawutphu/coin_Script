@@ -1,5 +1,5 @@
 from decimal import Decimal, ROUND_DOWN
-from funtion.binance.futures.system.load_json_data import load_json_data
+from function.binance.futures.system.load_json_data import load_json_data
 
 async def get_adjust_precision_quantity(symbol, price):
     symbol_data = await load_json_data("json/symbol_precision.json")

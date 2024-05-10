@@ -1,4 +1,4 @@
-from funtion.binance.futures.order.other.get_amount_of_position import get_amount_of_position
+from function.binance.futures.order.other.get_amount_of_position import get_amount_of_position
 
 
 async def check_position(api_key, api_secret, symbol):

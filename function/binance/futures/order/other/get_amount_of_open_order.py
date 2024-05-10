@@ -1,6 +1,6 @@
 import ccxt.async_support as ccxt
-from funtion.binance.futures.order.other.get_adjust_precision_quantity import get_adjust_precision_quantity
-from funtion.binance.futures.system.create_future_exchange import create_future_exchange
+from function.binance.futures.order.other.get_adjust_precision_quantity import get_adjust_precision_quantity
+from function.binance.futures.system.create_future_exchange import create_future_exchange
 
 async def get_amount_of_open_order(api_key, api_secret, symbol):
 

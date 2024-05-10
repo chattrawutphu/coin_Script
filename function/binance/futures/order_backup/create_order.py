@@ -1,5 +1,5 @@
 from binance.client import Client
-from funtion.binance.futures.order.funtion import adjust_quantity, get_decimal_places, get_futures_balance
+from function.binance.futures.order.funtion import adjust_quantity, get_decimal_places, get_futures_balance
 
 def calculate_amount(api_key, api_secret, amount):
     usdt_balance = get_futures_balance(api_key, api_secret, 'USDT')

@@ -1,6 +1,6 @@
 import ccxt.async_support as ccxt
-from funtion.binance.futures.order.other.get_future_available_balance import get_future_available_balance
-from funtion.binance.futures.system.create_future_exchange import create_future_exchange
+from function.binance.futures.order.other.get_future_available_balance import get_future_available_balance
+from function.binance.futures.system.create_future_exchange import create_future_exchange
 
 async def check_future_available_balance(api_key, api_secret, balance, operator, condition_price=None):
 

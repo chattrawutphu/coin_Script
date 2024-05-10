@@ -1,10 +1,10 @@
 import json
 import ccxt.async_support as ccxt
 from config import default_testnet as testnet
-from funtion.binance.futures.system.add_json_data import add_json_data
-from funtion.binance.futures.system.change_json_data import change_json_data
-from funtion.binance.futures.system.load_json_data import load_json_data
-from funtion.message import message
+from function.binance.futures.system.add_json_data import add_json_data
+from function.binance.futures.system.change_json_data import change_json_data
+from function.binance.futures.system.load_json_data import load_json_data
+from function.message import message
 
 async def get_cache_position_mode(api_key, api_secret):
     data = await load_json_data("json/user_position_mode.json")

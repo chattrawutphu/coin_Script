@@ -1,5 +1,5 @@
 import ccxt.async_support as ccxt
-from funtion.binance.futures.system.create_future_exchange import create_future_exchange
+from function.binance.futures.system.create_future_exchange import create_future_exchange
 
 async def check_price(api_key, api_secret, symbol, price, operator, condition_price=None):
 

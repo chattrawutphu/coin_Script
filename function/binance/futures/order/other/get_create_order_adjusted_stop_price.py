@@ -1,6 +1,6 @@
-from funtion.binance.futures.order.other.get_adjust_precision_price import get_adjust_precision_price
-from funtion.binance.futures.order.other.get_reduce_lastdecimal import get_reduce_lastdecimal
-from funtion.binance.futures.order.other.get_top_candle_price import get_top_candle_price
+from function.binance.futures.order.other.get_adjust_precision_price import get_adjust_precision_price
+from function.binance.futures.order.other.get_reduce_lastdecimal import get_reduce_lastdecimal
+from function.binance.futures.order.other.get_top_candle_price import get_top_candle_price
 
 async def get_adjusted_stop_price(api_key, api_secret, price, stop_price, latest_price, side, symbol):
     if stop_price.endswith('%'):

@@ -1,4 +1,4 @@
-from funtion.binance.futures.order.other.get_adjust_precision_price import get_adjust_precision_price
+from function.binance.futures.order.other.get_adjust_precision_price import get_adjust_precision_price
 
 def get_reduce_lastdecimal(symbol, price, reduce_amount):
     reduce_amount = int(reduce_amount)
