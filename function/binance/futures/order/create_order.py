@@ -27,6 +27,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
 
         #mode = await get_position_mode(api_key, api_secret, symbol)
         mode = await get_cache_position_mode(api_key, api_secret)
+        print("!!!!!!! "+mode+" !!!!!!!!")
 
         if mode == 'hedge':
             if order_type.upper() == "TAKE_PROFIT_MARKET" or order_type.upper() == "STOPLOSS_MARKET":

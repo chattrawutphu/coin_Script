@@ -1,15 +1,13 @@
 import os
 import json
 from datetime import datetime
-from config import default_show_message, default_log_secondary_language
-import aiofiles
+from config import default_show_message, default_log_secondary_language, mongodb_url
+from function.create_mongodb_client import create_mongodb_client
 
 from function.message import message
-import motor.motor_asyncio as aiomotor
 
 # MongoDB client setup
-uri = "mongodb+srv://admin:lGqcI0m7LDYijdZG@cluster0.suk86zy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-client = aiomotor.AsyncIOMotorClient(uri)
+client = create_mongodb_client(mongodb_url)
 db = client['log_database']  # Adjust the database name as necessary
 logs_collection = db['logs']
 
@@ -44,7 +42,7 @@ async def save_server_logs(api_key, api_secret, log_type, log_level, catagory, s
         else:
             message("", secondary_text, color)
 
-
+#สำหรับใช้ไฟล์ json แทน database
 # async def save_server_logs(api_key, api_secret, log_type, log_level, catagory, sub_catagory, text, secondary_text=""):
 #     # Create logs folder if it doesn't exist
 #     timestamp = datetime.now().timestamp()

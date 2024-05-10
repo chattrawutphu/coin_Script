@@ -1,7 +1,9 @@
 from function.message import message
 from function.server_logs import save_server_logs
+from config import default_log_database
 
 async def codelog(api_key, api_secret, id, param1="", param2="", param3="", param4="", param5=""):
+    if default_log_database == False: return 0
     if id == "c1001t":
         await save_server_logs(api_key, api_secret, "success", "4", "condition result", "price", f"Condition {param1} price {param3} {param2} is success", f"เช็คเงื่อนไข {param1} ราคา {param3} {param2} ถูกต้อง")
     elif id == "c1001f":

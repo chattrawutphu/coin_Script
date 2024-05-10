@@ -2,7 +2,6 @@ import asyncio
 import json
 import traceback
 
-import ccxt
 import config
 from config import default_testnet as testnet
 from function.binance.futures.check.check_future_available_balance import check_future_available_balance
@@ -32,7 +31,10 @@ async def main():
                         await codelog(api_key, api_secret, "c1002t", param1='500', param2='>=')
                         if await check_position(api_key, api_secret, 'BTCUSDT'):
                             await codelog(api_key, api_secret, "c1003t", param1='BTCUSDT')
-                            #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='58000', quantity='500$', order_type='limit')
+                            
+                            order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='40000', quantity='500$', order_type='limit')
+                            print(order)
+
                             ##order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='now', quantity='500$', order_type='market')
                             #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='-10%', quantity='50%', order_type='STOPLOSS_MARKET')
                             #order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='sell', price='-20%', quantity='50%', order_type='STOPLOSS_MARKET')
@@ -54,6 +56,9 @@ async def main():
                 await codelog(api_key, api_secret, "s1002f")
         else:
             await codelog(api_key, api_secret, "s1001f")
+
+        order = await create_order(api_key, api_secret, symbol='BTCUSDT', side='buy', price='40000', quantity='500$', order_type='limit')
+        print(order)
         
     except Exception as e:
         error_traceback = traceback.format_exc()
