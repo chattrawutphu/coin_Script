@@ -10,24 +10,26 @@ from function.message import message
 client = create_mongodb_client(mongodb_url)
 db = client['log_database']  # Adjust the database name as necessary
 logs_collection = db['logs']
+from config import default_log_database
 
 async def save_server_logs(api_key, api_secret, log_type, log_level, catagory, sub_catagory, text, secondary_text=""):
     # Create logs document
-    timestamp = datetime.now().timestamp()
-    log_entry = {
-        "timestamp": timestamp,
-        "log_type": log_type,
-        "log_level": log_level,
-        "catagory": catagory,
-        "sub_catagory": sub_catagory,
-        "text": text,
-        "secondary_text": secondary_text,
-        "api_key": api_key,
-        "api_secret": api_secret
-    }
+    if default_log_database == True:
+        timestamp = datetime.now().timestamp()
+        log_entry = {
+            "timestamp": timestamp,
+            "log_type": log_type,
+            "log_level": log_level,
+            "catagory": catagory,
+            "sub_catagory": sub_catagory,
+            "text": text,
+            "secondary_text": secondary_text,
+            "api_key": api_key,
+            "api_secret": api_secret
+        }
 
-    # Insert log entry into MongoDB
-    await logs_collection.insert_one(log_entry)
+        # Insert log entry into MongoDB
+        await logs_collection.insert_one(log_entry)
 
     # Display message if configured
     if default_show_message[int(log_level) - 1]:

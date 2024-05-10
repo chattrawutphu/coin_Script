@@ -13,7 +13,6 @@ async def get_cache_position_mode(api_key, api_secret):
     user_data = await logs_collection.find_one({"api_key": api_key})
     if user_data:
         position_mode = user_data["position_mode"]
-        message("Test", f"position_mode {position_mode}", "yellow")
         return position_mode
     else:
         await save_cache_position_mode(api_key, api_secret)

@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+ccxt
+redis
+aiomotor
+ccxt.async_support

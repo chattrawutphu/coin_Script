@@ -4,22 +4,33 @@ import time
 import redis
 
 app = FastAPI()
-redis_client = redis.Redis(host='localhost', port=6379, db=0)
-binance = ccxt.binance()
+redis_client = redis.Redis(
+    host='redis-16692.c84.us-east-1-2.ec2.redns.redis-cloud.com',
+    port=16692,
+    password='esnR4WeNvSGUvlygaLlBQvdSA19u05to'
+)
+binance_futures = ccxt.binance({'enableRateLimit': True, 'options': {'defaultType': 'future'}})
+
+symbols_to_track = ['BTC/USDT', 'ETH/USDT']
 
 def update_prices():
     while True:
         try:
-            tickers = binance.fetch_tickers()
+            tickers = binance_futures.fetch_tickers(symbols=symbols_to_track)
             for symbol, ticker in tickers.items():
-                redis_client.set(symbol, ticker['last'])
+                last_price = ticker.get('last')
+                if last_price is not None:
+                    redis_client.set(symbol, last_price)
+                    print(f"Updated price for {symbol}: {last_price}")
+                else:
+                    print(f"No last price available for {symbol}")
         except Exception as e:
             print("Error fetching prices:", e)
         time.sleep(5)
 
 @app.on_event("startup")
-async def startup_event(background_tasks: BackgroundTasks):
-    background_tasks.add_task(update_prices)
+async def startup_event():
+    await update_prices()
 
 @app.get("/price/{symbol}")
 async def get_price(symbol: str):

@@ -27,7 +27,6 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
 
         #mode = await get_position_mode(api_key, api_secret, symbol)
         mode = await get_cache_position_mode(api_key, api_secret)
-        print("!!!!!!! "+mode+" !!!!!!!!")
 
         if mode == 'hedge':
             if order_type.upper() == "TAKE_PROFIT_MARKET" or order_type.upper() == "STOPLOSS_MARKET":
@@ -79,8 +78,6 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
         
         order = await exchange.create_order(**order_params)
 
-        message(symbol, f"{order_params}","yellow")
-
         await exchange.close()
         return order
     except Exception as e:
@@ -108,7 +105,6 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                 message(symbol, f"Position Mode ไม่ถูกต้อง ลองเปลี่ยนอีกครั้ง และเก็บข้อมูลไว้","yellow")
                 await change_cache_position_mode(api_key, api_secret)
                 order = await exchange.create_order(**order_params)
-                message(symbol, f"{order_params}","yellow")
                 await exchange.close()
                 return order
             except Exception as e:
