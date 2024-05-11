@@ -2,7 +2,7 @@ import traceback
 import ccxt.async_support as ccxt
 from config import default_testnet as testnet
 
-from function.binance.futures.order.other.cache.get_position_mode import get_position_mode, change_position_mode
+from function.binance.futures.order.other.get_position_mode import get_position_mode, change_position_mode
 from function.binance.futures.order.other.get_amount_of_open_order import get_amount_of_open_order
 from function.binance.futures.order.other.get_amount_of_position import get_amount_of_position
 from function.binance.futures.system.create_future_exchange import create_future_exchange

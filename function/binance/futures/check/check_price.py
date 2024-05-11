@@ -1,5 +1,6 @@
 import traceback
 import ccxt.async_support as ccxt
+from function.binance.futures.order.other.get_future_market_price import get_future_market_price
 from function.binance.futures.system.create_future_exchange import create_future_exchange
 from function.message import message
 
@@ -8,21 +9,21 @@ async def check_price(api_key, api_secret, symbol, price, operator, condition_pr
     exchange = await create_future_exchange(api_key, api_secret)
 
     try:
-        ticker = await exchange.fetch_ticker(symbol)
+        ticker_price = get_future_market_price(api_key, api_secret, symbol)
         await exchange.close()
 
         if operator == '>':
-            return ticker['last'] > float(price)
+            return ticker_price > float(price)
         elif operator == '>=':
-            return ticker['last'] >= float(price)
+            return ticker_price >= float(price)
         elif operator == '<':
-            return ticker['last'] < float(price)
+            return ticker_price < float(price)
         elif operator == '<=':
-            return ticker['last'] <= float(price)
+            return ticker_price <= float(price)
         elif operator == '=' or operator == '==':
-            return ticker['last'] == float(price)
+            return ticker_price == float(price)
         elif operator == '!=':
-            return ticker['last'] != float(price)
+            return ticker_price != float(price)
         else:
             raise ValueError('Operator ไม่ถูกต้อง')
     except Exception as e:
