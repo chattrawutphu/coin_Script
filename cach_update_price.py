@@ -14,6 +14,7 @@ def update_prices():
             tickers = binance_futures.fetch_tickers(symbols=symbols_track_price)
             for symbol, ticker in tickers.items():
                 last_price = ticker.get('last')
+                symbol = symbol.split(":")[0].replace("/", "")
                 if last_price is not None:
                     redis_client.set(symbol, last_price)
                     print(f"Updated price for {symbol}: {last_price}")

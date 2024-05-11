@@ -6,10 +6,10 @@ default_show_message = [ #ใช้สำหรับ โชว์ ข้อค�
     True,
     True
 ]
-default_log_secondary_language = True
-default_log_database = False #ยอมรับให้โพาข้อมูลลง database
+default_log_secondary_language = True #server log เป็นภาษาไทย
+default_log_database = False #ยอมรับให้เก็บข้อมูลลง database
 
-symbols_track_price = ['BTCUSDT', 'ETHUSDT'] #จำเป็นต้องมีการ sync กับ cach server อยู่เสมอดังนั้นค่านี้ควรดึงมาจาก database ด้วยการกด sync
+symbols_track_price = ['BTCUSDT', 'ETHUSDT', 'DOGEUSDT'] #จำเป็นต้องมีการ sync กับ cach server อยู่เสมอดังนั้นค่านี้ควรดึงมาจาก database ด้วยการกด sync
 
 #Database
 mongodb_url = f"mongodb+srv://admin:lGqcI0m7LDYijdZG@cluster0.suk86zy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"

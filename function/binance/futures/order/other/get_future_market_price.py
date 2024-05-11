@@ -11,10 +11,9 @@ async def get_future_market_price(api_key, api_secret, symbol):
             price = redis_client.get(symbol)
             return float(price)
         else:
-            exchange = await create_future_exchange(api_key, api_secret)
+            exchange = ccxt.binance({'enableRateLimit': True, 'options': {'defaultType': 'future'}})
             ticker = await exchange.fetch_ticker(symbol)
             market_price = float(ticker['last'])
-
             await exchange.close()
             return market_price
     except Exception as e:

@@ -46,8 +46,9 @@ async def main():
         # else:
         #     await codelog(api_key, api_secret, "s1001f")
         while True:
-            get_future_market_price(api_key, api_secret, "BTCUSDT")
-            time.sleep(10)
+            price = await get_future_market_price(api_key, api_secret, "DOGEUSDT")
+            print(price)
+            time.sleep(1)
     except Exception as e:
         error_traceback = traceback.format_exc()
         message(f"พบข้อผิดพลาด", "yellow")
