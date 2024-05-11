@@ -2,8 +2,7 @@ import traceback
 import ccxt.async_support as ccxt
 from config import default_testnet as testnet
 
-from function.binance.futures.order.other.cache.cache_position_mode import get_cache_position_mode
-from function.binance.futures.order.other.cache.cache_position_mode import change_cache_position_mode
+from function.binance.futures.order.other.cache.get_position_mode import get_position_mode, change_position_mode
 from function.binance.futures.order.other.get_amount_of_open_order import get_amount_of_open_order
 from function.binance.futures.order.other.get_amount_of_position import get_amount_of_position
 from function.binance.futures.system.create_future_exchange import create_future_exchange
@@ -26,7 +25,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
         params = {}
 
         #mode = await get_position_mode(api_key, api_secret, symbol)
-        mode = await get_cache_position_mode(api_key, api_secret)
+        mode = await get_position_mode(api_key, api_secret)
 
         if mode == 'hedge':
             if order_type.upper() == "TAKE_PROFIT_MARKET" or order_type.upper() == "STOPLOSS_MARKET":
@@ -103,7 +102,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                     else: params.update({'positionSide': 'short'})
             try:
                 message(symbol, f"Position Mode ไม่ถูกต้อง ลองเปลี่ยนอีกครั้ง และเก็บข้อมูลไว้","yellow")
-                await change_cache_position_mode(api_key, api_secret)
+                await change_position_mode(api_key, api_secret)
                 order = await exchange.create_order(**order_params)
                 await exchange.close()
                 return order
