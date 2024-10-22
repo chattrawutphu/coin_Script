@@ -1,0 +1,24 @@
+[
+  {
+    "timestamp": "2024-10-22T13:47:27.176182",
+    "symbol": "ETHUSDT",
+    "action": "BUY",
+    "entry_price": 2655.9,
+    "exit_price": 2656.0,
+    "amount": 0.009413465774521138,
+    "profit_loss": 0.0009413465774512576,
+    "profit_loss_percentage": 0.0037652020030840413,
+    "reason": "Position Closed"
+  },
+  {
+    "timestamp": "2024-10-22T13:47:28.502089",
+    "symbol": "ETHUSDT",
+    "action": "BUY",
+    "entry_price": 2655.9,
+    "exit_price": 2656.0,
+    "amount": 0.009413465774521138,
+    "profit_loss": 0.0009413465774512576,
+    "profit_loss_percentage": 0.0037652020030840413,
+    "reason": "Position Closed"
+  }
+]

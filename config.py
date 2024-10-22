@@ -1,4 +1,4 @@
-default_testnet = True
+default_testnet = False
 default_show_message = [ #ใช้สำหรับ โชว์ ข้อความแต่ละความสำคัญใน terminal
     True,
     True,
@@ -6,7 +6,7 @@ default_show_message = [ #ใช้สำหรับ โชว์ ข้อค�
     True,
     True
 ]
-default_log_secondary_language = True #server log เป็นภาษาไทย
+default_log_secondary_language = False #server log เป็นภาษาไทย
 default_log_database = False #ยอมรับให้เก็บข้อมูลลง database
 
 symbols_track_price = ['BTCUSDT', 'ETHUSDT', 'DOGEUSDT'] #จำเป็นต้องมีการ sync กับ cach server อยู่เสมอดังนั้นค่านี้ควรดึงมาจาก database ด้วยการกด sync

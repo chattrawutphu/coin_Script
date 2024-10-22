@@ -51,6 +51,8 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
             params.update({'type': 'market'})
         elif order_type.upper() == "STOP_MARKET" or order_type.upper() == "STOPLOSS_MARKET":
             params.update({'type': 'stop_market', 'stopPrice': price})
+            if quantity == 0:
+                quantity == await get_adjust_precision_quantity(symbol, (latest_price/100))
         elif order_type.upper() == "STOP_LIMIT":
             stop_price = await get_adjusted_stop_price(api_key, api_secret, price, stop_price, latest_price, side, symbol)
             params.update({'type': 'stop', 'price': stop_price, 'stopPrice': price})
@@ -74,6 +76,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
 
         if params['type'] != 'market' and params['type'] != 'stop_market' and params['type'] != 'take_profit_market':
             order_params['price'] = params['price']
+        print(order_params)
         
         order = await exchange.create_order(**order_params)
 
@@ -118,27 +121,29 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
     return None
 
 async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, order_type=None):
+    # Ensure quantity is a string before performing string operations
+    quantity_str = str(quantity)
 
     if order_type.upper() == "TAKE_PROFIT_MARKET" or order_type.upper() == "STOPLOSS_MARKET":
-
-        if quantity.upper() == "MAX" or quantity.endswith('100%'):
+        if quantity_str.upper() == "MAX" or quantity_str.endswith('100%'):
             btc_quantity = (float(await get_amount_of_position(api_key, api_secret, symbol)) + float(await get_amount_of_open_order(api_key, api_secret, symbol)))
-        elif quantity.endswith('%'):
-            btc_quantity = ((float(await get_amount_of_position(api_key, api_secret, symbol)) + float(await get_amount_of_open_order(api_key, api_secret, symbol))) * float(quantity.strip('%'))) / 100
-        elif quantity.endswith('$'):
-            btc_quantity = float(quantity.strip('$')) / price
+        elif quantity_str.endswith('%'):
+            btc_quantity = ((float(await get_amount_of_position(api_key, api_secret, symbol)) + float(await get_amount_of_open_order(api_key, api_secret, symbol))) * float(quantity_str.strip('%'))) / 100
+        elif quantity_str.endswith('$'):
+            btc_quantity = float(quantity_str.strip('$')) / price
         else:
             btc_quantity = float(quantity)
         return await get_adjust_precision_quantity(symbol, btc_quantity)
     else:
         available_balance = await get_future_available_balance(api_key, api_secret)
+        available_balance = float(available_balance)
 
-        if quantity.upper() == "MAX" or quantity.endswith('100%'):
+        if quantity_str.upper() == "MAX" or quantity_str.endswith('100%'):
             btc_quantity = available_balance / price
-        elif quantity.endswith('%'):
-            btc_quantity = (float(quantity.strip('%')) / 100) * available_balance / price
-        elif quantity.endswith('$'):
-            btc_quantity = float(quantity.strip('$')) / price
+        elif quantity_str.endswith('%'):
+            btc_quantity = (float(quantity_str.strip('%')) / 100) * available_balance / price
+        elif quantity_str.endswith('$'):
+            btc_quantity = float(quantity_str.strip('$')) / price
         else:
             btc_quantity = float(quantity)
         return await get_adjust_precision_quantity(symbol, btc_quantity)

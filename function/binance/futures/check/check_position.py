@@ -4,12 +4,13 @@ from function.message import message
 
 
 async def check_position(api_key, api_secret, symbol):
-  try:
-    if await get_amount_of_position(api_key, api_secret, symbol) != 0:
-      return True
-    return False
-  except Exception as e:
-    error_traceback = traceback.format_exc()
-    message(f"พบข้อผิดพลาด","yellow")
-    print(f"Error: {error_traceback}")
-    return False
+    try:
+        amount = await get_amount_of_position(api_key, api_secret, symbol)
+        if amount != 0:
+            return True
+        return False
+    except Exception as e:
+        error_traceback = traceback.format_exc()
+        message("พบข้อผิดพลาด", "yellow")
+        print(f"Error: {error_traceback}")
+        return False

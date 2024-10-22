@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บันทึกการเทรด</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">บันทึกการเทรด</h1>
+        
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label for="symbolFilter" class="form-label">กรองตาม Symbol:</label>
+                <select id="symbolFilter" class="form-select">
+                    <option value="all">ทั้งหมด</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="startDate" class="form-label">วันที่เริ่มต้น:</label>
+                <input type="date" id="startDate" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label for="endDate" class="form-label">วันที่สิ้นสุด:</label>
+                <input type="date" id="endDate" class="form-control">
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button id="applyFilter" class="btn btn-primary w-100">กรองข้อมูล</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h2>สรุปผลการเทรด</h2>
+                <ul id="summary" class="list-group">
+                    <li class="list-group-item">กำไร/ขาดทุนรายวัน: <span id="daily-profit"></span></li>
+                    <li class="list-group-item">กำไร/ขาดทุนรายสัปดาห์: <span id="weekly-profit"></span></li>
+                    <li class="list-group-item">กำไร/ขาดทุนรายเดือน: <span id="monthly-profit"></span></li>
+                    <li class="list-group-item">กำไร/ขาดทุนรวมทั้งหมด: <span id="total-profit"></span></li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <h2>กราฟกำไรสะสม</h2>
+                <canvas id="cumulativeProfitChart"></canvas>
+            </div>
+        </div>
+
+        <h2 class="mt-5">รายการเทรดล่าสุด</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>วันที่</th>
+                    <th>สินทรัพย์</th>
+                    <th>การกระทำ</th>
+                    <th>ราคาเข้า</th>
+                    <th>ราคาออก</th>
+                    <th>ปริมาณ</th>
+                    <th>กำไร/ขาดทุน</th>
+                    <th>กำไร/ขาดทุน %</th>
+                    <th>เหตุผล</th>
+                </tr>
+            </thead>
+            <tbody id="trade-records">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let allTrades = [];
+        let cumulativeProfitChart;
+
+        function updateTable(trades) {
+            let tableContent = '';
+            trades.slice(0, 10).forEach(function(trade) {
+                tableContent += `<tr>
+                    <td>${new Date(trade.timestamp).toLocaleString()}</td>
+                    <td>${trade.symbol}</td>
+                    <td>${trade.action}</td>
+                    <td>${trade.entry_price}</td>
+                    <td>${trade.exit_price}</td>
+                    <td>${trade.amount}</td>
+                    <td>${trade.profit_loss.toFixed(2)}</td>
+                    <td>${trade.profit_loss_percentage.toFixed(2)}%</td>
+                    <td>${trade.reason}</td>
+                </tr>`;
+            });
+            $('#trade-records').html(tableContent);
+        }
+
+        function calculateSummary(trades) {
+            const now = new Date();
+            let daily_profit = 0;
+            let weekly_profit = 0;
+            let monthly_profit = 0;
+            let total_profit = 0;
+
+            trades.forEach(trade => {
+                const tradeDate = new Date(trade.timestamp);
+                const daysDiff = (now - tradeDate) / (1000 * 60 * 60 * 24);
+
+                total_profit += trade.profit_loss;
+                if (daysDiff <= 1) daily_profit += trade.profit_loss;
+                if (daysDiff <= 7) weekly_profit += trade.profit_loss;
+                if (daysDiff <= 30) monthly_profit += trade.profit_loss;
+            });
+
+            return { daily_profit, weekly_profit, monthly_profit, total_profit };
+        }
+
+        function updateSummary(summary) {
+            $('#daily-profit').text(summary.daily_profit.toFixed(2));
+            $('#weekly-profit').text(summary.weekly_profit.toFixed(2));
+            $('#monthly-profit').text(summary.monthly_profit.toFixed(2));
+            $('#total-profit').text(summary.total_profit.toFixed(2));
+        }
+
+        function updateCumulativeProfitChart(trades) {
+            const symbols = [...new Set(trades.map(trade => trade.symbol))];
+            const datasets = symbols.map(symbol => {
+                const symbolTrades = trades.filter(trade => trade.symbol === symbol).sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+                let cumulativeProfit = 0;
+                const data = symbolTrades.map(trade => {
+                    cumulativeProfit += trade.profit_loss;
+                    return {x: new Date(trade.timestamp), y: cumulativeProfit};
+                });
+                return {
+                    label: symbol,
+                    data: data,
+                    fill: false,
+                    borderColor: getRandomColor(),
+                    tension: 0.1
+                };
+            });
+
+            if (cumulativeProfitChart) {
+                cumulativeProfitChart.data.datasets = datasets;
+                cumulativeProfitChart.update();
+            } else {
+                cumulativeProfitChart = new Chart(document.getElementById('cumulativeProfitChart'), {
+                    type: 'line',
+                    data: {datasets: datasets},
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: {
+                                type: 'time',
+                                time: {
+                                    unit: 'day'
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'วันที่'
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'กำไรสะสม'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function filterTrades() {
+            const selectedSymbol = $('#symbolFilter').val();
+            const startDate = $('#startDate').val() ? new Date($('#startDate').val()) : null;
+            const endDate = $('#endDate').val() ? new Date($('#endDate').val()) : null;
+
+            let filteredTrades = allTrades;
+
+            if (selectedSymbol !== 'all') {
+                filteredTrades = filteredTrades.filter(trade => trade.symbol === selectedSymbol);
+            }
+
+            if (startDate) {
+                filteredTrades = filteredTrades.filter(trade => new Date(trade.timestamp) >= startDate);
+            }
+
+            if (endDate) {
+                // Add one day to include the end date in the filter
+                const adjustedEndDate = new Date(endDate);
+                adjustedEndDate.setDate(adjustedEndDate.getDate() + 1);
+                filteredTrades = filteredTrades.filter(trade => new Date(trade.timestamp) < adjustedEndDate);
+            }
+
+            updateTable(filteredTrades);
+            const summary = calculateSummary(filteredTrades);
+            updateSummary(summary);
+            updateCumulativeProfitChart(filteredTrades);
+        }
+
+        $(document).ready(function() {
+            $.getJSON('trade_records.json', function(data) {
+                allTrades = data.reverse();
+                updateTable(allTrades);
+
+                // Populate symbol filter
+                const symbols = [...new Set(allTrades.map(trade => trade.symbol))];
+                symbols.forEach(symbol => {
+                    $('#symbolFilter').append(`<option value="${symbol}">${symbol}</option>`);
+                });
+
+                const summary = calculateSummary(allTrades);
+                updateSummary(summary);
+                updateCumulativeProfitChart(allTrades);
+
+                // Set initial date range
+                if (allTrades.length > 0) {
+                    const earliestDate = new Date(allTrades[allTrades.length - 1].timestamp);
+                    const latestDate = new Date(allTrades[0].timestamp);
+                    $('#startDate').val(earliestDate.toISOString().split('T')[0]);
+                    $('#endDate').val(latestDate.toISOString().split('T')[0]);
+                }
+            });
+
+            $('#applyFilter').click(filterTrades);
+        });
+    </script>
+</body>
+</html>

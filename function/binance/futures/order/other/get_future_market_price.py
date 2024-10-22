@@ -1,7 +1,9 @@
+import traceback
 import ccxt.async_support as ccxt
 from function.binance.futures.system.create_future_exchange import create_future_exchange
 from config import symbols_track_price
 from function.create_redis_client import create_redis_client
+from function.message import message
 
 async def get_future_market_price(api_key, api_secret, symbol):
 
@@ -24,5 +26,7 @@ async def get_future_market_price(api_key, api_secret, symbol):
             await exchange.close()
             return market_price
     except Exception as e:
-        print(f"Error: {e}")
+        error_traceback = traceback.format_exc()
+        message("พบข้อผิดพลาด", "yellow")
+        print(f"Error: {error_traceback}")
         return None
