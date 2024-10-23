@@ -44,7 +44,15 @@
                 </ul>
             </div>
             <div class="col-md-9">
-                <h2>กราฟกำไรสะสม</h2>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2>กราฟกำไรสะสม</h2>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="chartType" id="byDate" value="date" checked>
+                        <label class="btn btn-outline-primary" for="byDate">แสดงตามวันที่</label>
+                        <input type="radio" class="btn-check" name="chartType" id="byTrade" value="trade">
+                        <label class="btn btn-outline-primary" for="byTrade">แสดงตามการเทรด</label>
+                    </div>
+                </div>
                 <canvas id="cumulativeProfitChart"></canvas>
             </div>
         </div>
@@ -119,14 +127,21 @@
         }
 
         function updateCumulativeProfitChart(trades) {
+            const chartType = $('input[name="chartType"]:checked').val();
             const symbols = [...new Set(trades.map(trade => trade.symbol))];
             const datasets = symbols.map(symbol => {
-                const symbolTrades = trades.filter(trade => trade.symbol === symbol).sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+                const symbolTrades = trades.filter(trade => trade.symbol === symbol)
+                    .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+                
                 let cumulativeProfit = 0;
-                const data = symbolTrades.map(trade => {
+                const data = symbolTrades.map((trade, index) => {
                     cumulativeProfit += trade.profit_loss;
-                    return {x: new Date(trade.timestamp), y: cumulativeProfit};
+                    return {
+                        x: chartType === 'date' ? new Date(trade.timestamp) : index + 1,
+                        y: cumulativeProfit
+                    };
                 });
+
                 return {
                     label: symbol,
                     data: data,
@@ -136,36 +151,37 @@
                 };
             });
 
-            if (cumulativeProfitChart) {
-                cumulativeProfitChart.data.datasets = datasets;
-                cumulativeProfitChart.update();
-            } else {
-                cumulativeProfitChart = new Chart(document.getElementById('cumulativeProfitChart'), {
-                    type: 'line',
-                    data: {datasets: datasets},
-                    options: {
-                        responsive: true,
-                        scales: {
-                            x: {
-                                type: 'time',
-                                time: {
-                                    unit: 'day'
-                                },
-                                title: {
-                                    display: true,
-                                    text: 'วันที่'
-                                }
-                            },
-                            y: {
-                                title: {
-                                    display: true,
-                                    text: 'กำไรสะสม'
-                                }
-                            }
+            const options = {
+                responsive: true,
+                scales: {
+                    x: {
+                        type: chartType === 'date' ? 'time' : 'linear',
+                        time: chartType === 'date' ? {
+                            unit: 'day'
+                        } : undefined,
+                        title: {
+                            display: true,
+                            text: chartType === 'date' ? 'วันที่' : 'จำนวนเทรด'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'กำไรสะสม'
                         }
                     }
-                });
+                }
+            };
+
+            if (cumulativeProfitChart) {
+                cumulativeProfitChart.destroy();
             }
+
+            cumulativeProfitChart = new Chart(document.getElementById('cumulativeProfitChart'), {
+                type: 'line',
+                data: { datasets: datasets },
+                options: options
+            });
         }
 
         function getRandomColor() {
@@ -230,6 +246,11 @@
             });
 
             $('#applyFilter').click(filterTrades);
+            
+            // เพิ่ม event listener สำหรับการเปลี่ยนประเภทกราฟ
+            $('input[name="chartType"]').change(function() {
+                filterTrades();
+            });
         });
     </script>
 </body>

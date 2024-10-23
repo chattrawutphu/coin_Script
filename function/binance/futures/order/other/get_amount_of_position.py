@@ -11,10 +11,12 @@ async def get_amount_of_position(api_key, api_secret, symbol):
         positions = await exchange.fetch_positions()
         
         # Convert input symbol to the format used by the exchange
-        exchange_symbol = symbol.replace("USDT", "/USDT:USDT")
+        exchange_symbol = symbol
+        if 'USDT' in symbol and '/USDT:USDT' not in symbol:
+            exchange_symbol = symbol.replace("USDT", "/USDT:USDT")
         
         for position in positions:
-            if position['symbol'] == exchange_symbol:
+            if (position['symbol'] == symbol or position['symbol'] == exchange_symbol):
                 #print(position)  # For debugging
                 # Use 'contracts' instead of 'amount'
                 contracts = float(position.get('contracts', 0))
