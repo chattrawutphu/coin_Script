@@ -12,29 +12,52 @@ async def get_all_order(api_key, api_secret, symbol=None):
     return orders
 
 async def clear_all_orders(api_key, api_secret, symbol):
-    exchange = await create_future_exchange(api_key, api_secret)
-    try:
-        # Fetch all open orders for the specified symbol
-        open_orders = await get_all_order(api_key, api_secret, symbol)
-        
-        cancelled_orders = []
-        for order in open_orders:
-            try:
-                # Cancel the order
-                await exchange.cancel_order(order['id'], symbol)
-                cancelled_orders.append(order['id'])
-                #print(f"Cancelled order: {order['id']}")
-            except Exception as e:
-                error_traceback = traceback.format_exc()
-                message(symbol,f"Error cancelling order {order['id']}: {str(e)}", "yellow")
-                message(symbol, "________________________________", "red")
-                message(symbol, f"Error: {error_traceback}", "red")
-                message(symbol, "________________________________", "red")
-        
-        #print(f"Cancelled {len(cancelled_orders)} orders for {symbol}")
-        return cancelled_orders
-    except Exception as e:
-        print(f"An error occurred while clearing orders: {str(e)}")
-        return []
-    finally:
-        await exchange.close()
+   exchange = await create_future_exchange(api_key, api_secret)
+   try:
+       # Fetch all open orders for the specified symbol
+       open_orders = await get_all_order(api_key, api_secret, symbol)
+       
+       if not open_orders:
+           #message(symbol, "ไม่พบ orders ที่เปิดอยู่", "blue") 
+           return []
+           
+       cancelled_orders = []
+       for order in open_orders:
+           try:
+               # ตรวจสอบว่า order ยังมีอยู่จริงก่อนยกเลิก
+               order_detail = None
+               try:
+                   order_detail = await exchange.fetch_order(order['id'], symbol)
+               except Exception as e:
+                   if 'Unknown order sent' in str(e):
+                       # ข้าม order ที่ไม่มีอยู่แล้ว
+                       continue
+                   raise e
+
+               if order_detail and order_detail['status'] not in ['closed', 'canceled']:
+                   # Cancel the order
+                   await exchange.cancel_order(order['id'], symbol)
+                   cancelled_orders.append(order['id'])
+                   #message(symbol, f"Cancelled order: {order['id']}", "blue")
+
+           except Exception as e:
+               if 'Unknown order sent' in str(e):
+                   # ข้าม error นี้
+                   continue
+               else:
+                   error_traceback = traceback.format_exc()
+                   message(symbol,f"Error cancelling order {order['id']}: {str(e)}", "yellow")
+                   message(symbol, "________________________________", "red")
+                   message(symbol, f"Error: {error_traceback}", "red")
+                   message(symbol, "________________________________", "red")
+       
+       return cancelled_orders
+
+   except Exception as e:
+       error_traceback = traceback.format_exc()
+       message(symbol, f"เกิดข้อผิดพลาดในการยกเลิก Orders: {str(e)}", "red") 
+       message(symbol, f"Error: {error_traceback}", "red")
+       return []
+       
+   finally:
+       await exchange.close()

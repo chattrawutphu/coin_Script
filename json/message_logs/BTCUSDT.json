@@ -1,498 +1,2010 @@
 [
   {
-    "timestamp": "2024-10-24 14:37:03",
+    "timestamp": "2024-10-24 15:40:18",
     "date": "2024-10-24",
-    "time": "14:37:03",
+    "time": "15:40:18",
     "symbol": "BTCUSDT",
     "message": "สร้าง task สำหรับ BTCUSDT (Timeframe: 1m)",
     "color": "cyan"
   },
   {
-    "timestamp": "2024-10-24 14:37:03",
+    "timestamp": "2024-10-24 15:40:18",
     "date": "2024-10-24",
-    "time": "14:37:03",
+    "time": "15:40:18",
     "symbol": "BTCUSDT",
     "message": "เริ่มต้นบอทสำหรับ BTCUSDT (Timeframe: 1m)",
     "color": "cyan"
   },
   {
-    "timestamp": "2024-10-24 14:37:03",
+    "timestamp": "2024-10-24 15:40:18",
     "date": "2024-10-24",
-    "time": "14:37:03",
+    "time": "15:40:18",
     "symbol": "BTCUSDT",
     "message": "ไม่พบไฟล์สถานะ เริ่มต้นด้วยค่าเริ่มต้น (Timeframe: 1m)",
     "color": "yellow"
   },
   {
-    "timestamp": "2024-10-24 14:40:41",
+    "timestamp": "2024-10-24 15:41:14",
     "date": "2024-10-24",
-    "time": "14:40:41",
+    "time": "15:41:14",
     "symbol": "BTCUSDT",
-    "message": "สร้าง task สำหรับ BTCUSDT (Timeframe: 1m)",
-    "color": "cyan"
-  },
-  {
-    "timestamp": "2024-10-24 14:40:41",
-    "date": "2024-10-24",
-    "time": "14:40:41",
-    "symbol": "BTCUSDT",
-    "message": "เริ่มต้นบอทสำหรับ BTCUSDT (Timeframe: 1m)",
-    "color": "cyan"
-  },
-  {
-    "timestamp": "2024-10-24 14:40:41",
-    "date": "2024-10-24",
-    "time": "14:40:41",
-    "symbol": "BTCUSDT",
-    "message": "System Startup - โหลดสถานะเสร็จสมบูรณ์ (Timeframe: 1m)",
-    "color": "cyan"
-  },
-  {
-    "timestamp": "2024-10-24 14:44:09",
-    "date": "2024-10-24",
-    "time": "14:44:09",
-    "symbol": "BTCUSDT",
-    "message": "ตั้งค่าการเข้า position : sell ที่ราคา 67182.10000000, Stoploss ที่ 67182.20000000",
+    "message": "ตั้งค่าการเข้า position จากแท่ง Cross: buy ที่ราคา 67120.00000000, Stoploss ที่ 67056.80000000",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:44:14",
+    "timestamp": "2024-10-24 15:41:19",
     "date": "2024-10-24",
-    "time": "14:44:14",
+    "time": "15:41:19",
     "symbol": "BTCUSDT",
-    "message": "รอราคาทะลุ 67182.10000000 เพื่อ Short",
+    "message": "รอราคาทะลุ 67120.00000000 เพื่อ Long",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:44:50",
+    "timestamp": "2024-10-24 15:42:24",
     "date": "2024-10-24",
-    "time": "14:44:50",
-    "symbol": "BTCUSDT",
-    "message": "สร้าง Market Order สำเร็จ - Order ID: 451186826259",
-    "color": "green"
-  },
-  {
-    "timestamp": "2024-10-24 14:44:50",
-    "date": "2024-10-24",
-    "time": "14:44:50",
-    "symbol": "BTCUSDT",
-    "message": "สร้าง Stoploss Order สำเร็จ - Order ID: 451186839434",
-    "color": "green"
-  },
-  {
-    "timestamp": "2024-10-24 14:44:50",
-    "date": "2024-10-24",
-    "time": "14:44:50",
-    "symbol": "BTCUSDT",
-    "message": "เข้า Short position สำเร็จ",
-    "color": "green"
-  },
-  {
-    "timestamp": "2024-10-24 14:45:05",
-    "date": "2024-10-24",
-    "time": "14:45:05",
-    "symbol": "BTCUSDT",
-    "message": "ใช้ราคาปัจจุบัน (67187.4) เป็นราคาเข้า",
-    "color": "yellow"
-  },
-  {
-    "timestamp": "2024-10-24 14:45:08",
-    "date": "2024-10-24",
-    "time": "14:45:08",
-    "symbol": "BTCUSDT",
-    "message": "บันทึกการเทรด: SELL BTCUSDT ที่ราคา 67169.40 | จำนวน: 0.00037209 | กำไร/ขาดทุน: 0.01 (0.03%)",
-    "color": "cyan"
-  },
-  {
-    "timestamp": "2024-10-24 14:45:17",
-    "date": "2024-10-24",
-    "time": "14:45:17",
-    "symbol": "BTCUSDT",
-    "message": "ตั้งค่าการเข้า position : buy ที่ราคา 67196.00000000, Stoploss ที่ 67187.30000000",
-    "color": "blue"
-  },
-  {
-    "timestamp": "2024-10-24 14:45:26",
-    "date": "2024-10-24",
-    "time": "14:45:26",
+    "time": "15:42:24",
     "symbol": "BTCUSDT",
     "message": "ยกเลิก Long entry",
     "color": "yellow"
   },
   {
-    "timestamp": "2024-10-24 14:46:12",
+    "timestamp": "2024-10-24 15:45:13",
     "date": "2024-10-24",
-    "time": "14:46:12",
+    "time": "15:45:13",
     "symbol": "BTCUSDT",
-    "message": "ตั้งค่าการเข้า position : sell ที่ราคา 67168.00000000, Stoploss ที่ 67168.10000000",
+    "message": "ตั้งค่าการเข้า position จากแท่ง Cross: sell ที่ราคา 67030.20000000, Stoploss ที่ 67051.60000000",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:46:17",
+    "timestamp": "2024-10-24 15:45:18",
     "date": "2024-10-24",
-    "time": "14:46:17",
+    "time": "15:45:18",
     "symbol": "BTCUSDT",
-    "message": "รอราคาทะลุ 67168.00000000 เพื่อ Short",
+    "message": "รอราคาทะลุ 67030.20000000 เพื่อ Short",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:46:55",
+    "timestamp": "2024-10-24 15:45:57",
     "date": "2024-10-24",
-    "time": "14:46:55",
+    "time": "15:45:57",
     "symbol": "BTCUSDT",
-    "message": "สร้าง Market Order สำเร็จ - Order ID: 451187898122",
+    "message": "สร้าง Market Order สำเร็จ - Order ID: 451218857183",
     "color": "green"
   },
   {
-    "timestamp": "2024-10-24 14:46:56",
+    "timestamp": "2024-10-24 15:45:57",
     "date": "2024-10-24",
-    "time": "14:46:56",
+    "time": "15:45:57",
     "symbol": "BTCUSDT",
-    "message": "สร้าง Stoploss Order สำเร็จ - Order ID: 451187945702",
+    "message": "สร้าง Stoploss Order สำเร็จ - Order ID: 451218917748",
     "color": "green"
   },
   {
-    "timestamp": "2024-10-24 14:46:56",
+    "timestamp": "2024-10-24 15:45:57",
     "date": "2024-10-24",
-    "time": "14:46:56",
+    "time": "15:45:57",
     "symbol": "BTCUSDT",
     "message": "เข้า Short position สำเร็จ",
     "color": "green"
   },
   {
-    "timestamp": "2024-10-24 14:47:17",
+    "timestamp": "2024-10-24 15:46:06",
     "date": "2024-10-24",
-    "time": "14:47:17",
+    "time": "15:46:06",
     "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67215.60, 67203.70, 67190.00, 67196.00, 67168.10",
-    "color": "blue"
-  },
-  {
-    "timestamp": "2024-10-24 14:47:18",
-    "date": "2024-10-24",
-    "time": "14:47:18",
-    "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:42, 07:43, 07:44, 07:45, 07:46",
-    "color": "blue"
-  },
-  {
-    "timestamp": "2024-10-24 14:47:18",
-    "date": "2024-10-24",
-    "time": "14:47:18",
-    "symbol": "BTCUSDT",
-    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (67210.42) ไม่ต่ำกว่าค่าปัจจุบัน (67174.80)",
+    "message": "ไม่สามารถดึงข้อมูลด้านของ position ข้ามการปรับ Stoploss",
     "color": "yellow"
   },
   {
-    "timestamp": "2024-10-24 14:48:30",
+    "timestamp": "2024-10-24 15:47:24",
     "date": "2024-10-24",
-    "time": "14:48:30",
+    "time": "15:47:24",
     "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67203.70, 67190.00, 67196.00, 67168.10, 67150.00",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67066.10, 67066.50, 67051.60, 67040.90, 67007.40",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:48:30",
+    "timestamp": "2024-10-24 15:47:24",
     "date": "2024-10-24",
-    "time": "14:48:30",
+    "time": "15:47:24",
     "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:43, 07:44, 07:45, 07:46, 07:47",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:42, 08:43, 08:44, 08:45, 08:46",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:48:30",
+    "timestamp": "2024-10-24 15:47:24",
     "date": "2024-10-24",
-    "time": "14:48:30",
+    "time": "15:47:24",
     "symbol": "BTCUSDT",
-    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (67202.72) ไม่ต่ำกว่าค่าปัจจุบัน (67174.80)",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (67058.31) ไม่ต่ำกว่าค่าปัจจุบัน (67058.30)",
     "color": "yellow"
   },
   {
-    "timestamp": "2024-10-24 14:49:16",
+    "timestamp": "2024-10-24 15:48:03",
     "date": "2024-10-24",
-    "time": "14:49:16",
+    "time": "15:48:03",
     "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67190.00, 67196.00, 67168.10, 67150.00, 67148.30",
-    "color": "blue"
-  },
-  {
-    "timestamp": "2024-10-24 14:49:16",
-    "date": "2024-10-24",
-    "time": "14:49:16",
-    "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:44, 07:45, 07:46, 07:47, 07:48",
-    "color": "blue"
-  },
-  {
-    "timestamp": "2024-10-24 14:49:16",
-    "date": "2024-10-24",
-    "time": "14:49:16",
-    "symbol": "BTCUSDT",
-    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (67174.82) ไม่ต่ำกว่าค่าปัจจุบัน (67174.80)",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
     "color": "yellow"
   },
   {
-    "timestamp": "2024-10-24 14:50:17",
+    "timestamp": "2024-10-24 15:48:12",
     "date": "2024-10-24",
-    "time": "14:50:17",
+    "time": "15:48:12",
     "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67196.00, 67168.10, 67150.00, 67148.30, 67138.10",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67066.50, 67051.60, 67040.90, 67007.40, 66993.50",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:50:18",
+    "timestamp": "2024-10-24 15:48:12",
     "date": "2024-10-24",
-    "time": "14:50:18",
+    "time": "15:48:12",
     "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:45, 07:46, 07:47, 07:48, 07:49",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:43, 08:44, 08:45, 08:46, 08:47",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:50:22",
+    "timestamp": "2024-10-24 15:48:16",
     "date": "2024-10-24",
-    "time": "14:50:22",
+    "time": "15:48:16",
     "symbol": "BTCUSDT",
-    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 67156.715",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 67047.60409",
     "color": "white"
   },
   {
-    "timestamp": "2024-10-24 14:50:23",
+    "timestamp": "2024-10-24 15:48:17",
     "date": "2024-10-24",
-    "time": "14:50:23",
+    "time": "15:48:17",
     "symbol": "BTCUSDT",
-    "message": "ปรับ stoploss จาก 67174.80 เป็น 67156.71 (พิจารณาจากแท่งที่ปิดแล้ว: 67150.00, 67148.30, 67138.10)",
+    "message": "ปรับ stoploss จาก 67058.30 เป็น 67047.60 (พิจารณาจากแท่งที่ปิดแล้ว: 67040.90, 67007.40, 66993.50)",
     "color": "cyan"
   },
   {
-    "timestamp": "2024-10-24 14:51:19",
+    "timestamp": "2024-10-24 15:49:08",
     "date": "2024-10-24",
-    "time": "14:51:19",
+    "time": "15:49:08",
     "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67168.10, 67150.00, 67148.30, 67138.10, 67155.00",
-    "color": "blue"
-  },
-  {
-    "timestamp": "2024-10-24 14:51:19",
-    "date": "2024-10-24",
-    "time": "14:51:19",
-    "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:46, 07:47, 07:48, 07:49, 07:50",
-    "color": "blue"
-  },
-  {
-    "timestamp": "2024-10-24 14:51:19",
-    "date": "2024-10-24",
-    "time": "14:51:19",
-    "symbol": "BTCUSDT",
-    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (67156.71) ไม่ต่ำกว่าค่าปัจจุบัน (67156.70)",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
     "color": "yellow"
   },
   {
-    "timestamp": "2024-10-24 14:52:14",
+    "timestamp": "2024-10-24 15:49:15",
     "date": "2024-10-24",
-    "time": "14:52:14",
+    "time": "15:49:15",
     "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67150.00, 67148.30, 67138.10, 67155.00, 67136.70",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67051.60, 67040.90, 67007.40, 66993.50, 66996.00",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:52:14",
+    "timestamp": "2024-10-24 15:49:15",
     "date": "2024-10-24",
-    "time": "14:52:14",
+    "time": "15:49:15",
     "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:47, 07:48, 07:49, 07:50, 07:51",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:44, 08:45, 08:46, 08:47, 08:48",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:52:17",
+    "timestamp": "2024-10-24 15:49:15",
     "date": "2024-10-24",
-    "time": "14:52:17",
+    "time": "15:49:15",
     "symbol": "BTCUSDT",
-    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 67155.01483",
-    "color": "white"
-  },
-  {
-    "timestamp": "2024-10-24 14:52:17",
-    "date": "2024-10-24",
-    "time": "14:52:17",
-    "symbol": "BTCUSDT",
-    "message": "ปรับ stoploss จาก 67156.70 เป็น 67155.01 (พิจารณาจากแท่งที่ปิดแล้ว: 67148.30, 67138.10, 67136.70)",
-    "color": "cyan"
-  },
-  {
-    "timestamp": "2024-10-24 14:53:16",
-    "date": "2024-10-24",
-    "time": "14:53:16",
-    "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67148.30, 67138.10, 67155.00, 67136.70, 67134.80",
-    "color": "blue"
-  },
-  {
-    "timestamp": "2024-10-24 14:53:16",
-    "date": "2024-10-24",
-    "time": "14:53:16",
-    "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:48, 07:49, 07:50, 07:51, 07:52",
-    "color": "blue"
-  },
-  {
-    "timestamp": "2024-10-24 14:53:16",
-    "date": "2024-10-24",
-    "time": "14:53:16",
-    "symbol": "BTCUSDT",
-    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (67161.72) ไม่ต่ำกว่าค่าปัจจุบัน (67155.00)",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (67047.60) ไม่ต่ำกว่าค่าปัจจุบัน (67047.60)",
     "color": "yellow"
   },
   {
-    "timestamp": "2024-10-24 14:54:17",
+    "timestamp": "2024-10-24 15:49:52",
     "date": "2024-10-24",
-    "time": "14:54:17",
+    "time": "15:49:52",
     "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67138.10, 67155.00, 67136.70, 67134.80, 67110.00",
-    "color": "blue"
+    "message": "สลับ position จาก sell",
+    "color": "magenta"
   },
   {
-    "timestamp": "2024-10-24 14:54:17",
+    "timestamp": "2024-10-24 15:49:58",
     "date": "2024-10-24",
-    "time": "14:54:17",
+    "time": "15:49:58",
     "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:49, 07:50, 07:51, 07:52, 07:53",
-    "color": "blue"
-  },
-  {
-    "timestamp": "2024-10-24 14:54:24",
-    "date": "2024-10-24",
-    "time": "14:54:24",
-    "symbol": "BTCUSDT",
-    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 67143.41367",
-    "color": "white"
-  },
-  {
-    "timestamp": "2024-10-24 14:54:25",
-    "date": "2024-10-24",
-    "time": "14:54:25",
-    "symbol": "BTCUSDT",
-    "message": "ปรับ stoploss จาก 67155.00 เป็น 67143.41 (พิจารณาจากแท่งที่ปิดแล้ว: 67136.70, 67134.80, 67110.00)",
+    "message": "บันทึกการเทรด: SELL BTCUSDT ที่ราคา 66986.00 | จำนวน: 0.00037321 | กำไร/ขาดทุน: 0.01 (0.03%)",
     "color": "cyan"
   },
   {
-    "timestamp": "2024-10-24 14:55:19",
+    "timestamp": "2024-10-24 15:50:01",
     "date": "2024-10-24",
-    "time": "14:55:19",
+    "time": "15:50:01",
     "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67155.00, 67136.70, 67134.80, 67110.00, 67104.60",
+    "message": "รีเซ็ตการนับแท่งเทียนใหม่หลัง swap",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:55:19",
+    "timestamp": "2024-10-24 15:50:07",
     "date": "2024-10-24",
-    "time": "14:55:19",
+    "time": "15:50:07",
     "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:50, 07:51, 07:52, 07:53, 07:54",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67040.90, 67007.40, 66993.50, 66996.00, 67014.00",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:55:22",
+    "timestamp": "2024-10-24 15:50:07",
     "date": "2024-10-24",
-    "time": "14:55:22",
+    "time": "15:50:07",
     "symbol": "BTCUSDT",
-    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 67141.51348000001",
-    "color": "white"
-  },
-  {
-    "timestamp": "2024-10-24 14:55:27",
-    "date": "2024-10-24",
-    "time": "14:55:27",
-    "symbol": "BTCUSDT",
-    "message": "ปรับ stoploss จาก 67143.40 เป็น 67141.51 (พิจารณาจากแท่งที่ปิดแล้ว: 67134.80, 67110.00, 67104.60)",
-    "color": "cyan"
-  },
-  {
-    "timestamp": "2024-10-24 14:56:32",
-    "date": "2024-10-24",
-    "time": "14:56:32",
-    "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67136.70, 67134.80, 67110.00, 67104.60, 67104.90",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:45, 08:46, 08:47, 08:48, 08:49",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:56:32",
+    "timestamp": "2024-10-24 15:50:07",
     "date": "2024-10-24",
-    "time": "14:56:32",
+    "time": "15:50:07",
     "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:51, 07:52, 07:53, 07:54, 07:55",
-    "color": "blue"
-  },
-  {
-    "timestamp": "2024-10-24 14:56:32",
-    "date": "2024-10-24",
-    "time": "14:56:32",
-    "symbol": "BTCUSDT",
-    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (67141.51) ไม่ต่ำกว่าค่าปัจจุบัน (67141.50)",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (67047.60) ไม่ต่ำกว่าค่าปัจจุบัน (66918.70)",
     "color": "yellow"
   },
   {
-    "timestamp": "2024-10-24 14:57:14",
+    "timestamp": "2024-10-24 15:51:03",
     "date": "2024-10-24",
-    "time": "14:57:14",
+    "time": "15:51:03",
     "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67134.80, 67110.00, 67104.60, 67104.90, 67095.60",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 15:51:12",
+    "date": "2024-10-24",
+    "time": "15:51:12",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - Low prices: 66915.40, 66925.40, 66954.40, 66985.90, 66956.00",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:57:14",
+    "timestamp": "2024-10-24 15:51:12",
     "date": "2024-10-24",
-    "time": "14:57:14",
+    "time": "15:51:12",
     "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:52, 07:53, 07:54, 07:55, 07:56",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:46, 08:47, 08:48, 08:49, 08:50",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:57:18",
+    "timestamp": "2024-10-24 15:51:16",
     "date": "2024-10-24",
-    "time": "14:57:18",
+    "time": "15:51:16",
     "symbol": "BTCUSDT",
-    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 67116.711",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66918.70745999999",
     "color": "white"
   },
   {
-    "timestamp": "2024-10-24 14:57:18",
+    "timestamp": "2024-10-24 15:51:17",
     "date": "2024-10-24",
-    "time": "14:57:18",
+    "time": "15:51:17",
     "symbol": "BTCUSDT",
-    "message": "ปรับ stoploss จาก 67141.50 เป็น 67116.71 (พิจารณาจากแท่งที่ปิดแล้ว: 67110.00, 67104.90, 67095.60)",
+    "message": "ปรับ stoploss จาก 66918.70 เป็น 66918.71 (พิจารณาจากแท่งที่ปิดแล้ว: 66925.40, 66954.40, 66956.00)",
     "color": "cyan"
   },
   {
-    "timestamp": "2024-10-24 14:58:19",
+    "timestamp": "2024-10-24 15:52:12",
     "date": "2024-10-24",
-    "time": "14:58:19",
+    "time": "15:52:12",
     "symbol": "BTCUSDT",
-    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 67110.00, 67104.60, 67104.90, 67095.60, 67079.50",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 15:52:16",
+    "date": "2024-10-24",
+    "time": "15:52:16",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบ Position ที่เปิดอยู่",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 15:52:19",
+    "date": "2024-10-24",
+    "time": "15:52:19",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - Low prices: 66925.40, 66954.40, 66985.90, 66956.00, 66923.80",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:58:19",
+    "timestamp": "2024-10-24 15:52:19",
     "date": "2024-10-24",
-    "time": "14:58:19",
+    "time": "15:52:19",
     "symbol": "BTCUSDT",
-    "message": "เวลาของแท่งเทียนที่พิจารณา: 07:53, 07:54, 07:55, 07:56, 07:57",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:47, 08:48, 08:49, 08:50, 08:51",
     "color": "blue"
   },
   {
-    "timestamp": "2024-10-24 14:58:22",
+    "timestamp": "2024-10-24 15:52:20",
     "date": "2024-10-24",
-    "time": "14:58:22",
+    "time": "15:52:20",
     "symbol": "BTCUSDT",
-    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 67111.61048999999",
+    "message": "ไม่พบตำแหน่งที่เปิดอยู่สำหรับ BTCUSDT",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 15:52:20",
+    "date": "2024-10-24",
+    "time": "15:52:20",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง stoploss ที่ราคา 66918.71 เนื่องจากไม่มี stoploss (พิจารณาจากแท่งที่ปิดแล้ว: 66925.40, 66954.40, 66956.00)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 15:52:32",
+    "date": "2024-10-24",
+    "time": "15:52:32",
+    "symbol": "BTCUSDT",
+    "message": "บันทึกการเทรด: BUY BTCUSDT ที่ราคา 66899.20 | จำนวน: 0.00037364 | กำไร/ขาดทุน: -0.04 (-0.17%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 15:56:11",
+    "date": "2024-10-24",
+    "time": "15:56:11",
+    "symbol": "BTCUSDT",
+    "message": "ตั้งค่าการเข้า position จากแท่ง Cross: buy ที่ราคา 66914.80000000, Stoploss ที่ 66829.50000000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 15:56:39",
+    "date": "2024-10-24",
+    "time": "15:56:39",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง Market Order สำเร็จ - Order ID: 451227395122",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 15:56:39",
+    "date": "2024-10-24",
+    "time": "15:56:39",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง Stoploss Order สำเร็จ - Order ID: 451227474542",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 15:56:39",
+    "date": "2024-10-24",
+    "time": "15:56:39",
+    "symbol": "BTCUSDT",
+    "message": "เข้า Long position สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 15:57:11",
+    "date": "2024-10-24",
+    "time": "15:57:11",
+    "symbol": "BTCUSDT",
+    "message": "สลับ position จาก buy",
+    "color": "magenta"
+  },
+  {
+    "timestamp": "2024-10-24 15:57:19",
+    "date": "2024-10-24",
+    "time": "15:57:19",
+    "symbol": "BTCUSDT",
+    "message": "บันทึกการเทรด: BUY BTCUSDT ที่ราคา 66852.10 | จำนวน: 0.00037397 | กำไร/ขาดทุน: -0.01 (-0.02%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 15:57:21",
+    "date": "2024-10-24",
+    "time": "15:57:21",
+    "symbol": "BTCUSDT",
+    "message": "รีเซ็ตการนับแท่งเทียนใหม่หลัง swap",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 15:57:29",
+    "date": "2024-10-24",
+    "time": "15:57:29",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - Low prices: 66888.00, 66853.00, 66861.20, 66829.50, 66866.00",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 15:57:29",
+    "date": "2024-10-24",
+    "time": "15:57:29",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:52, 08:53, 08:54, 08:55, 08:56",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 15:57:29",
+    "date": "2024-10-24",
+    "time": "15:57:29",
+    "symbol": "BTCUSDT",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (66846.31) ไม่สูงกว่าค่าปัจจุบัน (66921.40)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 15:58:14",
+    "date": "2024-10-24",
+    "time": "15:58:14",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66904.30, 66912.00, 66914.80, 66922.90, 66884.00",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 15:58:14",
+    "date": "2024-10-24",
+    "time": "15:58:14",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:53, 08:54, 08:55, 08:56, 08:57",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 15:58:14",
+    "date": "2024-10-24",
+    "time": "15:58:14",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบชุดแท่งเทียนที่เข้าเงื่อนไข",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 15:59:18",
+    "date": "2024-10-24",
+    "time": "15:59:18",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66912.00, 66914.80, 66922.90, 66884.00, 66894.10",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 15:59:18",
+    "date": "2024-10-24",
+    "time": "15:59:18",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:54, 08:55, 08:56, 08:57, 08:58",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 15:59:18",
+    "date": "2024-10-24",
+    "time": "15:59:18",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบชุดแท่งเทียนที่เข้าเงื่อนไข",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:00:11",
+    "date": "2024-10-24",
+    "time": "16:00:11",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66914.80, 66922.90, 66884.00, 66894.10, 66894.10",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:00:11",
+    "date": "2024-10-24",
+    "time": "16:00:11",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:55, 08:56, 08:57, 08:58, 08:59",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:00:11",
+    "date": "2024-10-24",
+    "time": "16:00:11",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบชุดแท่งเทียนที่เข้าเงื่อนไข",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:01:03",
+    "date": "2024-10-24",
+    "time": "16:01:03",
+    "symbol": "BTCUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:01:07",
+    "date": "2024-10-24",
+    "time": "16:01:07",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66922.90, 66884.00, 66894.10, 66894.10, 66913.90",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:01:07",
+    "date": "2024-10-24",
+    "time": "16:01:07",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:56, 08:57, 08:58, 08:59, 09:00",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:01:07",
+    "date": "2024-10-24",
+    "time": "16:01:07",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบชุดแท่งเทียนที่เข้าเงื่อนไข",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:02:06",
+    "date": "2024-10-24",
+    "time": "16:02:06",
+    "symbol": "BTCUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:02:11",
+    "date": "2024-10-24",
+    "time": "16:02:11",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66884.00, 66894.10, 66894.10, 66913.90, 66886.50",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:02:11",
+    "date": "2024-10-24",
+    "time": "16:02:11",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:57, 08:58, 08:59, 09:00, 09:01",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:02:11",
+    "date": "2024-10-24",
+    "time": "16:02:11",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบชุดแท่งเทียนที่เข้าเงื่อนไข",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:03:16",
+    "date": "2024-10-24",
+    "time": "16:03:16",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66913.9",
     "color": "white"
   },
   {
-    "timestamp": "2024-10-24 14:58:24",
+    "timestamp": "2024-10-24 16:03:17",
     "date": "2024-10-24",
-    "time": "14:58:24",
+    "time": "16:03:17",
     "symbol": "BTCUSDT",
-    "message": "ปรับ stoploss จาก 67116.70 เป็น 67111.61 (พิจารณาจากแท่งที่ปิดแล้ว: 67104.90, 67095.60, 67079.50)",
+    "message": "Error cancelling order 451227772279: binance {\"code\":-2011,\"msg\":\"Unknown order sent.\"}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:03:17",
+    "date": "2024-10-24",
+    "time": "16:03:17",
+    "symbol": "BTCUSDT",
+    "message": "________________________________",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:03:17",
+    "date": "2024-10-24",
+    "time": "16:03:17",
+    "symbol": "BTCUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\get_all_order.py\", line 24, in clear_all_orders\n    await exchange.cancel_order(order['id'], symbol)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5875, in cancel_order\n    response = await self.fapiPrivateDeleteOrder(self.extend(request, params))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OrderNotFound: binance {\"code\":-2011,\"msg\":\"Unknown order sent.\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:03:17",
+    "date": "2024-10-24",
+    "time": "16:03:17",
+    "symbol": "BTCUSDT",
+    "message": "________________________________",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:03:17",
+    "date": "2024-10-24",
+    "time": "16:03:17",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ Stop Loss เป็น 66913.90000000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:03:18",
+    "date": "2024-10-24",
+    "time": "16:03:18",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66894.10, 66894.10, 66913.90, 66886.50, 66873.50",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:03:18",
+    "date": "2024-10-24",
+    "time": "16:03:18",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:58, 08:59, 09:00, 09:01, 09:02",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:03:20",
+    "date": "2024-10-24",
+    "time": "16:03:20",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66920.59138999999",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:03:21",
+    "date": "2024-10-24",
+    "time": "16:03:21",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66921.40 เป็น 66920.59 (พิจารณาจากแท่งที่ปิดแล้ว: 66913.90, 66886.50, 66873.50)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:04:07",
+    "date": "2024-10-24",
+    "time": "16:04:07",
+    "symbol": "BTCUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:04:11",
+    "date": "2024-10-24",
+    "time": "16:04:11",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66894.10, 66913.90, 66886.50, 66873.50, 66814.90",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:04:11",
+    "date": "2024-10-24",
+    "time": "16:04:11",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 08:59, 09:00, 09:01, 09:02, 09:03",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:04:14",
+    "date": "2024-10-24",
+    "time": "16:04:14",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66893.18865",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:04:14",
+    "date": "2024-10-24",
+    "time": "16:04:14",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66920.60 เป็น 66893.19 (พิจารณาจากแท่งที่ปิดแล้ว: 66886.50, 66873.50, 66814.90)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:05:08",
+    "date": "2024-10-24",
+    "time": "16:05:08",
+    "symbol": "BTCUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:05:13",
+    "date": "2024-10-24",
+    "time": "16:05:13",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66814.9",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:05:13",
+    "date": "2024-10-24",
+    "time": "16:05:13",
+    "symbol": "BTCUSDT",
+    "message": "เกิดข้อผิดพลาดในการตั้ง Stop Loss: binance {\"code\":-2011,\"msg\":\"Unknown order sent.\"}",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:05:13",
+    "date": "2024-10-24",
+    "time": "16:05:13",
+    "symbol": "BTCUSDT",
+    "message": "________________________________",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:05:13",
+    "date": "2024-10-24",
+    "time": "16:05:13",
+    "symbol": "BTCUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\change_stoploss_to_price.py\", line 81, in change_stoploss_to_price\n    raise e\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\change_stoploss_to_price.py\", line 45, in change_stoploss_to_price\n    await exchange.cancel_order(order['id'], symbol)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5875, in cancel_order\n    response = await self.fapiPrivateDeleteOrder(self.extend(request, params))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OrderNotFound: binance {\"code\":-2011,\"msg\":\"Unknown order sent.\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:05:14",
+    "date": "2024-10-24",
+    "time": "16:05:14",
+    "symbol": "BTCUSDT",
+    "message": "________________________________",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:05:14",
+    "date": "2024-10-24",
+    "time": "16:05:14",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ Stop Loss เป็น 66814.90000000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:05:14",
+    "date": "2024-10-24",
+    "time": "16:05:14",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66913.90, 66886.50, 66873.50, 66814.90, 66800.50",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:05:14",
+    "date": "2024-10-24",
+    "time": "16:05:14",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:00, 09:01, 09:02, 09:03, 09:04",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:05:18",
+    "date": "2024-10-24",
+    "time": "16:05:18",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66880.18735",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:05:18",
+    "date": "2024-10-24",
+    "time": "16:05:18",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66893.20 เป็น 66880.19 (พิจารณาจากแท่งที่ปิดแล้ว: 66873.50, 66814.90, 66800.50)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:06:16",
+    "date": "2024-10-24",
+    "time": "16:06:16",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66886.50, 66873.50, 66814.90, 66800.50, 66750.00",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:06:16",
+    "date": "2024-10-24",
+    "time": "16:06:16",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:01, 09:02, 09:03, 09:04, 09:05",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:06:19",
+    "date": "2024-10-24",
+    "time": "16:06:19",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66821.58149",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:06:21",
+    "date": "2024-10-24",
+    "time": "16:06:21",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66880.20 เป็น 66821.58 (พิจารณาจากแท่งที่ปิดแล้ว: 66814.90, 66800.50, 66750.00)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:07:06",
+    "date": "2024-10-24",
+    "time": "16:07:06",
+    "symbol": "BTCUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:07:10",
+    "date": "2024-10-24",
+    "time": "16:07:10",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบ Position ที่เปิดอยู่",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:07:12",
+    "date": "2024-10-24",
+    "time": "16:07:12",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66873.50, 66814.90, 66800.50, 66750.00, 66796.40",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:07:12",
+    "date": "2024-10-24",
+    "time": "16:07:12",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:02, 09:03, 09:04, 09:05, 09:06",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:07:14",
+    "date": "2024-10-24",
+    "time": "16:07:14",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบตำแหน่งที่เปิดอยู่สำหรับ BTCUSDT",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:07:14",
+    "date": "2024-10-24",
+    "time": "16:07:14",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง stoploss ที่ราคา 66821.58 เนื่องจากไม่มี stoploss (พิจารณาจากแท่งที่ปิดแล้ว: 66814.90, 66800.50, 66796.40)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:07:25",
+    "date": "2024-10-24",
+    "time": "16:07:25",
+    "symbol": "BTCUSDT",
+    "message": "บันทึกการเทรด: SELL BTCUSDT ที่ราคา 66830.60 | จำนวน: 0.00037406 | กำไร/ขาดทุน: 0.01 (0.06%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:20:19",
+    "date": "2024-10-24",
+    "time": "16:20:19",
+    "symbol": "BTCUSDT",
+    "message": "ตั้งค่าการเข้า position จากแท่ง Cross: buy ที่ราคา 66953.80000000, Stoploss ที่ 66931.60000000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:20:27",
+    "date": "2024-10-24",
+    "time": "16:20:27",
+    "symbol": "BTCUSDT",
+    "message": "รอราคาทะลุ 66953.80000000 เพื่อ Long",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:20:39",
+    "date": "2024-10-24",
+    "time": "16:20:39",
+    "symbol": "BTCUSDT",
+    "message": "ยกเลิก Long entry",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:21:12",
+    "date": "2024-10-24",
+    "time": "16:21:12",
+    "symbol": "BTCUSDT",
+    "message": "ตั้งค่าการเข้า position จากแท่ง Cross: sell ที่ราคา 66900.80000000, Stoploss ที่ 66949.90000000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:21:59",
+    "date": "2024-10-24",
+    "time": "16:21:59",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง Market Order สำเร็จ - Order ID: 451244301913",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 16:21:59",
+    "date": "2024-10-24",
+    "time": "16:21:59",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง Stoploss Order สำเร็จ - Order ID: 451244379187",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 16:21:59",
+    "date": "2024-10-24",
+    "time": "16:21:59",
+    "symbol": "BTCUSDT",
+    "message": "เข้า Short position สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 16:22:11",
+    "date": "2024-10-24",
+    "time": "16:22:11",
+    "symbol": "BTCUSDT",
+    "message": "ไม่สามารถดึงข้อมูลด้านของ position ข้ามการปรับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:22:32",
+    "date": "2024-10-24",
+    "time": "16:22:32",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66956.59499",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:22:33",
+    "date": "2024-10-24",
+    "time": "16:22:33",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ Stop Loss เป็น 66956.59499000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:23:14",
+    "date": "2024-10-24",
+    "time": "16:23:14",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66950.00, 66953.80, 66949.90, 66908.20, 66866.90",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:23:14",
+    "date": "2024-10-24",
+    "time": "16:23:14",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:18, 09:19, 09:20, 09:21, 09:22",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:23:23",
+    "date": "2024-10-24",
+    "time": "16:23:23",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66956.59499",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:23:25",
+    "date": "2024-10-24",
+    "time": "16:23:25",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66956.60 เป็น 66956.59 (พิจารณาจากแท่งที่ปิดแล้ว: 66949.90, 66908.20, 66866.90)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:24:16",
+    "date": "2024-10-24",
+    "time": "16:24:16",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66953.80, 66949.90, 66908.20, 66866.90, 66873.60",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:24:16",
+    "date": "2024-10-24",
+    "time": "16:24:16",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:19, 09:20, 09:21, 09:22, 09:23",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:24:19",
+    "date": "2024-10-24",
+    "time": "16:24:19",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66956.59499",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:24:19",
+    "date": "2024-10-24",
+    "time": "16:24:19",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66956.60 เป็น 66956.59 (พิจารณาจากแท่งที่ปิดแล้ว: 66949.90, 66908.20, 66873.60)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:25:20",
+    "date": "2024-10-24",
+    "time": "16:25:20",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66949.90, 66908.20, 66866.90, 66873.60, 66933.00",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:25:20",
+    "date": "2024-10-24",
+    "time": "16:25:20",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:20, 09:21, 09:22, 09:23, 09:24",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:25:24",
+    "date": "2024-10-24",
+    "time": "16:25:24",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66956.59499",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:25:27",
+    "date": "2024-10-24",
+    "time": "16:25:27",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66956.60 เป็น 66956.59 (พิจารณาจากแท่งที่ปิดแล้ว: 66949.90, 66908.20, 66873.60)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:26:19",
+    "date": "2024-10-24",
+    "time": "16:26:19",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66908.20, 66866.90, 66873.60, 66933.00, 66936.50",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:26:19",
+    "date": "2024-10-24",
+    "time": "16:26:19",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:21, 09:22, 09:23, 09:24, 09:25",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:26:19",
+    "date": "2024-10-24",
+    "time": "16:26:19",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบชุดแท่งเทียนที่เข้าเงื่อนไข",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:27:12",
+    "date": "2024-10-24",
+    "time": "16:27:12",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66866.90, 66873.60, 66933.00, 66936.50, 66936.50",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:27:12",
+    "date": "2024-10-24",
+    "time": "16:27:12",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:22, 09:23, 09:24, 09:25, 09:26",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:27:13",
+    "date": "2024-10-24",
+    "time": "16:27:13",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบชุดแท่งเทียนที่เข้าเงื่อนไข",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:27:31",
+    "date": "2024-10-24",
+    "time": "16:27:31",
+    "symbol": "BTCUSDT",
+    "message": "บันทึกการเทรด: SELL BTCUSDT ที่ราคา 66953.50 | จำนวน: 0.00037339 | กำไร/ขาดทุน: -0.05 (-0.19%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:31:15",
+    "date": "2024-10-24",
+    "time": "16:31:15",
+    "symbol": "BTCUSDT",
+    "message": "ตั้งค่าการเข้า position จากแท่ง Cross: buy ที่ราคา 66969.00000000, Stoploss ที่ 66940.50000000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:31:23",
+    "date": "2024-10-24",
+    "time": "16:31:23",
+    "symbol": "BTCUSDT",
+    "message": "รอราคาทะลุ 66969.00000000 เพื่อ Long",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:31:36",
+    "date": "2024-10-24",
+    "time": "16:31:36",
+    "symbol": "BTCUSDT",
+    "message": "ยกเลิก Long entry",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:34:11",
+    "date": "2024-10-24",
+    "time": "16:34:11",
+    "symbol": "BTCUSDT",
+    "message": "ตั้งค่าการเข้า position จากแท่ง Cross: sell ที่ราคา 66893.40000000, Stoploss ที่ 66976.70000000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:34:15",
+    "date": "2024-10-24",
+    "time": "16:34:15",
+    "symbol": "BTCUSDT",
+    "message": "รอราคาทะลุ 66893.40000000 เพื่อ Short",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:37:45",
+    "date": "2024-10-24",
+    "time": "16:37:45",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง Market Order สำเร็จ - Order ID: 451253521876",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 16:37:45",
+    "date": "2024-10-24",
+    "time": "16:37:45",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง Stoploss Order สำเร็จ - Order ID: 451253561286",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 16:37:45",
+    "date": "2024-10-24",
+    "time": "16:37:45",
+    "symbol": "BTCUSDT",
+    "message": "เข้า Short position สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 16:38:19",
+    "date": "2024-10-24",
+    "time": "16:38:19",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66976.70, 66947.10, 66953.40, 66924.20, 66905.00",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:38:19",
+    "date": "2024-10-24",
+    "time": "16:38:19",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:33, 09:34, 09:35, 09:36, 09:37",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:38:22",
+    "date": "2024-10-24",
+    "time": "16:38:22",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66960.09534",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:38:22",
+    "date": "2024-10-24",
+    "time": "16:38:22",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66983.30 เป็น 66960.10 (พิจารณาจากแท่งที่ปิดแล้ว: 66953.40, 66924.20, 66905.00)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:39:18",
+    "date": "2024-10-24",
+    "time": "16:39:18",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66947.10, 66953.40, 66924.20, 66905.00, 66896.90",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:39:18",
+    "date": "2024-10-24",
+    "time": "16:39:18",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:34, 09:35, 09:36, 09:37, 09:38",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:39:20",
+    "date": "2024-10-24",
+    "time": "16:39:20",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66930.89241999999",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:39:21",
+    "date": "2024-10-24",
+    "time": "16:39:21",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66960.10 เป็น 66930.89 (พิจารณาจากแท่งที่ปิดแล้ว: 66924.20, 66905.00, 66896.90)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:40:10",
+    "date": "2024-10-24",
+    "time": "16:40:10",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66953.40, 66924.20, 66905.00, 66896.90, 66886.80",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:40:10",
+    "date": "2024-10-24",
+    "time": "16:40:10",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:35, 09:36, 09:37, 09:38, 09:39",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:40:12",
+    "date": "2024-10-24",
+    "time": "16:40:12",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66911.6905",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:40:13",
+    "date": "2024-10-24",
+    "time": "16:40:13",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66930.90 เป็น 66911.69 (พิจารณาจากแท่งที่ปิดแล้ว: 66905.00, 66896.90, 66886.80)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:41:10",
+    "date": "2024-10-24",
+    "time": "16:41:10",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66924.20, 66905.00, 66896.90, 66886.80, 66876.80",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:41:10",
+    "date": "2024-10-24",
+    "time": "16:41:10",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:36, 09:37, 09:38, 09:39, 09:40",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:41:13",
+    "date": "2024-10-24",
+    "time": "16:41:13",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66903.58969",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:41:13",
+    "date": "2024-10-24",
+    "time": "16:41:13",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66911.70 เป็น 66903.59 (พิจารณาจากแท่งที่ปิดแล้ว: 66896.90, 66886.80, 66876.80)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:42:19",
+    "date": "2024-10-24",
+    "time": "16:42:19",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66905.00, 66896.90, 66886.80, 66876.80, 66876.70",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:42:19",
+    "date": "2024-10-24",
+    "time": "16:42:19",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:37, 09:38, 09:39, 09:40, 09:41",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:42:21",
+    "date": "2024-10-24",
+    "time": "16:42:21",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66893.48868",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:42:22",
+    "date": "2024-10-24",
+    "time": "16:42:22",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66903.60 เป็น 66893.49 (พิจารณาจากแท่งที่ปิดแล้ว: 66886.80, 66876.80, 66876.70)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:43:12",
+    "date": "2024-10-24",
+    "time": "16:43:12",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66896.90, 66886.80, 66876.80, 66876.70, 66890.00",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:43:12",
+    "date": "2024-10-24",
+    "time": "16:43:12",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:38, 09:39, 09:40, 09:41, 09:42",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:43:15",
+    "date": "2024-10-24",
+    "time": "16:43:15",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66893.48868",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:43:17",
+    "date": "2024-10-24",
+    "time": "16:43:17",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66893.50 เป็น 66893.49 (พิจารณาจากแท่งที่ปิดแล้ว: 66886.80, 66876.80, 66876.70)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:44:19",
+    "date": "2024-10-24",
+    "time": "16:44:19",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66886.80, 66876.80, 66876.70, 66890.00, 66871.20",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:44:19",
+    "date": "2024-10-24",
+    "time": "16:44:19",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:39, 09:40, 09:41, 09:42, 09:43",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:44:21",
+    "date": "2024-10-24",
+    "time": "16:44:21",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66883.48768",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:44:22",
+    "date": "2024-10-24",
+    "time": "16:44:22",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66893.50 เป็น 66883.49 (พิจารณาจากแท่งที่ปิดแล้ว: 66876.80, 66876.70, 66871.20)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:45:18",
+    "date": "2024-10-24",
+    "time": "16:45:18",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66876.80, 66876.70, 66890.00, 66871.20, 66858.50",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:45:19",
+    "date": "2024-10-24",
+    "time": "16:45:19",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:40, 09:41, 09:42, 09:43, 09:44",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:45:19",
+    "date": "2024-10-24",
+    "time": "16:45:19",
+    "symbol": "BTCUSDT",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (66896.69) ไม่ต่ำกว่าค่าปัจจุบัน (66883.50)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:46:14",
+    "date": "2024-10-24",
+    "time": "16:46:14",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66876.70, 66890.00, 66871.20, 66858.50, 66854.80",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:46:14",
+    "date": "2024-10-24",
+    "time": "16:46:14",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:41, 09:42, 09:43, 09:44, 09:45",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:46:17",
+    "date": "2024-10-24",
+    "time": "16:46:17",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66877.88712",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:46:17",
+    "date": "2024-10-24",
+    "time": "16:46:17",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66883.50 เป็น 66877.89 (พิจารณาจากแท่งที่ปิดแล้ว: 66871.20, 66858.50, 66854.80)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:47:11",
+    "date": "2024-10-24",
+    "time": "16:47:11",
+    "symbol": "BTCUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:47:16",
+    "date": "2024-10-24",
+    "time": "16:47:16",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66890.00, 66871.20, 66858.50, 66854.80, 66861.90",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:47:16",
+    "date": "2024-10-24",
+    "time": "16:47:16",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:42, 09:43, 09:44, 09:45, 09:46",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:47:16",
+    "date": "2024-10-24",
+    "time": "16:47:16",
+    "symbol": "BTCUSDT",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (66896.69) ไม่ต่ำกว่าค่าปัจจุบัน (66877.90)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:48:09",
+    "date": "2024-10-24",
+    "time": "16:48:09",
+    "symbol": "BTCUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:48:18",
+    "date": "2024-10-24",
+    "time": "16:48:18",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66871.20, 66858.50, 66854.80, 66861.90, 66862.10",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:48:18",
+    "date": "2024-10-24",
+    "time": "16:48:18",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:43, 09:44, 09:45, 09:46, 09:47",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:48:23",
+    "date": "2024-10-24",
+    "time": "16:48:23",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66877.88712",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:48:28",
+    "date": "2024-10-24",
+    "time": "16:48:28",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66877.90 เป็น 66877.89 (พิจารณาจากแท่งที่ปิดแล้ว: 66871.20, 66858.50, 66854.80)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:49:18",
+    "date": "2024-10-24",
+    "time": "16:49:18",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66861.9",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:49:19",
+    "date": "2024-10-24",
+    "time": "16:49:19",
+    "symbol": "BTCUSDT",
+    "message": "Error cancelling order 451260972544: binance {\"code\":-2011,\"msg\":\"Unknown order sent.\"}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:49:19",
+    "date": "2024-10-24",
+    "time": "16:49:19",
+    "symbol": "BTCUSDT",
+    "message": "________________________________",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:49:20",
+    "date": "2024-10-24",
+    "time": "16:49:20",
+    "symbol": "BTCUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\get_all_order.py\", line 24, in clear_all_orders\n    await exchange.cancel_order(order['id'], symbol)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5875, in cancel_order\n    response = await self.fapiPrivateDeleteOrder(self.extend(request, params))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OrderNotFound: binance {\"code\":-2011,\"msg\":\"Unknown order sent.\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:49:20",
+    "date": "2024-10-24",
+    "time": "16:49:20",
+    "symbol": "BTCUSDT",
+    "message": "________________________________",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:49:20",
+    "date": "2024-10-24",
+    "time": "16:49:20",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ Stop Loss เป็น 66861.90000000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:49:21",
+    "date": "2024-10-24",
+    "time": "16:49:21",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66858.50, 66854.80, 66861.90, 66862.10, 66830.10",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:49:21",
+    "date": "2024-10-24",
+    "time": "16:49:21",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:44, 09:45, 09:46, 09:47, 09:48",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:49:23",
+    "date": "2024-10-24",
+    "time": "16:49:23",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66865.18585",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:49:23",
+    "date": "2024-10-24",
+    "time": "16:49:23",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66877.90 เป็น 66865.19 (พิจารณาจากแท่งที่ปิดแล้ว: 66858.50, 66854.80, 66830.10)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:50:07",
+    "date": "2024-10-24",
+    "time": "16:50:07",
+    "symbol": "BTCUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:50:14",
+    "date": "2024-10-24",
+    "time": "16:50:14",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66854.80, 66861.90, 66862.10, 66830.10, 66819.80",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:50:14",
+    "date": "2024-10-24",
+    "time": "16:50:14",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:45, 09:46, 09:47, 09:48, 09:49",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:50:14",
+    "date": "2024-10-24",
+    "time": "16:50:14",
+    "symbol": "BTCUSDT",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (66868.79) ไม่ต่ำกว่าค่าปัจจุบัน (66865.20)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:51:22",
+    "date": "2024-10-24",
+    "time": "16:51:22",
+    "symbol": "BTCUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:51:35",
+    "date": "2024-10-24",
+    "time": "16:51:35",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66861.90, 66862.10, 66830.10, 66819.80, 66844.70",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:51:35",
+    "date": "2024-10-24",
+    "time": "16:51:35",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:46, 09:47, 09:48, 09:49, 09:50",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:51:35",
+    "date": "2024-10-24",
+    "time": "16:51:35",
+    "symbol": "BTCUSDT",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (66868.79) ไม่ต่ำกว่าค่าปัจจุบัน (66865.20)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:52:14",
+    "date": "2024-10-24",
+    "time": "16:52:14",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66837.7",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 16:52:15",
+    "date": "2024-10-24",
+    "time": "16:52:15",
+    "symbol": "BTCUSDT",
+    "message": "Error cancelling order 451261747367: binance {\"code\":-2011,\"msg\":\"Unknown order sent.\"}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:52:15",
+    "date": "2024-10-24",
+    "time": "16:52:15",
+    "symbol": "BTCUSDT",
+    "message": "________________________________",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:52:15",
+    "date": "2024-10-24",
+    "time": "16:52:15",
+    "symbol": "BTCUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\get_all_order.py\", line 24, in clear_all_orders\n    await exchange.cancel_order(order['id'], symbol)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5875, in cancel_order\n    response = await self.fapiPrivateDeleteOrder(self.extend(request, params))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OrderNotFound: binance {\"code\":-2011,\"msg\":\"Unknown order sent.\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:52:15",
+    "date": "2024-10-24",
+    "time": "16:52:15",
+    "symbol": "BTCUSDT",
+    "message": "________________________________",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-24 16:52:15",
+    "date": "2024-10-24",
+    "time": "16:52:15",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ Stop Loss เป็น 66837.70000000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 16:52:17",
+    "date": "2024-10-24",
+    "time": "16:52:17",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66862.10, 66830.10, 66819.80, 66844.70, 66837.70",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:52:17",
+    "date": "2024-10-24",
+    "time": "16:52:17",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:47, 09:48, 09:49, 09:50, 09:51",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:52:17",
+    "date": "2024-10-24",
+    "time": "16:52:17",
+    "symbol": "BTCUSDT",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (66868.79) ไม่ต่ำกว่าค่าปัจจุบัน (66865.20)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:53:15",
+    "date": "2024-10-24",
+    "time": "16:53:15",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66830.10, 66819.80, 66844.70, 66837.70, 66762.70",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:53:15",
+    "date": "2024-10-24",
+    "time": "16:53:15",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:48, 09:49, 09:50, 09:51, 09:52",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:53:15",
+    "date": "2024-10-24",
+    "time": "16:53:15",
+    "symbol": "BTCUSDT",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (66851.38) ไม่ต่ำกว่าค่าปัจจุบัน (66837.70)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:54:22",
+    "date": "2024-10-24",
+    "time": "16:54:22",
+    "symbol": "BTCUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:54:43",
+    "date": "2024-10-24",
+    "time": "16:54:43",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66819.80, 66844.70, 66837.70, 66762.70, 66779.00",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:54:43",
+    "date": "2024-10-24",
+    "time": "16:54:43",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:49, 09:50, 09:51, 09:52, 09:53",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:54:43",
+    "date": "2024-10-24",
+    "time": "16:54:43",
+    "symbol": "BTCUSDT",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (66851.38) ไม่ต่ำกว่าค่าปัจจุบัน (66837.70)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:55:17",
+    "date": "2024-10-24",
+    "time": "16:55:17",
+    "symbol": "BTCUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:55:26",
+    "date": "2024-10-24",
+    "time": "16:55:26",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - High prices: 66844.70, 66837.70, 66762.70, 66779.00, 66825.00",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:55:26",
+    "date": "2024-10-24",
+    "time": "16:55:26",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 09:50, 09:51, 09:52, 09:53, 09:54",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 16:55:26",
+    "date": "2024-10-24",
+    "time": "16:55:26",
+    "symbol": "BTCUSDT",
+    "message": "ไม่ปรับ stoploss เนื่องจากค่าใหม่ (66851.38) ไม่ต่ำกว่าค่าปัจจุบัน (66837.70)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 16:55:52",
+    "date": "2024-10-24",
+    "time": "16:55:52",
+    "symbol": "BTCUSDT",
+    "message": "บันทึกการเทรด: SELL BTCUSDT ที่ราคา 66840.00 | จำนวน: 0.00037403 | กำไร/ขาดทุน: 0.02 (0.08%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 17:03:11",
+    "date": "2024-10-24",
+    "time": "17:03:11",
+    "symbol": "BTCUSDT",
+    "message": "ตั้งค่าการเข้า position จากแท่ง Cross: buy ที่ราคา 66910.20000000, Stoploss ที่ 66864.60000000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 17:03:19",
+    "date": "2024-10-24",
+    "time": "17:03:19",
+    "symbol": "BTCUSDT",
+    "message": "รอราคาทะลุ 66910.20000000 เพื่อ Long",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 17:04:22",
+    "date": "2024-10-24",
+    "time": "17:04:22",
+    "symbol": "BTCUSDT",
+    "message": "ตั้งค่าการเข้า position จากแท่ง Cross: sell ที่ราคา 66880.50000000, Stoploss ที่ 66913.00000000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 17:04:29",
+    "date": "2024-10-24",
+    "time": "17:04:29",
+    "symbol": "BTCUSDT",
+    "message": "รอราคาทะลุ 66880.50000000 เพื่อ Short",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 17:06:17",
+    "date": "2024-10-24",
+    "time": "17:06:17",
+    "symbol": "BTCUSDT",
+    "message": "ยกเลิก Short entry",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 17:06:26",
+    "date": "2024-10-24",
+    "time": "17:06:26",
+    "symbol": "BTCUSDT",
+    "message": "ตั้งค่าการเข้า position จากแท่ง Cross: buy ที่ราคา 66940.00000000, Stoploss ที่ 66900.60000000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 17:06:36",
+    "date": "2024-10-24",
+    "time": "17:06:36",
+    "symbol": "BTCUSDT",
+    "message": "รอราคาทะลุ 66940.00000000 เพื่อ Long",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 17:08:03",
+    "date": "2024-10-24",
+    "time": "17:08:03",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง Market Order สำเร็จ - Order ID: 451274958948",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 17:08:03",
+    "date": "2024-10-24",
+    "time": "17:08:03",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง Stoploss Order สำเร็จ - Order ID: 451275006445",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 17:08:03",
+    "date": "2024-10-24",
+    "time": "17:08:03",
+    "symbol": "BTCUSDT",
+    "message": "เข้า Long position สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 17:08:14",
+    "date": "2024-10-24",
+    "time": "17:08:14",
+    "symbol": "BTCUSDT",
+    "message": "ไม่สามารถดึงข้อมูลด้านของ position ข้ามการปรับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 17:09:31",
+    "date": "2024-10-24",
+    "time": "17:09:31",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - Low prices: 66884.30, 66900.60, 66917.00, 66930.20, 66928.40",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 17:09:31",
+    "date": "2024-10-24",
+    "time": "17:09:31",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 10:04, 10:05, 10:06, 10:07, 10:08",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 17:09:35",
+    "date": "2024-10-24",
+    "time": "17:09:35",
+    "symbol": "BTCUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 66893.90994000001",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 17:09:36",
+    "date": "2024-10-24",
+    "time": "17:09:36",
+    "symbol": "BTCUSDT",
+    "message": "ปรับ stoploss จาก 66893.90 เป็น 66893.91 (พิจารณาจากแท่งที่ปิดแล้ว: 66900.60, 66917.00, 66928.40)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 17:10:10",
+    "date": "2024-10-24",
+    "time": "17:10:10",
+    "symbol": "BTCUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 17:10:15",
+    "date": "2024-10-24",
+    "time": "17:10:15",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบ Position ที่เปิดอยู่",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 17:10:22",
+    "date": "2024-10-24",
+    "time": "17:10:22",
+    "symbol": "BTCUSDT",
+    "message": "กำลังพิจารณาแท่งเทียนที่ปิดแล้ว 5 แท่ง - Low prices: 66900.60, 66917.00, 66930.20, 66928.40, 66901.00",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 17:10:22",
+    "date": "2024-10-24",
+    "time": "17:10:22",
+    "symbol": "BTCUSDT",
+    "message": "เวลาของแท่งเทียนที่พิจารณา: 10:05, 10:06, 10:07, 10:08, 10:09",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-24 17:10:26",
+    "date": "2024-10-24",
+    "time": "17:10:26",
+    "symbol": "BTCUSDT",
+    "message": "ไม่พบตำแหน่งที่เปิดอยู่สำหรับ BTCUSDT",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 17:10:26",
+    "date": "2024-10-24",
+    "time": "17:10:26",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง stoploss ที่ราคา 66893.91 เนื่องจากไม่มี stoploss (พิจารณาจากแท่งที่ปิดแล้ว: 66900.60, 66917.00, 66928.40)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 17:10:47",
+    "date": "2024-10-24",
+    "time": "17:10:47",
+    "symbol": "BTCUSDT",
+    "message": "บันทึกการเทรด: BUY BTCUSDT ที่ราคา 66864.40 | จำนวน: 0.00037383 | กำไร/ขาดทุน: -0.03 (-0.11%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 17:43:51",
+    "date": "2024-10-24",
+    "time": "17:43:51",
+    "symbol": "BTCUSDT",
+    "message": "สร้าง task สำหรับ BTCUSDT (Timeframe: 1m)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 17:43:51",
+    "date": "2024-10-24",
+    "time": "17:43:51",
+    "symbol": "BTCUSDT",
+    "message": "เริ่มต้นบอทสำหรับ BTCUSDT (Timeframe: 1m)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 17:43:51",
+    "date": "2024-10-24",
+    "time": "17:43:51",
+    "symbol": "BTCUSDT",
+    "message": "System Startup - โหลดสถานะเสร็จสมบูรณ์ (Timeframe: 1m)",
     "color": "cyan"
   }
 ]

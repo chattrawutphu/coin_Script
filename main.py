@@ -26,14 +26,14 @@ from config import api_key, api_secret
 TRADING_CONFIG = {
     'ETHUSDT': {
         'timeframe': '1m',
-        'entry_amount': '25$',
+        'entry_amount': '500$',
         'rsi_period': 7,
         'rsi_overbought': 68,
         'rsi_oversold': 32
     },
     'BTCUSDT': {
         'timeframe': '1m',
-        'entry_amount': '25$',
+        'entry_amount': '500$',
         'rsi_period': 7,
         'rsi_overbought': 68,
         'rsi_oversold': 32
@@ -702,19 +702,39 @@ async def _handle_reentry(api_key, api_secret, symbol, state, price, exchange):
 async def _handle_position_close(api_key, api_secret, symbol, state, price):
     """จัดการการปิด position แบบแยกขนาน"""
     try:
+        # ตรวจสอบว่าโดน stoploss หรือไม่
+        current_stoploss = await get_current_stoploss(api_key, api_secret, symbol)
+        was_stopped_out = False
+        
+        if current_stoploss:
+            # ถ้าเป็น long position และราคาปิดต่ำกว่า stoploss
+            if state.global_position_side == 'buy' and price <= current_stoploss:
+                was_stopped_out = True
+            # ถ้าเป็น short position และราคาปิดสูงกว่า stoploss
+            elif state.global_position_side == 'sell' and price >= current_stoploss:
+                was_stopped_out = True
+
         tasks = [
             clear_all_orders(api_key, api_secret, symbol),
             record_trade(api_key, api_secret, symbol,
                         'BUY' if state.global_position_side == 'buy' else 'SELL',
                         state.global_entry_price, price, state.config.entry_amount,
-                        'Position Closed', state)
+                        'Position Closed by Stoploss' if was_stopped_out else 'Position Closed', 
+                        state)
         ]
         await asyncio.gather(*tasks)
+        
         # รีเซ็ตสถานะ
         state.global_entry_price = None
         state.global_position_entry_time = None
         state.global_position_side = None
         state.is_in_position = False
+        
+        # ถ้าโดน stoploss และมีสัญญาณล่าสุด ให้ลองเข้าใหม่
+        if was_stopped_out and state.last_candle_cross:
+            state.isTry_last_entry = True
+            message(symbol, "Position ถูกปิดด้วย Stoploss - เตรียมลองเข้าใหม่ตามสัญญาณล่าสุด", "yellow")
+            
     except Exception as e:
         message(symbol, f"Error in position close handling: {str(e)}", "red")
 
@@ -787,20 +807,23 @@ async def _handle_rsi_signals(api_key, api_secret, symbol, state, position_side,
                     except Exception as e:
                         message(symbol, f"เกิดข้อผิดพลาดในการเปลี่ยน stop loss: {str(e)}", "red")
 
-        elif not state.is_in_position and ohlcv:  # เพิ่มการตรวจสอบ ohlcv
+        elif not state.is_in_position:  # ไม่ต้องเช็ค ohlcv แล้ว
             # เตรียมเข้า position ใหม่
             await clear_all_orders(api_key, api_secret, symbol)
             if 'candle' in rsi_cross:
+                cross_candle = rsi_cross['candle']
                 if rsi_cross['type'] == 'crossover':
-                    state.entry_price = ohlcv[2]  # high
-                    state.entry_stoploss_price = ohlcv[3]  # low
+                    state.entry_price = float(cross_candle.get('high'))  # high จาก cross candle 
+                    state.entry_stoploss_price = float(cross_candle.get('low'))  # low จาก cross candle
                     state.entry_side = 'buy'
-                else:
-                    state.entry_price = ohlcv[3]  # low
-                    state.entry_stoploss_price = ohlcv[2]  # high
+                else:  # crossunder
+                    state.entry_price = float(cross_candle.get('low'))  # low จาก cross candle
+                    state.entry_stoploss_price = float(cross_candle.get('high'))  # high จาก cross candle
                     state.entry_side = 'sell'
-                message(symbol, f"ตั้งค่าการเข้า position : {state.entry_side} ที่ราคา {state.entry_price:.8f}, Stoploss ที่ {state.entry_stoploss_price:.8f}", "blue")
-
+                
+                message(symbol, f"ตั้งค่าการเข้า position จากแท่ง Cross: {state.entry_side} "
+                            f"ที่ราคา {state.entry_price:.8f}, "
+                            f"Stoploss ที่ {state.entry_stoploss_price:.8f}", "blue")
     except Exception as e:
         message(symbol, f"Error in RSI signal handling: {str(e)}", "red")
 
