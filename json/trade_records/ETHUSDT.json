@@ -1,0 +1,123 @@
+[
+  {
+    "timestamp": "2024-10-23T22:33:51.578777",
+    "symbol": "ETHUSDT",
+    "action": "SELL",
+    "entry_price": 2552.35,
+    "exit_price": 2541.99,
+    "amount": 0.009833731271658793,
+    "profit_loss": 0.10187745597438634,
+    "profit_loss_percentage": 0.4059004446882335,
+    "reason": "Position Closed / Swapped to Long!"
+  },
+  {
+    "timestamp": "2024-10-23T22:38:24.599953",
+    "symbol": "ETHUSDT",
+    "action": "BUY",
+    "entry_price": 2542.74,
+    "exit_price": 2538.15,
+    "amount": 0.00985400309021537,
+    "profit_loss": -0.0452298741840855,
+    "profit_loss_percentage": -0.1805139337879489,
+    "reason": "Position Closed"
+  },
+  {
+    "timestamp": "2024-10-23T22:46:04.585310",
+    "symbol": "ETHUSDT",
+    "action": "SELL",
+    "entry_price": 2530.75,
+    "exit_price": 2535.98,
+    "amount": 0.009857150179597277,
+    "profit_loss": -0.051552895439293936,
+    "profit_loss_percentage": -0.20665810530475232,
+    "reason": "Position Closed"
+  },
+  {
+    "timestamp": "2024-10-23T23:24:19.243114",
+    "symbol": "ETHUSDT",
+    "action": "SELL",
+    "entry_price": 2532.18,
+    "exit_price": 2525.06,
+    "amount": 0.00989683538791636,
+    "profit_loss": 0.0704654679619634,
+    "profit_loss_percentage": 0.2811806427663077,
+    "reason": "Position Closed"
+  },
+  {
+    "timestamp": "2024-10-24T00:17:35.404192",
+    "symbol": "ETHUSDT",
+    "action": "SELL",
+    "entry_price": 2492.2,
+    "exit_price": 2497.67,
+    "amount": 0.010002000400080016,
+    "profit_loss": -0.054710942188440234,
+    "profit_loss_percentage": -0.21948479255277484,
+    "reason": "Position Closed"
+  },
+  {
+    "timestamp": "2024-10-24T00:23:16.112720",
+    "symbol": "ETHUSDT",
+    "action": "BUY",
+    "entry_price": 2503.78,
+    "exit_price": 2505.62,
+    "amount": 0.009978406727840953,
+    "profit_loss": 0.01836026837922427,
+    "profit_loss_percentage": 0.07348888480616071,
+    "reason": "Position Closed / Swapped to Short!"
+  },
+  {
+    "timestamp": "2024-10-24T00:25:29.330605",
+    "symbol": "ETHUSDT",
+    "action": "SELL",
+    "entry_price": 2503.78,
+    "exit_price": 2507.53,
+    "amount": 0.00996921506388273,
+    "profit_loss": -0.03738455648956024,
+    "profit_loss_percentage": -0.14977354240388532,
+    "reason": "Position Closed"
+  },
+  {
+    "timestamp": "2024-10-24T00:42:05.293258",
+    "symbol": "ETHUSDT",
+    "action": "SELL",
+    "entry_price": 2500.16,
+    "exit_price": 2502.29,
+    "amount": 0.00999084838288128,
+    "profit_loss": -0.021280507055538217,
+    "profit_loss_percentage": -0.08519454754896123,
+    "reason": "Position Closed"
+  },
+  {
+    "timestamp": "2024-10-24T01:10:54.717735",
+    "symbol": "ETHUSDT",
+    "action": "SELL",
+    "entry_price": 2493.25,
+    "exit_price": 2481.87,
+    "amount": 0.010070899129874316,
+    "profit_loss": 0.11460683209797082,
+    "profit_loss_percentage": 0.4564323673919627,
+    "reason": "Position Closed / Swapped to Long!"
+  },
+  {
+    "timestamp": "2024-10-24T01:16:31.407399",
+    "symbol": "ETHUSDT",
+    "action": "BUY",
+    "entry_price": 2478.36,
+    "exit_price": 2472.95,
+    "amount": 0.010109383529792354,
+    "profit_loss": -0.05469176489617976,
+    "profit_loss_percentage": -0.2182895140334862,
+    "reason": "Position Closed"
+  },
+  {
+    "timestamp": "2024-10-24T01:35:55.868675",
+    "symbol": "ETHUSDT",
+    "action": "BUY",
+    "entry_price": 2480.16,
+    "exit_price": 2478.7,
+    "amount": 0.01008593214184855,
+    "profit_loss": -0.01472546092709925,
+    "profit_loss_percentage": -0.0588671698600105,
+    "reason": "Position Closed / Swapped to Short!"
+  }
+]

@@ -29,5 +29,5 @@ async def check_price(api_key, api_secret, symbol, price, operator, condition_pr
     except Exception as e:
         error_traceback = traceback.format_exc()
         message(f"พบข้อผิดพลาด","yellow")
-        print(f"Error: {error_traceback}")
+        message(symbol, f"Error: {error_traceback}", "red")
         return False

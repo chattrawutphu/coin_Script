@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Bot Messages</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            100: '#f3f4f6',
+                            200: '#e5e7eb',
+                            300: '#d1d5db',
+                            400: '#9ca3af',
+                            500: '#6b7280',
+                            600: '#4b5563',
+                            700: '#374151',
+                            800: '#1f2937',
+                            900: '#111827',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 dark:bg-dark-900 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Trading Bot Messages</h1>
+            <button id="darkModeToggle"
+                class="p-2 rounded-lg bg-gray-200 dark:bg-dark-700 text-gray-800 dark:text-gray-200">
+                Toggle Dark Mode
+            </button>
+        </div>
+
+        <!-- Controls -->
+        <div class="bg-white dark:bg-dark-800 rounded-lg shadow-lg p-4 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <select id="symbolFilter"
+                    class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 text-gray-900 dark:text-gray-100">
+                    <option value="all">All Symbols</option>
+                </select>
+
+                <select id="colorFilter"
+                    class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 text-gray-900 dark:text-gray-100">
+                    <option value="all">All Colors</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="blue">Blue</option>
+                    <option value="magenta">Magenta</option>
+                    <option value="cyan">Cyan</option>
+                    <option value="white">White</option>
+                </select>
+
+                <input type="datetime-local" id="startDate"
+                    class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 text-gray-900 dark:text-gray-100">
+
+                <input type="datetime-local" id="endDate"
+                    class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 text-gray-900 dark:text-gray-100">
+            </div>
+
+            <div class="flex items-center mt-4 space-x-4">
+                <button onclick="loadMessages()" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg">
+                    Refresh
+                </button>
+
+                <label class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+                    <input type="checkbox" id="autoRefresh" class="rounded">
+                    <span>Auto refresh (5s)</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Messages Container -->
+        <div id="messages" class="bg-white dark:bg-dark-800 rounded-lg shadow-lg p-4 max-h-[600px] overflow-y-auto">
+            <!-- Messages will be inserted here -->
+        </div>
+    </div>
+
+    <script>
+        let autoRefreshInterval;
+        const isDarkMode = () => document.documentElement.classList.contains('dark');
+
+        // Dark mode toggle
+        document.getElementById('darkModeToggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', isDarkMode());
+        });
+
+        // Load dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+
+        function getMessageColorClass(color) {
+            const colorClasses = {
+                red: 'text-red-500 dark:text-red-400',
+                green: 'text-green-500 dark:text-green-400',
+                yellow: 'text-yellow-500 dark:text-yellow-400',
+                blue: 'text-blue-500 dark:text-blue-400',
+                magenta: 'text-pink-500 dark:text-pink-400',
+                cyan: 'text-cyan-500 dark:text-cyan-400',
+                white: 'text-gray-700 dark:text-gray-300'
+            };
+            return colorClasses[color] || colorClasses.white;
+        }
+
+        // แก้ไขฟังก์ชัน loadMessages
+        async function loadMessages() {
+            const symbol = $('#symbolFilter').val();
+            const color = $('#colorFilter').val();
+            const startDate = $('#startDate').val();
+            const endDate = $('#endDate').val();
+
+            try {
+                let allMessages = [];
+                let symbolsToLoad = [];
+
+                // ถ้าเลือก all ให้โหลดจาก index.json
+                if (symbol === 'all') {
+                    try {
+                        const response = await fetch('json/message_logs/index.json');
+                        if (response.ok) {
+                            symbolsToLoad = await response.json();
+                        } else {
+                            symbolsToLoad = ['ETHUSDT', 'ATOMUSDT', 'SOLUSDT']; // ค่าเริ่มต้น
+                        }
+                    } catch (error) {
+                        console.error('Error loading symbols:', error);
+                        symbolsToLoad = ['ETHUSDT', 'ATOMUSDT', 'SOLUSDT']; // ค่าเริ่มต้น
+                    }
+                } else {
+                    symbolsToLoad = [symbol];
+                }
+
+                // โหลดข้อความจากทุก symbol ที่ต้องการ
+                for (const sym of symbolsToLoad) {
+                    try {
+                        const response = await fetch(`json/message_logs/${sym}.json`);
+                        if (response.ok) {
+                            const messages = await response.json();
+                            allMessages = allMessages.concat(messages);
+                        }
+                    } catch (error) {
+                        console.log(`No messages found for ${sym}`);
+                    }
+                }
+
+                // Filter messages
+                const filteredMessages = allMessages.filter(msg => {
+                    const msgDate = moment(`${msg.date} ${msg.time}`, 'YYYY-MM-DD HH:mm:ss');
+                    const matchesColor = color === 'all' || msg.color === color;
+                    const matchesStartDate = !startDate || msgDate.isSameOrAfter(moment(startDate));
+                    const matchesEndDate = !endDate || msgDate.isSameOrBefore(moment(endDate));
+                    return matchesColor && matchesStartDate && matchesEndDate;
+                });
+
+                // Sort messages (newest first)
+                filteredMessages.sort((a, b) => {
+                    const timeA = moment(`${a.date} ${a.time}`, 'YYYY-MM-DD HH:mm:ss');
+                    const timeB = moment(`${b.date} ${b.time}`, 'YYYY-MM-DD HH:mm:ss');
+                    return timeB - timeA;
+                });
+
+                // Render messages
+                const messagesHtml = filteredMessages.map(msg => `
+            <div class="message mb-1 py-1 px-2">
+                <div class="${getMessageColorClass(msg.color)} flex items-center gap-2">
+                    <span class="font-semibold text-blue-500 dark:text-blue-400">${msg.symbol}</span>
+                    <span class="font-mono text-gray-500 dark:text-gray-400">${msg.date} ${msg.time}</span>
+                    <span>${msg.message}</span>
+                </div>
+            </div>
+        `).join('');
+
+                $('#messages').html(messagesHtml || '<div class="text-center text-gray-500 dark:text-gray-400">No messages found</div>');
+
+                // Scroll to top for newest messages
+                const messagesContainer = document.getElementById('messages');
+                messagesContainer.scrollTop = 0;
+
+            } catch (error) {
+                console.error('Error loading messages:', error);
+                $('#messages').html('<div class="text-center text-red-500">Error loading messages</div>');
+            }
+        }
+
+        // Update symbol filter options
+        async function updateSymbolOptions() {
+            try {
+                const response = await fetch('json/message_logs/index.json');
+                if (response.ok) {
+                    const symbols = await response.json();
+                    const options = symbols
+                        .sort()
+                        .map(symbol => `<option value="${symbol}">${symbol}</option>`)
+                        .join('');
+                    $('#symbolFilter').html('<option value="all">All Symbols</option>' + options);
+                } else {
+                    throw new Error('Could not load symbols');
+                }
+            } catch (error) {
+                console.error('Error loading symbols:', error);
+                // ใช้ค่าเริ่มต้นถ้าโหลดไม่สำเร็จ
+                const defaultSymbols = ['ETHUSDT', 'ATOMUSDT', 'SOLUSDT'];
+                const options = defaultSymbols
+                    .map(symbol => `<option value="${symbol}">${symbol}</option>`)
+                    .join('');
+                $('#symbolFilter').html('<option value="all">All Symbols</option>' + options);
+            }
+        }
+
+        // Auto refresh handling
+        $('#autoRefresh').change(function () {
+            if (this.checked) {
+                autoRefreshInterval = setInterval(loadMessages, 5000);
+            } else {
+                clearInterval(autoRefreshInterval);
+            }
+        });
+
+        // Initial load
+        updateSymbolOptions();
+        loadMessages();
+    </script>
+</body>
+
+</html>

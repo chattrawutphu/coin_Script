@@ -20,57 +20,134 @@ from function.binance.futures.order.swap_position_side import swap_position_side
 from function.binance.futures.system.create_future_exchange import create_future_exchange
 from function.binance.futures.system.retry_utils import run_with_error_handling
 from function.message import message
+from function.binance.futures.system.update_symbol_data import update_symbol_data
 
 
 api_key = 'cos73h05s3oxvSK2u7YG2k0mIiu5npSVIXTdyIXXUVNJQOKbRybPNlGOeZNvunVG'
 api_secret = 'Zim1iiECBaYdtx3rVlN5mpQ05iQWRXDXU0EBW8LmQW8Ns2X07HhKfIs4Kj3PLzgO'
 
-global_entry_price = None
-global_position_entry_time = None
-global_position_side = None
+TRADING_CONFIG = {
+    'ETHUSDT': {
+        'timeframe': '1m',
+        'entry_amount': '25$',
+        'rsi_period': 7,
+        'rsi_overbought': 68,
+        'rsi_oversold': 32
+    },
+    'SOLUSDT': {
+        'timeframe': '1m',
+        'entry_amount': '50$',
+        'rsi_period': 4,
+        'rsi_overbought': 68,
+        'rsi_oversold': 32
+    }
+}
 
-last_candle_time = None
-last_candle_cross = None
-last_focus_price = None
-last_focus_stopprice = None
-is_wait_candle = False
-is_in_position = False
-is_swapping = False
-isTry_last_entry = False
-entry_candle = None
-entry_price = None
-entry_side = None
-entry_stoploss_price = None
-
-STATE_FILE = 'bot_state.json'
-TRADE_RECORD_FILE = 'trade_records.json'
 PRICE_CHANGE_THRESHOLD = 0.0001  # 0.1%
 PRICE_INCREASE = 1 + PRICE_CHANGE_THRESHOLD  # 1.001
 PRICE_DECREASE = 1 - PRICE_CHANGE_THRESHOLD  # 0.999
 PRICE_CHANGE_MAXPERCENT = 5
-ENTRY_AMOUNT = '25$'
 MAX_CANDLES_TO_FETCH = 5
 MIN_CANDLES_TO_FETCH = 3
 
-SYMBOL = 'ETHUSDT'
-TIMEFRAME = '1m'
+class TradingConfig:
+    """คลาสสำหรับจัดการคอนฟิกของแต่ละเหรียญ"""
+    def __init__(self, symbol: str):
+        config = TRADING_CONFIG.get(symbol, {})
+        self.symbol = symbol
+        self.timeframe = config.get('timeframe', '5m')  # ค่าเริ่มต้นถ้าไม่ได้กำหนด
+        self.entry_amount = config.get('entry_amount', '25$')
+        self.rsi_period = config.get('rsi_period', 7)
+        self.rsi_overbought = config.get('rsi_overbought', 68)
+        self.rsi_oversold = config.get('rsi_oversold', 32)
 
-# ฟังก์ชันสำหรับบันทึกและโหลดสถานะ
-def save_state(state):
-    with open(STATE_FILE, 'w') as f:
-        json.dump(state, f)
+class SymbolState:
+    """คลาสสำหรับจัดการสถานะของแต่ละเหรียญ"""
+    def __init__(self, symbol: str):
+        self.symbol = symbol
+        self.config = TradingConfig(symbol)
+        self.state_file = f'json/state/{symbol}.json'
+        self.trade_record_file = f'json/trade_records/{symbol}.json'
+        
+        # ตัวแปรสถานะ
+        self.global_entry_price = None
+        self.global_position_entry_time = None
+        self.global_position_side = None
+        self.last_candle_time = None
+        self.last_candle_cross = None
+        self.last_focus_price = None
+        self.last_focus_stopprice = None
+        self.is_wait_candle = False
+        self.is_in_position = False
+        self.is_swapping = False
+        self.isTry_last_entry = False
+        self.entry_candle = None
+        self.entry_price = None
+        self.entry_side = None
+        self.entry_stoploss_price = None
 
-def load_state():
-    if os.path.exists(STATE_FILE):
-        with open(STATE_FILE, 'r') as f:
-            return json.load(f)
-    return None
+    def save_state(self):
+        """บันทึกสถานะลงไฟล์"""
+        current_state = {
+            'global_entry_price': self.global_entry_price,
+            'global_position_entry_time': self.global_position_entry_time.isoformat() if self.global_position_entry_time else None,
+            'global_position_side': self.global_position_side,
+            'last_candle_time': self.last_candle_time.isoformat() if self.last_candle_time else None,
+            'last_candle_cross': self.last_candle_cross,
+            'last_focus_price': self.last_focus_price,
+            'last_focus_stopprice': self.last_focus_stopprice,
+            'is_wait_candle': self.is_wait_candle,
+            'is_in_position': self.is_in_position,
+            'is_swapping': self.is_swapping,
+            'isTry_last_entry': self.isTry_last_entry,
+            'entry_candle': self.entry_candle,
+            'entry_price': self.entry_price,
+            'entry_side': self.entry_side,
+            'entry_stoploss_price': self.entry_stoploss_price
+        }
+
+        os.makedirs(os.path.dirname(self.state_file), exist_ok=True)
+        
+        with open(self.state_file, 'w') as f:
+            json.dump(current_state, f)
+
+    def load_state(self):
+        """โหลดสถานะจากไฟล์"""
+        if os.path.exists(self.state_file):
+            with open(self.state_file, 'r') as f:
+                saved_state = json.load(f)
+            
+            # โหลดค่าตัวแปรทั้งหมด
+            self.global_entry_price = saved_state.get('global_entry_price')
+            global_position_entry_time = saved_state.get('global_position_entry_time')
+            if global_position_entry_time:
+                self.global_position_entry_time = datetime.fromisoformat(global_position_entry_time)
+            self.global_position_side = saved_state.get('global_position_side')
+            # Load other variables
+            last_candle_time = saved_state.get('last_candle_time')
+            if last_candle_time:
+                self.last_candle_time = datetime.fromisoformat(last_candle_time)
+            self.last_candle_cross = saved_state.get('last_candle_cross')
+            self.last_focus_price = saved_state.get('last_focus_price')
+            self.last_focus_stopprice = saved_state.get('last_focus_stopprice')
+            self.is_wait_candle = saved_state.get('is_wait_candle', False)
+            self.is_in_position = saved_state.get('is_in_position', False)
+            self.is_swapping = saved_state.get('is_swapping', False)
+            self.isTry_last_entry = saved_state.get('isTry_last_entry', False)
+            self.entry_candle = saved_state.get('entry_candle')
+            self.entry_price = saved_state.get('entry_price')
+            self.entry_side = saved_state.get('entry_side')
+            self.entry_stoploss_price = saved_state.get('entry_stoploss_price')
+            message(self.symbol, f"System Startup - โหลดสถานะเสร็จสมบูรณ์ (Timeframe: {self.config.timeframe})", "cyan")
+            return True
+        message(self.symbol, f"ไม่พบไฟล์สถานะ เริ่มต้นด้วยค่าเริ่มต้น (Timeframe: {self.config.timeframe})", "yellow")
+        return False
 
 # ฟังก์ชันสำหรับบันทึกผลการเทรด
-async def record_trade(api_key, api_secret, symbol, action, entry_price, exit_price, amount, reason):
+async def record_trade(api_key, api_secret, symbol, action, entry_price, exit_price, amount, reason, state):
     try:
         try:
-            with open(TRADE_RECORD_FILE, 'r') as f:
+            with open(state.trade_record_file, 'r') as f:
                 trades = json.load(f)
         except FileNotFoundError:
             trades = []
@@ -78,16 +155,16 @@ async def record_trade(api_key, api_secret, symbol, action, entry_price, exit_pr
         # Get current market price for conversion and missing prices
         current_price = await get_future_market_price(api_key, api_secret, symbol)
         if current_price is None:
-            message(symbol, "Could not get market price for trade recording", "yellow")
+            message(symbol, "ไม่สามารถดึงราคาตลาดสำหรับบันทึกการเทรดได้", "yellow")
             return
 
         # Use current price if entry_price or exit_price is None
         if entry_price is None:
             entry_price = current_price
-            message(symbol, f"Using current price ({current_price}) as entry price", "yellow")
+            message(symbol, f"ใช้ราคาปัจจุบัน ({current_price}) เป็นราคาเข้า", "yellow")
         if exit_price is None:
             exit_price = current_price
-            message(symbol, f"Using current price ({current_price}) as exit price", "yellow")
+            message(symbol, f"ใช้ราคาปัจจุบัน ({current_price}) เป็นราคาออก", "yellow")
 
         # Convert amount to float based on different formats
         if isinstance(amount, str):
@@ -113,15 +190,23 @@ async def record_trade(api_key, api_secret, symbol, action, entry_price, exit_pr
         # Calculate profit/loss
         try:
             if action in ['BUY', 'SELL']:
-                profit_loss = (exit_price - entry_price) * amount if action == 'BUY' else (entry_price - exit_price) * amount
+                if action == 'BUY':
+                    # ปิด Long position: exit_price - entry_price
+                    profit_loss = (exit_price - entry_price) * amount
+                else:  # action == 'SELL'
+                    # ปิด Short position: entry_price - exit_price
+                    profit_loss = (entry_price - exit_price) * amount
             elif action == 'SWAP':
-                profit_loss = (exit_price - entry_price) * amount if exit_price > entry_price else (entry_price - exit_price) * amount
+                # สำหรับ SWAP ให้ดูจากทิศทางราคา
+                profit_loss = (exit_price - entry_price) * amount
             else:
                 profit_loss = 0
                 
+            # คำนวณเปอร์เซ็นต์กำไร/ขาดทุน
             profit_loss_percentage = (profit_loss / (entry_price * amount)) * 100 if entry_price and amount else 0
+
         except Exception as e:
-            message(symbol, f"Error calculating profit/loss: {str(e)}", "red")
+            message(symbol, f"เกิดข้อผิดพลาดในการคำนวณกำไร/ขาดทุน: {str(e)}", "red")
             profit_loss = 0
             profit_loss_percentage = 0
 
@@ -140,16 +225,18 @@ async def record_trade(api_key, api_secret, symbol, action, entry_price, exit_pr
 
         trades.append(trade)
 
-        with open(TRADE_RECORD_FILE, 'w') as f:
+        os.makedirs(os.path.dirname(state.trade_record_file), exist_ok=True)
+
+        with open(state.trade_record_file, 'w') as f:
             json.dump(trades, f, indent=2)
 
-        message(symbol, f"Trade recorded: {action} {symbol} at price {exit_price:.2f} | Amount: {amount:.8f} | P/L: {profit_loss:.2f} ({profit_loss_percentage:.2f}%)", "cyan")
+        message(symbol, f"บันทึกการเทรด: {action} {symbol} ที่ราคา {exit_price:.2f} | จำนวน: {amount:.8f} | กำไร/ขาดทุน: {profit_loss:.2f} ({profit_loss_percentage:.2f}%)", "cyan")
         
     except Exception as e:
         error_traceback = traceback.format_exc()
         message(symbol, f"พบปัญหาในการบันทึกการเทรด : {str(e)}", "red")
         message(symbol, "________________________________", "red")
-        print(f"Error: {error_traceback}")
+        message(symbol, f"Error: {error_traceback}", "red")
         message(symbol, "________________________________", "red")    
 
 # Helper function to get current position details
@@ -159,10 +246,10 @@ async def get_position_details(exchange, symbol):
         return positions[0] if positions else None
     except Exception as e:
         error_traceback = traceback.format_exc()
-        message(symbol, f"Error getting position details: {str(e)}", "red")
-        message(SYMBOL, "________________________________", "red")
-        print(f"Error: {error_traceback}")
-        message(SYMBOL, "________________________________", "red")
+        message(symbol, f"เกิดข้อผิดพลาดในการดึงข้อมูล position: {str(e)}", "red")
+        message(symbol, "________________________________", "red")
+        message(symbol, f"Error: {error_traceback}", "red")
+        message(symbol, "________________________________", "red")
         return None
 
 # Helper function to calculate total fees from orders
@@ -172,427 +259,6 @@ async def calculate_fees(orders):
         if 'fee' in order and order['fee']:
             total_fees += float(order['fee'].get('cost', 0))
     return total_fees
-
-# ฟังก์ชันหลักสำหรับตรวจสอบแท่งเทียนใหม่และ RSI
-async def check_new_candle_and_rsi(api_key, api_secret, symbol, timeframe):
-    global global_entry_price, global_position_entry_time, global_position_side
-    # โหลดสถานะเดิม (ถ้ามี)
-    saved_state = load_state()
-    last_candle_time = saved_state.get('last_candle_time')
-    if last_candle_time:
-        last_candle_time = datetime.fromisoformat(last_candle_time)
-    if saved_state:
-        message(symbol, "System Startup - Loading saved state", "cyan")
-        
-        # Load global variables
-        global_entry_price = saved_state.get('global_entry_price')
-        message(symbol, f"global_entry_price: {global_entry_price}", "blue")
-        
-        global_position_entry_time = saved_state.get('global_position_entry_time')
-        if global_position_entry_time:
-            global_position_entry_time = datetime.fromisoformat(global_position_entry_time)
-        message(symbol, f"global_position_entry_time: {global_position_entry_time}", "blue")
-        
-        global_position_side = saved_state.get('global_position_side')
-        message(symbol, f"global_position_side: {global_position_side}", "blue")
-        
-        # Load other variables
-        last_candle_time = saved_state.get('last_candle_time')
-        if last_candle_time:
-            last_candle_time = datetime.fromisoformat(last_candle_time)
-        message(symbol, f"last_candle_time: {last_candle_time}", "blue")
-        
-        last_candle_cross = saved_state.get('last_candle_cross')
-        message(symbol, f"last_candle_cross: {last_candle_cross}", "blue")
-        
-        last_focus_price = saved_state.get('last_focus_price')
-        message(symbol, f"last_focus_price: {last_focus_price}", "blue")
-        
-        last_focus_stopprice = saved_state.get('last_focus_stopprice')
-        message(symbol, f"last_focus_stopprice: {last_focus_stopprice}", "blue")
-        
-        is_wait_candle = saved_state.get('is_wait_candle', False)
-        message(symbol, f"is_wait_candle: {is_wait_candle}", "blue")
-        
-        is_in_position = saved_state.get('is_in_position', False)
-        message(symbol, f"is_in_position: {is_in_position}", "blue")
-        
-        is_swapping = saved_state.get('is_swapping', False)
-        message(symbol, f"is_swapping: {is_swapping}", "blue")
-        
-        isTry_last_entry = saved_state.get('isTry_last_entry', False)
-        message(symbol, f"isTry_last_entry: {isTry_last_entry}", "blue")
-        
-        entry_candle = saved_state.get('entry_candle')
-        message(symbol, f"entry_candle: {entry_candle}", "blue")
-        
-        entry_price = saved_state.get('entry_price')
-        message(symbol, f"entry_price: {entry_price}", "blue")
-        
-        entry_side = saved_state.get('entry_side')
-        message(symbol, f"entry_side: {entry_side}", "blue")
-        
-        entry_stoploss_price = saved_state.get('entry_stoploss_price')
-        message(symbol, f"entry_stoploss_price: {entry_stoploss_price}", "blue")
-
-        message(symbol, "Saved state loaded successfully", "green")
-    else:
-        message(symbol, "No saved state found. Starting with default values", "yellow")
-        # Initialize variables with default values here
-        global_entry_price = None
-        global_position_entry_time = None
-        global_position_side = None
-
-        last_candle_time = None
-        last_candle_cross = None
-        last_focus_price = None
-        last_focus_stopprice = None
-        is_wait_candle = False
-        is_in_position = False
-        is_swapping = False
-        isTry_last_entry = False
-        entry_candle = None
-        entry_price = None
-        entry_side = None
-        entry_stoploss_price = None
-    
-    exchange = await create_future_exchange(api_key, api_secret)
-
-    is_in_position = await check_position(api_key, api_secret, symbol)
-
-    while True:
-        try:
-            
-            price = await get_future_market_price(api_key, api_secret, symbol)
-            # เมื่อเข้า position ใหม่ (ทั้งปกติและ swap)
-            if await check_position(api_key, api_secret, symbol):
-                if global_entry_price is None:
-                    global_entry_price = price
-                    global_position_entry_time = datetime.now(pytz.UTC)
-                    global_position_side = await get_position_side(api_key, api_secret, symbol)
-                    #message(symbol, f"บันทึกราคาเข้า {global_position_side}: {global_entry_price:.2f}", "blue")
-            
-            if price is None:
-                message(symbol, "ไม่สามารถดึงราคาตลาดได้ ข้ามรอบนี้", "yellow")
-                await asyncio.sleep(1)
-                continue
-
-            if is_wait_candle:
-                side = await get_position_side(api_key, api_secret, symbol)
-                if side == 'buy':
-                    if price > last_candle_cross['candle']['high'] * PRICE_INCREASE:
-                        new_stoploss = last_candle_cross['candle']['low'] * PRICE_DECREASE
-                        await change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss)
-                        message(symbol, f"ปรับ Stop Loss เป็น {new_stoploss:.8f}", "cyan")
-                        is_wait_candle = False
-                elif side == 'sell':
-                    if price < last_candle_cross['candle']['low'] * PRICE_DECREASE:
-                        new_stoploss = last_candle_cross['candle']['high'] * PRICE_INCREASE
-                        await change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss)
-                        message(symbol, f"ปรับ Stop Loss เป็น {new_stoploss:.8f}", "cyan")
-                        is_wait_candle = False
-
-            if isTry_last_entry:
-                current_time = datetime.now(pytz.UTC)
-                if last_candle_cross and 'candle' in last_candle_cross and 'time' in last_candle_cross['candle']:
-                    last_cross_time = datetime.strptime(last_candle_cross['candle']['time'], '%d/%m/%Y %H:%M').replace(tzinfo=pytz.UTC)
-                    time_difference = current_time - last_cross_time
-                    candles_passed = time_difference.total_seconds() / (timeframe_to_seconds(timeframe))
-
-                    ohlcv = await exchange.fetch_ohlcv(symbol, timeframe, since=int(last_cross_time.timestamp() * 1000))
-                    
-                    if ohlcv:
-                        if last_candle_cross['type'] == 'crossunder':
-                            lowest_price = min(candle[3] for candle in ohlcv)  # Find lowest low
-                            reference_price = last_candle_cross['candle'].get('low')
-                            if reference_price is not None:
-                                price_change_percent = (lowest_price - reference_price) / reference_price * 100
-                            else:
-                                message(symbol, "ไม่พบราคาอ้างอิง (ต่ำสุด) ข้ามการคำนวณการเปลี่ยนแปลงราคา", "yellow")
-                                continue
-                        else:  # crossover
-                            highest_price = max(candle[2] for candle in ohlcv)  # Find highest high
-                            reference_price = last_candle_cross['candle'].get('high')
-                            if reference_price is not None:
-                                price_change_percent = (highest_price - reference_price) / reference_price * 100
-                            else:
-                                message(symbol, "ไม่พบราคาอ้างอิง (สูงสุด) ข้ามการคำนวณการเปลี่ยนแปลงราคา", "yellow")
-                                continue
-
-                        if candles_passed <= 5 and abs(price_change_percent) < PRICE_CHANGE_MAXPERCENT:
-                            closed_position_amount = await get_amount_of_closed_position(api_key, api_secret, symbol)
-                            if closed_position_amount is not None:
-                                if last_candle_cross['type'] == 'crossover':
-                                    if price > last_candle_cross['candle'].get('low', 0) * PRICE_DECREASE and price < (last_candle_cross['candle'].get('high', 0) * PRICE_INCREASE) * 1.02:
-                                        await create_order(api_key, api_secret, symbol=symbol, side='buy', price='now', quantity=abs(closed_position_amount), order_type='market')
-                                        await create_order(api_key, api_secret, symbol=symbol, side='sell', price=str(last_candle_cross['candle'].get('low', 0) * PRICE_DECREASE), quantity='MAX', order_type='STOPLOSS_MARKET')
-                                        isTry_last_entry = False
-                                        message(symbol, "เข้า Long ตามสัญญาณ Crossover สำเร็จ", "green")
-                                else:
-                                    if price < last_candle_cross['candle'].get('high', 0) * PRICE_INCREASE and price > (last_candle_cross['candle'].get('low', 0) * PRICE_DECREASE) * 1.02:
-                                        await create_order(api_key, api_secret, symbol=symbol, side='sell', price='now', quantity=abs(closed_position_amount), order_type='market')
-                                        await create_order(api_key, api_secret, symbol=symbol, side='buy', price=str(last_candle_cross['candle'].get('high', 0) * PRICE_INCREASE), quantity='MAX', order_type='STOPLOSS_MARKET')
-                                        isTry_last_entry = False
-                                        message(symbol, "เข้า Short ตามสัญญาณ Crossunder สำเร็จ", "green")
-                            else:
-                                message(symbol, "ไม่สามารถดึงข้อมูลปริมาณ position ที่ปิดได้ ข้ามการสร้างคำสั่งซื้อขาย", "yellow")
-                    else:
-                        message(symbol, "ไม่มีข้อมูล OHLCV ข้ามรอบนี้", "yellow")
-                        isTry_last_entry = False
-                else:
-                    message(symbol, "ข้อมูล last_candle_cross ไม่ถูกต้อง ข้ามรอบนี้", "yellow")
-                    isTry_last_entry = False
-
-            if is_in_position and not is_swapping and not await check_position(api_key, api_secret, symbol):
-                #message(symbol, f'is_in_position: {is_in_position} | is_swapping: {is_swapping} | check_position {check_position(api_key, api_secret, symbol)}', "yellow")
-                await clear_all_orders(api_key, api_secret, symbol)
-                message(symbol, 'position ถูกปิดแล้ว!', "magenta")
-                
-                # บันทึกการออกจาก position
-                exit_price = await get_future_market_price(api_key, api_secret, symbol)
-                if global_entry_price is not None:
-                    await record_trade(api_key, api_secret, symbol, 
-                                    'SELL' if global_position_side == 'buy' else 'BUY',
-                                    global_entry_price, exit_price, ENTRY_AMOUNT, 
-                                    'Position Closed')
-                # รีเซ็ตข้อมูล
-                global_entry_price = None
-                global_position_entry_time = None
-                global_position_side = None
-                is_in_position = False
-                
-                if is_wait_candle:
-                    closed_position_amount = await get_amount_of_closed_position(api_key, api_secret, symbol)
-                    closed_position_side = await get_closed_position_side(api_key, api_secret, symbol)
-                    
-                    if closed_position_side == 'buy':
-                        new_entry_side = 'sell'
-                        new_entry_price = price
-                        new_stoploss_price = last_candle_cross['candle']['high'] * PRICE_INCREASE
-                    else:
-                        new_entry_side = 'buy'
-                        new_entry_price = price
-                        new_stoploss_price = last_candle_cross['candle']['low'] * PRICE_DECREASE
-
-                    await create_order(api_key, api_secret, symbol=symbol, side=new_entry_side, price='now', quantity=abs(closed_position_amount), order_type='market')
-                    await create_order(api_key, api_secret, symbol=symbol, side=('sell' if new_entry_side=='buy' else 'buy'), price=str(new_stoploss_price), quantity='MAX', order_type='STOPLOSS_MARKET')
-                    
-                    message(symbol, f"เข้า position {new_entry_side} ตรงข้ามสำเร็จ ขนาด: {abs(closed_position_amount):.8f}, Stoploss: {new_stoploss_price:.8f}", "green")
-                   
-                    is_in_position = True
-                    is_wait_candle = False
-                else:
-                    isTry_last_entry = True
-            
-            if last_focus_price is not None:
-                side = await get_position_side(api_key, api_secret, symbol)
-                # ในส่วนของการ swap position (ทั้ง buy และ sell side)
-                if side == 'buy':
-                    if price < last_focus_price * PRICE_DECREASE:
-                        is_swapping = True
-                        old_entry_price = global_entry_price
-                        old_side = global_position_side
-                        
-                        await swap_position_side(api_key, api_secret, symbol)
-                        await clear_all_orders(api_key, api_secret, symbol)
-                        await create_order(api_key, api_secret, symbol=symbol, side='buy',
-                                        price=str(last_candle_cross['candle']['high'] * PRICE_INCREASE),
-                                        quantity='MAX', order_type='STOPLOSS_MARKET')
-                        message(symbol, f"สลับ position จาก {side}", "magenta")
-                        
-                        # บันทึกการออกจาก position
-                        exit_price = await get_future_market_price(api_key, api_secret, symbol)
-                        if global_entry_price is not None:
-                            await record_trade(api_key, api_secret, symbol, 
-                                            'SELL' if global_position_side == 'buy' else 'BUY',
-                                            global_entry_price, exit_price, ENTRY_AMOUNT, 
-                                            'Position Closed / Swapped to Short!')
-                            
-                        # อัพเดทข้อมูล position ใหม่
-                        global_entry_price = price
-                        global_position_entry_time = datetime.now(pytz.UTC)
-                        global_position_side = 'sell'
-
-                        # รีเซ็ต entry_candle เพื่อเริ่มนับใหม่
-                        entry_candle = await get_current_candle(api_key, api_secret, symbol, timeframe)
-                        message(symbol, "รีเซ็ตการนับแท่งเทียนใหม่หลัง swap", "blue")
-
-                        is_swapping = False
-                        last_focus_price = None
-                        entry_stoploss_price = None
-
-                elif side == 'sell':
-                    if price > last_focus_price * PRICE_INCREASE:
-                        is_swapping = True
-                        old_entry_price = global_entry_price
-                        old_side = global_position_side
-                        
-                        await swap_position_side(api_key, api_secret, symbol)
-                        await clear_all_orders(api_key, api_secret, symbol)
-                        await create_order(api_key, api_secret, symbol=symbol, side='sell',
-                                        price=str(last_candle_cross['candle']['low'] * PRICE_DECREASE),
-                                        quantity='MAX', order_type='STOPLOSS_MARKET')
-                        message(symbol, f"สลับ position จาก {side}", "magenta")
-                        
-                        # บันทึกการออกจาก position
-                        exit_price = await get_future_market_price(api_key, api_secret, symbol)
-                        if global_entry_price is not None:
-                            await record_trade(api_key, api_secret, symbol, 
-                                            'SELL' if global_position_side == 'buy' else 'BUY',
-                                            global_entry_price, exit_price, ENTRY_AMOUNT, 
-                                            'Position Closed / Swapped to Long!')
-                            
-                        # อัพเดทข้อมูล position ใหม่
-                        global_entry_price = price
-                        global_position_entry_time = datetime.now(pytz.UTC)
-                        global_position_side = 'buy'
-
-                        # รีเซ็ต entry_candle เพื่อเริ่มนับใหม่
-                        entry_candle = await get_current_candle(api_key, api_secret, symbol, timeframe)
-                        message(symbol, "รีเซ็ตการนับแท่งเทียนใหม่หลัง swap", "blue")
-                        
-                        is_swapping = False
-                        last_focus_price = None
-                        entry_stoploss_price = None
-            
-            if entry_price is not None:
-                if entry_side == 'buy':
-                    if price > entry_price * PRICE_INCREASE:
-                        await create_order(api_key, api_secret, symbol=symbol, side=entry_side, price='now', quantity=ENTRY_AMOUNT, order_type='market')
-                        await create_order(api_key, api_secret, symbol=symbol, side='sell', price=str(entry_stoploss_price * PRICE_DECREASE), quantity='MAX', order_type='STOPLOSS_MARKET')
-                        message(symbol, 'เข้า Long position สำเร็จ', "green")
-                        
-                        is_in_position = True
-                        entry_candle = await get_current_candle(api_key, api_secret, symbol, timeframe)
-                        entry_price = None
-                        entry_stoploss_price = None
-                        entry_side = None
-                    elif price < entry_stoploss_price * PRICE_DECREASE:
-                        message(symbol, 'ยกเลิก Long entry', "yellow")
-                        entry_price = None
-                        entry_stoploss_price = None
-                        entry_side = None
-                    else:
-                        message(symbol, f'รอราคาทะลุ {entry_price:.8f} เพื่อ Long', "blue")
-                elif entry_side == 'sell':
-                    if price < entry_price * PRICE_DECREASE:
-                        await create_order(api_key, api_secret, symbol=symbol, side=entry_side, price='now', quantity=ENTRY_AMOUNT, order_type='market')
-                        await create_order(api_key, api_secret, symbol=symbol, side='buy', price=str(entry_stoploss_price * PRICE_INCREASE), quantity='MAX', order_type='STOPLOSS_MARKET')
-                        message(symbol, 'เข้า Short position สำเร็จ', "green")
-                        
-                        is_in_position = True
-                        entry_candle = await get_current_candle(api_key, api_secret, symbol, timeframe)
-                        entry_price = None
-                        entry_stoploss_price = None
-                        entry_side = None
-                    elif price > entry_stoploss_price * PRICE_INCREASE:
-                        message(symbol, 'ยกเลิก Short entry', "yellow")
-                        entry_price = None
-                        entry_stoploss_price = None
-                        entry_side = None
-                    else:
-                        message(symbol, f'รอราคาทะลุ {entry_price:.8f} เพื่อ Short', "blue")
-
-            ohlcv = await exchange.fetch_ohlcv(symbol, timeframe, limit=1)
-            
-            if ohlcv and len(ohlcv) > 0:
-                current_candle_time = datetime.fromtimestamp(ohlcv[0][0] / 1000, tz=pytz.UTC)
-                
-                # Check for new candle
-                if last_candle_time is None or current_candle_time > last_candle_time:
-                    last_candle_time = current_candle_time
-                    side = await get_position_side(api_key, api_secret, symbol)
-
-                    if is_in_position and last_candle_cross:
-                        current_candle = await get_current_candle(api_key, api_secret, symbol, timeframe)
-                        if current_candle:
-                            position_side = await get_position_side(api_key, api_secret, symbol)
-                            if position_side:
-                                current_stoploss = await get_current_stoploss(api_key, api_secret, symbol)
-                                new_stoploss = await adjust_stoploss(api_key, api_secret, symbol, timeframe, position_side, entry_candle['timestamp'], current_stoploss)
-                                """if new_stoploss:
-                                    message(symbol, f"ปรับ Stoploss เป็น {new_stoploss:.8f} (Three Candle Rule)", "cyan")"""
-                            else:
-                                message(symbol, "ไม่สามารถดึงข้อมูลด้านของ position ข้ามการปรับ Stoploss", "yellow")
-                        else:
-                            message(symbol, "ไม่สามารถดึงข้อมูลแท่งเทียนปัจจุบัน ข้ามการปรับ Stoploss", "yellow")
-                    
-                    if is_wait_candle and side is not None:
-                        is_wait_candle = False
-                        if last_candle_cross and 'candle' in last_candle_cross:
-                            last_focus_price = min(last_candle_cross['candle'].get('low', 0), ohlcv[0][3]) if side == 'buy' else max(last_candle_cross['candle'].get('high', 0), ohlcv[0][2])
-                            last_focus_stopprice = max(last_candle_cross['candle'].get('high', 0), ohlcv[0][2]) if side == 'buy' else min(last_candle_cross['candle'].get('low', 0), ohlcv[0][3])
-                            message(symbol, 'ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss', "yellow")
-
-                    # Check for RSI cross
-                    isRsiCross = await get_rsi_cross_last_candle(api_key, api_secret, symbol, timeframe, 7, 32, 68)
-                    if isRsiCross and 'status' in isRsiCross:
-                        if isRsiCross.get('type') is not None:
-                            message(symbol, f"ผลการตรวจสอบ RSI Cross: {isRsiCross.get('type')}", "blue")
-                        
-                        if isRsiCross['status']:
-                            if (isRsiCross['type'] == 'crossunder') or (isRsiCross['type'] == 'crossover'):
-                                last_candle_cross = isRsiCross
-                            if is_in_position and side is not None:
-                                #message(symbol, f"ทิศทางปัจจุบัน = {side} // ประเภท RSI Cross = {isRsiCross['type']}", "blue")
-                                if (side == 'buy' and isRsiCross['type'] == 'crossunder') or (side == 'sell' and isRsiCross['type'] == 'crossover'):
-                                    last_candle_cross = isRsiCross
-                                    last_focus_price = None
-                                    last_focus_stopprice = None
-                                    is_wait_candle = True
-                                    message(symbol, f'พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!', "yellow")
-                                else:
-                                    if last_focus_price is not None:
-                                        try:
-                                            await clear_all_orders(api_key, api_secret, symbol)
-                                            # สร้างคำสั่ง stop loss ใหม่
-                                            await change_stoploss_to_price(api_key, api_secret, symbol, last_focus_price)
-                                            message(symbol, f"ปรับ Stop Loss เป็น {last_focus_price:.8f}", "cyan")
-                                        except Exception as e:
-                                            message(symbol, f"เกิดข้อผิดพลาดในการเปลี่ยน stop loss: {str(e)}", "red")
-                                        finally:
-                                            last_focus_price = None
-                                    else:
-                                        message(symbol, "ไม่สามารถปรับ Stop Loss เนื่องจากไม่พบค่า last_focus_price", "yellow")
-                                    
-                            elif not is_in_position:
-                                await clear_all_orders(api_key, api_secret, symbol)
-                                if 'candle' in isRsiCross:
-                                    entry_price = isRsiCross['candle'].get('high') if isRsiCross['type'] == 'crossover' else isRsiCross['candle'].get('low')
-                                    entry_stoploss_price = isRsiCross['candle'].get('low') if isRsiCross['type'] == 'crossover' else isRsiCross['candle'].get('high')
-                                    entry_side = 'buy' if isRsiCross['type'] == 'crossover' else 'sell'
-                                    message(symbol, f"ตั้งค่าการเข้า position : {entry_side} ที่ราคา {entry_price:.8f}, Stoploss ที่ {entry_stoploss_price:.8f}", "blue")
-                    else:
-                        message(symbol, "ข้อมูล RSI Cross ไม่ถูกต้อง ข้ามรอบนี้", "yellow")
-            
-            # บันทึกสถานะหลังจากการทำงานในแต่ละรอบ
-            current_state = {
-                'global_entry_price': global_entry_price,
-                'global_position_entry_time': global_position_entry_time.isoformat() if global_position_entry_time else None,
-                'global_position_side': global_position_side,
-                'last_candle_time': last_candle_time.isoformat() if last_candle_time else None,
-                'last_candle_cross': last_candle_cross,
-                'last_focus_price': last_focus_price,
-                'last_focus_stopprice': last_focus_stopprice,
-                'is_wait_candle': is_wait_candle,
-                'is_in_position': is_in_position,
-                'is_swapping': is_swapping,
-                'isTry_last_entry': isTry_last_entry,
-                'entry_candle': entry_candle,
-                'entry_price': entry_price,
-                'entry_side': entry_side,
-                'entry_stoploss_price': entry_stoploss_price
-            }
-            save_state(current_state)
-            await asyncio.sleep(1)  # ปรับตามความเหมาะสม
-
-        except Exception as e:
-            error_traceback = traceback.format_exc()
-            message(symbol, f"เกิดข้อผิดพลาด: {str(e)}", "red")
-            message(symbol, "________________________________", "red")
-            print(f"Error: {error_traceback}")
-            message(symbol, "________________________________", "red")
-            await asyncio.sleep(1)  # รอก่อนที่จะลองใหม่
 
 async def get_current_stoploss(api_key, api_secret, symbol):
     exchange = await create_future_exchange(api_key, api_secret)
@@ -646,13 +312,15 @@ async def get_current_stoploss(api_key, api_secret, symbol):
         error_traceback = traceback.format_exc()
         message(symbol, f"เกิดข้อผิดพลาดในการดึงค่า stoploss ปัจจุบัน: {str(e)}", "red")
         message(symbol, "________________________________", "red")
-        print(f"Error: {error_traceback}")
+        message(symbol, f"Error: {error_traceback}", "red")
         message(symbol, "________________________________", "red")
         return None
     finally:
         await exchange.close()
 
-async def adjust_stoploss(api_key, api_secret, symbol, timeframe, position_side, cross_timestamp, current_stoploss=None):
+async def adjust_stoploss(api_key, api_secret, symbol, state, position_side, cross_timestamp, current_stoploss=None):
+    # ใช้ state.config.timeframe แทน timeframe parameter
+    timeframe = state.config.timeframe
     exchange = None
     try:
         exchange = await create_future_exchange(api_key, api_secret)
@@ -733,7 +401,7 @@ async def adjust_stoploss(api_key, api_secret, symbol, timeframe, position_side,
         error_traceback = traceback.format_exc()
         message(symbol,f"เกิดข้อผิดพลาดขณะปรับ stoploss: {str(e)}", "yellow")
         message(symbol, "________________________________", "red")
-        print(f"Error: {error_traceback}")
+        message(symbol, f"Error: {error_traceback}", "red")
         message(symbol, "________________________________", "red")
         return None
     finally:
@@ -781,38 +449,413 @@ async def get_current_candle(api_key, api_secret, symbol, timeframe):
         error_traceback = traceback.format_exc()
         message(symbol, f"เกิดข้อผิดพลาดขณะดึงข้อมูลแท่งเทียนปัจจุบัน: {str(e)}", "red")
         message(symbol, "________________________________", "red")
-        print(f"Error: {error_traceback}")
+        message(symbol, f"Error: {error_traceback}", "red")
         message(symbol, "________________________________", "red")
     return None
 
-async def main():
-    exchange = None
+async def run_symbol_bot(api_key: str, api_secret: str, symbol: str, state: SymbolState):
+    """ฟังก์ชันหลักสำหรับการเทรดของแต่ละเหรียญ รวมฟังก์ชัน check_new_candle_and_rsi เข้าด้วย"""
     try:
-        await check_new_candle_and_rsi(api_key, api_secret, SYMBOL, TIMEFRAME)
-    except Exception as e:
-        error_traceback = traceback.format_exc()
-        message(SYMBOL,f"เกิดข้อผิดพลาดใน main: {str(e)}", "yellow")
-        message(SYMBOL, "________________________________", "red")
-        print(f"Error: {error_traceback}")
-        message(SYMBOL, "________________________________", "red")
-    finally:
-        # Close all pending connections
-        await asyncio.gather(*[task for task in asyncio.all_tasks() 
-                             if task is not asyncio.current_task()],
-                           return_exceptions=True)
+        message(symbol, f"เริ่มต้นบอทสำหรับ {symbol} (Timeframe: {state.config.timeframe})", "cyan")
+        
+        # โหลดสถานะที่บันทึกไว้
+        state.load_state()
+        exchange = await create_future_exchange(api_key, api_secret)
+        state.is_in_position = await check_position(api_key, api_secret, symbol)
+        
+        while True:
+            try:
+                price = await get_future_market_price(api_key, api_secret, symbol)
+                
+                # เมื่อเข้า position ใหม่ (ทั้งปกติและ swap)
+                if await check_position(api_key, api_secret, symbol):
+                    if state.global_entry_price is None:
+                        state.global_entry_price = price
+                        state.global_position_entry_time = datetime.now(pytz.UTC)
+                        state.global_position_side = await get_position_side(api_key, api_secret, symbol)
+                
+                if price is None:
+                    message(symbol, "ไม่สามารถดึงราคาตลาดได้ ข้ามรอบนี้", "yellow")
+                    await asyncio.sleep(1)
+                    continue
 
-# Entry point
+                # ตรวจสอบและปรับ stoploss เมื่อราคาเคลื่อนที่ตามที่คาดหวัง
+                if state.is_wait_candle:
+                    side = await get_position_side(api_key, api_secret, symbol)
+                    if side == 'buy':
+                        if price > state.last_candle_cross['candle']['high'] * PRICE_INCREASE:
+                            new_stoploss = state.last_candle_cross['candle']['low'] * PRICE_DECREASE
+                            await change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss)
+                            message(symbol, f"ปรับ Stop Loss เป็น {new_stoploss:.8f}", "cyan")
+                            state.is_wait_candle = False
+                    elif side == 'sell':
+                        if price < state.last_candle_cross['candle']['low'] * PRICE_DECREASE:
+                            new_stoploss = state.last_candle_cross['candle']['high'] * PRICE_INCREASE
+                            await change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss)
+                            message(symbol, f"ปรับ Stop Loss เป็น {new_stoploss:.8f}", "cyan")
+                            state.is_wait_candle = False
+
+                # ตรวจสอบการเข้าซื้อใหม่หลังจาก stop loss
+                if state.isTry_last_entry:
+                    current_time = datetime.now(pytz.UTC)
+                    if state.last_candle_cross and 'candle' in state.last_candle_cross and 'time' in state.last_candle_cross['candle']:
+                        last_cross_time = datetime.strptime(state.last_candle_cross['candle']['time'], '%d/%m/%Y %H:%M').replace(tzinfo=pytz.UTC)
+                        time_difference = current_time - last_cross_time
+                        candles_passed = time_difference.total_seconds() / (timeframe_to_seconds(state.config.timeframe))
+
+                        ohlcv = await exchange.fetch_ohlcv(symbol, state.config.timeframe, since=int(last_cross_time.timestamp() * 1000))
+                        
+                        if ohlcv:
+                            if state.last_candle_cross['type'] == 'crossunder':
+                                lowest_price = min(candle[3] for candle in ohlcv)  # Find lowest low
+                                reference_price = state.last_candle_cross['candle'].get('low')
+                                if reference_price is not None:
+                                    price_change_percent = (lowest_price - reference_price) / reference_price * 100
+                                else:
+                                    message(symbol, "ไม่พบราคาอ้างอิง (ต่ำสุด) ข้ามการคำนวณการเปลี่ยนแปลงราคา", "yellow")
+                                    continue
+                            else:  # crossover
+                                highest_price = max(candle[2] for candle in ohlcv)  # Find highest high
+                                reference_price = state.last_candle_cross['candle'].get('high')
+                                if reference_price is not None:
+                                    price_change_percent = (highest_price - reference_price) / reference_price * 100
+                                else:
+                                    message(symbol, "ไม่พบราคาอ้างอิง (สูงสุด) ข้ามการคำนวณการเปลี่ยนแปลงราคา", "yellow")
+                                    continue
+
+                            if candles_passed <= 5 and abs(price_change_percent) < PRICE_CHANGE_MAXPERCENT:
+                                closed_position_amount = await get_amount_of_closed_position(api_key, api_secret, symbol)
+                                if closed_position_amount is not None:
+                                    if state.last_candle_cross['type'] == 'crossover':
+                                        if price > state.last_candle_cross['candle'].get('low', 0) * PRICE_DECREASE and price < (state.last_candle_cross['candle'].get('high', 0) * PRICE_INCREASE) * 1.02:
+                                            await create_order(api_key, api_secret, symbol=symbol, side='buy', price='now', quantity=abs(closed_position_amount), order_type='market')
+                                            await create_order(api_key, api_secret, symbol=symbol, side='sell', price=str(state.last_candle_cross['candle'].get('low', 0) * PRICE_DECREASE), quantity='MAX', order_type='STOPLOSS_MARKET')
+                                            state.isTry_last_entry = False
+                                            message(symbol, "เข้า Long ตามสัญญาณ Crossover สำเร็จ", "green")
+                                    else:
+                                        if price < state.last_candle_cross['candle'].get('high', 0) * PRICE_INCREASE and price > (state.last_candle_cross['candle'].get('low', 0) * PRICE_DECREASE) * 1.02:
+                                            await create_order(api_key, api_secret, symbol=symbol, side='sell', price='now', quantity=abs(closed_position_amount), order_type='market')
+                                            await create_order(api_key, api_secret, symbol=symbol, side='buy', price=str(state.last_candle_cross['candle'].get('high', 0) * PRICE_INCREASE), quantity='MAX', order_type='STOPLOSS_MARKET')
+                                            state.isTry_last_entry = False
+                                            message(symbol, "เข้า Short ตามสัญญาณ Crossunder สำเร็จ", "green")
+                                else:
+                                    message(symbol, "ไม่สามารถดึงข้อมูลปริมาณ position ที่ปิดได้ ข้ามการสร้างคำสั่งซื้อขาย", "yellow")
+                        else:
+                            message(symbol, "ไม่มีข้อมูล OHLCV ข้ามรอบนี้", "yellow")
+                            state.isTry_last_entry = False
+                    else:
+                        message(symbol, "ข้อมูล last_candle_cross ไม่ถูกต้อง ข้ามรอบนี้", "yellow")
+                        state.isTry_last_entry = False
+
+                # ตรวจสอบการปิด position และดำเนินการต่อ
+                if state.is_in_position and not state.is_swapping and not await check_position(api_key, api_secret, symbol):
+                    await clear_all_orders(api_key, api_secret, symbol)
+                    message(symbol, 'position ถูกปิดแล้ว!', "magenta")
+                    
+                    # บันทึกการออกจาก position
+                    exit_price = await get_future_market_price(api_key, api_secret, symbol)
+                    if state.global_entry_price is not None:
+                        await record_trade(api_key, api_secret, symbol, 
+                                        'BUY' if state.global_position_side == 'buy' else 'SELL',
+                                        state.global_entry_price, exit_price, state.config.entry_amount, 
+                                        'Position Closed', state)
+                    # รีเซ็ตข้อมูล
+                    state.global_entry_price = None
+                    state.global_position_entry_time = None
+                    state.global_position_side = None
+                    state.is_in_position = False
+                    
+                    if state.is_wait_candle:
+                        closed_position_amount = await get_amount_of_closed_position(api_key, api_secret, symbol)
+                        closed_position_side = await get_closed_position_side(api_key, api_secret, symbol)
+                        
+                        if closed_position_side == 'buy':
+                            new_entry_side = 'sell'
+                            new_entry_price = price
+                            new_stoploss_price = state.last_candle_cross['candle']['high'] * PRICE_INCREASE
+                        else:
+                            new_entry_side = 'buy'
+                            new_entry_price = price
+                            new_stoploss_price = state.last_candle_cross['candle']['low'] * PRICE_DECREASE
+
+                        await create_order(api_key, api_secret, symbol=symbol, side=new_entry_side, price='now', quantity=abs(closed_position_amount), order_type='market')
+                        await create_order(api_key, api_secret, symbol=symbol, side=('sell' if new_entry_side=='buy' else 'buy'), price=str(new_stoploss_price), quantity='MAX', order_type='STOPLOSS_MARKET')
+                        
+                        message(symbol, f"เข้า position {new_entry_side} ตรงข้ามสำเร็จ ขนาด: {abs(closed_position_amount):.8f}, Stoploss: {new_stoploss_price:.8f}", "green")
+                       
+                        state.is_in_position = True
+                        state.is_wait_candle = False
+                    else:
+                        state.isTry_last_entry = True
+
+                # ตรวจสอบเงื่อนไขการ swap position
+                if state.last_focus_price is not None:
+                    side = await get_position_side(api_key, api_secret, symbol)
+                    if side == 'buy':
+                        if price < state.last_focus_price * PRICE_DECREASE:
+                            state.is_swapping = True
+                            old_entry_price = state.global_entry_price
+                            old_side = state.global_position_side
+                            
+                            await swap_position_side(api_key, api_secret, symbol)
+                            await clear_all_orders(api_key, api_secret, symbol)
+                            await create_order(api_key, api_secret, symbol=symbol, side='buy',
+                                            price=str(state.last_candle_cross['candle']['high'] * PRICE_INCREASE),
+                                            quantity='MAX', order_type='STOPLOSS_MARKET')
+                            message(symbol, f"สลับ position จาก {side}", "magenta")
+                            
+                            # บันทึกการออกจาก position
+                            exit_price = await get_future_market_price(api_key, api_secret, symbol)
+                            if state.global_entry_price is not None:
+                                await record_trade(api_key, api_secret, symbol, 
+                                                'BUY' if state.global_position_side == 'buy' else 'SELL',
+                                                state.global_entry_price, exit_price, state.config.entry_amount, 
+                                                'Position Closed / Swapped to Short!', state)
+                                
+                            # อัพเดทข้อมูล position ใหม่
+                            state.global_entry_price = price
+                            state.global_position_entry_time = datetime.now(pytz.UTC)
+                            state.global_position_side = 'sell'
+
+                            # รีเซ็ต entry_candle เพื่อเริ่มนับใหม่
+                            state.entry_candle = await get_current_candle(api_key, api_secret, symbol, state.config.timeframe)
+                            message(symbol, "รีเซ็ตการนับแท่งเทียนใหม่หลัง swap", "blue")
+
+                            state.is_swapping = False
+                            state.last_focus_price = None
+                            state.entry_stoploss_price = None
+
+                    elif side == 'sell':
+                        if price > state.last_focus_price * PRICE_INCREASE:
+                            state.is_swapping = True
+                            old_entry_price = state.global_entry_price
+                            old_side = state.global_position_side
+                            
+                            await swap_position_side(api_key, api_secret, symbol)
+                            await clear_all_orders(api_key, api_secret, symbol)
+                            await create_order(api_key, api_secret, symbol=symbol, side='sell',
+                                            price=str(state.last_candle_cross['candle']['low'] * PRICE_DECREASE),
+                                            quantity='MAX', order_type='STOPLOSS_MARKET')
+                            message(symbol, f"สลับ position จาก {side}", "magenta")
+                            
+                            # บันทึกการออกจาก position
+                            exit_price = await get_future_market_price(api_key, api_secret, symbol)
+                            if state.global_entry_price is not None:
+                                await record_trade(api_key, api_secret, symbol, 
+                                    'BUY' if state.global_position_side == 'buy' else 'SELL',
+                                    state.global_entry_price, exit_price, state.config.entry_amount, 
+                                    'Position Closed / Swapped to Long!', state)
+                            
+                            # อัพเดทข้อมูล position ใหม่
+                            state.global_entry_price = price
+                            state.global_position_entry_time = datetime.now(pytz.UTC)
+                            state.global_position_side = 'buy'
+
+                            # รีเซ็ต entry_candle เพื่อเริ่มนับใหม่
+                            state.entry_candle = await get_current_candle(api_key, api_secret, symbol, state.config.timeframe)
+                            message(symbol, "รีเซ็ตการนับแท่งเทียนใหม่หลัง swap", "blue")
+                            
+                            state.is_swapping = False
+                            state.last_focus_price = None
+                            state.entry_stoploss_price = None
+                
+                # ตรวจสอบการเข้า position ใหม่
+                if state.entry_price is not None:
+                    if state.entry_side == 'buy':
+                        if price > state.entry_price * PRICE_INCREASE:
+                            await create_order(api_key, api_secret, symbol=symbol, side=state.entry_side, price='now', quantity=state.config.entry_amount, order_type='market')
+                            await create_order(api_key, api_secret, symbol=symbol, side='sell', price=str(state.entry_stoploss_price * PRICE_DECREASE), quantity='MAX', order_type='STOPLOSS_MARKET')
+                            message(symbol, 'เข้า Long position สำเร็จ', "green")
+                            
+                            state.is_in_position = True
+                            state.entry_candle = await get_current_candle(api_key, api_secret, symbol, state.config.timeframe)
+                            state.entry_price = None
+                            state.entry_stoploss_price = None
+                            state.entry_side = None
+                        elif price < state.entry_stoploss_price * PRICE_DECREASE:
+                            message(symbol, 'ยกเลิก Long entry', "yellow")
+                            state.entry_price = None
+                            state.entry_stoploss_price = None
+                            state.entry_side = None
+                        else:
+                            message(symbol, f'รอราคาทะลุ {state.entry_price:.8f} เพื่อ Long', "blue")
+                    elif state.entry_side == 'sell':
+                        if price < state.entry_price * PRICE_DECREASE:
+                            await create_order(api_key, api_secret, symbol=symbol, side=state.entry_side, price='now', quantity=state.config.entry_amount, order_type='market')
+                            await create_order(api_key, api_secret, symbol=symbol, side='buy', price=str(state.entry_stoploss_price * PRICE_INCREASE), quantity='MAX', order_type='STOPLOSS_MARKET')
+                            message(symbol, 'เข้า Short position สำเร็จ', "green")
+                            
+                            state.is_in_position = True
+                            state.entry_candle = await get_current_candle(api_key, api_secret, symbol, state.config.timeframe)
+                            state.entry_price = None
+                            state.entry_stoploss_price = None
+                            state.entry_side = None
+                        elif price > state.entry_stoploss_price * PRICE_INCREASE:
+                            message(symbol, 'ยกเลิก Short entry', "yellow")
+                            state.entry_price = None
+                            state.entry_stoploss_price = None
+                            state.entry_side = None
+                        else:
+                            message(symbol, f'รอราคาทะลุ {state.entry_price:.8f} เพื่อ Short', "blue")
+
+                # ตรวจสอบแท่งเทียนใหม่และ RSI
+                ohlcv = await exchange.fetch_ohlcv(symbol, state.config.timeframe, limit=1)
+                
+                if ohlcv and len(ohlcv) > 0:
+                    current_candle_time = datetime.fromtimestamp(ohlcv[0][0] / 1000, tz=pytz.UTC)
+                    
+                    # ตรวจสอบแท่งเทียนใหม่
+                    if state.last_candle_time is None or current_candle_time > state.last_candle_time:
+                        state.last_candle_time = current_candle_time
+                        side = await get_position_side(api_key, api_secret, symbol)
+
+                        if state.is_in_position and state.last_candle_cross:
+                            current_candle = await get_current_candle(api_key, api_secret, symbol, state.config.timeframe)
+                            if current_candle:
+                                position_side = await get_position_side(api_key, api_secret, symbol)
+                                if position_side:
+                                    current_stoploss = await get_current_stoploss(api_key, api_secret, symbol)
+                                    new_stoploss = await adjust_stoploss(api_key, api_secret, symbol, state, position_side, state.entry_candle['timestamp'], current_stoploss)
+                                else:
+                                    message(symbol, "ไม่สามารถดึงข้อมูลด้านของ position ข้ามการปรับ Stoploss", "yellow")
+                            else:
+                                message(symbol, "ไม่สามารถดึงข้อมูลแท่งเทียนปัจจุบัน ข้ามการปรับ Stoploss", "yellow")
+                        
+                        if state.is_wait_candle and side is not None:
+                            state.is_wait_candle = False
+                            if state.last_candle_cross and 'candle' in state.last_candle_cross:
+                                state.last_focus_price = min(state.last_candle_cross['candle'].get('low', 0), ohlcv[0][3]) if side == 'buy' else max(state.last_candle_cross['candle'].get('high', 0), ohlcv[0][2])
+                                state.last_focus_stopprice = max(state.last_candle_cross['candle'].get('high', 0), ohlcv[0][2]) if side == 'buy' else min(state.last_candle_cross['candle'].get('low', 0), ohlcv[0][3])
+                                message(symbol, 'ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss', "yellow")
+
+                        # ตรวจสอบ RSI cross
+                        isRsiCross = await get_rsi_cross_last_candle(
+                            api_key, api_secret, symbol, 
+                            state.config.timeframe,
+                            state.config.rsi_period,
+                            state.config.rsi_oversold,
+                            state.config.rsi_overbought
+                        )
+                        
+                        if isRsiCross and 'status' in isRsiCross:
+                            if isRsiCross.get('type') is not None:
+                                message(symbol, f"ผลการตรวจสอบ RSI Cross: {isRsiCross.get('type')}", "blue")
+                            
+                            if isRsiCross['status']:
+                                if (isRsiCross['type'] == 'crossunder') or (isRsiCross['type'] == 'crossover'):
+                                    state.last_candle_cross = isRsiCross
+                                if state.is_in_position and side is not None:
+                                    if (side == 'buy' and isRsiCross['type'] == 'crossunder') or (side == 'sell' and isRsiCross['type'] == 'crossover'):
+                                        state.last_candle_cross = isRsiCross
+                                        state.last_focus_price = None
+                                        state.last_focus_stopprice = None
+                                        state.is_wait_candle = True
+                                        message(symbol, f'พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!', "yellow")
+                                    else:
+                                        if state.last_focus_price is not None:
+                                            try:
+                                                await clear_all_orders(api_key, api_secret, symbol)
+                                                await change_stoploss_to_price(api_key, api_secret, symbol, state.last_focus_price)
+                                                message(symbol, f"ปรับ Stop Loss เป็น {state.last_focus_price:.8f}", "cyan")
+                                            except Exception as e:
+                                                message(symbol, f"เกิดข้อผิดพลาดในการเปลี่ยน stop loss: {str(e)}", "red")
+                                            finally:
+                                                state.last_focus_price = None
+                                        else:
+                                            message(symbol, "ไม่สามารถปรับ Stop Loss เนื่องจากไม่พบค่า last_focus_price", "yellow")
+                                        
+                                elif not state.is_in_position:
+                                    await clear_all_orders(api_key, api_secret, symbol)
+                                    if 'candle' in isRsiCross:
+                                        state.entry_price = isRsiCross['candle'].get('high') if isRsiCross['type'] == 'crossover' else isRsiCross['candle'].get('low')
+                                        state.entry_stoploss_price = isRsiCross['candle'].get('low') if isRsiCross['type'] == 'crossover' else isRsiCross['candle'].get('high')
+                                        state.entry_side = 'buy' if isRsiCross['type'] == 'crossover' else 'sell'
+                                        message(symbol, f"ตั้งค่าการเข้า position : {state.entry_side} ที่ราคา {state.entry_price:.8f}, Stoploss ที่ {state.entry_stoploss_price:.8f}", "blue")
+                        else:
+                            message(symbol, "ข้อมูล RSI Cross ไม่ถูกต้อง ข้ามรอบนี้", "yellow")
+                
+                # บันทึกสถานะหลังจบรอบ
+                state.save_state()
+                await asyncio.sleep(1)
+                
+            except Exception as e:
+                error_traceback = traceback.format_exc()
+                message(symbol, f"เกิดข้อผิดพลาด: {str(e)}", "red")
+                message(symbol, "________________________________", "red")
+                message(symbol, f"Error: {error_traceback}", "red")
+                message(symbol, "________________________________", "red")
+                await asyncio.sleep(1)
+                
+    except Exception as e:
+        message(symbol, f"เกิดข้อผิดพลาดร้ายแรงใน run_symbol_bot: {str(e)}", "red")
+        raise
+    finally:
+        if exchange:
+            await exchange.close()
+
+async def run_bot_wrapper(api_key: str, api_secret: str, symbol: str, state: SymbolState):
+    """Wrapper function สำหรับรันบอทแต่ละตัว"""
+    while True:
+        try:
+            await run_symbol_bot(api_key, api_secret, symbol, state)
+        except Exception as e:
+            message(symbol, f"เกิดข้อผิดพลาดในการรัน bot {symbol}: {str(e)}", "red")
+            await asyncio.sleep(5)  # รอก่อนรันใหม่
+
+async def run_with_error_handling(coro, symbol, max_retries=5, retry_delay=60):
+    """ฟังก์ชันสำหรับจัดการ error และ retry"""
+    retries = 0
+    while retries < max_retries:
+        try:
+            await coro
+            break
+        except Exception as e:
+            retries += 1
+            message(symbol, f"เกิดข้อผิดพลาด (ครั้งที่ {retries}/{max_retries}): {str(e)}", "red")
+            if retries < max_retries:
+                message(symbol, f"รอ {retry_delay} วินาทีก่อนเริ่มใหม่...", "yellow")
+                await asyncio.sleep(retry_delay)
+            else:
+                message(symbol, "เกินจำนวนครั้งที่ลองใหม่ได้ หยุดการทำงาน", "red")
+                raise
+
+async def main():
+    try:
+        tasks = []
+        symbol_states = {}
+
+        await update_symbol_data(api_key, api_secret)
+        
+        for symbol in TRADING_CONFIG.keys():
+            state = SymbolState(symbol)
+            symbol_states[symbol] = state
+            
+            # สร้าง coroutine โดยตรง
+            coro = run_bot_wrapper(api_key, api_secret, symbol, state)
+            # ส่ง coroutine เข้าไปใน run_with_error_handling
+            task = asyncio.create_task(run_with_error_handling(coro, symbol))
+            tasks.append(task)
+            message(symbol, f"สร้าง task สำหรับ {symbol} (Timeframe: {state.config.timeframe})", "cyan")
+        
+        await asyncio.gather(*tasks)
+        
+    except Exception as e:
+        message("MAIN", f"เกิดข้อผิดพลาดใน main: {str(e)}", "red")
+    finally:
+        for task in tasks:
+            if not task.done():
+                task.cancel()
+        await asyncio.gather(*tasks, return_exceptions=True)
+
 if __name__ == "__main__":
     try:
         loop = asyncio.get_event_loop()
-        loop.run_until_complete(run_with_error_handling(main, SYMBOL))
+        loop.run_until_complete(main())
     except KeyboardInterrupt:
-        message(SYMBOL, "โปรแกรมถูกปิดโดยผู้ใช้", "yellow")
+        message("MAIN", "ปิดโปรแกรมโดยผู้ใช้", "yellow")
     except Exception as e:
-        message(SYMBOL, f"เกิดข้อผิดพลาดที่ไม่สามารถกู้คืนได้: {str(e)}", "red")
+        message("MAIN", f"เกิดข้อผิดพลาดร้ายแรง: {str(e)}", "red")
     finally:
-        # Clean up
-        message(SYMBOL, "กำลังทำความสะอาดและปิดโปรแกรม...", "yellow")
         pending = asyncio.all_tasks(loop=loop)
         loop.run_until_complete(asyncio.gather(*pending, return_exceptions=True))
         loop.close()

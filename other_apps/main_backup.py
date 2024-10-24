@@ -123,7 +123,7 @@ async def main():
     except Exception as e:
         error_traceback = traceback.format_exc()
         message(f"พบข้อผิดพลาด","yellow")
-        print(f"Error: {error_traceback}")
+        message(symbol, f"Error: {error_traceback}", "red")
 
 if __name__ == "__main__":
     asyncio.run(main())

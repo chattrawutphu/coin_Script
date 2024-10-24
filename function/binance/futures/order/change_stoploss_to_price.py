@@ -84,7 +84,7 @@ async def change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss_pri
         error_traceback = traceback.format_exc()
         message(symbol, f"เกิดข้อผิดพลาดในการตั้ง Stop Loss: {str(e)}", "red")
         message(symbol, "________________________________", "red")
-        print(f"Error: {error_traceback}")
+        message(symbol, f"Error: {error_traceback}", "red")
         message(symbol, "________________________________", "red")
         return None
     finally:

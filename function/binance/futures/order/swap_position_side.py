@@ -46,7 +46,7 @@ async def swap_position_side(api_key, api_secret, symbol):
         error_traceback = traceback.format_exc()
         message(symbol, f"เกิดข้อผิดพลาดในการเปลี่ยนตำแหน่ง: {str(e)}", "red")
         message(symbol, "________________________________", "red")
-        print(f"Error: {error_traceback}")
+        message(symbol, f"Error: {error_traceback}", "red")
         message(symbol, "________________________________", "red")
         return None
     finally:

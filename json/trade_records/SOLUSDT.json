@@ -1,0 +1,13 @@
+[
+  {
+    "timestamp": "2024-10-23T23:19:56.837483",
+    "symbol": "SOLUSDT",
+    "action": "SELL",
+    "entry_price": 167.18,
+    "exit_price": 167.2,
+    "amount": 0.1494947078873408,
+    "profit_loss": -0.0029898941577440963,
+    "profit_loss_percentage": -0.011963153487248359,
+    "reason": "Position Closed"
+  }
+]

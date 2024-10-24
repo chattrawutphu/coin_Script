@@ -15,6 +15,6 @@ async def get_future_available_balance(api_key, api_secret):
     
     except Exception as e:
         error_traceback = traceback.format_exc()
-        message("พบข้อผิดพลาด", "yellow")
-        print(f"Error: {error_traceback}")
+        message('MAIN',"พบข้อผิดพลาด", "yellow")
+        message('MAIN', f"Error: {error_traceback}", "red")
     return None

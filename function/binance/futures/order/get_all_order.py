@@ -28,7 +28,7 @@ async def clear_all_orders(api_key, api_secret, symbol):
                 error_traceback = traceback.format_exc()
                 message(symbol,f"Error cancelling order {order['id']}: {str(e)}", "yellow")
                 message(symbol, "________________________________", "red")
-                print(f"Error: {error_traceback}")
+                message(symbol, f"Error: {error_traceback}", "red")
                 message(symbol, "________________________________", "red")
         
         #print(f"Cancelled {len(cancelled_orders)} orders for {symbol}")

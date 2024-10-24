@@ -12,5 +12,5 @@ async def check_position(api_key, api_secret, symbol):
     except Exception as e:
         error_traceback = traceback.format_exc()
         message("พบข้อผิดพลาด", "yellow")
-        print(f"Error: {error_traceback}")
+        message(symbol, f"Error: {error_traceback}", "red")
         return False

@@ -14,6 +14,7 @@ from function.binance.futures.order.other.get_create_order_adjusted_price import
 from function.binance.futures.order.other.get_create_order_adjusted_stop_price import get_adjusted_stop_price
 
 async def create_order(api_key, api_secret, symbol, side, price="now", quantity="30$", order_type="MARKET", stop_price=None):
+    exchange = None
     try:
         exchange = await create_future_exchange(api_key, api_secret)
 
@@ -118,32 +119,66 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
             message(symbol, f"พบข้อผิดพลาด","yellow")
             print(f"Error: {error_traceback}")
             await exchange.close()
+    finally:
+        if exchange:
+            try:
+                await exchange.close()
+            except Exception as e:
+                message(symbol, f"เกิดข้อผิดพลาดในการปิด exchange: {str(e)}", "red")
     return None
 
 async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, order_type=None):
-    # Ensure quantity is a string before performing string operations
-    quantity_str = str(quantity)
+    try:
+        # Ensure quantity is a string before performing string operations
+        price = float(price)
+        quantity_str = str(quantity)
 
-    if order_type.upper() == "TAKE_PROFIT_MARKET" or order_type.upper() == "STOPLOSS_MARKET":
-        if quantity_str.upper() == "MAX" or quantity_str.endswith('100%'):
-            btc_quantity = (float(await get_amount_of_position(api_key, api_secret, symbol)) + float(await get_amount_of_open_order(api_key, api_secret, symbol)))
-        elif quantity_str.endswith('%'):
-            btc_quantity = ((float(await get_amount_of_position(api_key, api_secret, symbol)) + float(await get_amount_of_open_order(api_key, api_secret, symbol))) * float(quantity_str.strip('%'))) / 100
-        elif quantity_str.endswith('$'):
-            btc_quantity = float(quantity_str.strip('$')) / price
+        if order_type and order_type.upper() in ["TAKE_PROFIT_MARKET", "STOPLOSS_MARKET"]:
+            if quantity_str.upper() == "MAX" or quantity_str.endswith('100%'):
+                position_amount = float(await get_amount_of_position(api_key, api_secret, symbol))
+                open_order_amount = float(await get_amount_of_open_order(api_key, api_secret, symbol))
+                btc_quantity = position_amount + open_order_amount
+            elif quantity_str.endswith('%'):
+                position_amount = float(await get_amount_of_position(api_key, api_secret, symbol))
+                open_order_amount = float(await get_amount_of_open_order(api_key, api_secret, symbol))
+                percentage = float(quantity_str.strip('%')) / 100
+                btc_quantity = (position_amount + open_order_amount) * percentage
+            elif quantity_str.endswith('$'):
+                if price <= 0:
+                    raise ValueError(f"Invalid price for {symbol}: {price}")
+                btc_quantity = float(quantity_str.strip('$')) / price
+            else:
+                btc_quantity = float(quantity)
         else:
-            btc_quantity = float(quantity)
-        return await get_adjust_precision_quantity(symbol, btc_quantity)
-    else:
-        available_balance = await get_future_available_balance(api_key, api_secret)
-        available_balance = float(available_balance)
+            available_balance = await get_future_available_balance(api_key, api_secret)
+            if available_balance is None:
+                raise ValueError(f"Could not get available balance for {symbol}")
+            available_balance = float(available_balance)
 
-        if quantity_str.upper() == "MAX" or quantity_str.endswith('100%'):
-            btc_quantity = available_balance / price
-        elif quantity_str.endswith('%'):
-            btc_quantity = (float(quantity_str.strip('%')) / 100) * available_balance / price
-        elif quantity_str.endswith('$'):
-            btc_quantity = float(quantity_str.strip('$')) / price
-        else:
-            btc_quantity = float(quantity)
-        return await get_adjust_precision_quantity(symbol, btc_quantity)
+            if quantity_str.upper() == "MAX" or quantity_str.endswith('100%'):
+                if price <= 0:
+                    raise ValueError(f"Invalid price for {symbol}: {price}")
+                btc_quantity = available_balance / price
+            elif quantity_str.endswith('%'):
+                if price <= 0:
+                    raise ValueError(f"Invalid price for {symbol}: {price}")
+                percentage = float(quantity_str.strip('%')) / 100
+                btc_quantity = (percentage * available_balance) / price
+            elif quantity_str.endswith('$'):
+                if price <= 0:
+                    raise ValueError(f"Invalid price for {symbol}: {price}")
+                btc_quantity = float(quantity_str.strip('$')) / price
+            else:
+                btc_quantity = float(quantity)
+
+        adjusted_quantity = await get_adjust_precision_quantity(symbol, btc_quantity)
+        if adjusted_quantity <= 0:
+            raise ValueError(f"Invalid adjusted quantity for {symbol}: {adjusted_quantity} | quantity_str: {quantity_str} | price: {price}")
+            
+        return adjusted_quantity
+        
+    except Exception as e:
+        error_traceback = traceback.format_exc()
+        message(symbol, f"เกิดข้อผิดพลาดในการคำนวณปริมาณ: {str(e)}", "red")
+        message(symbol, f"Error: {error_traceback}", "red")
+        raise  # ส่งต่อ error ไปให้ฟังก์ชันที่เรียกใช้จัดการ
