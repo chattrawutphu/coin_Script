@@ -1,0 +1,42 @@
+[
+  {
+    "timestamp": "2024-10-24 21:45:47",
+    "date": "2024-10-24",
+    "time": "21:45:47",
+    "symbol": "พบข้อผิดพลาด",
+    "message": "yellow",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 21:52:30",
+    "date": "2024-10-24",
+    "time": "21:52:30",
+    "symbol": "พบข้อผิดพลาด",
+    "message": "yellow",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 22:20:52",
+    "date": "2024-10-24",
+    "time": "22:20:52",
+    "symbol": "พบข้อผิดพลาด",
+    "message": "yellow",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 22:47:14",
+    "date": "2024-10-24",
+    "time": "22:47:14",
+    "symbol": "พบข้อผิดพลาด",
+    "message": "yellow",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-10-24 23:13:09",
+    "date": "2024-10-24",
+    "time": "23:13:09",
+    "symbol": "พบข้อผิดพลาด",
+    "message": "yellow",
+    "color": "white"
+  }
+]

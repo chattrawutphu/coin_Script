@@ -1,0 +1,66 @@
+[
+  {
+    "timestamp": "2024-10-24 22:29:18",
+    "date": "2024-10-24",
+    "time": "22:29:18",
+    "symbol": "SYSTEM",
+    "message": "กำลังตรวจสอบระบบ (ครั้งที่ 1/3)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 22:29:19",
+    "date": "2024-10-24",
+    "time": "22:29:19",
+    "symbol": "SYSTEM",
+    "message": "ตรวจสอบ API Key และ Secret สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 22:29:19",
+    "date": "2024-10-24",
+    "time": "22:29:19",
+    "symbol": "SYSTEM",
+    "message": "เชื่อมต่อ Binance Futures Server สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 22:29:19",
+    "date": "2024-10-24",
+    "time": "22:29:19",
+    "symbol": "SYSTEM",
+    "message": "ตรวจสอบระบบทั้งหมดเสร็จสิ้น พร้อมเริ่มทำงาน",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 22:54:00",
+    "date": "2024-10-24",
+    "time": "22:54:00",
+    "symbol": "SYSTEM",
+    "message": "กำลังตรวจสอบระบบ (ครั้งที่ 1/3)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-24 22:54:02",
+    "date": "2024-10-24",
+    "time": "22:54:02",
+    "symbol": "SYSTEM",
+    "message": "ตรวจสอบ API Key และ Secret สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 22:54:02",
+    "date": "2024-10-24",
+    "time": "22:54:02",
+    "symbol": "SYSTEM",
+    "message": "เชื่อมต่อ Binance Futures Server สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 22:54:02",
+    "date": "2024-10-24",
+    "time": "22:54:02",
+    "symbol": "SYSTEM",
+    "message": "ตรวจสอบระบบทั้งหมดเสร็จสิ้น พร้อมเริ่มทำงาน",
+    "color": "green"
+  }
+]

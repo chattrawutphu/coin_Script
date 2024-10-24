@@ -1,26 +1,154 @@
 [
   {
-    "timestamp": "2024-10-24 15:40:18",
+    "timestamp": "2024-10-24 20:25:11",
     "date": "2024-10-24",
-    "time": "15:40:18",
+    "time": "20:25:11",
     "symbol": "MAIN",
     "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 382 symbols",
     "color": "green"
   },
   {
-    "timestamp": "2024-10-24 17:13:48",
+    "timestamp": "2024-10-24 20:43:01",
     "date": "2024-10-24",
-    "time": "17:13:48",
+    "time": "20:43:01",
     "symbol": "MAIN",
     "message": "ปิดโปรแกรมโดยผู้ใช้",
     "color": "yellow"
   },
   {
-    "timestamp": "2024-10-24 17:43:51",
+    "timestamp": "2024-10-24 20:43:13",
     "date": "2024-10-24",
-    "time": "17:43:51",
+    "time": "20:43:13",
     "symbol": "MAIN",
-    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 377 symbols",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 383 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 21:30:19",
+    "date": "2024-10-24",
+    "time": "21:30:19",
+    "symbol": "MAIN",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 21:31:00",
+    "date": "2024-10-24",
+    "time": "21:31:00",
+    "symbol": "MAIN",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 383 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 21:50:37",
+    "date": "2024-10-24",
+    "time": "21:50:37",
+    "symbol": "MAIN",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 21:50:56",
+    "date": "2024-10-24",
+    "time": "21:50:56",
+    "symbol": "MAIN",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 383 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 21:54:34",
+    "date": "2024-10-24",
+    "time": "21:54:34",
+    "symbol": "MAIN",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 21:54:49",
+    "date": "2024-10-24",
+    "time": "21:54:49",
+    "symbol": "MAIN",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 383 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 22:08:20",
+    "date": "2024-10-24",
+    "time": "22:08:20",
+    "symbol": "MAIN",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 22:08:35",
+    "date": "2024-10-24",
+    "time": "22:08:35",
+    "symbol": "MAIN",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 383 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 22:11:24",
+    "date": "2024-10-24",
+    "time": "22:11:24",
+    "symbol": "MAIN",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 22:11:37",
+    "date": "2024-10-24",
+    "time": "22:11:37",
+    "symbol": "MAIN",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 383 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 22:21:00",
+    "date": "2024-10-24",
+    "time": "22:21:00",
+    "symbol": "MAIN",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 22:21:14",
+    "date": "2024-10-24",
+    "time": "22:21:14",
+    "symbol": "MAIN",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 383 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 22:28:15",
+    "date": "2024-10-24",
+    "time": "22:28:15",
+    "symbol": "MAIN",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 22:29:20",
+    "date": "2024-10-24",
+    "time": "22:29:20",
+    "symbol": "MAIN",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 383 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-24 22:53:44",
+    "date": "2024-10-24",
+    "time": "22:53:44",
+    "symbol": "MAIN",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-24 22:54:03",
+    "date": "2024-10-24",
+    "time": "22:54:03",
+    "symbol": "MAIN",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 383 symbols",
     "color": "green"
   }
 ]
