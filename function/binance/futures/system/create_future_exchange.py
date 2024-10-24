@@ -1,4 +1,3 @@
-import asyncio
 import time
 import traceback
 import ccxt.async_support as ccxt
@@ -52,20 +51,6 @@ async def create_future_exchange(api_key, api_secret, warnOnFetchOpenOrdersWitho
        error_traceback = traceback.format_exc()
        message('', f"เกิดข้อผิดพลาดเมื่อเชื่อม exchange: {str(e)}", "red")
        message('', "________________________________", "red")
-       message('MAIN', f"Error: {error_traceback}", "red")
+       print(f"Error: {error_traceback}")
        message('', "________________________________", "red")
        raise e
-   
-# ฟังก์ชันช่วยสำหรับการ retry API calls
-async def safe_api_call(func, symbol='', max_retries=3, delay=1):
-   for attempt in range(max_retries):
-       try:
-           return await func()
-       except ccxt.base.errors.RequestTimeout:
-           if attempt == max_retries - 1:
-               message(symbol, f"Timeout after {max_retries} attempts", "red")
-               return None
-           await asyncio.sleep(delay * (2 ** attempt))
-       except Exception as e:
-           message(symbol, f"Error: {str(e)}", "red")
-           return None

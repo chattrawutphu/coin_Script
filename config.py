@@ -1,3 +1,6 @@
+api_key = 'cos73h05s3oxvSK2u7YG2k0mIiu5npSVIXTdyIXXUVNJQOKbRybPNlGOeZNvunVG'
+api_secret = 'Zim1iiECBaYdtx3rVlN5mpQ05iQWRXDXU0EBW8LmQW8Ns2X07HhKfIs4Kj3PLzgO'
+
 default_testnet = False
 default_show_message = [ #ใช้สำหรับ โชว์ ข้อความแต่ละความสำคัญใน terminal
     True,

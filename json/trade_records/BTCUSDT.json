@@ -1,0 +1,13 @@
+[
+  {
+    "timestamp": "2024-10-24T14:45:08.458316",
+    "symbol": "BTCUSDT",
+    "action": "SELL",
+    "entry_price": 67187.4,
+    "exit_price": 67169.4,
+    "amount": 0.0003720935770695101,
+    "profit_loss": 0.006697684387251182,
+    "profit_loss_percentage": 0.026790737549004726,
+    "reason": "Position Closed"
+  }
+]
