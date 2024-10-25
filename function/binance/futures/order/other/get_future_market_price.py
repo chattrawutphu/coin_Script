@@ -17,16 +17,16 @@ async def get_future_market_price(api_key, api_secret, symbol):
                 exchange = ccxt.binance({'enableRateLimit': True, 'options': {'defaultType': 'future'}})
                 ticker = await exchange.fetch_ticker(symbol)
                 market_price = float(ticker['last'])
-                await exchange.close()
                 return market_price
         else:
             exchange = ccxt.binance({'enableRateLimit': True, 'options': {'defaultType': 'future'}})
             ticker = await exchange.fetch_ticker(symbol)
             market_price = float(ticker['last'])
-            await exchange.close()
             return market_price
     except Exception as e:
         error_traceback = traceback.format_exc()
         message("พบข้อผิดพลาด", "yellow")
         message(symbol, f"Error: {error_traceback}", "red")
         return None
+    finally:
+        await exchange.close()

@@ -1,0 +1,394 @@
+[
+  {
+    "timestamp": "2024-10-25 00:53:32",
+    "date": "2024-10-25",
+    "time": "00:53:32",
+    "symbol": "BCHUSDT",
+    "message": "สร้าง tasks สำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 00:53:32",
+    "date": "2024-10-25",
+    "time": "00:53:32",
+    "symbol": "BCHUSDT",
+    "message": "เริ่มต้นบอทสำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 00:53:32",
+    "date": "2024-10-25",
+    "time": "00:53:32",
+    "symbol": "BCHUSDT",
+    "message": "ไม่พบไฟล์สถานะ เริ่มต้นด้วยค่าเริ่มต้น (Timeframe: 4h)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-25 00:55:11",
+    "date": "2024-10-25",
+    "time": "00:55:11",
+    "symbol": "BCHUSDT",
+    "message": "สร้าง tasks สำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 00:55:12",
+    "date": "2024-10-25",
+    "time": "00:55:12",
+    "symbol": "BCHUSDT",
+    "message": "เริ่มต้นบอทสำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 00:55:12",
+    "date": "2024-10-25",
+    "time": "00:55:12",
+    "symbol": "BCHUSDT",
+    "message": "System Startup - โหลดสถานะเสร็จสมบูรณ์ (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 00:58:20",
+    "date": "2024-10-25",
+    "time": "00:58:20",
+    "symbol": "BCHUSDT",
+    "message": "สร้าง tasks สำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 00:58:21",
+    "date": "2024-10-25",
+    "time": "00:58:21",
+    "symbol": "BCHUSDT",
+    "message": "เริ่มต้นบอทสำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 00:58:21",
+    "date": "2024-10-25",
+    "time": "00:58:21",
+    "symbol": "BCHUSDT",
+    "message": "System Startup - โหลดสถานะเสร็จสมบูรณ์ (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 01:03:30",
+    "date": "2024-10-25",
+    "time": "01:03:30",
+    "symbol": "BCHUSDT",
+    "message": "สร้าง tasks สำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 01:03:31",
+    "date": "2024-10-25",
+    "time": "01:03:31",
+    "symbol": "BCHUSDT",
+    "message": "เริ่มต้นบอทสำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 01:03:31",
+    "date": "2024-10-25",
+    "time": "01:03:31",
+    "symbol": "BCHUSDT",
+    "message": "System Startup - โหลดสถานะเสร็จสมบูรณ์ (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 01:04:15",
+    "date": "2024-10-25",
+    "time": "01:04:15",
+    "symbol": "BCHUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 199, in fetch\n    async with session_method(yarl.URL(url, encoded=True),\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 1141, in __aenter__\n    self._resp = await self._coro\n                 ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 560, in _request\n    await resp.start(conn)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client_reqrep.py\", line 894, in start\n    with self._timer:\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\helpers.py\", line 721, in __exit__\n    raise asyncio.TimeoutError from None\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_market_price.py\", line 23, in get_future_market_price\n    ticker = await exchange.fetch_ticker(symbol)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3703, in fetch_ticker\n    await self.load_markets()\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 276, in load_markets\n    raise e\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 272, in load_markets\n    result = await self.markets_loading\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 262, in load_markets_helper\n    markets = await self.fetch_markets(params)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 2714, in fetch_markets\n    promises = await asyncio.gather(*promisesRaw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 233, in fetch\n    raise RequestTimeout(details) from e\nccxt.base.errors.RequestTimeout: binance GET https://fapi.binance.com/fapi/v1/exchangeInfo\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-25 01:04:16",
+    "date": "2024-10-25",
+    "time": "01:04:16",
+    "symbol": "BCHUSDT",
+    "message": "ไม่สามารถดึงราคาตลาดได้ ข้ามรอบนี้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-25 03:01:01",
+    "date": "2024-10-25",
+    "time": "03:01:01",
+    "symbol": "BCHUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 367.06670300",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-25 03:01:01",
+    "date": "2024-10-25",
+    "time": "03:01:01",
+    "symbol": "BCHUSDT",
+    "message": "ตั้งคำสั่ง Stoploss ที่ราคา 357.70422600",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-25 03:31:53",
+    "date": "2024-10-25",
+    "time": "03:31:53",
+    "symbol": "BCHUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 199, in fetch\n    async with session_method(yarl.URL(url, encoded=True),\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 1141, in __aenter__\n    self._resp = await self._coro\n                 ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 467, in _request\n    with timer:\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\helpers.py\", line 721, in __exit__\n    raise asyncio.TimeoutError from None\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_market_price.py\", line 23, in get_future_market_price\n    ticker = await exchange.fetch_ticker(symbol)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3703, in fetch_ticker\n    await self.load_markets()\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 276, in load_markets\n    raise e\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 272, in load_markets\n    result = await self.markets_loading\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 262, in load_markets_helper\n    markets = await self.fetch_markets(params)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 2714, in fetch_markets\n    promises = await asyncio.gather(*promisesRaw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 233, in fetch\n    raise RequestTimeout(details) from e\nccxt.base.errors.RequestTimeout: binance GET https://dapi.binance.com/dapi/v1/exchangeInfo\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-25 03:33:51",
+    "date": "2024-10-25",
+    "time": "03:33:51",
+    "symbol": "BCHUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 204, in fetch\n    http_response = await response.text(errors='replace')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client_reqrep.py\", line 1081, in text\n    await self.read()\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client_reqrep.py\", line 1037, in read\n    self._body = await self.content.read()\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\streams.py\", line 375, in read\n    block = await self.readany()\n            ^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\streams.py\", line 397, in readany\n    await self._wait(\"readany\")\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\streams.py\", line 303, in _wait\n    with self._timer:\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\helpers.py\", line 721, in __exit__\n    raise asyncio.TimeoutError from None\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_market_price.py\", line 23, in get_future_market_price\n    ticker = await exchange.fetch_ticker(symbol)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3703, in fetch_ticker\n    await self.load_markets()\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 276, in load_markets\n    raise e\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 272, in load_markets\n    result = await self.markets_loading\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 262, in load_markets_helper\n    markets = await self.fetch_markets(params)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 2714, in fetch_markets\n    promises = await asyncio.gather(*promisesRaw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 233, in fetch\n    raise RequestTimeout(details) from e\nccxt.base.errors.RequestTimeout: binance GET https://fapi.binance.com/fapi/v1/exchangeInfo\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-25 04:13:21",
+    "date": "2024-10-25",
+    "time": "04:13:21",
+    "symbol": "BCHUSDT",
+    "message": "Entry order ทำงานที่ราคา 367.21679000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-25 04:36:27",
+    "date": "2024-10-25",
+    "time": "04:36:27",
+    "symbol": "BCHUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 199, in fetch\n    async with session_method(yarl.URL(url, encoded=True),\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 1141, in __aenter__\n    self._resp = await self._coro\n                 ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 467, in _request\n    with timer:\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\helpers.py\", line 721, in __exit__\n    raise asyncio.TimeoutError from None\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_market_price.py\", line 23, in get_future_market_price\n    ticker = await exchange.fetch_ticker(symbol)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3703, in fetch_ticker\n    await self.load_markets()\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 276, in load_markets\n    raise e\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 272, in load_markets\n    result = await self.markets_loading\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 262, in load_markets_helper\n    markets = await self.fetch_markets(params)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 2714, in fetch_markets\n    promises = await asyncio.gather(*promisesRaw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 233, in fetch\n    raise RequestTimeout(details) from e\nccxt.base.errors.RequestTimeout: binance GET https://dapi.binance.com/dapi/v1/exchangeInfo\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-25 04:36:27",
+    "date": "2024-10-25",
+    "time": "04:36:27",
+    "symbol": "BCHUSDT",
+    "message": "ไม่สามารถดึงราคาตลาดได้ ข้ามรอบนี้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-25 09:41:04",
+    "date": "2024-10-25",
+    "time": "09:41:04",
+    "symbol": "BCHUSDT",
+    "message": "สร้าง tasks สำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 09:41:04",
+    "date": "2024-10-25",
+    "time": "09:41:04",
+    "symbol": "BCHUSDT",
+    "message": "เริ่มต้นบอทสำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 09:41:04",
+    "date": "2024-10-25",
+    "time": "09:41:04",
+    "symbol": "BCHUSDT",
+    "message": "System Startup - โหลดสถานะเสร็จสมบูรณ์ (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 09:43:06",
+    "date": "2024-10-25",
+    "time": "09:43:06",
+    "symbol": "BCHUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 199, in fetch\n    async with session_method(yarl.URL(url, encoded=True),\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 1141, in __aenter__\n    self._resp = await self._coro\n                 ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 560, in _request\n    await resp.start(conn)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client_reqrep.py\", line 894, in start\n    with self._timer:\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\helpers.py\", line 721, in __exit__\n    raise asyncio.TimeoutError from None\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_market_price.py\", line 23, in get_future_market_price\n    ticker = await exchange.fetch_ticker(symbol)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3703, in fetch_ticker\n    await self.load_markets()\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 276, in load_markets\n    raise e\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 272, in load_markets\n    result = await self.markets_loading\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 262, in load_markets_helper\n    markets = await self.fetch_markets(params)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 2714, in fetch_markets\n    promises = await asyncio.gather(*promisesRaw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 233, in fetch\n    raise RequestTimeout(details) from e\nccxt.base.errors.RequestTimeout: binance GET https://dapi.binance.com/dapi/v1/exchangeInfo\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-25 09:43:07",
+    "date": "2024-10-25",
+    "time": "09:43:07",
+    "symbol": "BCHUSDT",
+    "message": "ไม่สามารถดึงราคาตลาดได้ ข้ามรอบนี้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-25 09:52:40",
+    "date": "2024-10-25",
+    "time": "09:52:40",
+    "symbol": "BCHUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 199, in fetch\n    async with session_method(yarl.URL(url, encoded=True),\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 1141, in __aenter__\n    self._resp = await self._coro\n                 ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 467, in _request\n    with timer:\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\helpers.py\", line 721, in __exit__\n    raise asyncio.TimeoutError from None\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_market_price.py\", line 23, in get_future_market_price\n    ticker = await exchange.fetch_ticker(symbol)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3703, in fetch_ticker\n    await self.load_markets()\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 276, in load_markets\n    raise e\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 272, in load_markets\n    result = await self.markets_loading\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 262, in load_markets_helper\n    markets = await self.fetch_markets(params)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 2714, in fetch_markets\n    promises = await asyncio.gather(*promisesRaw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 233, in fetch\n    raise RequestTimeout(details) from e\nccxt.base.errors.RequestTimeout: binance GET https://api.binance.com/api/v3/exchangeInfo\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-25 09:53:15",
+    "date": "2024-10-25",
+    "time": "09:53:15",
+    "symbol": "BCHUSDT",
+    "message": "สร้าง tasks สำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 09:53:15",
+    "date": "2024-10-25",
+    "time": "09:53:15",
+    "symbol": "BCHUSDT",
+    "message": "เริ่มต้นบอทสำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 09:53:15",
+    "date": "2024-10-25",
+    "time": "09:53:15",
+    "symbol": "BCHUSDT",
+    "message": "System Startup - โหลดสถานะเสร็จสมบูรณ์ (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 10:22:00",
+    "date": "2024-10-25",
+    "time": "10:22:00",
+    "symbol": "BCHUSDT",
+    "message": "สร้าง tasks สำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 10:22:03",
+    "date": "2024-10-25",
+    "time": "10:22:03",
+    "symbol": "BCHUSDT",
+    "message": "เริ่มต้นบอทสำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 10:22:03",
+    "date": "2024-10-25",
+    "time": "10:22:03",
+    "symbol": "BCHUSDT",
+    "message": "System Startup - โหลดสถานะเสร็จสมบูรณ์ (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 10:35:50",
+    "date": "2024-10-25",
+    "time": "10:35:50",
+    "symbol": "BCHUSDT",
+    "message": "สร้าง tasks สำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 10:35:53",
+    "date": "2024-10-25",
+    "time": "10:35:53",
+    "symbol": "BCHUSDT",
+    "message": "เริ่มต้นบอทสำหรับ BCHUSDT (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 10:35:53",
+    "date": "2024-10-25",
+    "time": "10:35:53",
+    "symbol": "BCHUSDT",
+    "message": "System Startup - โหลดสถานะเสร็จสมบูรณ์ (Timeframe: 4h)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 10:59:29",
+    "date": "2024-10-25",
+    "time": "10:59:29",
+    "symbol": "BCHUSDT",
+    "message": "ไม่พบ Position ที่เปิดอยู่",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-25 10:59:37",
+    "date": "2024-10-25",
+    "time": "10:59:37",
+    "symbol": "BCHUSDT",
+    "message": "บันทึกการเทรด: BUY BCHUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 10:59:37",
+    "date": "2024-10-25",
+    "time": "10:59:37",
+    "symbol": "BCHUSDT",
+    "message": "Entry: 367.22 | Exit: 363.94",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 10:59:37",
+    "date": "2024-10-25",
+    "time": "10:59:37",
+    "symbol": "BCHUSDT",
+    "message": "จำนวน: 0.27400000 (100.62 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 10:59:37",
+    "date": "2024-10-25",
+    "time": "10:59:37",
+    "symbol": "BCHUSDT",
+    "message": "Leverage: 20x | Margin Type: cross",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 10:59:37",
+    "date": "2024-10-25",
+    "time": "10:59:37",
+    "symbol": "BCHUSDT",
+    "message": "กำไร/ขาดทุน: -0.90 USDT (-0.89%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-25 11:01:25",
+    "date": "2024-10-25",
+    "time": "11:01:25",
+    "symbol": "BCHUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 362.58373800",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-25 11:01:25",
+    "date": "2024-10-25",
+    "time": "11:01:25",
+    "symbol": "BCHUSDT",
+    "message": "ตั้งคำสั่ง Stoploss ที่ราคา 370.03700000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-10-25 11:22:13",
+    "date": "2024-10-25",
+    "time": "11:22:13",
+    "symbol": "BCHUSDT",
+    "message": "Entry order ทำงานที่ราคา 362.55000000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-25 11:23:26",
+    "date": "2024-10-25",
+    "time": "11:23:26",
+    "symbol": "BCHUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 199, in fetch\n    async with session_method(yarl.URL(url, encoded=True),\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 1141, in __aenter__\n    self._resp = await self._coro\n                 ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 560, in _request\n    await resp.start(conn)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client_reqrep.py\", line 894, in start\n    with self._timer:\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\helpers.py\", line 721, in __exit__\n    raise asyncio.TimeoutError from None\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_market_price.py\", line 23, in get_future_market_price\n    ticker = await exchange.fetch_ticker(symbol)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3703, in fetch_ticker\n    await self.load_markets()\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 276, in load_markets\n    raise e\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 272, in load_markets\n    result = await self.markets_loading\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 262, in load_markets_helper\n    markets = await self.fetch_markets(params)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 2714, in fetch_markets\n    promises = await asyncio.gather(*promisesRaw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 233, in fetch\n    raise RequestTimeout(details) from e\nccxt.base.errors.RequestTimeout: binance GET https://api.binance.com/api/v3/exchangeInfo\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-25 11:23:26",
+    "date": "2024-10-25",
+    "time": "11:23:26",
+    "symbol": "BCHUSDT",
+    "message": "ไม่สามารถดึงราคาตลาดได้",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-25 11:35:20",
+    "date": "2024-10-25",
+    "time": "11:35:20",
+    "symbol": "BCHUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 199, in fetch\n    async with session_method(yarl.URL(url, encoded=True),\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 1141, in __aenter__\n    self._resp = await self._coro\n                 ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client.py\", line 560, in _request\n    await resp.start(conn)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\client_reqrep.py\", line 894, in start\n    with self._timer:\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiohttp\\helpers.py\", line 721, in __exit__\n    raise asyncio.TimeoutError from None\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_market_price.py\", line 23, in get_future_market_price\n    ticker = await exchange.fetch_ticker(symbol)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3703, in fetch_ticker\n    await self.load_markets()\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 276, in load_markets\n    raise e\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 272, in load_markets\n    result = await self.markets_loading\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 262, in load_markets_helper\n    markets = await self.fetch_markets(params)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 2714, in fetch_markets\n    promises = await asyncio.gather(*promisesRaw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 233, in fetch\n    raise RequestTimeout(details) from e\nccxt.base.errors.RequestTimeout: binance GET https://dapi.binance.com/dapi/v1/exchangeInfo\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-10-25 11:35:28",
+    "date": "2024-10-25",
+    "time": "11:35:28",
+    "symbol": "BCHUSDT",
+    "message": "ไม่สามารถดึงราคาตลาดได้ ข้ามรอบนี้",
+    "color": "yellow"
+  }
+]

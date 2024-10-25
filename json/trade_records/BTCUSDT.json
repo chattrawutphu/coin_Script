@@ -1,35 +1,23 @@
 [
   {
-    "timestamp": "2024-10-24T20:54:37.619950",
+    "timestamp": "2024-10-25T10:59:44.703878",
     "symbol": "BTCUSDT",
-    "action": "SELL",
-    "entry_price": 67660.0,
-    "exit_price": 67850.9,
-    "amount": 0.0007365853083640734,
-    "profit_loss": -0.14061413536669734,
-    "profit_loss_percentage": -0.28214602423883267,
-    "reason": "Position Closed"
-  },
-  {
-    "timestamp": "2024-10-24T21:25:30.499780",
-    "symbol": "BTCUSDT",
-    "action": "SELL",
-    "entry_price": 67831.3,
-    "exit_price": 67787.3,
-    "amount": 0.0007375925863093965,
-    "profit_loss": 0.03245407379761345,
-    "profit_loss_percentage": 0.06486680927536403,
-    "reason": "Position Closed"
-  },
-  {
-    "timestamp": "2024-10-24T23:28:10.942627",
-    "symbol": "BTCUSDT",
-    "action": "SELL",
-    "entry_price": 67431.0,
-    "exit_price": 67617.8,
-    "amount": 0.0007394546374158131,
-    "profit_loss": -0.13813012626927604,
-    "profit_loss_percentage": -0.2770239207486214,
-    "reason": "Position Closed"
+    "action": "BUY",
+    "entry_price": 68306.2,
+    "exit_price": 67958.4,
+    "amount": 0.002,
+    "profit_loss": -0.6956000000000059,
+    "profit_loss_percentage": -0.5091777905958799,
+    "fees": 0,
+    "reason": "Position Closed",
+    "leverage": 20,
+    "margin_type": "cross",
+    "break_even_price": 0,
+    "unrealized_profit": 0,
+    "position_size_usd": 136.6124,
+    "entry_order_id": "451678803872",
+    "exit_order_id": "451966041591",
+    "entry_time": "2024-10-24T20:00:41.886Z",
+    "exit_time": "2024-10-25T03:58:57.928Z"
   }
 ]
