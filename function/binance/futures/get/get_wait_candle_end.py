@@ -2,6 +2,7 @@ import ccxt.async_support as ccxt
 from datetime import datetime, timedelta
 import pytz
 
+from function.binance.futures.order.other.get_kline_data import fetch_ohlcv
 from function.binance.futures.system.create_future_exchange import create_future_exchange
 
 async def get_wait_candle_end(api_key, api_secret, symbol, timeframe, num_candles=1):
@@ -9,7 +10,7 @@ async def get_wait_candle_end(api_key, api_secret, symbol, timeframe, num_candle
     
     try:
         # Fetch the latest candle
-        ohlcv = await exchange.fetch_ohlcv(symbol, timeframe, limit=1)
+        ohlcv = await fetch_ohlcv(symbol, timeframe, limit=1)
         await exchange.close()
         
         if not ohlcv:
@@ -32,7 +33,7 @@ async def get_wait_candle_end(api_key, api_secret, symbol, timeframe, num_candle
         current_time = datetime.now(pytz.UTC)
         if current_time >= next_candle_end:
             # Fetch the data of the newly closed candle
-            ohlcv = await exchange.fetch_ohlcv(symbol, timeframe, limit=1)
+            ohlcv = await fetch_ohlcv(symbol, timeframe, limit=1)
             await exchange.close()
             
             if not ohlcv:

@@ -25,7 +25,6 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
 
         params = {}
 
-        #mode = await get_position_mode(api_key, api_secret, symbol)
         mode = await get_position_mode(api_key, api_secret)
 
         if mode == 'hedge':
@@ -45,8 +44,6 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                     params.update({'closePosition': True})
                 else:
                     params.update({'reduceOnly': True})
-        #     await clear_order_and_position(api_key, api_secret)
-        #     await exchange.set_position_mode(hedged=False)
 
         if order_type.upper() == "MARKET":
             params.update({'type': 'market'})
@@ -57,10 +54,8 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
         elif order_type.upper() == "STOP_LIMIT":
             stop_price = await get_adjusted_stop_price(api_key, api_secret, price, stop_price, latest_price, side, symbol)
             params.update({'type': 'stop', 'price': stop_price, 'stopPrice': price})
-
         elif order_type.upper() == "TAKE_PROFIT_MARKET":
             params.update({'type': 'take_profit_market', 'stopPrice': price})
-
         else:
             params.update({'type': 'limit', 'price': price})
 
@@ -72,17 +67,37 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
             'params': params
         }
 
-        # if 'closePosition' in params:
-        #    del order_params['amount']
-
         if params['type'] != 'market' and params['type'] != 'stop_market' and params['type'] != 'take_profit_market':
             order_params['price'] = params['price']
-        print(order_params)
         
-        order = await exchange.create_order(**order_params)
+        try:
+            order = await exchange.create_order(**order_params)
+            await exchange.close()
+            return order
+        except ccxt.OrderImmediatelyFillable:
+            # ถ้าเกิด error "Order would immediately trigger" ให้เปลี่ยนเป็น market order
+            message(symbol, "คำสั่งจะทำงานทันที เปลี่ยนเป็น Market Order", "yellow")
+            
+            # เปลี่ยนเป็น market order
+            market_params = {
+                'symbol': symbol,
+                'side': side,
+                'type': 'market',
+                'amount': quantity,
+                'params': {'type': 'market'}
+            }
+            
+            if mode == 'hedge':
+                if side == "buy":
+                    market_params['params'].update({'positionSide': 'long'})
+                else:
+                    market_params['params'].update({'positionSide': 'short'})
+            
+            order = await exchange.create_order(**market_params)
+            message(symbol, f"เข้า {side.upper()} ด้วย Market Order สำเร็จที่ราคา {float(order['average']):.2f}", "green")
+            await exchange.close()
+            return order
 
-        await exchange.close()
-        return order
     except Exception as e:
         error_traceback = traceback.format_exc()
         if "Order's position side does not match user's setting" in str(error_traceback):
@@ -181,4 +196,4 @@ async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, or
         error_traceback = traceback.format_exc()
         message(symbol, f"เกิดข้อผิดพลาดในการคำนวณปริมาณ: {str(e)}", "red")
         message(symbol, f"Error: {error_traceback}", "red")
-        raise  # ส่งต่อ error ไปให้ฟังก์ชันที่เรียกใช้จัดการ
+        return None  # เปลี่ยนจาก raise เป็น return None เพื่อให้ฟังก์ชั่นที่เรียกใช้จัดการต่อได้

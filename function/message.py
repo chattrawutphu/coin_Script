@@ -3,12 +3,11 @@ import json
 from datetime import datetime
 
 # เพิ่มตัวแปร global สำหรับเก็บข้อความล่าสุด
-last_message_content = None
+last_message_content = {}
 
 def ensure_log_directory():
     """สร้างโฟลเดอร์ message_logs ถ้ายังไม่มี"""
-    if not os.path.exists('json/message_logs'):
-        os.makedirs('json/message_logs')
+    os.makedirs('json/message_logs', exist_ok=True)
 
 def save_message_to_json(symbol, message_data):
     """บันทึกข้อความลงในไฟล์ JSON แยกตามเหรียญ"""
@@ -16,21 +15,27 @@ def save_message_to_json(symbol, message_data):
     filename = f'json/message_logs/{symbol}.json'
     
     try:
+        # อ่านข้อความเก่า หรือสร้างลิสต์ใหม่ถ้าไฟล์ไม่มี
+        messages = []
         if os.path.exists(filename):
-            with open(filename, 'r', encoding='utf-8') as f:
-                messages = json.load(f)
-        else:
-            messages = []
-            
+            try:
+                with open(filename, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    if content:  # ตรวจสอบว่าไฟล์ไม่ว่างเปล่า
+                        messages = json.loads(content)
+            except json.JSONDecodeError:
+                # ถ้าไฟล์เสียหาย ให้เริ่มต้นใหม่
+                messages = []
+        
+        # เพิ่มข้อความใหม่
         messages.append(message_data)
         
+        # บันทึกกลับไปที่ไฟล์
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump(messages, f, indent=2, ensure_ascii=False)
+            
     except Exception as e:
-        print(f"Error saving message to JSON: {str(e)}")
-
-# เพิ่มตัวแปร global สำหรับเก็บข้อความล่าสุดแต่ละ symbol
-last_message_content = {}
+        print(f"Error saving message to JSON for {symbol}: {str(e)}")
 
 def message(symbol='', message='', color='white'):
     global last_message_content
@@ -66,23 +71,23 @@ def message(symbol='', message='', color='white'):
 
     # แสดงข้อความเฉพาะเมื่อไม่ซ้ำกับข้อความก่อนหน้า
     if current_message != last_message:
+        # แสดงข้อความ
         if symbol != "":
             print(f"[{current_time}][{current_date}][{symbol}] {color_prefix}{message}{reset_code}")
         else:
             print(f"[{current_time}][{current_date}] {color_prefix}{message}{reset_code}")
             
-        # บันทึกข้อความลง JSON
-        message_data = {
-            'timestamp': f"{current_date} {current_time}",
-            'date': current_date,
-            'time': current_time,
-            'symbol': symbol,
-            'message': message,
-            'color': color
-        }
-        
-        if symbol:  # บันทึกเฉพาะข้อความที่มี symbol
+        # บันทึกข้อความลง JSON เฉพาะเมื่อมี symbol
+        if symbol:
+            message_data = {
+                'timestamp': f"{current_date} {current_time}",
+                'date': current_date,
+                'time': current_time,
+                'symbol': symbol,
+                'message': message,
+                'color': color
+            }
             save_message_to_json(symbol, message_data)
         
-        # อัพเดทข้อความล่าสุดสำหรับ symbol นี้
+        # อัพเดทข้อความล่าสุด
         last_message_content[symbol] = current_message

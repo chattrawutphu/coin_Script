@@ -12,11 +12,12 @@ from function.binance.futures.check.check_server_status import check_server_stat
 from function.binance.futures.check.check_user_api_status import check_user_api_status
 from function.binance.futures.get.get_rsi_cross_last_candle import get_rsi_cross_last_candle
 from function.binance.futures.order.change_stoploss_to_price import change_stoploss_to_price
-from function.binance.futures.order.create_order import create_order
+from function.binance.futures.order.create_order import create_order, get_adjusted_quantity
 from function.binance.futures.order.get_all_order import clear_all_orders
 from function.binance.futures.order.other.get_closed_position import get_amount_of_closed_position, get_closed_position_side
 from function.binance.futures.order.other.get_future_available_balance import get_future_available_balance
-from function.binance.futures.order.other.get_future_market_price import get_future_market_price
+from function.binance.futures.order.other.get_future_market_price import get_future_market_price, get_price_tracker
+from function.binance.futures.order.other.get_kline_data import fetch_ohlcv, get_kline_tracker
 from function.binance.futures.order.other.get_position_side import get_position_side
 from function.binance.futures.order.swap_position_side import swap_position_side
 from function.binance.futures.system.create_future_exchange import create_future_exchange
@@ -26,29 +27,8 @@ from function.binance.futures.system.update_symbol_data import update_symbol_dat
 from config import api_key, api_secret
 
 TRADING_CONFIG = {
-    'ETHUSDT': {
-        'timeframe': '1h',
-        'entry_amount': '50$',
-        'rsi_period': 7,
-        'rsi_overbought': 68,
-        'rsi_oversold': 32
-    },
-        'BTCUSDT': {
-        'timeframe': '1h',
-        'entry_amount': '50$',
-        'rsi_period': 7,
-        'rsi_overbought': 68,
-        'rsi_oversold': 32
-    },
-        'SOLUSDT': {
-        'timeframe': '4h',
-        'entry_amount': '50$',
-        'rsi_period': 7,
-        'rsi_overbought': 68,
-        'rsi_oversold': 32
-    },
-        'BCHUSDT': {
-        'timeframe': '4h',
+    'BNBUSDT': {
+        'timeframe': '1m',
         'entry_amount': '50$',
         'rsi_period': 7,
         'rsi_overbought': 68,
@@ -56,7 +36,7 @@ TRADING_CONFIG = {
     }
 }
 
-PRICE_CHANGE_THRESHOLD = 0.0005  # 0.1%
+PRICE_CHANGE_THRESHOLD = 0.0001  # 0.1%
 PRICE_INCREASE = 1 + PRICE_CHANGE_THRESHOLD  # 1.001
 PRICE_DECREASE = 1 - PRICE_CHANGE_THRESHOLD  # 0.999
 PRICE_CHANGE_MAXPERCENT = 0.5
@@ -161,138 +141,149 @@ class SymbolState:
 
 # ฟังก์ชันสำหรับบันทึกผลการเทรด
 async def record_trade(api_key, api_secret, symbol, action, entry_price, exit_price, amount, reason, state):
-    try:
-        # Initialize exchange
-        exchange = await create_future_exchange(api_key, api_secret)
-        
-        try:
-            # Load existing trades
-            try:
-                with open(state.trade_record_file, 'r') as f:
-                    trades = json.load(f)
-            except FileNotFoundError:
-                trades = []
+   try:
+       # Initialize exchange
+       exchange = await create_future_exchange(api_key, api_secret)
+       
+       try:
+           # Load existing trades
+           try:
+               with open(state.trade_record_file, 'r') as f:
+                   trades = json.load(f)
+           except FileNotFoundError:
+               trades = []
 
-            # Get position and order data from Binance
-            positions = await exchange.fetch_positions([symbol])
-            position_info = next((p for p in positions if p['symbol'] == symbol), None)
-            
-            # Get recent orders to find actual entry and exit prices
-            orders = await exchange.fetch_orders(symbol, limit=10)
-            
-            # Find the actual entry and exit orders
-            entry_order = None
-            exit_order = None
-            
-            for order in reversed(orders):
-                if order['status'] != 'closed':
-                    continue
-                    
-                # For entry order
-                if not entry_order and (
-                    (action == 'BUY' and order['side'].lower() == 'buy') or 
-                    (action == 'SELL' and order['side'].lower() == 'sell')
-                ):
-                    entry_order = order
-                
-                # For exit order
-                elif not exit_order and (
-                    (action == 'BUY' and order['side'].lower() == 'sell') or 
-                    (action == 'SELL' and order['side'].lower() == 'buy')
-                ):
-                    exit_order = order
+           # Get position and order data from Binance
+           positions = await exchange.fetch_positions([symbol])
+           position_info = next((p for p in positions if p['symbol'] == symbol), None)
+           
+           # Get recent orders to find actual entry and exit prices
+           orders = await exchange.fetch_orders(symbol, limit=10)
+           
+           # Find the actual entry and exit orders
+           entry_order = None
+           exit_order = None
+           
+           for order in reversed(orders):
+               if order['status'] != 'closed':
+                   continue
+                   
+               if not entry_order and (
+                   (action == 'BUY' and order['side'].lower() == 'buy') or 
+                   (action == 'SELL' and order['side'].lower() == 'sell')
+               ):
+                   entry_order = order
+               elif not exit_order and (
+                   (action == 'BUY' and order['side'].lower() == 'sell') or 
+                   (action == 'SELL' and order['side'].lower() == 'buy')
+               ):
+                   exit_order = order
 
-            # Get actual data from position info if available
-            if position_info and 'info' in position_info:
-                actual_entry_price = float(position_info['info'].get('entryPrice', 0)) or (float(entry_order['average']) if entry_order else entry_price)
-                actual_amount = abs(float(position_info['info'].get('positionAmt', 0))) or (float(entry_order['filled']) if entry_order else amount)
-                actual_exit_price = float(exit_order['average']) if exit_order else exit_price
-                leverage = float(position_info['info'].get('leverage', 20))
-                margin_type = position_info['info'].get('marginType', 'cross')
-                break_even_price = float(position_info['info'].get('breakEvenPrice', 0))
-                unrealized_profit = float(position_info['info'].get('unRealizedProfit', 0))
-            else:
-                # Fallback to order data if position info not available
-                actual_entry_price = float(entry_order['average']) if entry_order else entry_price
-                actual_amount = float(entry_order['filled']) if entry_order else amount
-                actual_exit_price = float(exit_order['average']) if exit_order else exit_price
-                leverage = 20  # default leverage
-                margin_type = 'cross'  # default margin type
-                break_even_price = 0
-                unrealized_profit = 0
+           # แปลงค่าให้เป็น float และจัดการกับ amount
+           if position_info and 'info' in position_info:
+               actual_entry_price = float(str(position_info['info'].get('entryPrice', 0)).replace(',', ''))
+               if actual_entry_price == 0:
+                   actual_entry_price = float(str(entry_order['average']).replace(',', '')) if entry_order else float(str(entry_price).replace(',', ''))
+               
+               actual_amount = abs(float(str(position_info['info'].get('positionAmt', 0)).replace(',', '')))
+               if actual_amount == 0:
+                   if entry_order:
+                       actual_amount = float(str(entry_order['filled']).replace(',', ''))
+                   else:
+                       # ใช้ get_adjusted_quantity สำหรับแปลง amount
+                       adjusted_amount = await get_adjusted_quantity(api_key, api_secret, amount, actual_entry_price, symbol)
+                       actual_amount = adjusted_amount if adjusted_amount is not None else 0
+               
+               actual_exit_price = float(str(exit_order['average']).replace(',', '')) if exit_order else float(str(exit_price).replace(',', ''))
+               leverage = float(str(position_info['info'].get('leverage', 20)).replace(',', ''))
+               margin_type = position_info['info'].get('marginType', 'cross')
+               break_even_price = float(str(position_info['info'].get('breakEvenPrice', 0)).replace(',', ''))
+               unrealized_profit = float(str(position_info['info'].get('unRealizedProfit', 0)).replace(',', ''))
+           else:
+               actual_entry_price = float(str(entry_order['average']).replace(',', '')) if entry_order else float(str(entry_price).replace(',', ''))
+               if entry_order:
+                   actual_amount = float(str(entry_order['filled']).replace(',', ''))
+               else:
+                   # ใช้ get_adjusted_quantity สำหรับแปลง amount
+                   adjusted_amount = await get_adjusted_quantity(api_key, api_secret, amount, actual_entry_price, symbol)
+                   actual_amount = adjusted_amount if adjusted_amount is not None else 0
+               
+               actual_exit_price = float(str(exit_order['average']).replace(',', '')) if exit_order else float(str(exit_price).replace(',', ''))
+               leverage = 20.0
+               margin_type = 'cross'
+               break_even_price = 0.0
+               unrealized_profit = 0.0
 
-            # Calculate actual profit/loss using actual prices
-            if action in ['BUY', 'SELL']:
-                if action == 'BUY':
-                    profit_loss = (actual_exit_price - actual_entry_price) * actual_amount
-                else:  # action == 'SELL'
-                    profit_loss = (actual_entry_price - actual_exit_price) * actual_amount
-            else:  # action == 'SWAP'
-                profit_loss = (actual_exit_price - actual_entry_price) * actual_amount
+           # คำนวณ profit/loss
+           if action in ['BUY', 'SELL']:
+               if action == 'BUY':
+                   profit_loss = (actual_exit_price - actual_entry_price) * actual_amount
+               else:  # action == 'SELL'
+                   profit_loss = (actual_entry_price - actual_exit_price) * actual_amount
+           else:  # action == 'SWAP'
+               profit_loss = (actual_exit_price - actual_entry_price) * actual_amount
 
-            # Calculate percentage profit/loss
-            profit_loss_percentage = (profit_loss / (actual_entry_price * actual_amount)) * 100 if actual_entry_price and actual_amount else 0
+           # คำนวณ percentage profit/loss
+           profit_loss_percentage = (profit_loss / (actual_entry_price * actual_amount)) * 100 if actual_entry_price and actual_amount else 0
 
-            # Calculate total fees with safe access
-            total_fees = 0
-            if entry_order and entry_order.get('fee') and isinstance(entry_order['fee'], dict):
-                total_fees += float(entry_order['fee'].get('cost', 0))
-            if exit_order and exit_order.get('fee') and isinstance(exit_order['fee'], dict):
-                total_fees += float(exit_order['fee'].get('cost', 0))
+           # คำนวณ fees
+           total_fees = 0.0
+           if entry_order and entry_order.get('fee') and isinstance(entry_order['fee'], dict):
+               total_fees += float(str(entry_order['fee'].get('cost', '0')).replace(',', ''))
+           if exit_order and exit_order.get('fee') and isinstance(exit_order['fee'], dict):
+               total_fees += float(str(exit_order['fee'].get('cost', '0')).replace(',', ''))
 
-            # Create enhanced trade record with position data
-            trade = {
-                'timestamp': datetime.now().isoformat(),
-                'symbol': symbol,
-                'action': action,
-                'entry_price': actual_entry_price,
-                'exit_price': actual_exit_price,
-                'amount': actual_amount,
-                'profit_loss': profit_loss,
-                'profit_loss_percentage': profit_loss_percentage,
-                'fees': total_fees,
-                'reason': reason,
-                'leverage': leverage,
-                'margin_type': margin_type,
-                'break_even_price': break_even_price,
-                'unrealized_profit': unrealized_profit,
-                'position_size_usd': actual_amount * actual_entry_price,
-                'entry_order_id': entry_order.get('id') if entry_order else None,
-                'exit_order_id': exit_order.get('id') if exit_order else None,
-                'entry_time': entry_order.get('datetime') if entry_order else None,
-                'exit_time': exit_order.get('datetime') if exit_order else None
-            }
+           # สร้าง trade record
+           trade = {
+               'timestamp': datetime.now().isoformat(),
+               'symbol': symbol,
+               'action': action,
+               'entry_price': actual_entry_price,
+               'exit_price': actual_exit_price,
+               'amount': actual_amount,
+               'profit_loss': float(profit_loss),  # แปลงเป็น float ชัดเจน
+               'profit_loss_percentage': float(profit_loss_percentage),  # แปลงเป็น float ชัดเจน
+               'fees': float(total_fees),  # แปลงเป็น float ชัดเจน
+               'reason': reason,
+               'leverage': leverage,
+               'margin_type': margin_type,
+               'break_even_price': break_even_price,
+               'unrealized_profit': unrealized_profit,
+               'position_size_usd': float(actual_amount * actual_entry_price),  # แปลงเป็น float ชัดเจน
+               'entry_order_id': entry_order.get('id') if entry_order else None,
+               'exit_order_id': exit_order.get('id') if exit_order else None,
+               'entry_time': entry_order.get('datetime') if entry_order else None,
+               'exit_time': exit_order.get('datetime') if exit_order else None
+           }
 
-            # Ensure directory exists
-            os.makedirs(os.path.dirname(state.trade_record_file), exist_ok=True)
+           # บันทึก trade
+           os.makedirs(os.path.dirname(state.trade_record_file), exist_ok=True)
+           trades.append(trade)
+           with open(state.trade_record_file, 'w') as f:
+               json.dump(trades, f, indent=2)
 
-            # Add trade to history and save
-            trades.append(trade)
-            with open(state.trade_record_file, 'w') as f:
-                json.dump(trades, f, indent=2)
-
-            # Log enhanced trade details
-            message(symbol, f"บันทึกการเทรด: {action} {symbol}", "cyan")
-            message(symbol, f"Entry: {actual_entry_price:.2f} | Exit: {actual_exit_price:.2f}", "cyan")
-            message(symbol, f"จำนวน: {actual_amount:.8f} ({actual_amount * actual_entry_price:.2f} USD)", "cyan")
-            message(symbol, f"Leverage: {leverage}x | Margin Type: {margin_type}", "cyan")
-            if break_even_price > 0:
-                message(symbol, f"Break-even: {break_even_price:.2f}", "cyan")
-            message(symbol, f"กำไร/ขาดทุน: {profit_loss:.2f} USDT ({profit_loss_percentage:.2f}%)", "cyan")
-            if total_fees > 0:
-                message(symbol, f"ค่าธรรมเนียม: {total_fees:.8f} USDT", "cyan")
-            
-        except Exception as e:
-            error_traceback = traceback.format_exc()
-            message(symbol, f"เกิดข้อผิดพลาดในการบันทึกการเทรด: {str(e)}", "red")
-            message(symbol, "________________________________", "red")
-            message(symbol, f"Error: {error_traceback}", "red")
-            message(symbol, "________________________________", "red")
-            
-    finally:
-        if exchange:
-            await exchange.close()
-
+           # แสดงผลลัพธ์
+           message(symbol, f"บันทึกการเทรด: {action} {symbol}", "cyan")
+           message(symbol, f"Entry: {actual_entry_price:.2f} | Exit: {actual_exit_price:.2f}", "cyan")
+           message(symbol, f"จำนวน: {actual_amount:.8f} ({actual_amount * actual_entry_price:.2f} USD)", "cyan")
+           message(symbol, f"Leverage: {leverage}x | Margin Type: {margin_type}", "cyan")
+           if break_even_price > 0:
+               message(symbol, f"Break-even: {break_even_price:.2f}", "cyan")
+           message(symbol, f"กำไร/ขาดทุน: {profit_loss:.2f} USDT ({profit_loss_percentage:.2f}%)", "cyan")
+           if total_fees > 0:
+               message(symbol, f"ค่าธรรมเนียม: {total_fees:.8f} USDT", "cyan")
+           
+       except Exception as e:
+           error_traceback = traceback.format_exc()
+           message(symbol, f"เกิดข้อผิดพลาดในการบันทึกการเทรด: {str(e)}", "red")
+           message(symbol, "________________________________", "red")
+           message(symbol, f"Error: {error_traceback}", "red")
+           message(symbol, "________________________________", "red")
+           
+   finally:
+       if exchange:
+           await exchange.close()
+           
 # Helper function to get current position details
 async def get_position_details(exchange, symbol):
     try:
@@ -373,14 +364,14 @@ async def get_current_stoploss(api_key, api_secret, symbol):
         await exchange.close()
 
 async def adjust_stoploss(api_key, api_secret, symbol, state, position_side, cross_timestamp, current_stoploss=None):
-    # ใช้ state.config.timeframe แทน timeframe parameter
+    """ฟังก์ชันปรับ stoploss โดยใช้ค่า PRICE_DECREASE และ PRICE_INCREASE"""
     timeframe = state.config.timeframe
     exchange = None
     try:
         exchange = await create_future_exchange(api_key, api_secret)
         
         # ดึงข้อมูล 5 แท่ง: 1 แท่ง cross + 3 แท่งที่จะใช้ + 1 แท่งปัจจุบัน
-        ohlcv = await exchange.fetch_ohlcv(symbol, timeframe, limit=6)
+        ohlcv = await fetch_ohlcv(symbol, timeframe, limit=6)
         
         if not ohlcv or len(ohlcv) < 6:
             message(symbol, "ข้อมูล OHLCV ไม่เพียงพอ ข้ามการปรับ stoploss", "yellow")
@@ -389,15 +380,17 @@ async def adjust_stoploss(api_key, api_secret, symbol, state, position_side, cro
         # ตัดแท่งสุดท้าย (แท่งปัจจุบันที่ยังไม่ปิด) ออก
         closed_candles = ohlcv[:-1]
         
-        # พิจารณาเฉพาะแท่งที่ปิดแล้ว
+        # พิจารณาเฉพาะแท่งที่ปิดแล้ว และปรับด้วย PRICE_DECREASE/INCREASE
         if position_side == 'buy':
-            prices = [candle[3] for candle in closed_candles]  # ราคาต่ำสุด
+            # ใช้ PRICE_DECREASE สำหรับ low prices เพราะเป็น stoploss ของ long position
+            prices = [candle[3] * PRICE_DECREASE for candle in closed_candles]  # ราคาต่ำสุด * PRICE_DECREASE
             prices_str = [f"{price:.2f}" for price in prices]
-            message(symbol, f"กำลังพิจารณาแท่งเทียนที่ปิดแล้ว {len(prices)} แท่ง - Low prices: {', '.join(prices_str)}", "blue")
+            message(symbol, f"กำลังพิจารณาแท่งเทียนที่ปิดแล้ว {len(prices)} แท่ง - Low prices (with {PRICE_DECREASE:.4f}): {', '.join(prices_str)}", "blue")
         elif position_side == 'sell':
-            prices = [candle[2] for candle in closed_candles]  # ราคาสูงสุด
+            # ใช้ PRICE_INCREASE สำหรับ high prices เพราะเป็น stoploss ของ short position
+            prices = [candle[2] * PRICE_INCREASE for candle in closed_candles]  # ราคาสูงสุด * PRICE_INCREASE
             prices_str = [f"{price:.2f}" for price in prices]
-            message(symbol, f"กำลังพิจารณาแท่งเทียนที่ปิดแล้ว {len(prices)} แท่ง - High prices: {', '.join(prices_str)}", "blue")
+            message(symbol, f"กำลังพิจารณาแท่งเทียนที่ปิดแล้ว {len(prices)} แท่ง - High prices (with {PRICE_INCREASE:.4f}): {', '.join(prices_str)}", "blue")
         else:
             raise ValueError("ทิศทาง position ไม่ถูกต้อง ต้องเป็น 'buy' หรือ 'sell' เท่านั้น")
 
@@ -410,33 +403,38 @@ async def adjust_stoploss(api_key, api_secret, symbol, state, position_side, cro
 
         # ค้นหาชุด 3 แท่งที่เข้าเงื่อนไข โดยเริ่มจากแท่งใหม่ไปเก่า
         valid_sequences = []
-        for i in range(len(prices)-1, 1, -1):  # เริ่มจากแท่งสุดท้าย
-            for j in range(i-1, 0, -1):  # ถอยมาแท่งก่อนหน้า
-                for k in range(j-1, -1, -1):  # ถอยมาแท่งแรกสุด
+        for i in range(len(prices)-1, 1, -1):
+            for j in range(i-1, 0, -1):
+                for k in range(j-1, -1, -1):
                     if position_side == 'buy':
                         if prices[i] > prices[j] > prices[k]:  # เรียงจากน้อยไปมาก
-                            valid_sequences.append((k, j, i))  # เก็บลำดับ k->j->i
+                            valid_sequences.append((k, j, i))
                     else:  # position_side == 'sell'
                         if prices[i] < prices[j] < prices[k]:  # เรียงจากมากไปน้อย
-                            valid_sequences.append((k, j, i))  # เก็บลำดับ k->j->i
+                            valid_sequences.append((k, j, i))
 
         if not valid_sequences:
             message(symbol, "ไม่พบชุดแท่งเทียนที่เข้าเงื่อนไข", "yellow")
             return None
 
-        # เลือกชุดแรกที่พบ (จะเป็นชุดที่ใกล้ปัจจุบันที่สุด เพราะเราวนลูปจากท้ายมา)
-        best_sequence = valid_sequences[0]  # ไม่ต้องใช้ min() แล้ว
-        new_stoploss = prices[best_sequence[0]]  # เลือกแท่งแรกของชุด
-        new_stoploss = new_stoploss * PRICE_DECREASE if position_side == 'buy' else new_stoploss * PRICE_INCREASE
+        # เลือกชุดแรกที่พบ (จะเป็นชุดที่ใกล้ปัจจุบันที่สุด)
+        best_sequence = valid_sequences[0]
+        new_stoploss = prices[best_sequence[0]]  # ไม่ต้องคูณ PRICE_DECREASE/INCREASE อีกเพราะทำไปแล้วตอนสร้าง prices
+
         # ตรวจสอบเงื่อนไขการปรับ stoploss
-        if current_stoploss is not None:  # เช็คเฉพาะเมื่อมี current_stoploss
-            if position_side == 'buy':
-                if new_stoploss <= current_stoploss:
-                    message(symbol, f"ไม่ปรับ stoploss เนื่องจากค่าใหม่ ({new_stoploss:.2f}) ไม่สูงกว่าค่าปัจจุบัน ({current_stoploss:.2f})", "yellow")
-                    return None
-            else:  # position_side == 'sell'
-                if new_stoploss >= current_stoploss:
-                    message(symbol, f"ไม่ปรับ stoploss เนื่องจากค่าใหม่ ({new_stoploss:.2f}) ไม่ต่ำกว่าค่าปัจจุบัน ({current_stoploss:.2f})", "yellow")
+        if current_stoploss is not None:
+                if position_side == 'buy':
+                    if new_stoploss <= current_stoploss:
+                        message(symbol, f"ไม่ปรับ stoploss เนื่องจากค่าใหม่ ({new_stoploss:.2f}) ไม่สูงกว่าค่าปัจจุบัน ({current_stoploss:.2f})", "yellow")
+                        return None
+                else:  # position_side == 'sell'
+                    if new_stoploss >= current_stoploss:
+                        message(symbol, f"ไม่ปรับ stoploss เนื่องจากค่าใหม่ ({new_stoploss:.2f}) ไม่ต่ำกว่าค่าปัจจุบัน ({current_stoploss:.2f})", "yellow")
+                        return None
+                    
+                # เพิ่มการเช็คว่าราคาเท่ากันหรือไม่
+                if new_stoploss == current_stoploss:
+                    message(symbol, f"ไม่ปรับ stoploss เนื่องจากราคาเท่าเดิม ({current_stoploss:.2f})", "yellow")
                     return None
 
         # ปรับหรือสร้าง stoploss
@@ -445,7 +443,7 @@ async def adjust_stoploss(api_key, api_secret, symbol, state, position_side, cro
         sequence_str = ', '.join([f"{price:.2f}" for price in sequence_prices])
 
         if current_stoploss is None:
-            message(symbol, f"สร้าง stoploss ที่ราคา {new_stoploss:.2f} เนื่องจากไม่มี stoploss (พิจารณาจากแท่งที่ปิดแล้ว: {sequence_str})", "cyan")
+            message(symbol, f"สร้าง stoploss ที่ราคา {new_stoploss:.2f} (พิจารณาจากแท่งที่ปิดแล้ว: {sequence_str})", "cyan")
         else:
             message(symbol, f"ปรับ stoploss จาก {current_stoploss:.2f} เป็น {new_stoploss:.2f} (พิจารณาจากแท่งที่ปิดแล้ว: {sequence_str})", "cyan")
 
@@ -453,14 +451,15 @@ async def adjust_stoploss(api_key, api_secret, symbol, state, position_side, cro
 
     except Exception as e:
         error_traceback = traceback.format_exc()
-        message(symbol,f"เกิดข้อผิดพลาดขณะปรับ stoploss: {str(e)}", "yellow")
+        message(symbol, f"เกิดข้อผิดพลาดขณะปรับ stoploss: {str(e)}", "yellow")
         message(symbol, "________________________________", "red")
         message(symbol, f"Error: {error_traceback}", "red")
         message(symbol, "________________________________", "red")
         return None
     finally:
-        await exchange.close()
-            
+        if exchange:
+            await exchange.close()
+                        
 def timeframe_to_seconds(timeframe):
     unit = timeframe[-1]
     value = int(timeframe[:-1])
@@ -488,7 +487,7 @@ def get_timeframe_milliseconds(timeframe):
 async def get_current_candle(api_key, api_secret, symbol, timeframe):
     exchange = await create_future_exchange(api_key, api_secret)
     try:
-        ohlcv = await exchange.fetch_ohlcv(symbol, timeframe, limit=1)
+        ohlcv = await fetch_ohlcv(symbol, timeframe, limit=1)
         await exchange.close()
         if ohlcv and len(ohlcv) > 0:
             return {
@@ -508,140 +507,170 @@ async def get_current_candle(api_key, api_secret, symbol, timeframe):
     return None
 
 async def run_symbol_bot(api_key: str, api_secret: str, symbol: str, state: SymbolState):
-    """ฟังก์ชันหลักสำหรับการเทรดของแต่ละเหรียญที่ทำงานแบบขนาน"""
-    exchange = None
-    try:
-        message(symbol, f"เริ่มต้นบอทสำหรับ {symbol} (Timeframe: {state.config.timeframe})", "cyan")
-        
-        # โหลดสถานะที่บันทึกไว้
-        state.load_state()
-        exchange = await create_future_exchange(api_key, api_secret)
-        
-        # ตรวจสอบสถานะเริ่มต้นแบบขนาน
-        tasks = [
-            check_position(api_key, api_secret, symbol),
-            get_future_market_price(api_key, api_secret, symbol)
-        ]
-        initial_checks = await asyncio.gather(*tasks, return_exceptions=True)
-        state.is_in_position = initial_checks[0] if not isinstance(initial_checks[0], Exception) else False
-        
-        while True:
-            try:
-                # ดึงข้อมูลพื้นฐานแบบขนาน
-                tasks = [
-                    get_future_market_price(api_key, api_secret, symbol),
-                    check_position(api_key, api_secret, symbol)
-                ]
+   """ฟังก์ชันหลักสำหรับการเทรดของแต่ละเหรียญที่ทำงานแบบขนาน"""
+   exchange = None
+   try:
+       message(symbol, f"เริ่มต้นบอทสำหรับ {symbol} (Timeframe: {state.config.timeframe})", "cyan")
+       
+       # โหลดสถานะที่บันทึกไว้
+       state.load_state()
+       exchange = await create_future_exchange(api_key, api_secret)
+       
+       # ตรวจสอบสถานะเริ่มต้นแบบขนาน
+       tasks = [
+           check_position(api_key, api_secret, symbol),
+           get_future_market_price(api_key, api_secret, symbol)
+       ]
+       initial_checks = await asyncio.gather(*tasks, return_exceptions=True)
+       state.is_in_position = initial_checks[0] if not isinstance(initial_checks[0], Exception) else False
+       
+       # เช็คสัญญาณล่าสุดเมื่อเริ่มต้นถ้าไม่มี position
+       if not state.is_in_position and not state.entry_orders:
+           rsi_cross = await get_rsi_cross_last_candle(
+               api_key, api_secret, symbol,
+               state.config.timeframe,
+               state.config.rsi_period,
+               state.config.rsi_oversold,
+               state.config.rsi_overbought
+           )
+           
+           if rsi_cross and rsi_cross.get('status', False):
+               # เช็คว่าสัญญาณยังไม่เก่าเกินไป
+               current_time = datetime.now(pytz.UTC)
+               last_cross_time = datetime.strptime(
+                   rsi_cross['candle']['time'],
+                   '%d/%m/%Y %H:%M'
+               ).replace(tzinfo=pytz.UTC)
+               
+               time_difference = current_time - last_cross_time
+               candles_passed = time_difference.total_seconds() / (timeframe_to_seconds(state.config.timeframe))
+               
+               if candles_passed <= 5:  # ถ้าสัญญาณยังไม่เก่าเกินไป
+                   state.last_candle_cross = rsi_cross
+                   state.isTry_last_entry = True
+                   message(symbol, f"เริ่มต้นระบบ - พบสัญญาณ {rsi_cross['type']} ล่าสุดที่ยังไม่เก่าเกินไป - เตรียมลองเข้า position", "yellow")
+               else:
+                   state.isTry_last_entry = False
+                   state.last_candle_cross = None
+                   message(symbol, "เริ่มต้นระบบ - พบสัญญาณล่าสุดแต่เก่าเกินไป รอสัญญาณใหม่", "yellow")
+       
+       while True:
+           try:
+               # ดึงข้อมูลพื้นฐานแบบขนาน
+               tasks = [
+                   get_future_market_price(api_key, api_secret, symbol),
+                   check_position(api_key, api_secret, symbol)
+               ]
 
-                # เพิ่ม task เมื่อจำเป็น
-                if state.is_in_position:
-                    tasks.append(get_position_side(api_key, api_secret, symbol))
-                else:
-                    tasks.append(asyncio.sleep(0))  # Dummy task
+               # เพิ่ม task เมื่อจำเป็น
+               if state.is_in_position:
+                   tasks.append(get_position_side(api_key, api_secret, symbol))
+               else:
+                   tasks.append(asyncio.sleep(0))  # Dummy task
 
-                tasks.append(get_current_candle(api_key, api_secret, symbol, state.config.timeframe))
-                
-                base_data = await asyncio.gather(*tasks, return_exceptions=True)
-                
-                price = base_data[0] if not isinstance(base_data[0], Exception) else None
-                current_position = base_data[1] if not isinstance(base_data[1], Exception) else False
-                position_side = base_data[2] if not isinstance(base_data[2], Exception) and state.is_in_position else None
-                current_candle = base_data[3] if not isinstance(base_data[3], Exception) else None
+               tasks.append(get_current_candle(api_key, api_secret, symbol, state.config.timeframe))
+               
+               base_data = await asyncio.gather(*tasks, return_exceptions=True)
+               
+               price = base_data[0] if not isinstance(base_data[0], Exception) else None
+               current_position = base_data[1] if not isinstance(base_data[1], Exception) else False
+               position_side = base_data[2] if not isinstance(base_data[2], Exception) and state.is_in_position else None
+               current_candle = base_data[3] if not isinstance(base_data[3], Exception) else None
 
-                if price is None:
-                    message(symbol, "ไม่สามารถดึงราคาตลาดได้ ข้ามรอบนี้", "yellow")
-                    await asyncio.sleep(1)
-                    continue
+               if price is None:
+                   message(symbol, "ไม่สามารถดึงราคาตลาดได้ ข้ามรอบนี้", "yellow")
+                   await asyncio.sleep(1)
+                   continue
 
-                # เมื่อเข้า position ใหม่ (ทั้งปกติและ swap)
-                if current_position and state.global_entry_price is None:
-                    state.global_entry_price = price
-                    state.global_position_entry_time = datetime.now(pytz.UTC)
-                    state.global_position_side = position_side
+               # เมื่อเข้า position ใหม่ (ทั้งปกติและ swap)
+               if current_position and state.global_entry_price is None:
+                   state.global_entry_price = price
+                   state.global_position_entry_time = datetime.now(pytz.UTC)
+                   state.global_position_side = position_side
 
-                # ตรวจสอบและดำเนินการ position management แบบขนาน
-                position_tasks = []
-                
-                # Task 1: ตรวจสอบและปรับ stoploss
-                if state.is_wait_candle and position_side:
-                    position_tasks.append(_handle_stoploss_adjustment(
-                        api_key, api_secret, symbol, state, position_side, price
-                    ))
+               # ตรวจสอบและดำเนินการ position management แบบขนาน
+               position_tasks = []
+               
+               # Task 1: ตรวจสอบและปรับ stoploss
+               if state.is_wait_candle and position_side:
+                   position_tasks.append(_handle_stoploss_adjustment(
+                       api_key, api_secret, symbol, state, position_side, price
+                   ))
 
-                # Task 2: ตรวจสอบการเข้าซื้อใหม่หลังจาก stop loss
-                if state.isTry_last_entry:
-                    position_tasks.append(_handle_reentry(
-                        api_key, api_secret, symbol, state, price, exchange
-                    ))
+               # Task 2: ตรวจสอบการเข้าซื้อใหม่หลังจาก stop loss
+               if state.isTry_last_entry:
+                   position_tasks.append(_handle_reentry(
+                       api_key, api_secret, symbol, state, price, exchange
+                   ))
 
-                # Task 3: ตรวจสอบการปิด position
-                if state.is_in_position and not state.is_swapping and not current_position:
-                    position_tasks.append(_handle_position_close(
-                        api_key, api_secret, symbol, state, price
-                    ))
+               # Task 3: ตรวจสอบการปิด position
+               if state.is_in_position and not state.is_swapping and not current_position:
+                   position_tasks.append(_handle_position_close(
+                       api_key, api_secret, symbol, state, price
+                   ))
 
-                # Task 4: ตรวจสอบเงื่อนไขการ swap position
-                if state.last_focus_price is not None:
-                    position_tasks.append(_handle_position_swap(
-                        api_key, api_secret, symbol, state, price, position_side
-                    ))
+               # Task 4: ตรวจสอบเงื่อนไขการ swap position
+               if state.last_focus_price is not None:
+                   position_tasks.append(_handle_position_swap(
+                       api_key, api_secret, symbol, state, price, position_side
+                   ))
 
-                # Task 5: จัดการ entry orders
-                if state.entry_orders:
-                    position_tasks.append(_handle_entry_orders(
-                        api_key, api_secret, symbol, state, price, exchange
-                    ))
+               # Task 5: จัดการ entry orders
+               if state.entry_orders:
+                   position_tasks.append(_handle_entry_orders(
+                       api_key, api_secret, symbol, state, price, exchange
+                   ))
 
-                # รันทุก task แบบขนาน
-                if position_tasks:
-                    await asyncio.gather(*position_tasks, return_exceptions=True)
+               # รันทุก task แบบขนาน
+               if position_tasks:
+                   await asyncio.gather(*position_tasks, return_exceptions=True)
 
-                # ตรวจสอบแท่งเทียนใหม่และ RSI แบบขนาน
-                if current_candle:
-                    candle_tasks = [
-                        exchange.fetch_ohlcv(symbol, state.config.timeframe, limit=1),
-                        get_rsi_cross_last_candle(
-                            api_key, api_secret, symbol,
-                            state.config.timeframe,
-                            state.config.rsi_period,
-                            state.config.rsi_oversold,
-                            state.config.rsi_overbought
-                        )
-                    ]
-                    candle_data = await asyncio.gather(*candle_tasks, return_exceptions=True)
+               # ตรวจสอบแท่งเทียนใหม่และ RSI แบบขนาน
+               if current_candle:
+                   candle_tasks = [
+                       exchange.fetch_ohlcv(symbol, state.config.timeframe, limit=1),
+                       get_rsi_cross_last_candle(
+                           api_key, api_secret, symbol,
+                           state.config.timeframe,
+                           state.config.rsi_period,
+                           state.config.rsi_oversold,
+                           state.config.rsi_overbought
+                       )
+                   ]
+                   candle_data = await asyncio.gather(*candle_tasks, return_exceptions=True)
 
-                    ohlcv = candle_data[0] if not isinstance(candle_data[0], Exception) else None
-                    rsi_cross = candle_data[1] if not isinstance(candle_data[1], Exception) else None
+                   ohlcv = candle_data[0] if not isinstance(candle_data[0], Exception) else None
+                   rsi_cross = candle_data[1] if not isinstance(candle_data[1], Exception) else None
 
-                    if ohlcv and len(ohlcv) > 0:
-                        current_candle_time = datetime.fromtimestamp(ohlcv[0][0] / 1000, tz=pytz.UTC)
-                        
-                        # ตรวจสอบแท่งเทียนใหม่
-                        if state.last_candle_time is None or current_candle_time > state.last_candle_time:
-                            await _handle_new_candle(
-                                api_key, api_secret, symbol, state, current_candle_time,
-                                position_side, ohlcv, rsi_cross
-                            )
+                   if ohlcv and len(ohlcv) > 0:
+                       current_candle_time = datetime.fromtimestamp(ohlcv[0][0] / 1000, tz=pytz.UTC)
+                       
+                       # ตรวจสอบแท่งเทียนใหม่
+                       if state.last_candle_time is None or current_candle_time > state.last_candle_time:
+                           await _handle_new_candle(
+                               api_key, api_secret, symbol, state, current_candle_time,
+                               position_side, ohlcv, rsi_cross
+                           )
 
-                # บันทึกสถานะหลังจบรอบ
-                state.save_state()
-                await asyncio.sleep(1)
-                
-            except Exception as e:
-                error_traceback = traceback.format_exc()
-                message(symbol, f"เกิดข้อผิดพลาด: {str(e)}", "red")
-                message(symbol, f"Error: {error_traceback}", "red")
-                await asyncio.sleep(1)
-                
-    except Exception as e:
-        message(symbol, f"เกิดข้อผิดพลาดร้ายแรงใน run_symbol_bot: {str(e)}", "red")
-        raise
-    finally:
-        if exchange:
-            try:
-                await exchange.close()
-            except:
-                pass
+               # บันทึกสถานะหลังจบรอบ
+               state.save_state()
+               await asyncio.sleep(1)
+               
+           except Exception as e:
+               error_traceback = traceback.format_exc()
+               message(symbol, f"เกิดข้อผิดพลาด: {str(e)}", "red")
+               message(symbol, f"Error: {error_traceback}", "red")
+               await asyncio.sleep(1)
+               
+   except Exception as e:
+       message(symbol, f"เกิดข้อผิดพลาดร้ายแรงใน run_symbol_bot: {str(e)}", "red")
+       raise
+   finally:
+       if exchange:
+           try:
+               await exchange.close()
+           except:
+               pass
 
 # Helper methods for parallel operations
 async def _handle_stoploss_adjustment(api_key, api_secret, symbol, state, position_side, price):
@@ -770,43 +799,60 @@ async def _handle_reentry(api_key, api_secret, symbol, state, price, exchange):
         state.isTry_last_entry = False
 
 async def _handle_position_close(api_key, api_secret, symbol, state, price):
-    """จัดการการปิด position แบบแยกขนาน"""
-    try:
-        # ตรวจสอบว่าโดน stoploss หรือไม่
-        current_stoploss = await get_current_stoploss(api_key, api_secret, symbol)
-        was_stopped_out = False
-        
-        if current_stoploss:
-            # ถ้าเป็น long position และราคาปิดต่ำกว่า stoploss
-            if state.global_position_side == 'buy' and price <= current_stoploss:
-                was_stopped_out = True
-            # ถ้าเป็น short position และราคาปิดสูงกว่า stoploss
-            elif state.global_position_side == 'sell' and price >= current_stoploss:
-                was_stopped_out = True
+   """จัดการการปิด position แบบขนาน"""
+   try:
+       # ตรวจสอบว่าโดน stoploss หรือไม่
+       current_stoploss = await get_current_stoploss(api_key, api_secret, symbol)
+       was_stopped_out = False
+       
+       if current_stoploss:
+           # ถ้าเป็น long position และราคาปิดต่ำกว่า stoploss
+           if state.global_position_side == 'buy' and price <= current_stoploss:
+               was_stopped_out = True
+           # ถ้าเป็น short position และราคาปิดสูงกว่า stoploss
+           elif state.global_position_side == 'sell' and price >= current_stoploss:
+               was_stopped_out = True
 
-        tasks = [
-            clear_all_orders(api_key, api_secret, symbol),
-            record_trade(api_key, api_secret, symbol,
-                        'BUY' if state.global_position_side == 'buy' else 'SELL',
-                        state.global_entry_price, price, state.config.entry_amount,
-                        'Position Closed by Stoploss' if was_stopped_out else 'Position Closed', 
-                        state)
-        ]
-        await asyncio.gather(*tasks)
-        
-        # รีเซ็ตสถานะ
-        state.global_entry_price = None
-        state.global_position_entry_time = None
-        state.global_position_side = None
-        state.is_in_position = False
-        
-        # ถ้าโดน stoploss และมีสัญญาณล่าสุด ให้ลองเข้าใหม่
-        if was_stopped_out and state.last_candle_cross:
-            state.isTry_last_entry = True
-            message(symbol, "Position ถูกปิดด้วย Stoploss - เตรียมลองเข้าใหม่ตามสัญญาณล่าสุด", "yellow")
-            
-    except Exception as e:
-        message(symbol, f"Error in position close handling: {str(e)}", "red")
+       tasks = [
+           clear_all_orders(api_key, api_secret, symbol),
+           record_trade(api_key, api_secret, symbol,
+                       'BUY' if state.global_position_side == 'buy' else 'SELL',
+                       state.global_entry_price, price, state.config.entry_amount,
+                       'Position Closed by Stoploss' if was_stopped_out else 'Position Closed', 
+                       state)
+       ]
+       await asyncio.gather(*tasks)
+       
+       # รีเซ็ตสถานะ position
+       state.global_entry_price = None
+       state.global_position_entry_time = None
+       state.global_position_side = None
+       state.is_in_position = False
+       
+       # ถ้าโดน stoploss และมีสัญญาณล่าสุด ให้ลองเข้าใหม่
+       if was_stopped_out and state.last_candle_cross:
+           # เช็คว่าสัญญาณยังไม่เก่าเกินไป
+           current_time = datetime.now(pytz.UTC)
+           last_cross_time = datetime.strptime(
+               state.last_candle_cross['candle']['time'],
+               '%d/%m/%Y %H:%M'
+           ).replace(tzinfo=pytz.UTC)
+           
+           time_difference = current_time - last_cross_time
+           candles_passed = time_difference.total_seconds() / (timeframe_to_seconds(state.config.timeframe))
+           
+           if candles_passed <= 5:  # ถ้าสัญญาณยังไม่เก่าเกินไป
+               state.isTry_last_entry = True
+               message(symbol, f"Position ถูกปิดด้วย Stoploss - พบสัญญาณล่าสุดที่ยังไม่เก่าเกินไป {state.last_candle_cross['type']} - เตรียมลองเข้าใหม่", "yellow")
+           else:
+               state.isTry_last_entry = False
+               state.last_candle_cross = None
+               message(symbol, "Position ถูกปิดด้วย Stoploss - สัญญาณล่าสุดเก่าเกินไป ยกเลิกการลองเข้าใหม่", "yellow")
+           
+   except Exception as e:
+       error_traceback = traceback.format_exc()
+       message(symbol, f"Error in position close handling: {str(e)}", "red")
+       message(symbol, f"Error: {error_traceback}", "red")
 
 async def _handle_new_candle(api_key, api_secret, symbol, state, current_candle_time,
                          position_side, ohlcv, rsi_cross):
@@ -997,6 +1043,7 @@ async def _handle_rsi_signals(api_key, api_secret, symbol, state, position_side,
         error_traceback = traceback.format_exc()
         message(symbol, f"Error in RSI signal handling: {str(e)}", "red")
         message(symbol, f"Error: {error_traceback}", "red")
+        
         
 async def _handle_entry_orders(api_key: str, api_secret: str, symbol: str, state: SymbolState, price: float, exchange):
     """จัดการ entry orders"""
@@ -1214,34 +1261,84 @@ async def run_with_error_handling(coro, symbol, max_retries=5, retry_delay=60):
                 message(symbol, "เกินจำนวนครั้งที่ลองใหม่ได้ หยุดการทำงาน", "red")
                 raise
 
+
 async def main():
+    price_tracker = None
+    kline_tracker = None
+    tracker_tasks = []
+    trading_tasks = []
+    
     try:
-        tasks = []
+        # เริ่มต้น price tracker และ kline tracker
+        price_tracker = get_price_tracker()
+        kline_tracker = get_kline_tracker()
+        
+        # สมัครและโหลดข้อมูลเริ่มต้นสำหรับทุกเหรียญ
+        init_tasks = []
+        for symbol, config in TRADING_CONFIG.items():
+            clean_symbol = symbol.lower()
+            price_tracker.subscribe_symbol(clean_symbol)
+            # สร้าง task สำหรับการโหลดข้อมูลเริ่มต้น
+            init_tasks.append(kline_tracker.initialize_symbol_data(symbol, config['timeframe']))
+        
+        # รอให้โหลดข้อมูลเริ่มต้นเสร็จ
+        if init_tasks:
+            message("MAIN", "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...", "yellow")
+            await asyncio.gather(*init_tasks)
+            message("MAIN", "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์", "green")
+        
+        # เริ่ม trackers
+        tracker_tasks = [
+            asyncio.create_task(price_tracker.start()),
+            asyncio.create_task(kline_tracker.start())
+        ]
+        
+        # รอให้ trackers เริ่มต้นเสร็จ
+        await asyncio.sleep(2)  # ให้เวลา trackers เชื่อมต่อ
+        
+        # สร้าง tasks สำหรับการเทรด
+        trading_tasks = []
         symbol_states = {}
         await update_symbol_data(api_key, api_secret)
         
         for symbol in TRADING_CONFIG.keys():
             state = SymbolState(symbol)
             symbol_states[symbol] = state
-            
-            # สร้าง task สำหรับการทำงานหลัก
             main_coro = run_bot_wrapper(api_key, api_secret, symbol, state)
             main_task = asyncio.create_task(run_with_error_handling(main_coro, symbol))
-            tasks.append(main_task)
-            
-            message(symbol, f"สร้าง tasks สำหรับ {symbol} (Timeframe: {state.config.timeframe})", "cyan")
+            trading_tasks.append(main_task)
+        
+        # รวม tracker_tasks และ trading_tasks
+        all_tasks = tracker_tasks + trading_tasks
         
         # รอให้ทุก task ทำงานเสร็จ
-        await asyncio.gather(*tasks)
+        await asyncio.gather(*all_tasks)
         
     except Exception as e:
         message("MAIN", f"เกิดข้อผิดพลาดใน main: {str(e)}", "red")
+    except KeyboardInterrupt:
+        message("MAIN", "ได้รับคำสั่งปิดโปรแกรม กำลังปิดระบบ...", "yellow")
     finally:
-        # ยกเลิกและปิด tasks ที่ยังทำงานอยู่
-        for task in tasks:
+        message("MAIN", "กำลังปิดระบบ...", "yellow")
+        
+        # ยกเลิกทุก task ก่อน
+        for task in (tracker_tasks + trading_tasks):
             if not task.done():
                 task.cancel()
-        await asyncio.gather(*tasks, return_exceptions=True)
+        
+        # หยุด trackers
+        if price_tracker:
+            await price_tracker.stop()
+        if kline_tracker:
+            await kline_tracker.stop()
+        
+        # รอให้ tasks ถูกยกเลิกเสร็จสมบูรณ์
+        try:
+            await asyncio.gather(*(tracker_tasks + trading_tasks), return_exceptions=True)
+        except Exception as e:
+            message("MAIN", f"เกิดข้อผิดพลาดขณะปิดระบบ: {str(e)}", "red")
+        
+        message("MAIN", "ปิดระบบเรียบร้อย", "green")
 
 if __name__ == "__main__":
     try:
