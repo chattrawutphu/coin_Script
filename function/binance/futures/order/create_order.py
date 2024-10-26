@@ -18,15 +18,36 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
     try:
         exchange = await create_future_exchange(api_key, api_secret)
 
+        # ตรวจสอบและแปลงค่าราคาให้ถูกต้อง
         latest_price = await get_future_market_price(api_key, api_secret, symbol)
-        price = await get_adjusted_price(api_key, api_secret, price, latest_price, side, symbol)
-        temp_quantity = quantity
-        quantity = await get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, order_type)
+        if latest_price is None:
+            message(symbol, "ไม่สามารถดึงราคาตลาดได้", "red")
+            return None
+            
+        # แปลงราคาและปริมาณให้เป็นตัวเลขที่ถูกต้อง
+        try:
+            price = await get_adjusted_price(api_key, api_secret, price, latest_price, side, symbol)
+            if price is None:
+                message(symbol, "ไม่สามารถปรับราคาได้", "red")
+                return None
+            
+            temp_quantity = quantity
+            quantity = await get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, order_type)
+            if quantity is None or quantity <= 0:
+                message(symbol, f"ปริมาณที่ปรับแล้วไม่ถูกต้อง: {quantity}", "red")
+                return None
+                
+            # แปลงให้เป็น float ที่มีความแม่นยำ
+            price = float('{:.8f}'.format(float(price)))
+            quantity = float('{:.8f}'.format(float(quantity)))
+        except Exception as e:
+            message(symbol, f"เกิดข้อผิดพลาดในการแปลงค่าราคาหรือปริมาณ: {str(e)}", "red")
+            return None
 
         params = {}
 
+        # ตั้งค่า position mode
         mode = await get_position_mode(api_key, api_secret)
-
         if mode == 'hedge':
             if order_type.upper() == "TAKE_PROFIT_MARKET" or order_type.upper() == "STOPLOSS_MARKET":
                 if side == "buy": params.update({'positionSide': 'short'})
@@ -45,20 +66,25 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                 else:
                     params.update({'reduceOnly': True})
 
+        # ตั้งค่าประเภทคำสั่ง
         if order_type.upper() == "MARKET":
             params.update({'type': 'market'})
         elif order_type.upper() == "STOP_MARKET" or order_type.upper() == "STOPLOSS_MARKET":
             params.update({'type': 'stop_market', 'stopPrice': price})
             if quantity == 0:
-                quantity == await get_adjust_precision_quantity(symbol, (latest_price/100))
+                quantity = await get_adjust_precision_quantity(symbol, (latest_price/100))
         elif order_type.upper() == "STOP_LIMIT":
             stop_price = await get_adjusted_stop_price(api_key, api_secret, price, stop_price, latest_price, side, symbol)
-            params.update({'type': 'stop', 'price': stop_price, 'stopPrice': price})
+            if stop_price is None:
+                message(symbol, "ไม่สามารถปรับราคา stop ได้", "red")
+                return None
+            params.update({'type': 'stop', 'price': float('{:.8f}'.format(float(stop_price))), 'stopPrice': price})
         elif order_type.upper() == "TAKE_PROFIT_MARKET":
             params.update({'type': 'take_profit_market', 'stopPrice': price})
         else:
             params.update({'type': 'limit', 'price': price})
 
+        # สร้าง parameters สำหรับคำสั่ง
         order_params = {
             'symbol': symbol,
             'side': side,
@@ -67,15 +93,15 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
             'params': params
         }
 
-        if params['type'] != 'market' and params['type'] != 'stop_market' and params['type'] != 'take_profit_market':
-            order_params['price'] = params['price']
-        
+        if params['type'] not in ['market', 'stop_market', 'take_profit_market']:
+            order_params['price'] = params.get('price', price)
+
         try:
+            message(symbol, f"กำลังส่งคำสั่ง: {order_params}", "blue")
             order = await exchange.create_order(**order_params)
             await exchange.close()
             return order
         except ccxt.OrderImmediatelyFillable:
-            # ถ้าเกิด error "Order would immediately trigger" ให้เปลี่ยนเป็น market order
             message(symbol, "คำสั่งจะทำงานทันที เปลี่ยนเป็น Market Order", "yellow")
             
             # เปลี่ยนเป็น market order
@@ -83,7 +109,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                 'symbol': symbol,
                 'side': side,
                 'type': 'market',
-                'amount': quantity,
+                'amount': float('{:.8f}'.format(float(quantity))),
                 'params': {'type': 'market'}
             }
             
@@ -93,6 +119,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                 else:
                     market_params['params'].update({'positionSide': 'short'})
             
+            message(symbol, f"ส่งคำสั่ง Market: {market_params}", "blue")
             order = await exchange.create_order(**market_params)
             message(symbol, f"เข้า {side.upper()} ด้วย Market Order สำเร็จที่ราคา {float(order['average']):.2f}", "green")
             await exchange.close()
@@ -120,19 +147,18 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                     if side == "buy": params.update({'positionSide': 'long'})
                     else: params.update({'positionSide': 'short'})
             try:
-                message(symbol, f"Position Mode ไม่ถูกต้อง ลองเปลี่ยนอีกครั้ง และเก็บข้อมูลไว้","yellow")
+                message(symbol, f"Position Mode ไม่ถูกต้อง ลองเปลี่ยนอีกครั้ง และเก็บข้อมูลไว้", "yellow")
                 await change_position_mode(api_key, api_secret)
                 order = await exchange.create_order(**order_params)
                 await exchange.close()
                 return order
             except Exception as e:
-                message(symbol, f"พบข้อผิดพลาด","yellow")
-                print(f"Error: {error_traceback}")
+                message(symbol, f"พบข้อผิดพลาด", "red")
+                message(symbol, f"Error: {error_traceback}", "red")
                 await exchange.close()
-            
         else:
-            message(symbol, f"พบข้อผิดพลาด","yellow")
-            print(f"Error: {error_traceback}")
+            message(symbol, f"พบข้อผิดพลาด", "red")
+            message(symbol, f"Error: {error_traceback}", "red")
             await exchange.close()
     finally:
         if exchange:

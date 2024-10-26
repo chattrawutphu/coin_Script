@@ -33,20 +33,6 @@ TRADING_CONFIG = {
         'rsi_period': 7,
         'rsi_overbought': 68,
         'rsi_oversold': 32
-    },
-    'ETHUSDT': {
-        'timeframe': '1h',
-        'entry_amount': '50$',
-        'rsi_period': 7,
-        'rsi_overbought': 68,
-        'rsi_oversold': 32
-    },
-    'SOLUSDT': {
-        'timeframe': '4h',
-        'entry_amount': '50$',
-        'rsi_period': 7,
-        'rsi_overbought': 68,
-        'rsi_oversold': 32
     }
 }
 
