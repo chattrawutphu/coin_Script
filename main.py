@@ -27,8 +27,22 @@ from function.binance.futures.system.update_symbol_data import update_symbol_dat
 from config import api_key, api_secret
 
 TRADING_CONFIG = {
-    'BNBUSDT': {
-        'timeframe': '1m',
+    'BTCUSDT': {
+        'timeframe': '5m',
+        'entry_amount': '50$',
+        'rsi_period': 7,
+        'rsi_overbought': 68,
+        'rsi_oversold': 32
+    },
+    'ETHUSDT': {
+        'timeframe': '1h',
+        'entry_amount': '50$',
+        'rsi_period': 7,
+        'rsi_overbought': 68,
+        'rsi_oversold': 32
+    },
+    'SOLUSDT': {
+        'timeframe': '4h',
         'entry_amount': '50$',
         'rsi_period': 7,
         'rsi_overbought': 68,
@@ -36,7 +50,7 @@ TRADING_CONFIG = {
     }
 }
 
-PRICE_CHANGE_THRESHOLD = 0.0001  # 0.1%
+PRICE_CHANGE_THRESHOLD = 0.0005  # 0.1%
 PRICE_INCREASE = 1 + PRICE_CHANGE_THRESHOLD  # 1.001
 PRICE_DECREASE = 1 - PRICE_CHANGE_THRESHOLD  # 0.999
 PRICE_CHANGE_MAXPERCENT = 0.5
