@@ -4,8 +4,29 @@ from function.binance.futures.system.load_json_data import load_json_data
 from function.message import message
 from config import api_key, api_secret
 
-async def get_adjust_precision_quantity(symbol, quantity, current_price=None):
+def safe_decimal_conversion(value):
+    """แปลงค่าให้เป็น Decimal อย่างปลอดภัย"""
     try:
+        if isinstance(value, Decimal):
+            return value
+        if isinstance(value, (int, float)):
+            return Decimal(str(value))
+        if isinstance(value, str):
+            # ทำความสะอาดข้อมูล
+            clean_value = value.strip().replace(',', '')
+            return Decimal(clean_value)
+        return Decimal('0')
+    except Exception as e:
+        message("SYSTEM", f"Error converting to Decimal: {value} ({type(value)}), Error: {str(e)}", "red")
+        raise
+
+async def get_adjust_precision_quantity(symbol, quantity, current_price=None):
+    """ปรับปริมาณการเทรดให้ตรงตามความละเอียดที่กำหนด"""
+    try:
+        # Debug logging
+        #message(symbol, f"Adjusting quantity: {quantity} (type: {type(quantity)})", "debug")
+        
+        # โหลดข้อมูล symbol
         symbol_data = await load_json_data("json/symbol_precision.json")
         symbol_info = next((item for item in symbol_data if item["id"] == symbol), None)
         
@@ -13,56 +34,70 @@ async def get_adjust_precision_quantity(symbol, quantity, current_price=None):
             message(symbol, f"ไม่พบข้อมูล {symbol} ใน symbol_precision.json", "red")
             return None
 
-        precision = symbol_info["precision"]["amount"]
-        min_quantity = symbol_info["limits"]["amount"]["min"]
-        min_notional = 100  # กำหนดเป็น 100 USDT ตาม error message
-        
-        # ถ้าไม่มี current_price ให้ดึงมา
+        # ดึงค่าที่จำเป็น
+        precision = int(symbol_info["precision"]["amount"])
+        min_quantity = safe_decimal_conversion(symbol_info["limits"]["amount"]["min"])
+        min_notional = Decimal('100')  # 100 USDT
+
+        # ดึงราคาปัจจุบันถ้าไม่มี
         if not current_price:
             current_price = await get_future_market_price(api_key, api_secret, symbol)
             if not current_price:
                 message(symbol, "ไม่สามารถดึงราคาตลาดได้", "red")
                 return None
-
-        edt_quantity = float(Decimal(quantity).quantize(Decimal('1e-{}'.format(precision)), rounding=ROUND_DOWN))
         
-        if edt_quantity < 0:
-            edt_quantity = abs(edt_quantity)
+        # แปลงราคาเป็น Decimal
+        current_price = safe_decimal_conversion(current_price)
+        
+        # แปลง quantity เป็น Decimal และปรับความละเอียด
+        try:
+            quantity_decimal = safe_decimal_conversion(quantity)
+            precision_format = '1e-{}'.format(precision)
+            edt_quantity = abs(quantity_decimal.quantize(Decimal(precision_format), rounding=ROUND_DOWN))
+            
+            #message(symbol, f"Initial adjusted quantity: {edt_quantity}", "debug")
+            
+        except Exception as e:
+            message(symbol, f"Error in quantity conversion: {str(e)}", "red")
+            return None
 
         # คำนวณมูลค่า order
         notional_value = edt_quantity * current_price
-
-        # ถ้ามูลค่าต่ำกว่า minNotional ให้ปรับ quantity
+        
+        # ปรับปริมาณตามเงื่อนไขขั้นต่ำ
         if notional_value < min_notional:
             min_qty_for_notional = min_notional / current_price
-            # ปรับให้เป็นจำนวนที่มากกว่าทั้ง min_quantity และ min_qty_for_notional
-            edt_quantity = max(min_quantity, min_qty_for_notional)
-            # ปรับให้ตรงกับ precision
-            edt_quantity = float(Decimal(str(edt_quantity)).quantize(Decimal('1e-{}'.format(precision)), rounding=ROUND_UP))
+            edt_quantity = Decimal(str(max(float(min_quantity), float(min_qty_for_notional))))
+            edt_quantity = edt_quantity.quantize(Decimal(precision_format), rounding=ROUND_UP)
             
-            # เช็คว่าหลังปรับแล้วได้มูลค่าที่พอไหม
             final_notional = edt_quantity * current_price
             if final_notional < min_notional:
-                # ถ้ายังไม่พอ ปรับเพิ่มอีก
-                edt_quantity = float(Decimal(str(min_notional / current_price)).quantize(Decimal('1e-{}'.format(precision)), rounding=ROUND_UP))
+                edt_quantity = (min_notional / current_price).quantize(Decimal(precision_format), rounding=ROUND_UP)
             
-            #message(symbol, f"ปรับปริมาณเพื่อให้ได้มูลค่าขั้นต่ำ {min_notional} USDT (ปริมาณ: {edt_quantity}, มูลค่า: {edt_quantity * current_price:.2f} USDT)", "yellow")
+            """message(symbol, 
+                f"Adjusted for min notional - Quantity: {edt_quantity}, "
+                f"Value: {edt_quantity * current_price:.2f} USDT", "debug")"""
             
-        elif edt_quantity == 0 or edt_quantity < min_quantity:
+        elif edt_quantity == Decimal('0') or edt_quantity < min_quantity:
             edt_quantity = min_quantity
-            # เช็คว่า min_quantity ให้มูลค่าพอไหม
             if min_quantity * current_price < min_notional:
-                edt_quantity = float(Decimal(str(min_notional / current_price)).quantize(Decimal('1e-{}'.format(precision)), rounding=ROUND_UP))
-            message(symbol, f"ปรับปริมาณเป็นค่าขั้นต่ำ: {edt_quantity} (มูลค่า: {edt_quantity * current_price:.2f} USDT)", "yellow")
+                edt_quantity = (min_notional / current_price).quantize(Decimal(precision_format), rounding=ROUND_UP)
+            
+            """message(symbol, 
+                f"Adjusted for min quantity - Quantity: {edt_quantity}, "
+                f"Value: {edt_quantity * current_price:.2f} USDT", "debug")"""
 
-        # เช็คครั้งสุดท้าย
+        # ตรวจสอบครั้งสุดท้าย
         final_notional = edt_quantity * current_price
         if final_notional < min_notional:
-            message(symbol, f"ไม่สามารถสร้าง Order ได้: มูลค่า ({final_notional:.2f} USDT) ต่ำกว่าขั้นต่ำ ({min_notional} USDT)", "red")
+            message(symbol, 
+                f"ไม่สามารถสร้าง Order ได้: มูลค่า ({final_notional:.2f} USDT) "
+                f"ต่ำกว่าขั้นต่ำ ({min_notional} USDT)", "red")
             return None
 
-        return edt_quantity
+        # แปลงกลับเป็น float สำหรับส่งคืน
+        return float(edt_quantity)
 
     except Exception as e:
-        message(symbol, f"เกิดข้อผิดพลาดในการปรับ quantity: {str(e)}", "red")
+        message(symbol, f"เกิดข้อผิดพลาดในการปรับ quantity: {type(e).__name__}: {str(e)}", "red")
         return None
