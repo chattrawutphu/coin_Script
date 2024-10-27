@@ -34,7 +34,7 @@ TRADING_CONFIG = {
         'rsi_overbought': 68,
         'rsi_oversold': 32
     },
-        'ATOMUSDT': {
+        'DOGEUSDT': {
         'timeframe': '4h',
         'entry_amount': '50$',
         'rsi_period': 7,
@@ -727,7 +727,7 @@ async def manage_position_profit(api_key: str, api_secret: str, symbol: str, sta
             return
         
         if not state.entry_candle:
-            #message(symbol, "ไม่พบข้อมูล entry candle ข้ามการจัดการกำไร", "yellow")
+            message(symbol, "ไม่พบข้อมูล entry candle ข้ามการจัดการกำไร", "yellow")
             return
 
         # สร้าง exchange instance
