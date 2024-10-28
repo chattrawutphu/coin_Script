@@ -13800,6 +13800,86 @@
         }
     },
     {
+        "id": "MOODENGUSDT",
+        "symbol": "MOODENG/USDT:USDT",
+        "base": "MOODENG",
+        "quote": "USDT",
+        "precision": {
+            "amount": 0,
+            "price": 5,
+            "base": 8,
+            "quote": 8
+        },
+        "limits": {
+            "leverage": {
+                "min": null,
+                "max": null
+            },
+            "amount": {
+                "min": 1.0,
+                "max": 8000000.0
+            },
+            "price": {
+                "min": 1e-05,
+                "max": 200.0
+            },
+            "cost": {
+                "min": 5.0,
+                "max": null
+            },
+            "market": {
+                "min": 1.0,
+                "max": 500000.0
+            }
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0",
+            "minQty": 1.0,
+            "minNotional": 25
+        }
+    },
+    {
+        "id": "SAFEUSDT",
+        "symbol": "SAFE/USDT:USDT",
+        "base": "SAFE",
+        "quote": "USDT",
+        "precision": {
+            "amount": 0,
+            "price": 4,
+            "base": 8,
+            "quote": 8
+        },
+        "limits": {
+            "leverage": {
+                "min": null,
+                "max": null
+            },
+            "amount": {
+                "min": 1.0,
+                "max": 600000.0
+            },
+            "price": {
+                "min": 0.0001,
+                "max": 200.0
+            },
+            "cost": {
+                "min": 5.0,
+                "max": null
+            },
+            "market": {
+                "min": 1.0,
+                "max": 20000.0
+            }
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "0",
+            "minQty": 1.0,
+            "minNotional": 25
+        }
+    },
+    {
         "id": "BTCUSD_PERP",
         "symbol": "BTC/USD:BTC",
         "base": "BTC",

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="th" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>บันทึกการเทรด</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -36,14 +38,17 @@
             width: 12px;
             height: 12px;
         }
+
         .dark ::-webkit-scrollbar-track {
             background: #374151;
         }
+
         .dark ::-webkit-scrollbar-thumb {
             background-color: #4b5563;
             border-radius: 6px;
             border: 3px solid #374151;
         }
+
         .dark ::-webkit-scrollbar-thumb:hover {
             background-color: #6b7280;
         }
@@ -53,48 +58,85 @@
             width: 12px;
             height: 12px;
         }
+
         ::-webkit-scrollbar-track {
             background: #f3f4f6;
         }
+
         ::-webkit-scrollbar-thumb {
             background-color: #d1d5db;
             border-radius: 6px;
             border: 3px solid #f3f4f6;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background-color: #9ca3af;
         }
     </style>
 </head>
+
 <body class="bg-gray-100 dark:bg-dark-900 min-h-screen text-gray-800 dark:text-gray-200">
     <div class="container mx-auto px-4 py-8">
         <!-- Header -->
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold">บันทึกการเทรด</h1>
-            <button id="darkModeToggle" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-dark-700 hover:bg-gray-300 dark:hover:bg-dark-600 transition-colors duration-200">
+            <button id="darkModeToggle"
+                class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-dark-700 hover:bg-gray-300 dark:hover:bg-dark-600 transition-colors duration-200">
                 <span class="dark:hidden">🌙 Dark Mode</span>
                 <span class="hidden dark:inline">☀️ Light Mode</span>
             </button>
+        </div>
+
+        <!-- Active Positions -->
+        <div class="bg-white dark:bg-dark-800 rounded-lg shadow-lg p-4 mb-6">
+            <h2 class="text-xl font-bold mb-4">Active Positions</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50 dark:bg-dark-700">
+                        <tr>
+                            <th class="p-3 text-left font-semibold">Symbol</th>
+                            <th class="p-3 text-center font-semibold">Side</th>
+                            <th class="p-3 text-right font-semibold">Entry</th>
+                            <th class="p-3 text-right font-semibold">Current</th>
+                            <th class="p-3 text-right font-semibold">TP1 %</th>
+                            <th class="p-3 text-right font-semibold">PNL</th>
+                            <th class="p-3 text-right font-semibold">PNL %</th>
+                            <th class="p-3 text-center font-semibold">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="active-positions">
+                        <tr>
+                            <td colspan="8" class="p-4 text-center text-gray-500 dark:text-gray-400">
+                                Loading positions...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- Filters -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
             <div>
                 <label class="block text-sm font-medium mb-2">กรองตาม Symbol:</label>
-                <select id="symbolFilter" class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
+                <select id="symbolFilter"
+                    class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
                     <option value="all">ทั้งหมด</option>
                 </select>
             </div>
             <div>
                 <label class="block text-sm font-medium mb-2">วันที่เริ่มต้น:</label>
-                <input type="date" id="startDate" class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
+                <input type="date" id="startDate"
+                    class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
             </div>
             <div>
                 <label class="block text-sm font-medium mb-2">วันที่สิ้นสุด:</label>
-                <input type="date" id="endDate" class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
+                <input type="date" id="endDate"
+                    class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
             </div>
             <div class="flex items-end">
-                <button id="applyFilter" class="w-full p-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                <button id="applyFilter"
+                    class="w-full p-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     กรองข้อมูล
                 </button>
             </div>
@@ -105,39 +147,107 @@
             <!-- Summary -->
             <div class="bg-white dark:bg-dark-800 rounded-lg shadow-lg p-4">
                 <h2 class="text-xl font-bold mb-4">สรุปผลการเทรด</h2>
-                <ul class="space-y-2">
-                    <li class="p-3 bg-gray-50 dark:bg-dark-700 rounded transition-colors duration-200">
-                        <span class="block text-sm text-gray-600 dark:text-gray-400 mb-1">กำไร/ขาดทุนรายวัน</span>
-                        <span id="daily-profit" class="font-mono text-lg"></span>
-                    </li>
-                    <li class="p-3 bg-gray-50 dark:bg-dark-700 rounded transition-colors duration-200">
-                        <span class="block text-sm text-gray-600 dark:text-gray-400 mb-1">กำไร/ขาดทุนรายสัปดาห์</span>
-                        <span id="weekly-profit" class="font-mono text-lg"></span>
-                    </li>
-                    <li class="p-3 bg-gray-50 dark:bg-dark-700 rounded transition-colors duration-200">
-                        <span class="block text-sm text-gray-600 dark:text-gray-400 mb-1">กำไร/ขาดทุนรายเดือน</span>
-                        <span id="monthly-profit" class="font-mono text-lg"></span>
-                    </li>
-                    <li class="p-3 bg-gray-50 dark:bg-dark-700 rounded transition-colors duration-200">
-                        <span class="block text-sm text-gray-600 dark:text-gray-400 mb-1">กำไร/ขาดทุนรวมทั้งหมด</span>
-                        <span id="total-profit" class="font-mono text-lg"></span>
-                    </li>
-                </ul>
+                <div class="grid grid-cols-1 gap-4">
+                    <!-- Profit Stats -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">กำไร/ขาดทุน</h3>
+                        <ul class="space-y-2">
+                            <li class="p-3 bg-gray-50 dark:bg-dark-700 rounded transition-colors duration-200">
+                                <span class="block text-sm text-gray-600 dark:text-gray-400 mb-1">รายวัน</span>
+                                <span id="daily-profit" class="font-mono text-lg"></span>
+                                <span class="block text-xs text-gray-500 mt-1">
+                                    เฉลี่ย: <span id="avg-daily-profit" class="font-mono"></span>
+                                </span>
+                            </li>
+                            <li class="p-3 bg-gray-50 dark:bg-dark-700 rounded transition-colors duration-200">
+                                <span class="block text-sm text-gray-600 dark:text-gray-400 mb-1">รายสัปดาห์</span>
+                                <span id="weekly-profit" class="font-mono text-lg"></span>
+                                <span class="block text-xs text-gray-500 mt-1">
+                                    เฉลี่ย: <span id="avg-weekly-profit" class="font-mono"></span>
+                                </span>
+                            </li>
+                            <li class="p-3 bg-gray-50 dark:bg-dark-700 rounded transition-colors duration-200">
+                                <span class="block text-sm text-gray-600 dark:text-gray-400 mb-1">รายเดือน</span>
+                                <span id="monthly-profit" class="font-mono text-lg"></span>
+                                <span class="block text-xs text-gray-500 mt-1">
+                                    เฉลี่ย: <span id="avg-monthly-profit" class="font-mono"></span>
+                                </span>
+                            </li>
+                            <li class="p-3 bg-gray-50 dark:bg-dark-700 rounded transition-colors duration-200">
+                                <span class="block text-sm text-gray-600 dark:text-gray-400 mb-1">รวมทั้งหมด</span>
+                                <span id="total-profit" class="font-mono text-lg"></span>
+                                <span class="block text-xs text-gray-500 mt-1">
+                                    เฉลี่ย: <span id="avg-total-profit" class="font-mono"></span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Trading Stats -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">สถิติการเทรด</h3>
+                        <ul class="space-y-2">
+                            <li class="p-3 bg-gray-50 dark:bg-dark-700 rounded transition-colors duration-200">
+                                <span class="block text-sm text-gray-600 dark:text-gray-400">Win Rate</span>
+                                <span id="win-rate" class="font-mono text-lg"></span>
+                            </li>
+                            <li class="p-3 bg-gray-50 dark:bg-dark-700 rounded transition-colors duration-200">
+                                <span class="block text-sm text-gray-600 dark:text-gray-400">จำนวนเทรด</span>
+                                <div class="grid grid-cols-2 gap-2 mt-1">
+                                    <div>
+                                        <span class="block text-xs text-gray-500">วันนี้:</span>
+                                        <span id="daily-trades" class="font-mono"></span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-gray-500">สัปดาห์นี้:</span>
+                                        <span id="weekly-trades" class="font-mono"></span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-gray-500">เดือนนี้:</span>
+                                        <span id="monthly-trades" class="font-mono"></span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-gray-500">ทั้งหมด:</span>
+                                        <span id="total-trades" class="font-mono"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="p-3 bg-gray-50 dark:bg-dark-700 rounded transition-colors duration-200">
+                                <span class="block text-sm text-gray-600 dark:text-gray-400">กำไร/ขาดทุนต่อเทรด</span>
+                                <div class="grid grid-cols-2 gap-2 mt-1">
+                                    <div>
+                                        <span class="block text-xs text-gray-500">สูงสุด:</span>
+                                        <span id="max-profit" class="font-mono"></span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-gray-500">ต่ำสุด:</span>
+                                        <span id="min-profit" class="font-mono"></span>
+                                    </div>
+                                </div>
+                                <div class="mt-1">
+                                    <span class="block text-xs text-gray-500">เฉลี่ย:</span>
+                                    <span id="avg-profit" class="font-mono"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <!-- Chart -->
             <div class="md:col-span-3 bg-white dark:bg-dark-800 rounded-lg shadow-lg p-4">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 space-y-2 sm:space-y-0">
+                <div
+                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 space-y-2 sm:space-y-0">
                     <h2 class="text-xl font-bold">กราฟกำไรสะสม</h2>
                     <div class="flex gap-4">
                         <label class="inline-flex items-center">
                             <input type="radio" name="chartType" value="date" checked
-                                   class="form-radio text-blue-500 focus:ring-blue-500 dark:bg-dark-700">
+                                class="form-radio text-blue-500 focus:ring-blue-500 dark:bg-dark-700">
                             <span class="ml-2">แสดงตามวันที่</span>
                         </label>
                         <label class="inline-flex items-center">
                             <input type="radio" name="chartType" value="trade"
-                                   class="form-radio text-blue-500 focus:ring-blue-500 dark:bg-dark-700">
+                                class="form-radio text-blue-500 focus:ring-blue-500 dark:bg-dark-700">
                             <span class="ml-2">แสดงตามการเทรด</span>
                         </label>
                     </div>
@@ -167,339 +277,615 @@
                         </tr>
                     </thead>
                     <tbody id="trade-records">
+                        <tr>
+                            <td colspan="9" class="p-4 text-center text-gray-500 dark:text-gray-400">
+                                Loading trades...
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <script>
-        let allTrades = [];
-        let cumulativeProfitChart;
-    
-        // ฟังก์ชันสำหรับจัดรูปแบบตัวเลข
-        function formatNumber(number, decimals = 2) {
-            return new Intl.NumberFormat('th-TH', {
-                minimumFractionDigits: decimals,
-                maximumFractionDigits: decimals
-            }).format(number);
-        }
-    
-        // ฟังก์ชันอัพเดตตาราง
-        function updateTable(trades) {
+    <!-- Modal -->
+    <div id="position-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white dark:bg-dark-800 rounded-lg shadow-xl max-w-4xl w-full mx-4">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-dark-600">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold" id="modal-title">Position Details</h3>
+                    <button class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                        onclick="closePositionModal()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Basic Info -->
+                    <div>
+                        <h4 class="font-semibold mb-4">Position Information</h4>
+                        <div class="space-y-3">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-gray-600 dark:text-gray-400">Symbol</div>
+                                <div id="modal-symbol" class="font-mono"></div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-gray-600 dark:text-gray-400">Side</div>
+                                <div id="modal-side" class="font-mono"></div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-gray-600 dark:text-gray-400">Entry Price</div>
+                                <div id="modal-entry" class="font-mono"></div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-gray-600 dark:text-gray-400">Current Price</div>
+                                <div id="modal-current" class="font-mono"></div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-gray-600 dark:text-gray-400">Stoploss</div>
+                                <div id="modal-sl" class="font-mono"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Take Profit Levels -->
+                    <div>
+                        <h4 class="font-semibold mb-4">Take Profit Levels</h4>
+                        <div class="space-y-3">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="text-gray-600 dark:text-gray-400">Level</div>
+                                <div class="text-gray-600 dark:text-gray-400">Price</div>
+                                <div class="text-gray-600 dark:text-gray-400">Percent</div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>TP1</div>
+                                <div id="modal-tp1-price" class="font-mono"></div>
+                                <div id="modal-tp1-percent" class="font-mono"></div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>TP2</div>
+                                <div id="modal-tp2-price" class="font-mono"></div>
+                                <div id="modal-tp2-percent" class="font-mono"></div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>TP3</div>
+                                <div id="modal-tp3-price" class="font-mono"></div>
+                                <div id="modal-tp3-percent" class="font-mono"></div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>TP4</div>
+                                <div id="modal-tp4-price" class="font-mono"></div>
+                                <div id="modal-tp4-percent" class="font-mono"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let allTrades = [];
+    let cumulativeProfitChart;
+
+    // ฟังก์ชันสำหรับจัดรูปแบบตัวเลข
+    function formatNumber(number, decimals = 2) {
+        return new Intl.NumberFormat('th-TH', {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals
+        }).format(number);
+    }
+
+    function openPositionModal(position) {
+        // Basic Info
+        $('#modal-title').text(`${position.symbol} Position Details`);
+        $('#modal-symbol').text(position.symbol);
+        $('#modal-side').text(position.side.toUpperCase())
+            .removeClass('text-green-500 text-red-500')
+            .addClass(position.side === 'buy' ? 'text-green-500' : 'text-red-500');
+        $('#modal-entry').text(formatNumber(position.entryPrice, 4));
+        $('#modal-current').text(formatNumber(position.currentPrice, 4));
+        $('#modal-sl').text(formatNumber(position.stopPrice, 4));
+
+        // Take Profit Levels
+        $('#modal-tp1-price').text(formatNumber(position.tp1Price, 4));
+        $('#modal-tp1-percent').text(formatNumber(position.tp1Percent, 2) + '%');
+        $('#modal-tp2-price').text(formatNumber(position.tp2Price, 4));
+        $('#modal-tp2-percent').text(formatNumber(position.tp2Percent, 2) + '%');
+        $('#modal-tp3-price').text(formatNumber(position.tp3Price, 4));
+        $('#modal-tp3-percent').text(formatNumber(position.tp3Percent, 2) + '%');
+        $('#modal-tp4-price').text(formatNumber(position.tp4Price, 4));
+        $('#modal-tp4-percent').text(formatNumber(position.tp4Percent, 2) + '%');
+
+        // Show modal
+        $('#position-modal').removeClass('hidden').addClass('flex');
+    }
+
+    function closePositionModal() {
+        $('#position-modal').removeClass('flex').addClass('hidden');
+    }
+    // ฟังก์ชันสำหรับอัพเดท Active Positions
+    async function updateActivePositions() {
+        try {
+            const indexResponse = await fetch('json/index.json');
+            if (!indexResponse.ok) throw new Error('Cannot load symbols');
+            const symbols = await indexResponse.json();
+
             let tableContent = '';
-            trades.slice(0, 10).forEach(function(trade) {
-                const isProfitPositive = trade.profit_loss >= 0;
-                const profitLossClass = isProfitPositive ? 'text-green-500' : 'text-red-500';
-                
-                tableContent += `
-                    <tr class="border-b border-gray-200 dark:border-dark-600 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-200">
-                        <td class="p-3 font-mono text-sm">${new Date(trade.timestamp).toLocaleString('th-TH')}</td>
-                        <td class="p-3 font-semibold">${trade.symbol}</td>
-                        <td class="p-3">${trade.action}</td>
-                        <td class="p-3 text-right font-mono">${formatNumber(trade.entry_price, 4)}</td>
-                        <td class="p-3 text-right font-mono">${formatNumber(trade.exit_price, 4)}</td>
-                        <td class="p-3 text-right font-mono">${formatNumber(trade.amount, 6)}</td>
-                        <td class="p-3 text-right font-mono ${profitLossClass}">
-                            ${formatNumber(trade.profit_loss)}
-                        </td>
-                        <td class="p-3 text-right font-mono ${profitLossClass}">
-                            ${formatNumber(trade.profit_loss_percentage)}%
-                        </td>
-                        <td class="p-3 text-sm">${trade.reason}</td>
-                    </tr>`;
-            });
-            
-            if (trades.length === 0) {
+            let activePositionsExist = false;
+
+            for (const symbol of symbols) {
+                try {
+                    // โหลดข้อมูล state
+                    const stateResponse = await fetch(`json/state/${symbol}.json`);
+                    if (!stateResponse.ok) continue;
+                    const state = await stateResponse.json();
+
+                    // ข้าม symbol ที่ไม่มี position
+                    if (!state.is_in_position || !state.global_entry_price) continue;
+
+                    activePositionsExist = true;
+
+                    // คำนวณค่าต่างๆ
+                    const entryPrice = parseFloat(state.global_entry_price);
+                    const currentPrice = parseFloat(state.last_price || 0);
+                    const isLong = state.global_position_side === 'buy';
+                    const stopPrice = parseFloat(state.entry_stoploss_price);
+
+                    // คำนวณ PNL
+                    const pnlPercent = isLong ?
+                        ((currentPrice - entryPrice) / entryPrice * 100) :
+                        ((entryPrice - currentPrice) / entryPrice * 100);
+                    const pnl = isLong ?
+                        (currentPrice - entryPrice) :
+                        (entryPrice - currentPrice);
+
+                    // คำนวณ Stoploss %
+                    const slPercent = isLong ?
+                        ((stopPrice - entryPrice) / entryPrice * 100) :
+                        ((entryPrice - stopPrice) / entryPrice * 100);
+
+
+                    // ในฟังก์ชัน updateActivePositions แก้ไขส่วนการคำนวณ TP
+                    const candle_high = parseFloat(state.entry_candle.high);
+                    const candle_low = parseFloat(state.entry_candle.low);
+                    const candleLengthPercent = Math.abs((candle_high - candle_low) / candle_low * 100);
+
+                    // คำนวณ TP ทั้งหมด
+                    const tp1Percent = candleLengthPercent;
+                    const tp2Percent = candleLengthPercent * 2;
+                    const tp3Percent = candleLengthPercent * 3;
+                    const tp4Percent = candleLengthPercent * 4;
+
+                    const tp1Price = isLong ? entryPrice * (1 + (tp1Percent / 100)) : entryPrice * (1 - (tp1Percent / 100));
+                    const tp2Price = isLong ? entryPrice * (1 + (tp2Percent / 100)) : entryPrice * (1 - (tp2Percent / 100));
+                    const tp3Price = isLong ? entryPrice * (1 + (tp3Percent / 100)) : entryPrice * (1 - (tp3Percent / 100));
+                    const tp4Price = isLong ? entryPrice * (1 + (tp4Percent / 100)) : entryPrice * (1 - (tp4Percent / 100));
+
+                    const pnlClass = pnl >= 0 ? 'text-green-500' : 'text-red-500';
+                    const sideClass = isLong ? 'text-green-500' : 'text-red-500';
+
+                    tableContent += `
+    <tr class="border-b border-gray-200 dark:border-dark-600 hover:bg-gray-50 dark:hover:bg-dark-700">
+        <td class="p-3 font-semibold">${symbol}</td>
+        <td class="p-3 text-center ${sideClass} font-semibold">${state.global_position_side.toUpperCase()}</td>
+        <td class="p-3 text-right font-mono">${formatNumber(entryPrice, 4)}</td>
+        <td class="p-3 text-right font-mono">${formatNumber(currentPrice, 4)}</td>
+        <td class="p-3 text-right font-mono">${formatNumber(tp1Percent, 2)}%</td>
+        <td class="p-3 text-right font-mono ${pnlClass}">${formatNumber(pnl, 2)}</td>
+        <td class="p-3 text-right font-mono ${pnlClass}">${formatNumber(pnlPercent, 2)}%</td>
+        <td class="p-3 text-center">
+            <button onclick='openPositionModal(${JSON.stringify({
+                        symbol,
+                        side: state.global_position_side,
+                        entryPrice,
+                        currentPrice,
+                        stopPrice,
+                        tp1Price,
+                        tp1Percent,
+                        tp2Price,
+                        tp2Percent,
+                        tp3Price,
+                        tp3Percent,
+                        tp4Price,
+                        tp4Percent
+                    })})' 
+            class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-200">
+                Details
+            </button>
+        </td>
+    </tr>`;
+                } catch (error) {
+                    console.error(`Error processing ${symbol}:`, error);
+                }
+            }
+
+            if (!activePositionsExist) {
                 tableContent = `
                     <tr>
-                        <td colspan="9" class="p-4 text-center text-gray-500 dark:text-gray-400">
-                            ไม่พบข้อมูลการเทรด
+                        <td colspan="10" class="p-4 text-center text-gray-500 dark:text-gray-400">
+                            ไม่มี Active Positions
                         </td>
                     </tr>`;
             }
-            
-            $('#trade-records').html(tableContent);
+
+            $('#active-positions').html(tableContent);
+        } catch (error) {
+            console.error('Error updating active positions:', error);
+            $('#active-positions').html(`
+                <tr>
+                    <td colspan="10" class="p-4 text-center text-red-500">
+                        เกิดข้อผิดพลาดในการโหลดข้อมูล: ${error.message}
+                    </td>
+                </tr>`);
         }
-    
-        // ฟังก์ชันคำนวณสรุป
-        function calculateSummary(trades) {
-            const now = new Date();
-            let daily_profit = 0;
-            let weekly_profit = 0;
-            let monthly_profit = 0;
-            let total_profit = 0;
-    
-            trades.forEach(trade => {
-                const tradeDate = new Date(trade.timestamp);
-                const daysDiff = (now - tradeDate) / (1000 * 60 * 60 * 24);
-    
-                total_profit += trade.profit_loss;
-                if (daysDiff <= 1) daily_profit += trade.profit_loss;
-                if (daysDiff <= 7) weekly_profit += trade.profit_loss;
-                if (daysDiff <= 30) monthly_profit += trade.profit_loss;
-            });
-    
-            return { daily_profit, weekly_profit, monthly_profit, total_profit };
-        }
-    
-        // ฟังก์ชันอัพเดตสรุป
-        function updateSummary(summary) {
-            function getColorClass(value) {
-                return value >= 0 ? 'text-green-500' : 'text-red-500';
+    }
+
+    // ฟังก์ชันคำนวณสถิติ
+    function calculateStats(trades) {
+        const now = new Date();
+        const stats = {
+            total_trades: trades.length,
+            winning_trades: 0,
+            daily_trades: 0,
+            weekly_trades: 0,
+            monthly_trades: 0,
+            daily_profit: 0,
+            weekly_profit: 0,
+            monthly_profit: 0,
+            total_profit: 0,
+            max_profit: -Infinity,
+            min_profit: Infinity,
+            total_profit_sum: 0
+        };
+
+        trades.forEach(trade => {
+            const tradeDate = new Date(trade.timestamp);
+            const daysDiff = (now - tradeDate) / (1000 * 60 * 60 * 24);
+            const profit = trade.profit_loss;
+
+            // Update basic stats
+            stats.total_profit += profit;
+            stats.total_profit_sum += profit;
+            if (profit > 0) stats.winning_trades++;
+            if (profit > stats.max_profit) stats.max_profit = profit;
+            if (profit < stats.min_profit) stats.min_profit = profit;
+
+            // Update period specific stats
+            if (daysDiff <= 1) {
+                stats.daily_trades++;
+                stats.daily_profit += profit;
             }
-    
-            $('#daily-profit').text(formatNumber(summary.daily_profit))
-                            .removeClass('text-green-500 text-red-500')
-                            .addClass(getColorClass(summary.daily_profit));
-                            
-            $('#weekly-profit').text(formatNumber(summary.weekly_profit))
-                            .removeClass('text-green-500 text-red-500')
-                            .addClass(getColorClass(summary.weekly_profit));
-                            
-            $('#monthly-profit').text(formatNumber(summary.monthly_profit))
-                            .removeClass('text-green-500 text-red-500')
-                            .addClass(getColorClass(summary.monthly_profit));
-    
-            $('#total-profit').text(formatNumber(summary.total_profit))
-                            .removeClass('text-green-500 text-red-500')
-                            .addClass(getColorClass(summary.total_profit));
+            if (daysDiff <= 7) {
+                stats.weekly_trades++;
+                stats.weekly_profit += profit;
+            }
+            if (daysDiff <= 30) {
+                stats.monthly_trades++;
+                stats.monthly_profit += profit;
+            }
+        });
+
+        // Calculate averages
+        stats.win_rate = (stats.winning_trades / stats.total_trades) * 100;
+        stats.avg_profit = stats.total_profit_sum / stats.total_trades;
+        stats.avg_daily_profit = stats.daily_trades ? stats.daily_profit / stats.daily_trades : 0;
+        stats.avg_weekly_profit = stats.weekly_trades ? stats.weekly_profit / stats.weekly_trades : 0;
+        stats.avg_monthly_profit = stats.monthly_trades ? stats.monthly_profit / stats.monthly_trades : 0;
+        stats.avg_total_profit = stats.total_trades ? stats.total_profit / stats.total_trades : 0;
+
+        return stats;
+    }
+
+    // ฟังก์ชันอัพเดตตาราง
+    function updateTable(trades) {
+        let tableContent = '';
+        trades.slice(0, 10).forEach(function (trade) {
+            const isProfitPositive = trade.profit_loss >= 0;
+            const profitLossClass = isProfitPositive ? 'text-green-500' : 'text-red-500';
+
+            tableContent += `
+                <tr class="border-b border-gray-200 dark:border-dark-600 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-200">
+                    <td class="p-3 font-mono text-sm">${new Date(trade.timestamp).toLocaleString('th-TH')}</td>
+                    <td class="p-3 font-semibold">${trade.symbol}</td>
+                    <td class="p-3">${trade.action}</td>
+                    <td class="p-3 text-right font-mono">${formatNumber(trade.entry_price, 4)}</td>
+                    <td class="p-3 text-right font-mono">${formatNumber(trade.exit_price, 4)}</td>
+                    <td class="p-3 text-right font-mono">${formatNumber(trade.amount, 6)}</td>
+                    <td class="p-3 text-right font-mono ${profitLossClass}">
+                        ${formatNumber(trade.profit_loss)}
+                    </td>
+                    <td class="p-3 text-right font-mono ${profitLossClass}">
+                        ${formatNumber(trade.profit_loss_percentage)}%
+                    </td>
+                    <td class="p-3 text-sm">${trade.reason}</td>
+                </tr>`;
+        });
+
+        if (trades.length === 0) {
+            tableContent = `
+                <tr>
+                    <td colspan="9" class="p-4 text-center text-gray-500 dark:text-gray-400">
+                        ไม่พบข้อมูลการเทรด
+                    </td>
+                </tr>`;
         }
-    
-        // ฟังก์ชันสำหรับสร้างสีแบบสุ่ม
-        function getRandomColor() {
-            const colors = [
-                '#2563eb', '#7c3aed', '#db2777', '#dc2626', '#ea580c',
-                '#65a30d', '#0d9488', '#0284c7', '#6366f1', '#9333ea'
-            ];
-            return colors[Math.floor(Math.random() * colors.length)];
+
+        $('#trade-records').html(tableContent);
+    }
+
+    // ฟังก์ชันอัพเดตสถิติ
+    function updateStats(stats) {
+        function getColorClass(value) {
+            return value >= 0 ? 'text-green-500' : 'text-red-500';
         }
-    
-        // ฟังก์ชันอัพเดตกราฟ
-        function updateCumulativeProfitChart(trades) {
-            const isDark = document.documentElement.classList.contains('dark');
-            const chartType = $('input[name="chartType"]:checked').val();
-            const symbols = [...new Set(trades.map(trade => trade.symbol))];
-            
-            const datasets = symbols.map(symbol => {
-                const symbolTrades = trades.filter(trade => trade.symbol === symbol)
-                    .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
-                
-                let cumulativeProfit = 0;
-                const data = symbolTrades.map((trade, index) => {
-                    cumulativeProfit += trade.profit_loss;
-                    return {
-                        x: chartType === 'date' ? new Date(trade.timestamp) : index + 1,
-                        y: cumulativeProfit
-                    };
-                });
-    
+
+        // Update profits
+        $('#daily-profit').text(formatNumber(stats.daily_profit))
+            .removeClass('text-green-500 text-red-500')
+            .addClass(getColorClass(stats.daily_profit));
+        $('#weekly-profit').text(formatNumber(stats.weekly_profit))
+            .removeClass('text-green-500 text-red-500')
+            .addClass(getColorClass(stats.weekly_profit));
+        $('#monthly-profit').text(formatNumber(stats.monthly_profit))
+            .removeClass('text-green-500 text-red-500')
+            .addClass(getColorClass(stats.monthly_profit));
+        $('#total-profit').text(formatNumber(stats.total_profit))
+            .removeClass('text-green-500 text-red-500')
+            .addClass(getColorClass(stats.total_profit));
+
+        // Update counts
+        $('#daily-trades').text(stats.daily_trades);
+        $('#weekly-trades').text(stats.weekly_trades);
+        $('#monthly-trades').text(stats.monthly_trades);
+        $('#total-trades').text(stats.total_trades);
+
+        // Update averages
+        $('#avg-daily-profit').text(formatNumber(stats.avg_daily_profit));
+        $('#avg-weekly-profit').text(formatNumber(stats.avg_weekly_profit));
+        $('#avg-monthly-profit').text(formatNumber(stats.avg_monthly_profit));
+        $('#avg-total-profit').text(formatNumber(stats.avg_total_profit));
+        $('#win-rate').text(formatNumber(stats.win_rate) + '%');
+
+        // Update other stats
+        $('#max-profit').text(formatNumber(stats.max_profit));
+        $('#min-profit').text(formatNumber(stats.min_profit));
+        $('#avg-profit').text(formatNumber(stats.avg_profit));
+    }
+
+    // ฟังก์ชันสำหรับสร้างสีแบบสุ่ม
+    function getRandomColor() {
+        const colors = [
+            '#2563eb', '#7c3aed', '#db2777', '#dc2626', '#ea580c',
+            '#65a30d', '#0d9488', '#0284c7', '#6366f1', '#9333ea'
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // ฟังก์ชันอัพเดตกราฟ
+    function updateCumulativeProfitChart(trades) {
+        const isDark = document.documentElement.classList.contains('dark');
+        const chartType = $('input[name="chartType"]:checked').val();
+        const symbols = [...new Set(trades.map(trade => trade.symbol))];
+
+        const datasets = symbols.map(symbol => {
+            const symbolTrades = trades.filter(trade => trade.symbol === symbol)
+                .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+
+            let cumulativeProfit = 0;
+            const data = symbolTrades.map((trade, index) => {
+                cumulativeProfit += trade.profit_loss;
                 return {
-                    label: symbol,
-                    data: data,
-                    fill: false,
-                    borderColor: getRandomColor(),
-                    borderWidth: 2,
-                    tension: 0.1,
-                    pointRadius: 3,
-                    pointHoverRadius: 5
+                    x: chartType === 'date' ? new Date(trade.timestamp) : index + 1,
+                    y: cumulativeProfit
                 };
             });
-    
-            const options = {
-                responsive: true,
-                maintainAspectRatio: false,
-                interaction: {
-                    mode: 'index',
-                    intersect: false,
-                },
-                scales: {
-                    x: {
-                        type: chartType === 'date' ? 'time' : 'linear',
-                        time: chartType === 'date' ? {
-                            unit: 'day',
-                            tooltipFormat: 'PPP'
-                        } : undefined,
-                        grid: {
-                            color: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
-                        },
-                        ticks: {
-                            color: isDark ? '#9ca3af' : '#4b5563'
-                        },
-                        title: {
-                            display: true,
-                            text: chartType === 'date' ? 'วันที่' : 'จำนวนเทรด',
-                            color: isDark ? '#9ca3af' : '#4b5563'
-                        }
-                    },
-                    y: {
-                        grid: {
-                            color: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
-                        },
-                        ticks: {
-                            color: isDark ? '#9ca3af' : '#4b5563',
-                            callback: function(value) {
-                                return formatNumber(value);
-                            }
-                        },
-                        title: {
-                            display: true,
-                            text: 'กำไรสะสม',
-                            color: isDark ? '#9ca3af' : '#4b5563'
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        position: 'top',
-                        labels: {
-                            color: isDark ? '#9ca3af' : '#4b5563',
-                            padding: 20,
-                            font: {
-                                size: 12
-                            }
-                        }
-                    },
-                    tooltip: {
-                        backgroundColor: isDark ? '#1f2937' : 'white',
-                        titleColor: isDark ? '#e5e7eb' : '#1f2937',
-                        bodyColor: isDark ? '#e5e7eb' : '#1f2937',
-                        borderColor: isDark ? '#374151' : '#e5e7eb',
-                        borderWidth: 1,
-                        padding: 12,
-                        callbacks: {
-                            label: function(context) {
-                                return `${context.dataset.label}: ${formatNumber(context.parsed.y)}`;
-                            }
-                        }
-                    }
-                }
+
+            return {
+                label: symbol,
+                data: data,
+                fill: false,
+                borderColor: getRandomColor(),
+                borderWidth: 2,
+                tension: 0.1,
+                pointRadius: 3,
+                pointHoverRadius: 5
             };
-    
-            if (cumulativeProfitChart) {
-                cumulativeProfitChart.destroy();
-            }
-    
-            cumulativeProfitChart = new Chart(
-                document.getElementById('cumulativeProfitChart'),
-                {
-                    type: 'line',
-                    data: { datasets: datasets },
-                    options: options
+        });
+
+        const options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            scales: {
+                x: {
+                    type: chartType === 'date' ? 'time' : 'linear',
+                    time: chartType === 'date' ? {
+                        unit: 'day',
+                        tooltipFormat: 'PPP'
+                    } : undefined,
+                    grid: {
+                        color: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
+                    },
+                    ticks: {
+                        color: isDark ? '#9ca3af' : '#4b5563'
+                    },
+                    title: {
+                        display: true,
+                        text: chartType === 'date' ? 'วันที่' : 'จำนวนเทรด',
+                        color: isDark ? '#9ca3af' : '#4b5563'
+                    }
+                },
+                y: {
+                    grid: {
+                        color: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
+                    },
+                    ticks: {
+                        color: isDark ? '#9ca3af' : '#4b5563',
+                        callback: function (value) {
+                            return formatNumber(value);
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'กำไรสะสม',
+                        color: isDark ? '#9ca3af' : '#4b5563'
+                    }
                 }
-            );
-        }
-    
-        // ฟังก์ชันกรองข้อมูล
-        function filterTrades() {
-            const selectedSymbol = $('#symbolFilter').val();
-            const startDate = $('#startDate').val() ? new Date($('#startDate').val()) : null;
-            const endDate = $('#endDate').val() ? new Date($('#endDate').val()) : null;
-    
-            let filteredTrades = allTrades;
-    
-            if (selectedSymbol !== 'all') {
-                filteredTrades = filteredTrades.filter(trade => trade.symbol === selectedSymbol);
-            }
-    
-            if (startDate) {
-                filteredTrades = filteredTrades.filter(trade => new Date(trade.timestamp) >= startDate);
-            }
-    
-            if (endDate) {
-                const adjustedEndDate = new Date(endDate);
-                adjustedEndDate.setDate(adjustedEndDate.getDate() + 1);
-                filteredTrades = filteredTrades.filter(trade => new Date(trade.timestamp) < adjustedEndDate);
-            }
-    
-            updateTable(filteredTrades);
-            const summary = calculateSummary(filteredTrades);
-            updateSummary(summary);
-            updateCumulativeProfitChart(filteredTrades);
-        }
-    
-        // Event Handlers
-        $(document).ready(function() {
-            // Dark Mode Toggle
-            $('#darkModeToggle').click(function() {
-                document.documentElement.classList.toggle('dark');
-                localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
-                if (cumulativeProfitChart) {
-                    filterTrades(); // รีเฟรชกราฟเพื่ออัพเดต theme
-                }
-            });
-    
-            // Load Dark Mode Preference
-            if (localStorage.getItem('darkMode') === 'true') {
-                document.documentElement.classList.add('dark');
-            }
-    
-            // Load Trade Data
-            async function loadAllTrades() {
-                try {
-                    // โหลด index.json เพื่อดูรายชื่อ symbols
-                    const indexResponse = await fetch('json/message_logs/index.json');
-                    if (!indexResponse.ok) throw new Error('Cannot load symbols');
-                    const symbols = await indexResponse.json();
-    
-                    // โหลด trades จากแต่ละ symbol
-                    allTrades = [];
-                    for (const symbol of symbols) {
-                        try {
-                            const response = await fetch(`json/trade_records/${symbol}.json`);
-                            if (response.ok) {
-                                const trades = await response.json();
-                                allTrades = allTrades.concat(trades);
-                            }
-                        } catch (error) {
-                            console.log(`No trades found for ${symbol}`);
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: isDark ? '#9ca3af' : '#4b5563',
+                        padding: 20,
+                        font: {
+                            size: 12
                         }
                     }
-    
-                    // Sort trades by timestamp (newest first)
-                    allTrades.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-    
-                    // Populate symbol filter
-                    const uniqueSymbols = [...new Set(allTrades.map(trade => trade.symbol))];
-                    uniqueSymbols.sort().forEach(symbol => {
-                        $('#symbolFilter').append(`<option value="${symbol}">${symbol}</option>`);
-                    });
-    
-                    // Set initial date range
-                    if (allTrades.length > 0) {
-                        const dates = allTrades.map(trade => new Date(trade.timestamp));
-                        const earliestDate = new Date(Math.min.apply(null, dates));
-                        const latestDate = new Date(Math.max.apply(null, dates));
-                        
-                        $('#startDate').val(earliestDate.toISOString().split('T')[0]);
-                        $('#endDate').val(latestDate.toISOString().split('T')[0]);
+                },
+                tooltip: {
+                    backgroundColor: isDark ? '#1f2937' : 'white',
+                    titleColor: isDark ? '#e5e7eb' : '#1f2937',
+                    bodyColor: isDark ? '#e5e7eb' : '#1f2937',
+                    borderColor: isDark ? '#374151' : '#e5e7eb',
+                    borderWidth: 1,
+                    padding: 12,
+                    callbacks: {
+                        label: function (context) {
+                            return `${context.dataset.label}: ${formatNumber(context.parsed.y)}`;
+                        }
                     }
-    
-                    // Initial update
-                    filterTrades();
-    
-                } catch (error) {
-                    console.error('Error loading trade data:', error);
-                    $('#trade-records').html(`
-                        <tr>
-                            <td colspan="9" class="p-4 text-center text-red-500">
-                                เกิดข้อผิดพลาดในการโหลดข้อมูล: ${error.message}
-                            </td>
-                        </tr>
-                    `);
                 }
             }
-    
-            // เรียกใช้งานฟังก์ชันโหลดข้อมูล
-            loadAllTrades();
-    
-            // Event Bindings
-            $('#applyFilter').click(filterTrades);
-            $('input[name="chartType"]').change(filterTrades);
-            $('#symbolFilter, #startDate, #endDate').change(function() {
-                $('#applyFilter').click();
-            });
+        };
+
+        if (cumulativeProfitChart) {
+            cumulativeProfitChart.destroy();
+        }
+
+        cumulativeProfitChart = new Chart(
+            document.getElementById('cumulativeProfitChart'),
+            {
+                type: 'line',
+                data: { datasets: datasets },
+                options: options
+            }
+        );
+    }
+
+    // ฟังก์ชันกรองข้อมูล
+    function filterTrades() {
+        const selectedSymbol = $('#symbolFilter').val();
+        const startDate = $('#startDate').val() ? new Date($('#startDate').val()) : null;
+        const endDate = $('#endDate').val() ? new Date($('#endDate').val()) : null;
+
+        let filteredTrades = allTrades;
+
+        if (selectedSymbol !== 'all') {
+            filteredTrades = filteredTrades.filter(trade => trade.symbol === selectedSymbol);
+        }
+
+        if (startDate) {
+            filteredTrades = filteredTrades.filter(trade => new Date(trade.timestamp) >= startDate);
+        }
+
+        if (endDate) {
+            const adjustedEndDate = new Date(endDate);
+            adjustedEndDate.setDate(adjustedEndDate.getDate() + 1);
+            filteredTrades = filteredTrades.filter(trade => new Date(trade.timestamp) < adjustedEndDate);
+        }
+
+        updateTable(filteredTrades);
+        const stats = calculateStats(filteredTrades);
+        updateStats(stats);
+        updateCumulativeProfitChart(filteredTrades);
+    }
+
+    // เริ่มต้นการทำงาน
+    $(document).ready(function () {
+        // Dark Mode Toggle
+        $('#darkModeToggle').click(function () {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+            if (cumulativeProfitChart) {
+                filterTrades();
+            }
         });
-    </script>
-</body>
+
+        // Load Dark Mode Preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Load Initial Data
+        async function loadAllTrades() {
+            try {
+                const indexResponse = await fetch('json/index.json');
+                if (!indexResponse.ok) throw new Error('Cannot load symbols');
+                const symbols = await indexResponse.json();
+
+                allTrades = [];
+                for (const symbol of symbols) {
+                    try {
+                        const response = await fetch(`json/trade_records/${symbol}.json`);
+                        if (response.ok) {
+                            const trades = await response.json();
+                            allTrades = allTrades.concat(trades);
+                        }
+                    } catch (error) {
+                        console.log(`No trades found for ${symbol}`);
+                    }
+                }
+
+                allTrades.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+                // Populate symbol filter
+                const uniqueSymbols = [...new Set(allTrades.map(trade => trade.symbol))];
+                uniqueSymbols.sort().forEach(symbol => {
+                    $('#symbolFilter').append(`<option value="${symbol}">${symbol}</option>`);
+                });
+
+                // Set initial date range
+                if (allTrades.length > 0) {
+                    const dates = allTrades.map(trade => new Date(trade.timestamp));
+                    const earliestDate = new Date(Math.min.apply(null, dates));
+                    const latestDate = new Date(Math.max.apply(null, dates));
+
+                    $('#startDate').val(earliestDate.toISOString().split('T')[0]);
+                    $('#endDate').val(latestDate.toISOString().split('T')[0]);
+                }
+
+                filterTrades();
+            } catch (error) {
+                console.error('Error loading trade data:', error);
+                $('#trade-records').html(`
+                    <tr>
+                        <td colspan="9" class="p-4 text-center text-red-500">
+                            เกิดข้อผิดพลาดในการโหลดข้อมูล: ${error.message}
+                        </td>
+                    </tr>
+                `);
+            }
+        }
+
+        // Start updates
+        loadAllTrades();
+        setInterval(updateActivePositions, 1000);
+
+        // Event Bindings
+        $('#applyFilter').click(filterTrades);
+        $('input[name="chartType"]').change(filterTrades);
+        $('#symbolFilter, #startDate, #endDate').change(function () {
+            $('#applyFilter').click();
+        });
+    });
+</script>
+
 </html>

@@ -1,9 +1,6 @@
 import traceback
 import ccxt.async_support as ccxt
 from config import default_testnet as testnet
-import locale
-from decimal import Decimal, InvalidOperation, ROUND_DOWN
-import re
 
 from function.binance.futures.order.other.get_position_mode import get_position_mode, change_position_mode
 from function.binance.futures.order.other.get_amount_of_open_order import get_amount_of_open_order
@@ -56,21 +53,20 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
         if order_type.upper() == "EXIT_MARKET":
             # กรณี EXIT_MARKET (ปิด position)
             params.update({
-                'type': 'market'
+                'type': 'market',
+                'reduceOnly': True
             })
-
-            if temp_quantity.upper() == "MAX" or temp_quantity.endswith('100%'):
-                params.update({'closePosition': True})
-            else:
-                params.update({'reduceOnly': True})
-                
-            message(symbol, f"สร้างคำสั่ง EXIT_MARKET {temp_quantity}", "blue")
+            message(symbol, f"สร้างคำสั่ง EXIT_MARKET (Reduce Only)", "blue")
             
             if mode == 'hedge':
                 if side == "buy":
                     params.update({'positionSide': 'short'})
                 else:
                     params.update({'positionSide': 'long'})
+            
+            if temp_quantity.upper() == "MAX" or temp_quantity.endswith('100%'):
+                params.update({'closePosition': True})
+                message(symbol, "ตั้งค่าปิด position ทั้งหมด", "blue")
 
         else:
             # ตั้งค่า position mode
@@ -147,7 +143,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
             
             # แสดงผลตามประเภทคำสั่ง
             if order_type.upper() == "EXIT_MARKET":
-                message(symbol, f"ส่งคำสั่งปิด position {temp_quantity} สำเร็จที่ราคา {float(order['average']):.2f}", "green")
+                message(symbol, f"ส่งคำสั่งปิด position แบบ Reduce Only สำเร็จที่ราคา {float(order['average']):.2f}", "green")
             elif params['type'] == 'market':
                 message(symbol, f"ส่งคำสั่ง Market Order สำเร็จที่ราคา {float(order['average']):.2f}", "green")
             else:
@@ -182,7 +178,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                 order = await exchange.create_order(**order_params)
             
             if order_type.upper() == "EXIT_MARKET":
-                message(symbol, f"ส่งคำสั่งปิด position {temp_quantity} สำเร็จที่ราคา {float(order['average']):.2f}", "green")
+                message(symbol, f"ส่งคำสั่งปิด position แบบ Reduce Only สำเร็จที่ราคา {float(order['average']):.2f}", "green")
             else:
                 message(symbol, f"ส่งคำสั่ง Market Order สำเร็จที่ราคา {float(order['average']):.2f}", "green")
             
@@ -232,24 +228,9 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                 message(symbol, f"เกิดข้อผิดพลาดในการปิด exchange: {str(e)}", "red")
     return None
 
-def sanitize_number_string(value):
-    """แปลงค่าตัวเลขให้เป็นรูปแบบมาตรฐาน ไม่ขึ้นกับ locale"""
-    if isinstance(value, (int, float)):
-        return str(value)
-    if not isinstance(value, str):
-        return str(value)
-    # ลบ thousand separator และแปลง decimal separator เป็นจุด
-    clean = str(value).replace(',', '').replace(' ', '')
-    # แปลงเครื่องหมายทศนิยมอื่นๆ เป็นจุด
-    clean = clean.replace('٫', '.').replace('․', '.').replace('·', '.')
-    return clean
-
 async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, order_type=None):
     """ปรับปริมาณการเทรดตามรูปแบบที่กำหนด"""
     try:
-        # เพิ่ม logging สำหรับ debug
-        message(symbol, f"Input - quantity: {quantity}, price: {price}, order_type: {order_type}", "debug")
-
         # ตรวจสอบค่า price
         if price == 'now' or price is None:
             price = await get_future_market_price(api_key, api_secret, symbol)
@@ -257,94 +238,80 @@ async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, or
                 message(symbol, "ไม่สามารถดึงราคาตลาดได้", "red")
                 return None
 
-        # ทำความสะอาดและแปลงค่า price
+        # แปลง price เป็น float
         try:
-            price = Decimal(sanitize_number_string(price))
-            if price <= Decimal('0'):
-                message(symbol, f"ราคาไม่ถูกต้อง: {price}", "red")
+            price = float(price)
+            if price <= 0:
+                message(symbol, f"ราคาไม่ถูกต้อง: {price}", "red")  
                 return None
-        except (InvalidOperation, ValueError, TypeError) as e:
-            message(symbol, f"รูปแบบราคาไม่ถูกต้อง: {price}, error: {str(e)}", "red")
+        except (ValueError, TypeError):
+            message(symbol, f"รูปแบบราคาไม่ถูกต้อง: {price}", "red")
             return None
 
-        # แปลง quantity เป็น string และทำความสะอาด
-        quantity_str = str(quantity).strip()
+        # แปลง quantity เป็น string
+        quantity_str = str(quantity)
 
         # คำนวณปริมาณตามรูปแบบคำสั่ง
-        try:
-            if order_type and order_type.upper() in ["TAKE_PROFIT_MARKET", "STOPLOSS_MARKET", "EXIT_MARKET"]:
-                if quantity_str.upper() == "MAX" or quantity_str.endswith('100%'):
-                    position_amount = Decimal(sanitize_number_string(
-                        await get_amount_of_position(api_key, api_secret, symbol)))
-                    open_order_amount = Decimal(sanitize_number_string(
-                        await get_amount_of_open_order(api_key, api_secret, symbol)))
-                    
-                    if position_amount == Decimal('0') and open_order_amount == Decimal('0'):
-                        message(symbol, "ไม่มี position และ open orders", "yellow")
-                        return None
-                    btc_quantity = position_amount + open_order_amount
-                    
-                elif quantity_str.endswith('%'):
-                    position_amount = Decimal(sanitize_number_string(
-                        await get_amount_of_position(api_key, api_secret, symbol)))
-                    open_order_amount = Decimal(sanitize_number_string(
-                        await get_amount_of_open_order(api_key, api_secret, symbol)))
-                    
-                    if position_amount == Decimal('0') and open_order_amount == Decimal('0'):
-                        message(symbol, "ไม่มี position และ open orders สำหรับคำนวณเปอร์เซ็นต์", "yellow")
-                        return None
-                        
-                    clean_quantity = re.sub(r'[^0-9.]', '', quantity_str.rstrip('%'))
-                    percentage = Decimal(clean_quantity) / Decimal('100')
-                    btc_quantity = (position_amount + open_order_amount) * percentage
-                    
-                elif quantity_str.endswith('$'):
-                    clean_quantity = re.sub(r'[^0-9.]', '', quantity_str.rstrip('$'))
-                    btc_quantity = Decimal(clean_quantity) / price
-                else:
-                    btc_quantity = Decimal(sanitize_number_string(quantity))
-
-            else:  # Normal order
-                available_balance = await get_future_available_balance(api_key, api_secret)
-                if available_balance is None:
-                    message(symbol, "ไม่สามารถดึงข้อมูล available balance", "red")
+        if order_type and order_type.upper() in ["TAKE_PROFIT_MARKET", "STOPLOSS_MARKET", "EXIT_MARKET"]:
+            try:
+                # ดึงข้อมูล position และ pending orders
+                position_amount = abs(float(await get_amount_of_position(api_key, api_secret, symbol)))
+                pending_amount = abs(float(await get_amount_of_open_order(api_key, api_secret, symbol)))
+                
+                # เลือกใช้ค่าที่ไม่เป็น 0
+                base_amount = position_amount if position_amount > 0 else pending_amount
+                
+                if base_amount == 0:
+                    message(symbol, "ไม่พบ position หรือ pending order สำหรับคำนวณปริมาณ", "yellow")
                     return None
                 
-                available_balance = Decimal(sanitize_number_string(available_balance))
-                if available_balance <= Decimal('0'):
-                    message(symbol, "Available balance เป็น 0", "red")
+                #message(symbol, f"คำนวณจาก: {'Position' if position_amount > 0 else 'Pending Order'} = {base_amount}", "blue")
+                #print(f"Debug 1 position_amount:{position_amount} pending_amount:{pending_amount} base_amount:{base_amount} quantity_str:{quantity_str}")
+                if quantity_str.upper() == "MAX" or quantity_str.endswith('100%'):
+                    btc_quantity = base_amount
+                elif quantity_str.endswith('%'):
+                    percentage = float(quantity_str.strip('%')) / 100
+                    btc_quantity = base_amount * percentage
+                elif quantity_str.endswith('$'):
+                    btc_quantity = float(quantity_str.strip('$')) / price
+                else:
+                    btc_quantity = float(quantity)
+                #print(f"Debug 2 btc_quantity:{btc_quantity}")
+            except (ValueError, TypeError) as e:
+                message(symbol, f"รูปแบบปริมาณไม่ถูกต้องสำหรับ {order_type}: {quantity_str}", "red")
+                return None
+        else:
+            try:
+                available_balance = await get_future_available_balance(api_key, api_secret)
+                if available_balance is None or float(available_balance) <= 0:
+                    message(symbol, "ไม่สามารถดึงข้อมูล available balance หรือ balance เป็น 0", "red")
                     return None
+                available_balance = float(available_balance)
 
                 if quantity_str.upper() == "MAX" or quantity_str.endswith('100%'):
                     btc_quantity = available_balance / price
                 elif quantity_str.endswith('%'):
-                    clean_quantity = re.sub(r'[^0-9.]', '', quantity_str.rstrip('%'))
-                    percentage = Decimal(clean_quantity) / Decimal('100')
+                    percentage = float(quantity_str.strip('%')) / 100
                     btc_quantity = (percentage * available_balance) / price
                 elif quantity_str.endswith('$'):
-                    clean_quantity = re.sub(r'[^0-9.]', '', quantity_str.rstrip('$'))
-                    btc_quantity = Decimal(clean_quantity) / price
+                    btc_quantity = float(quantity_str.strip('$')) / price
                 else:
-                    btc_quantity = Decimal(sanitize_number_string(quantity))
-
-            # Log สำหรับ debug
-            message(symbol, f"Calculated quantity before precision adjustment: {btc_quantity}", "debug")
-
-            # ปรับความละเอียดของปริมาณ
-            adjusted_quantity = await get_adjust_precision_quantity(symbol, float(str(btc_quantity)))
-            if adjusted_quantity is None or adjusted_quantity <= 0:
-                message(symbol, f"ปริมาณที่ปรับแล้วไม่ถูกต้อง: {adjusted_quantity}", "red")
+                    btc_quantity = float(quantity)
+            except (ValueError, TypeError) as e:
+                message(symbol, f"รูปแบบปริมาณไม่ถูกต้อง: {quantity_str}", "red")
                 return None
 
-            message(symbol, f"Final adjusted quantity: {adjusted_quantity}", "debug")
-            return adjusted_quantity
-
-        except (InvalidOperation, ValueError, TypeError) as e:
-            message(symbol, f"เกิดข้อผิดพลาดในการคำนวณปริมาณ: {str(e)}", "red")
+        # ปรับความละเอียดของปริมาณ
+        adjusted_quantity = btc_quantity #await get_adjust_precision_quantity(symbol, btc_quantity)
+        #print(f"Debug 3 adjusted_quantity:{adjusted_quantity}")
+        if adjusted_quantity is None or adjusted_quantity <= 0:
+            message(symbol, f"ปริมาณที่ปรับแล้วไม่ถูกต้อง: {adjusted_quantity}", "red")
             return None
+
+        return adjusted_quantity
 
     except Exception as e:
         error_traceback = traceback.format_exc()
         message(symbol, f"เกิดข้อผิดพลาดในการคำนวณปริมาณ: {str(e)}", "red")
-        message(symbol, f"Error Traceback: {error_traceback}", "red")
+        message(symbol, f"Error: {error_traceback}", "red")
         return None

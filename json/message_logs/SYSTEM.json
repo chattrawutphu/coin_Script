@@ -1,0 +1,1474 @@
+[
+  {
+    "timestamp": "2024-10-27 21:08:24",
+    "date": "2024-10-27",
+    "time": "21:08:24",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 21:08:25",
+    "date": "2024-10-27",
+    "time": "21:08:25",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 21:08:27",
+    "date": "2024-10-27",
+    "time": "21:08:27",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-27 21:08:28",
+    "date": "2024-10-27",
+    "time": "21:08:28",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 21:14:12",
+    "date": "2024-10-27",
+    "time": "21:14:12",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 21:14:22",
+    "date": "2024-10-27",
+    "time": "21:14:22",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 21:14:23",
+    "date": "2024-10-27",
+    "time": "21:14:23",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 21:14:25",
+    "date": "2024-10-27",
+    "time": "21:14:25",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-27 21:14:26",
+    "date": "2024-10-27",
+    "time": "21:14:26",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 21:14:44",
+    "date": "2024-10-27",
+    "time": "21:14:44",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 22:26:21",
+    "date": "2024-10-27",
+    "time": "22:26:21",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 22:26:23",
+    "date": "2024-10-27",
+    "time": "22:26:23",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 22:26:25",
+    "date": "2024-10-27",
+    "time": "22:26:25",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-27 22:26:26",
+    "date": "2024-10-27",
+    "time": "22:26:26",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 23:13:09",
+    "date": "2024-10-27",
+    "time": "23:13:09",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 23:13:19",
+    "date": "2024-10-27",
+    "time": "23:13:19",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 23:13:20",
+    "date": "2024-10-27",
+    "time": "23:13:20",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 23:13:22",
+    "date": "2024-10-27",
+    "time": "23:13:22",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-27 23:13:23",
+    "date": "2024-10-27",
+    "time": "23:13:23",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 23:40:50",
+    "date": "2024-10-27",
+    "time": "23:40:50",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 23:41:01",
+    "date": "2024-10-27",
+    "time": "23:41:01",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 23:41:02",
+    "date": "2024-10-27",
+    "time": "23:41:02",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 23:41:04",
+    "date": "2024-10-27",
+    "time": "23:41:04",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-27 23:41:05",
+    "date": "2024-10-27",
+    "time": "23:41:05",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 23:48:43",
+    "date": "2024-10-27",
+    "time": "23:48:43",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 23:48:53",
+    "date": "2024-10-27",
+    "time": "23:48:53",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 23:48:54",
+    "date": "2024-10-27",
+    "time": "23:48:54",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 23:48:56",
+    "date": "2024-10-27",
+    "time": "23:48:56",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-27 23:48:57",
+    "date": "2024-10-27",
+    "time": "23:48:57",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 23:54:50",
+    "date": "2024-10-27",
+    "time": "23:54:50",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 23:55:44",
+    "date": "2024-10-27",
+    "time": "23:55:44",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 23:55:46",
+    "date": "2024-10-27",
+    "time": "23:55:46",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 23:55:48",
+    "date": "2024-10-27",
+    "time": "23:55:48",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-27 23:55:48",
+    "date": "2024-10-27",
+    "time": "23:55:48",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 23:58:23",
+    "date": "2024-10-27",
+    "time": "23:58:23",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 23:58:31",
+    "date": "2024-10-27",
+    "time": "23:58:31",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-27 23:58:32",
+    "date": "2024-10-27",
+    "time": "23:58:32",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-27 23:58:34",
+    "date": "2024-10-27",
+    "time": "23:58:34",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-27 23:58:35",
+    "date": "2024-10-27",
+    "time": "23:58:35",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 00:04:21",
+    "date": "2024-10-28",
+    "time": "00:04:21",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 00:04:33",
+    "date": "2024-10-28",
+    "time": "00:04:33",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 00:04:34",
+    "date": "2024-10-28",
+    "time": "00:04:34",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 00:04:36",
+    "date": "2024-10-28",
+    "time": "00:04:36",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 00:04:37",
+    "date": "2024-10-28",
+    "time": "00:04:37",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 00:24:28",
+    "date": "2024-10-28",
+    "time": "00:24:28",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 00:24:42",
+    "date": "2024-10-28",
+    "time": "00:24:42",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 00:24:43",
+    "date": "2024-10-28",
+    "time": "00:24:43",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 00:24:45",
+    "date": "2024-10-28",
+    "time": "00:24:45",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 00:24:46",
+    "date": "2024-10-28",
+    "time": "00:24:46",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 00:35:30",
+    "date": "2024-10-28",
+    "time": "00:35:30",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 00:35:39",
+    "date": "2024-10-28",
+    "time": "00:35:39",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 00:35:41",
+    "date": "2024-10-28",
+    "time": "00:35:41",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 00:35:43",
+    "date": "2024-10-28",
+    "time": "00:35:43",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 00:35:44",
+    "date": "2024-10-28",
+    "time": "00:35:44",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 00:47:17",
+    "date": "2024-10-28",
+    "time": "00:47:17",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 00:47:27",
+    "date": "2024-10-28",
+    "time": "00:47:27",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 00:47:28",
+    "date": "2024-10-28",
+    "time": "00:47:28",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 00:47:30",
+    "date": "2024-10-28",
+    "time": "00:47:30",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 00:47:31",
+    "date": "2024-10-28",
+    "time": "00:47:31",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:01:00",
+    "date": "2024-10-28",
+    "time": "01:01:00",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:01:12",
+    "date": "2024-10-28",
+    "time": "01:01:12",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:01:14",
+    "date": "2024-10-28",
+    "time": "01:01:14",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:01:16",
+    "date": "2024-10-28",
+    "time": "01:01:16",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 01:01:17",
+    "date": "2024-10-28",
+    "time": "01:01:17",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:11:38",
+    "date": "2024-10-28",
+    "time": "01:11:38",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:11:48",
+    "date": "2024-10-28",
+    "time": "01:11:48",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:11:49",
+    "date": "2024-10-28",
+    "time": "01:11:49",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:11:51",
+    "date": "2024-10-28",
+    "time": "01:11:51",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 01:11:52",
+    "date": "2024-10-28",
+    "time": "01:11:52",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:22:14",
+    "date": "2024-10-28",
+    "time": "01:22:14",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:22:28",
+    "date": "2024-10-28",
+    "time": "01:22:28",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:22:29",
+    "date": "2024-10-28",
+    "time": "01:22:29",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:22:31",
+    "date": "2024-10-28",
+    "time": "01:22:31",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 01:22:32",
+    "date": "2024-10-28",
+    "time": "01:22:32",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:26:59",
+    "date": "2024-10-28",
+    "time": "01:26:59",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:27:12",
+    "date": "2024-10-28",
+    "time": "01:27:12",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:27:13",
+    "date": "2024-10-28",
+    "time": "01:27:13",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:27:15",
+    "date": "2024-10-28",
+    "time": "01:27:15",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 01:27:16",
+    "date": "2024-10-28",
+    "time": "01:27:16",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:30:40",
+    "date": "2024-10-28",
+    "time": "01:30:40",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:30:49",
+    "date": "2024-10-28",
+    "time": "01:30:49",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:30:50",
+    "date": "2024-10-28",
+    "time": "01:30:50",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:30:52",
+    "date": "2024-10-28",
+    "time": "01:30:52",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 01:30:53",
+    "date": "2024-10-28",
+    "time": "01:30:53",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:31:44",
+    "date": "2024-10-28",
+    "time": "01:31:44",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:31:51",
+    "date": "2024-10-28",
+    "time": "01:31:51",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:31:54",
+    "date": "2024-10-28",
+    "time": "01:31:54",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:31:56",
+    "date": "2024-10-28",
+    "time": "01:31:56",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 01:31:57",
+    "date": "2024-10-28",
+    "time": "01:31:57",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:42:31",
+    "date": "2024-10-28",
+    "time": "01:42:31",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:42:39",
+    "date": "2024-10-28",
+    "time": "01:42:39",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:42:41",
+    "date": "2024-10-28",
+    "time": "01:42:41",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:42:43",
+    "date": "2024-10-28",
+    "time": "01:42:43",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 01:42:44",
+    "date": "2024-10-28",
+    "time": "01:42:44",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:50:30",
+    "date": "2024-10-28",
+    "time": "01:50:30",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:50:38",
+    "date": "2024-10-28",
+    "time": "01:50:38",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:50:39",
+    "date": "2024-10-28",
+    "time": "01:50:39",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:50:41",
+    "date": "2024-10-28",
+    "time": "01:50:41",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 01:50:42",
+    "date": "2024-10-28",
+    "time": "01:50:42",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:51:07",
+    "date": "2024-10-28",
+    "time": "01:51:07",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:51:14",
+    "date": "2024-10-28",
+    "time": "01:51:14",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:51:16",
+    "date": "2024-10-28",
+    "time": "01:51:16",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:51:18",
+    "date": "2024-10-28",
+    "time": "01:51:18",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 01:51:19",
+    "date": "2024-10-28",
+    "time": "01:51:19",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:53:49",
+    "date": "2024-10-28",
+    "time": "01:53:49",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:54:07",
+    "date": "2024-10-28",
+    "time": "01:54:07",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 01:54:09",
+    "date": "2024-10-28",
+    "time": "01:54:09",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 01:54:11",
+    "date": "2024-10-28",
+    "time": "01:54:11",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 01:54:12",
+    "date": "2024-10-28",
+    "time": "01:54:12",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:05:39",
+    "date": "2024-10-28",
+    "time": "02:05:39",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:05:51",
+    "date": "2024-10-28",
+    "time": "02:05:51",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:05:54",
+    "date": "2024-10-28",
+    "time": "02:05:54",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:05:56",
+    "date": "2024-10-28",
+    "time": "02:05:56",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 02:05:58",
+    "date": "2024-10-28",
+    "time": "02:05:58",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:08:49",
+    "date": "2024-10-28",
+    "time": "02:08:49",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:10:36",
+    "date": "2024-10-28",
+    "time": "02:10:36",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:10:39",
+    "date": "2024-10-28",
+    "time": "02:10:39",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:10:41",
+    "date": "2024-10-28",
+    "time": "02:10:41",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 02:10:42",
+    "date": "2024-10-28",
+    "time": "02:10:42",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:11:28",
+    "date": "2024-10-28",
+    "time": "02:11:28",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:11:35",
+    "date": "2024-10-28",
+    "time": "02:11:35",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:11:38",
+    "date": "2024-10-28",
+    "time": "02:11:38",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:11:40",
+    "date": "2024-10-28",
+    "time": "02:11:40",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 02:11:42",
+    "date": "2024-10-28",
+    "time": "02:11:42",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:12:54",
+    "date": "2024-10-28",
+    "time": "02:12:54",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:13:02",
+    "date": "2024-10-28",
+    "time": "02:13:02",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:13:04",
+    "date": "2024-10-28",
+    "time": "02:13:04",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:13:06",
+    "date": "2024-10-28",
+    "time": "02:13:06",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 02:13:07",
+    "date": "2024-10-28",
+    "time": "02:13:07",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:18:06",
+    "date": "2024-10-28",
+    "time": "02:18:06",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:18:14",
+    "date": "2024-10-28",
+    "time": "02:18:14",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:18:15",
+    "date": "2024-10-28",
+    "time": "02:18:15",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:18:17",
+    "date": "2024-10-28",
+    "time": "02:18:17",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 02:18:19",
+    "date": "2024-10-28",
+    "time": "02:18:19",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:20:18",
+    "date": "2024-10-28",
+    "time": "02:20:18",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:20:26",
+    "date": "2024-10-28",
+    "time": "02:20:26",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:20:29",
+    "date": "2024-10-28",
+    "time": "02:20:29",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:20:31",
+    "date": "2024-10-28",
+    "time": "02:20:31",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 02:20:32",
+    "date": "2024-10-28",
+    "time": "02:20:32",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:23:28",
+    "date": "2024-10-28",
+    "time": "02:23:28",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:23:36",
+    "date": "2024-10-28",
+    "time": "02:23:36",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 02:23:37",
+    "date": "2024-10-28",
+    "time": "02:23:37",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 02:23:39",
+    "date": "2024-10-28",
+    "time": "02:23:39",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 02:23:41",
+    "date": "2024-10-28",
+    "time": "02:23:41",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 09:36:25",
+    "date": "2024-10-28",
+    "time": "09:36:25",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 09:46:33",
+    "date": "2024-10-28",
+    "time": "09:46:33",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 09:46:34",
+    "date": "2024-10-28",
+    "time": "09:46:34",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 09:46:36",
+    "date": "2024-10-28",
+    "time": "09:46:36",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 09:46:38",
+    "date": "2024-10-28",
+    "time": "09:46:38",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 09:46:59",
+    "date": "2024-10-28",
+    "time": "09:46:59",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 10:18:34",
+    "date": "2024-10-28",
+    "time": "10:18:34",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 10:18:36",
+    "date": "2024-10-28",
+    "time": "10:18:36",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 10:18:38",
+    "date": "2024-10-28",
+    "time": "10:18:38",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 10:18:38",
+    "date": "2024-10-28",
+    "time": "10:18:38",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 10:47:26",
+    "date": "2024-10-28",
+    "time": "10:47:26",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 10:47:39",
+    "date": "2024-10-28",
+    "time": "10:47:39",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 10:47:40",
+    "date": "2024-10-28",
+    "time": "10:47:40",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 10:47:42",
+    "date": "2024-10-28",
+    "time": "10:47:42",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 10:47:43",
+    "date": "2024-10-28",
+    "time": "10:47:43",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 11:23:48",
+    "date": "2024-10-28",
+    "time": "11:23:48",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 11:23:57",
+    "date": "2024-10-28",
+    "time": "11:23:57",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 11:23:59",
+    "date": "2024-10-28",
+    "time": "11:23:59",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 11:24:01",
+    "date": "2024-10-28",
+    "time": "11:24:01",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 11:24:02",
+    "date": "2024-10-28",
+    "time": "11:24:02",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 12:42:42",
+    "date": "2024-10-28",
+    "time": "12:42:42",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 12:42:55",
+    "date": "2024-10-28",
+    "time": "12:42:55",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 12:42:59",
+    "date": "2024-10-28",
+    "time": "12:42:59",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 12:43:01",
+    "date": "2024-10-28",
+    "time": "12:43:01",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 12:43:02",
+    "date": "2024-10-28",
+    "time": "12:43:02",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 13:03:53",
+    "date": "2024-10-28",
+    "time": "13:03:53",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 13:04:03",
+    "date": "2024-10-28",
+    "time": "13:04:03",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 13:04:05",
+    "date": "2024-10-28",
+    "time": "13:04:05",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 13:04:07",
+    "date": "2024-10-28",
+    "time": "13:04:07",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 13:04:08",
+    "date": "2024-10-28",
+    "time": "13:04:08",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 13:05:24",
+    "date": "2024-10-28",
+    "time": "13:05:24",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 13:05:33",
+    "date": "2024-10-28",
+    "time": "13:05:33",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 13:05:34",
+    "date": "2024-10-28",
+    "time": "13:05:34",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 13:05:36",
+    "date": "2024-10-28",
+    "time": "13:05:36",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 13:05:37",
+    "date": "2024-10-28",
+    "time": "13:05:37",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 13:17:28",
+    "date": "2024-10-28",
+    "time": "13:17:28",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 13:17:39",
+    "date": "2024-10-28",
+    "time": "13:17:39",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูลแท่งเทียนเริ่มต้น...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-10-28 13:17:40",
+    "date": "2024-10-28",
+    "time": "13:17:40",
+    "symbol": "SYSTEM",
+    "message": "โหลดข้อมูลแท่งเทียนเริ่มต้นเสร็จสมบูรณ์",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-10-28 13:17:42",
+    "date": "2024-10-28",
+    "time": "13:17:42",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท index.json สำเร็จ: ['ETHUSDT']",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-10-28 13:17:44",
+    "date": "2024-10-28",
+    "time": "13:17:44",
+    "symbol": "SYSTEM",
+    "message": "อัพเดท symbol_data เรียบร้อย! จำนวน 385 symbols",
+    "color": "green"
+  }
+]

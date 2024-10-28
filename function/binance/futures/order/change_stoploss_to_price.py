@@ -1,5 +1,6 @@
 import traceback
 import ccxt.async_support as ccxt
+from function.binance.futures.order.get_all_order import clear_stoploss
 from function.binance.futures.system.create_future_exchange import create_future_exchange
 from function.message import message
 
@@ -8,7 +9,7 @@ async def change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss_pri
     try:
         exchange = await create_future_exchange(api_key, api_secret)
 
-        # ดึงข้อมูลตำแหน่งปัจจุบัน
+        await clear_stoploss(api_key, api_secret, symbol)
         positions = await exchange.fetch_positions([symbol])
         exchange_symbol = symbol
         if 'USDT' in symbol and '/USDT:USDT' not in symbol:

@@ -130,7 +130,7 @@
                 // ถ้าเลือก all ให้โหลดจาก index.json
                 if (symbol === 'all') {
                     try {
-                        const response = await fetch('json/message_logs/index.json');
+                        const response = await fetch('json/index.json');
                         if (response.ok) {
                             symbolsToLoad = await response.json();
                         } else {
@@ -199,7 +199,7 @@
         // Update symbol filter options
         async function updateSymbolOptions() {
             try {
-                const response = await fetch('json/message_logs/index.json');
+                const response = await fetch('json/index.json');
                 if (response.ok) {
                     const symbols = await response.json();
                     const options = symbols
