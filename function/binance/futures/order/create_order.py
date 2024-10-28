@@ -302,7 +302,7 @@ async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, or
                 return None
 
         # ปรับความละเอียดของปริมาณ
-        adjusted_quantity = btc_quantity #await get_adjust_precision_quantity(symbol, btc_quantity)
+        adjusted_quantity = await get_adjust_precision_quantity(symbol, btc_quantity)
         #print(f"Debug 3 adjusted_quantity:{adjusted_quantity}")
         if adjusted_quantity is None or adjusted_quantity <= 0:
             message(symbol, f"ปริมาณที่ปรับแล้วไม่ถูกต้อง: {adjusted_quantity}", "red")

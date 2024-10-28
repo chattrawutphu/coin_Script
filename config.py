@@ -7,7 +7,7 @@ api_secret = '560764a399e23e9bc5e24d041bd3b085ee710bf08755d26ff4822bfd9393b11e'"
 TRADING_CONFIG = {
     'ETHUSDT': {
         'timeframe': '3m',
-        'entry_amount': '25$',
+        'entry_amount': '75$',
         'rsi_period': 7,
         'rsi_overbought': 68,
         'rsi_oversold': 32

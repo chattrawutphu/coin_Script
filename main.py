@@ -379,6 +379,10 @@ async def adjust_stoploss(api_key, api_secret, symbol, state, position_side, cro
     timeframe = state.config.timeframe
     exchange = None
     try:
+        if not state.entry_candle:
+            message(symbol, "ไม่พบข้อมูล entry candle ข้ามการปรับ stoploss", "yellow")
+            return None
+            
         exchange = await create_future_exchange(api_key, api_secret)
         
         # ดึงข้อมูล 5 แท่ง: 1 แท่ง cross + 3 แท่งที่จะใช้ + 1 แท่งปัจจุบัน
@@ -391,26 +395,21 @@ async def adjust_stoploss(api_key, api_secret, symbol, state, position_side, cro
         # ตัดแท่งสุดท้าย (แท่งปัจจุบันที่ยังไม่ปิด) ออก
         closed_candles = ohlcv[:-1]
         
+        # กรองเอาเฉพาะแท่งที่มาหลัง entry_candle
+        entry_timestamp = state.entry_candle['timestamp']
+        filtered_candles = [candle for candle in closed_candles if candle[0] >= entry_timestamp]
+        
+        if len(filtered_candles) < 3:
+            message(symbol, f"มีแท่งเทียนหลัง entry ไม่พอ ({len(filtered_candles)}/3) ข้ามการปรับ stoploss", "yellow")
+            return None
+        
         # พิจารณาเฉพาะแท่งที่ปิดแล้ว และปรับด้วย PRICE_DECREASE/INCREASE
         if position_side == 'buy':
-            # ใช้ PRICE_DECREASE สำหรับ low prices เพราะเป็น stoploss ของ long position
-            prices = [candle[3] * PRICE_DECREASE for candle in closed_candles]  # ราคาต่ำสุด * PRICE_DECREASE
-            prices_str = [f"{price:.2f}" for price in prices]
-            #message(symbol, f"กำลังพิจารณาแท่งเทียนที่ปิดแล้ว {len(prices)} แท่ง - Low prices (with {PRICE_DECREASE:.4f}): {', '.join(prices_str)}", "blue")
+            prices = [candle[3] * PRICE_DECREASE for candle in filtered_candles]  # ราคาต่ำสุด * PRICE_DECREASE
         elif position_side == 'sell':
-            # ใช้ PRICE_INCREASE สำหรับ high prices เพราะเป็น stoploss ของ short position
-            prices = [candle[2] * PRICE_INCREASE for candle in closed_candles]  # ราคาสูงสุด * PRICE_INCREASE
-            prices_str = [f"{price:.2f}" for price in prices]
-            #message(symbol, f"กำลังพิจารณาแท่งเทียนที่ปิดแล้ว {len(prices)} แท่ง - High prices (with {PRICE_INCREASE:.4f}): {', '.join(prices_str)}", "blue")
+            prices = [candle[2] * PRICE_INCREASE for candle in filtered_candles]  # ราคาสูงสุด * PRICE_INCREASE
         else:
             raise ValueError("ทิศทาง position ไม่ถูกต้อง ต้องเป็น 'buy' หรือ 'sell' เท่านั้น")
-
-        # เตรียมข้อมูลเวลาของแท่งเทียน
-        candle_times = []
-        for candle in closed_candles:
-            candle_time = datetime.fromtimestamp(candle[0] / 1000, tz=pytz.UTC)
-            candle_times.append(candle_time.strftime('%H:%M'))
-        #message(symbol, f"เวลาของแท่งเทียนที่พิจารณา: {', '.join(candle_times)}", "blue")
 
         # ค้นหาชุด 3 แท่งที่เข้าเงื่อนไข โดยเริ่มจากแท่งใหม่ไปเก่า
         valid_sequences = []
@@ -430,23 +429,21 @@ async def adjust_stoploss(api_key, api_secret, symbol, state, position_side, cro
 
         # เลือกชุดแรกที่พบ (จะเป็นชุดที่ใกล้ปัจจุบันที่สุด)
         best_sequence = valid_sequences[0]
-        new_stoploss = prices[best_sequence[0]]  # ไม่ต้องคูณ PRICE_DECREASE/INCREASE อีกเพราะทำไปแล้วตอนสร้าง prices
+        new_stoploss = prices[best_sequence[0]]
 
         # ตรวจสอบเงื่อนไขการปรับ stoploss
         if current_stoploss is not None:
-                if position_side == 'buy':
-                    if new_stoploss <= current_stoploss:
-                        #message(symbol, f"ไม่ปรับ stoploss เนื่องจากค่าใหม่ ({new_stoploss:.2f}) ไม่สูงกว่าค่าปัจจุบัน ({current_stoploss:.2f})", "yellow")
-                        return None
-                else:  # position_side == 'sell'
-                    if new_stoploss >= current_stoploss:
-                        #message(symbol, f"ไม่ปรับ stoploss เนื่องจากค่าใหม่ ({new_stoploss:.2f}) ไม่ต่ำกว่าค่าปัจจุบัน ({current_stoploss:.2f})", "yellow")
-                        return None
-                    
-                # เพิ่มการเช็คว่าราคาเท่ากันหรือไม่
-                if new_stoploss == current_stoploss:
-                    message(symbol, f"ไม่ปรับ stoploss เนื่องจากราคาเท่าเดิม ({current_stoploss:.2f})", "yellow")
+            if position_side == 'buy':
+                if new_stoploss <= current_stoploss:
                     return None
+            else:  # position_side == 'sell'
+                if new_stoploss >= current_stoploss:
+                    return None
+                    
+            # เพิ่มการเช็คว่าราคาเท่ากันหรือไม่
+            if new_stoploss == current_stoploss:
+                message(symbol, f"ไม่ปรับ stoploss เนื่องจากราคาเท่าเดิม ({current_stoploss:.2f})", "yellow")
+                return None
 
         # ปรับหรือสร้าง stoploss
         await change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss)
@@ -463,14 +460,12 @@ async def adjust_stoploss(api_key, api_secret, symbol, state, position_side, cro
     except Exception as e:
         error_traceback = traceback.format_exc()
         message(symbol, f"เกิดข้อผิดพลาดขณะปรับ stoploss: {str(e)}", "yellow")
-        message(symbol, "________________________________", "red")
         message(symbol, f"Error: {error_traceback}", "red")
-        message(symbol, "________________________________", "red")
         return None
     finally:
         if exchange:
             await exchange.close()
-                        
+
 def timeframe_to_seconds(timeframe):
     unit = timeframe[-1]
     value = int(timeframe[:-1])
@@ -692,36 +687,103 @@ async def _show_profit_targets(symbol: str, candle_high: float, candle_low: floa
     message(symbol, f"TP4 ({candle_length_percent * 4:.2f}%): ปิด 35% ที่เหลือ", "magenta")
     message(symbol, "==============================", "magenta")
 
-async def setup_take_profit_orders(api_key, api_secret, symbol, entry_price, position_side, candle_high, candle_low):
-    """สร้าง take profit orders ด้วยการคำนวณแบบใหม่"""
+async def calculate_atr(api_key, api_secret, symbol, timeframe, length=7):
+    """คำนวณ ATR (Average True Range) โดยใช้ RMA smoothing"""
+    try:
+        exchange = await create_future_exchange(api_key, api_secret)
+        # ดึงข้อมูลเพิ่มเพื่อให้มีพอสำหรับคำนวณ
+        ohlcv = await fetch_ohlcv(symbol, timeframe, limit=length + 1)
+        
+        if len(ohlcv) < length + 1:
+            message(symbol, f"ข้อมูลไม่พอสำหรับคำนวณ ATR (ต้องการ {length + 1} แท่ง)", "yellow")
+            return None
+
+        # คำนวณ True Range
+        tr_values = []
+        for i in range(1, len(ohlcv)):
+            high = ohlcv[i][2]
+            low = ohlcv[i][3]
+            prev_close = ohlcv[i-1][4]
+            
+            tr = max(
+                high - low,  # Current high - low
+                abs(high - prev_close),  # Current high - previous close
+                abs(low - prev_close)  # Current low - previous close
+            )
+            tr_values.append(tr)
+
+        # คำนวณ RMA (Rolling Moving Average)
+        alpha = 1.0 / length
+        rma = tr_values[0]  # ค่าเริ่มต้น
+        
+        for tr in tr_values[1:]:
+            rma = (alpha * tr) + ((1 - alpha) * rma)
+
+        return rma
+
+    except Exception as e:
+        error_traceback = traceback.format_exc()
+        message(symbol, f"เกิดข้อผิดพลาดในการคำนวณ ATR: {str(e)}", "red")
+        message(symbol, f"Error: {error_traceback}", "red")
+        return None
+    finally:
+        if exchange:
+            await exchange.close()
+
+async def setup_take_profit_orders(api_key, api_secret, symbol, entry_price, position_side, timeframe):
+    """สร้าง take profit orders โดยใช้ ATR เป็นฐานในการคำนวณระยะห่าง"""
     try:
         # ตรวจสอบข้อมูลนำเข้า
-        if entry_price is None or candle_high is None or candle_low is None:
-            message(symbol, "ไม่มีข้อมูลที่จำเป็นสำหรับคำนวณ Take Profit", "red")
+        if entry_price is None:
+            message(symbol, "ไม่มีข้อมูล entry price สำหรับคำนวณ Take Profit", "red")
             return []
 
-        # คำนวณ candle length percent โดยใช้ราคาที่ปรับแล้ว
-        adjusted_high = candle_high * PRICE_INCREASE
-        adjusted_low = candle_low * PRICE_DECREASE
-        candle_length_percent = abs((adjusted_high - adjusted_low) / adjusted_low * 100)
-        
-        if candle_length_percent == 0:
-            message(symbol, "ไม่สามารถคำนวณ candle length percent ได้", "red")
+        # คำนวณ ATR
+        atr = await calculate_atr(api_key, api_secret, symbol, timeframe, length=7)
+        if atr is None:
+            message(symbol, "ไม่สามารถคำนวณค่า ATR ได้", "red")
             return []
             
-        message(symbol, f"คำนวณ TP จาก: Entry: {entry_price}, Candle Length: {candle_length_percent}%", "blue")
-        message(symbol, f"High: {adjusted_high}, Low: {adjusted_low}", "blue")
+        # คำนวณเปอร์เซ็นต์ ATR เทียบกับราคา
+        atr_percent = (atr / entry_price) * 100
+        message(symbol, f"คำนวณ TP จาก: Entry: {entry_price}, ATR: {atr:.8f} ({atr_percent:.2f}%)", "blue")
 
-        # คำนวณราคา TP ทั้งหมดด้วยเปอร์เซ็นต์
+        # คำนวณราคา TP โดยใช้ ATR เป็นฐาน และปรับด้วย PRICE_INCREASE/DECREASE
         tp_prices = {}
         if position_side == 'buy':
-            tp_prices['tp2'] = entry_price * (1 + (candle_length_percent * 2 / 100))
-            tp_prices['tp3'] = entry_price * (1 + (candle_length_percent * 3 / 100))
-            tp_prices['tp4'] = entry_price * (1 + (candle_length_percent * 4 / 100))
+            tp_base2 = entry_price + (atr * 2)
+            tp_base3 = entry_price + (atr * 3)
+            tp_base4 = entry_price + (atr * 4)
+            
+            # ปรับด้วย PRICE_INCREASE แบบเดิม ไม่คูณเพิ่ม
+            tp_prices['tp2'] = tp_base2 * (PRICE_INCREASE + (PRICE_CHANGE_THRESHOLD * 4))
+            tp_prices['tp3'] = tp_base3 * (PRICE_INCREASE + (PRICE_CHANGE_THRESHOLD * 6))
+            tp_prices['tp4'] = tp_base4 * (PRICE_INCREASE + (PRICE_CHANGE_THRESHOLD * 8))
         else:  # sell
-            tp_prices['tp2'] = entry_price * (1 - (candle_length_percent * 2 / 100))
-            tp_prices['tp3'] = entry_price * (1 - (candle_length_percent * 3 / 100))
-            tp_prices['tp4'] = entry_price * (1 - (candle_length_percent * 4 / 100))
+            tp_base2 = entry_price - (atr * 2)
+            tp_base3 = entry_price - (atr * 3)
+            tp_base4 = entry_price - (atr * 4)
+            
+            # ปรับด้วย PRICE_DECREASE แบบเดิม ไม่คูณเพิ่ม
+            tp_prices['tp2'] = tp_base2 * (PRICE_DECREASE - (PRICE_CHANGE_THRESHOLD * 4))
+            tp_prices['tp3'] = tp_base3 * (PRICE_DECREASE - (PRICE_CHANGE_THRESHOLD * 6))
+            tp_prices['tp4'] = tp_base4 * (PRICE_DECREASE - (PRICE_CHANGE_THRESHOLD * 8))
+
+        # แสดงราคาฐานก่อนปรับ
+        message(symbol, f"Entry: {entry_price:.8f}", "blue")
+        message(symbol, "ราคา Take Profit ฐาน (ก่อนปรับ):", "blue")
+        base_prices = {'tp2': tp_base2, 'tp3': tp_base3, 'tp4': tp_base4}
+        for level, price in base_prices.items():
+            distance_in_atr = abs(price - entry_price) / atr
+            message(symbol, f"{level} base: {price:.8f} ({distance_in_atr:.1f} ATR)", "blue")
+
+        # แสดงราคา TP หลังปรับ
+        message(symbol, "ราคา Take Profit หลังปรับ:", "blue")
+        for level, price in tp_prices.items():
+            profit_percent = abs((price - entry_price) / entry_price * 100)
+            distance_in_atr = abs(price - entry_price) / atr
+            multiplier = (PRICE_INCREASE if position_side == 'buy' else PRICE_DECREASE) ** (int(level[-1]))
+            message(symbol, f"{level}: {price:.8f} ({profit_percent:.2f}%, {distance_in_atr:.1f} ATR, x{multiplier:.4f})", "blue")
 
         # ตรวจสอบและปรับราคาตามข้อจำกัดของ exchange
         for tp_level in tp_prices:
@@ -732,18 +794,12 @@ async def setup_take_profit_orders(api_key, api_secret, symbol, entry_price, pos
                 message(symbol, f"ไม่สามารถปรับราคา {tp_level} ได้", "red")
                 return []
 
-        # แสดงราคา TP ที่คำนวณได้
-        message(symbol, "ราคา Take Profit ที่คำนวณได้:", "blue")
-        for level, price in tp_prices.items():
-            profit_percent = abs((price - entry_price) / entry_price * 100)
-            message(symbol, f"{level}: {price:.8f} ({profit_percent:.2f}%)", "blue")
-
         # สร้าง orders
         orders = []
         order_quantities = {
-            'tp2': '30%',    # Close 30% at TP2
-            'tp3': '35%',    # Close 35% at TP3
-            'tp4': 'MAX'     # Close remaining at TP4
+            'tp2': '30%',
+            'tp3': '35%',
+            'tp4': 'MAX'
         }
 
         for tp_level, quantity in order_quantities.items():
@@ -772,17 +828,11 @@ async def setup_take_profit_orders(api_key, api_secret, symbol, entry_price, pos
         return []
     
 async def manage_position_profit(api_key: str, api_secret: str, symbol: str, state: SymbolState):
-    """
-    จัดการ position profit โดยเฉพาะการย้าย stoploss ไปที่จุดเข้าเมื่อถึง TP1
-    """
+    """จัดการ position profit โดยเฉพาะการย้าย stoploss ไปที่จุดเข้าเมื่อถึง TP1"""
     exchange = None
     try:
         # ตรวจสอบเงื่อนไขเบื้องต้น
         if not state.is_in_position:
-            return
-        
-        if not state.entry_candle:
-            message(symbol, "ไม่พบข้อมูล entry candle ข้ามการจัดการกำไร", "yellow")
             return
 
         # สร้าง exchange instance
@@ -791,11 +841,13 @@ async def manage_position_profit(api_key: str, api_secret: str, symbol: str, sta
         # ดึงข้อมูลที่จำเป็น
         data_tasks = [
             get_future_market_price(api_key, api_secret, symbol),
-            get_current_stoploss(api_key, api_secret, symbol)
+            get_current_stoploss(api_key, api_secret, symbol),
+            calculate_atr(api_key, api_secret, symbol, state.config.timeframe, length=7)
         ]
         data_results = await asyncio.gather(*data_tasks)
         current_price = data_results[0]
         current_stoploss = data_results[1]
+        atr = data_results[2]
 
         # ตรวจสอบข้อมูลที่จำเป็น
         if current_price is None:
@@ -805,38 +857,39 @@ async def manage_position_profit(api_key: str, api_secret: str, symbol: str, sta
         if current_stoploss is None:
             message(symbol, "ไม่สามารถดึงค่า stoploss ปัจจุบันได้", "yellow")
             return
+            
+        if atr is None:
+            message(symbol, "ไม่สามารถคำนวณค่า ATR ได้", "yellow")
+            return
 
-        # คำนวณ candle length percent และกำไรปัจจุบัน
-        candle_high = float(state.entry_candle['high'])
-        candle_low = float(state.entry_candle['low'])
-        candle_length_percent = abs((candle_high - candle_low) / candle_low * 100)
-        
         entry_price = state.global_entry_price
+        
+        # คำนวณกำไรปัจจุบันในหน่วย ATR
         if state.global_position_side == 'buy':
+            current_profit_atr = (current_price - entry_price) / (atr * (PRICE_INCREASE + (PRICE_CHANGE_THRESHOLD * 2)))
             current_profit_percent = ((current_price - entry_price) / entry_price) * 100
         else:  # sell
+            current_profit_atr = (entry_price - current_price) / (atr * (PRICE_INCREASE + (PRICE_CHANGE_THRESHOLD * 2)))
             current_profit_percent = ((entry_price - current_price) / entry_price) * 100
 
-        # แสดงข้อมูลสถานะปัจจุบัน
-        #message(symbol, f"Candle Length: {candle_length_percent:.2f}%", "blue")
-        #message(symbol, f"Current Profit: {current_profit_percent:.2f}%", "blue")
-
-        # จัดการเฉพาะ TP1 - ย้าย stoploss ไปที่จุดเข้า
-        if current_profit_percent >= candle_length_percent and not state.tp_levels_hit['tp1']:
-            message(symbol, f"กำไรถึงระดับ 1 ({candle_length_percent:.2f}%) - ปรับ stoploss", "cyan")
+        # จัดการ TP1 - ย้าย stoploss ไปที่จุดเข้าเมื่อกำไรถึง 1 ATR
+        if current_profit_atr >= 1 and not state.tp_levels_hit['tp1']:
+            message(symbol, f"กำไรถึงระดับ 1 ({current_profit_atr:.2f} ATR, {current_profit_percent:.2f}%) - ปรับ stoploss", "cyan")
             
             try:
                 # เลื่อน stoploss มาที่จุดเข้า
                 if state.global_position_side == 'buy':
-                    if current_stoploss < entry_price:
-                        message(symbol, f"กำลังปรับ stoploss ไปที่จุดเข้า {entry_price:.8f}", "cyan")
-                        await change_stoploss_to_price(api_key, api_secret, symbol, entry_price)
+                    new_stoploss = entry_price * PRICE_INCREASE
+                    if current_stoploss < new_stoploss:
+                        message(symbol, f"กำลังปรับ stoploss ไปที่จุดเข้า {new_stoploss:.8f}", "cyan")
+                        await change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss)
                         state.tp_levels_hit['tp1'] = True
                         message(symbol, "ปรับ stoploss เรียบร้อย", "cyan")
                 else:  # sell
-                    if current_stoploss > entry_price:
-                        message(symbol, f"กำลังปรับ stoploss ไปที่จุดเข้า {entry_price:.8f}", "cyan")
-                        await change_stoploss_to_price(api_key, api_secret, symbol, entry_price)
+                    new_stoploss = entry_price * PRICE_DECREASE
+                    if current_stoploss > new_stoploss:
+                        message(symbol, f"กำลังปรับ stoploss ไปที่จุดเข้า {new_stoploss:.8f}", "cyan")
+                        await change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss)
                         state.tp_levels_hit['tp1'] = True
                         message(symbol, "ปรับ stoploss เรียบร้อย", "cyan")
 
@@ -846,9 +899,7 @@ async def manage_position_profit(api_key: str, api_secret: str, symbol: str, sta
     except Exception as e:
         error_traceback = traceback.format_exc()
         message(symbol, f"เกิดข้อผิดพลาดในการจัดการกำไร: {str(e)}", "red")
-        message(symbol, "________________________________", "red")
         message(symbol, f"Error: {error_traceback}", "red")
-        message(symbol, "________________________________", "red")
     finally:
         if exchange:
             try:
@@ -983,8 +1034,7 @@ async def _handle_position_close(api_key, api_secret, symbol, state, price):
                                     api_key, api_secret, symbol,
                                     state.global_entry_price,
                                     state.global_position_side,
-                                    float(state.entry_candle['high']),
-                                    float(state.entry_candle['low'])
+                                    state.config.timeframe
                                 )
                                 
                                 # รีเซ็ตข้อมูล entry orders
@@ -1186,8 +1236,7 @@ async def _handle_rsi_signals(api_key, api_secret, symbol, state, position_side,
                                         api_key, api_secret, symbol,
                                         state.global_entry_price,
                                         state.global_position_side,
-                                        float(current_candle['high']),
-                                        float(current_candle['low'])
+                                    state.config.timeframe
                                     )
                                 else:
                                     message(symbol, "ไม่สามารถดึงข้อมูลแท่งเทียนสำหรับตั้ง TP ได้", "red")"""
@@ -1251,8 +1300,7 @@ async def _handle_entry_orders(api_key: str, api_secret: str, symbol: str, state
                     api_key, api_secret, symbol,
                     state.global_entry_price,
                     state.global_position_side,
-                    float(state.last_candle_cross['candle']['high'] ),
-                    float(state.last_candle_cross['candle']['low'])
+                    state.config.timeframe
                 )
                 # แสดงเป้าหมายการทำกำไร
                 await _show_profit_targets(symbol, float(current_candle['high']), float(current_candle['low']))
@@ -1381,8 +1429,7 @@ async def _handle_position_swap(api_key, api_secret, symbol, state, price, posit
                     api_key, api_secret, symbol,
                     state.global_entry_price,
                     state.global_position_side,
-                    float(state.entry_candle['high']),
-                    float(state.entry_candle['low'])
+                    state.config.timeframe
                 )
 
                 state.is_swapping = False
