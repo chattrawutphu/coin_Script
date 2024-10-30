@@ -412,15 +412,15 @@
         try {
             const indexResponse = await fetch('json/index.json');
             if (!indexResponse.ok) throw new Error('Cannot load symbols');
-            const symbols = await indexResponse.json();
+            const symbolConfigs = await indexResponse.json();
 
             let tableContent = '';
             let activePositionsExist = false;
 
-            for (const symbol of symbols) {
+            for (const config of symbolConfigs) {
                 try {
                     // โหลดข้อมูล state
-                    const stateResponse = await fetch(`json/state/${symbol}.json`);
+                    const stateResponse = await fetch(`json/state/${config.symbol}.json`);
                     if (!stateResponse.ok) continue;
                     const state = await stateResponse.json();
 
@@ -431,30 +431,29 @@
 
                     // คำนวณค่าต่างๆ
                     const entryPrice = parseFloat(state.global_entry_price);
-                    const currentPrice = parseFloat(state.last_price || 0);
+                    const currentPrice = parseFloat(state.current_price || 0);
                     const isLong = state.global_position_side === 'buy';
-                    const stopPrice = parseFloat(state.entry_stoploss_price);
+                    const stopPrice = parseFloat(state.stop_price);
 
                     // คำนวณ PNL
                     const pnlPercent = isLong ?
                         ((currentPrice - entryPrice) / entryPrice * 100) :
                         ((entryPrice - currentPrice) / entryPrice * 100);
-                    const pnl = isLong ?
+                    const pnl = (50 * pnlPercent)/100
+                    /*isLong ?
                         (currentPrice - entryPrice) :
-                        (entryPrice - currentPrice);
+                        (entryPrice - currentPrice);*/
 
                     // คำนวณ Stoploss %
                     const slPercent = isLong ?
                         ((stopPrice - entryPrice) / entryPrice * 100) :
                         ((entryPrice - stopPrice) / entryPrice * 100);
 
-
-                    // ในฟังก์ชัน updateActivePositions แก้ไขส่วนการคำนวณ TP
+                    // คำนวณ TP ทั้งหมด
                     const candle_high = parseFloat(state.entry_candle.high);
                     const candle_low = parseFloat(state.entry_candle.low);
                     const candleLengthPercent = Math.abs((candle_high - candle_low) / candle_low * 100);
 
-                    // คำนวณ TP ทั้งหมด
                     const tp1Percent = candleLengthPercent;
                     const tp2Percent = candleLengthPercent * 2;
                     const tp3Percent = candleLengthPercent * 3;
@@ -469,17 +468,17 @@
                     const sideClass = isLong ? 'text-green-500' : 'text-red-500';
 
                     tableContent += `
-    <tr class="border-b border-gray-200 dark:border-dark-600 hover:bg-gray-50 dark:hover:bg-dark-700">
-        <td class="p-3 font-semibold">${symbol}</td>
-        <td class="p-3 text-center ${sideClass} font-semibold">${state.global_position_side.toUpperCase()}</td>
-        <td class="p-3 text-right font-mono">${formatNumber(entryPrice, 4)}</td>
-        <td class="p-3 text-right font-mono">${formatNumber(currentPrice, 4)}</td>
-        <td class="p-3 text-right font-mono">${formatNumber(tp1Percent, 2)}%</td>
-        <td class="p-3 text-right font-mono ${pnlClass}">${formatNumber(pnl, 2)}</td>
-        <td class="p-3 text-right font-mono ${pnlClass}">${formatNumber(pnlPercent, 2)}%</td>
-        <td class="p-3 text-center">
-            <button onclick='openPositionModal(${JSON.stringify({
-                        symbol,
+                    <tr class="border-b border-gray-200 dark:border-dark-600 hover:bg-gray-50 dark:hover:bg-dark-700">
+                        <td class="p-3 font-semibold">${config.symbol}</td>
+                        <td class="p-3 text-center ${sideClass} font-semibold">${state.global_position_side.toUpperCase()}</td>
+                        <td class="p-3 text-right font-mono">${formatNumber(entryPrice, 4)}</td>
+                        <td class="p-3 text-right font-mono">${formatNumber(currentPrice, 4)}</td>
+                        <td class="p-3 text-right font-mono">${formatNumber(tp1Percent, 2)}%</td>
+                        <td class="p-3 text-right font-mono ${pnlClass}">${formatNumber(pnl, 2)}</td>
+                        <td class="p-3 text-right font-mono ${pnlClass}">${formatNumber(pnlPercent, 2)}%</td>
+                        <td class="p-3 text-center">
+                            <button onclick='openPositionModal(${JSON.stringify({
+                        symbol: config.symbol,
                         side: state.global_position_side,
                         entryPrice,
                         currentPrice,
@@ -493,40 +492,41 @@
                         tp4Price,
                         tp4Percent
                     })})' 
-            class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-200">
-                Details
-            </button>
-        </td>
-    </tr>`;
+                            class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-200">
+                                Details
+                            </button>
+                        </td>
+                    </tr>`;
                 } catch (error) {
-                    console.error(`Error processing ${symbol}:`, error);
+                    console.error(`Error processing ${config.symbol}:`, error);
                 }
             }
 
             if (!activePositionsExist) {
                 tableContent = `
-                    <tr>
-                        <td colspan="10" class="p-4 text-center text-gray-500 dark:text-gray-400">
-                            ไม่มี Active Positions
-                        </td>
-                    </tr>`;
+                <tr>
+                    <td colspan="10" class="p-4 text-center text-gray-500 dark:text-gray-400">
+                        ไม่มี Active Positions
+                    </td>
+                </tr>`;
             }
 
             $('#active-positions').html(tableContent);
         } catch (error) {
             console.error('Error updating active positions:', error);
             $('#active-positions').html(`
-                <tr>
-                    <td colspan="10" class="p-4 text-center text-red-500">
-                        เกิดข้อผิดพลาดในการโหลดข้อมูล: ${error.message}
-                    </td>
-                </tr>`);
+            <tr>
+                <td colspan="10" class="p-4 text-center text-red-500">
+                    เกิดข้อผิดพลาดในการโหลดข้อมูล: ${error.message}
+                </td>
+            </tr>`);
         }
     }
-
     // ฟังก์ชันคำนวณสถิติ
     function calculateStats(trades) {
         const now = new Date();
+        const FEE_PERCENTAGE = 0.07; // 0.07% trading fee
+
         const stats = {
             total_trades: trades.length,
             winning_trades: 0,
@@ -545,31 +545,39 @@
         trades.forEach(trade => {
             const tradeDate = new Date(trade.timestamp);
             const daysDiff = (now - tradeDate) / (1000 * 60 * 60 * 24);
-            const profit = trade.profit_loss;
 
-            // Update basic stats
-            stats.total_profit += profit;
-            stats.total_profit_sum += profit;
-            if (profit > 0) stats.winning_trades++;
-            if (profit > stats.max_profit) stats.max_profit = profit;
-            if (profit < stats.min_profit) stats.min_profit = profit;
+            // Calculate fees for both entry and exit
+            const entryFee = trade.entry_price * trade.amount * (FEE_PERCENTAGE / 100);
+            const exitFee = trade.exit_price * trade.amount * (FEE_PERCENTAGE / 100);
+            const totalFees = entryFee + exitFee;
 
-            // Update period specific stats
+            // Calculate net profit after fees
+            const grossProfit = trade.profit_loss;
+            const netProfit = grossProfit - totalFees;
+
+            // Update basic stats with net profit
+            stats.total_profit += netProfit;
+            stats.total_profit_sum += netProfit;
+            if (netProfit > 0) stats.winning_trades++;
+            if (netProfit > stats.max_profit) stats.max_profit = netProfit;
+            if (netProfit < stats.min_profit) stats.min_profit = netProfit;
+
+            // Update period specific stats with net profit
             if (daysDiff <= 1) {
                 stats.daily_trades++;
-                stats.daily_profit += profit;
+                stats.daily_profit += netProfit;
             }
             if (daysDiff <= 7) {
                 stats.weekly_trades++;
-                stats.weekly_profit += profit;
+                stats.weekly_profit += netProfit;
             }
             if (daysDiff <= 30) {
                 stats.monthly_trades++;
-                stats.monthly_profit += profit;
+                stats.monthly_profit += netProfit;
             }
         });
 
-        // Calculate averages
+        // Calculate averages using net profits
         stats.win_rate = (stats.winning_trades / stats.total_trades) * 100;
         stats.avg_profit = stats.total_profit_sum / stats.total_trades;
         stats.avg_daily_profit = stats.daily_trades ? stats.daily_profit / stats.daily_trades : 0;
@@ -579,39 +587,50 @@
 
         return stats;
     }
-
     // ฟังก์ชันอัพเดตตาราง
+    // อัพเดตฟังก์ชัน updateTable เพื่อแสดงกำไร/ขาดทุนสุทธิ
     function updateTable(trades) {
+        const FEE_PERCENTAGE = 0.07;
         let tableContent = '';
+
         trades.slice(0, 10).forEach(function (trade) {
-            const isProfitPositive = trade.profit_loss >= 0;
+            // Calculate fees
+            const entryFee = trade.entry_price * trade.amount * (FEE_PERCENTAGE / 100);
+            const exitFee = trade.exit_price * trade.amount * (FEE_PERCENTAGE / 100);
+            const totalFees = entryFee + exitFee;
+
+            // Calculate net profit/loss
+            const netProfit = trade.profit_loss - totalFees;
+            const netProfitPercentage = trade.profit_loss_percentage - (FEE_PERCENTAGE * 2); // 2x fee (entry + exit)
+
+            const isProfitPositive = netProfit >= 0;
             const profitLossClass = isProfitPositive ? 'text-green-500' : 'text-red-500';
 
             tableContent += `
-                <tr class="border-b border-gray-200 dark:border-dark-600 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-200">
-                    <td class="p-3 font-mono text-sm">${new Date(trade.timestamp).toLocaleString('th-TH')}</td>
-                    <td class="p-3 font-semibold">${trade.symbol}</td>
-                    <td class="p-3">${trade.action}</td>
-                    <td class="p-3 text-right font-mono">${formatNumber(trade.entry_price, 4)}</td>
-                    <td class="p-3 text-right font-mono">${formatNumber(trade.exit_price, 4)}</td>
-                    <td class="p-3 text-right font-mono">${formatNumber(trade.amount, 6)}</td>
-                    <td class="p-3 text-right font-mono ${profitLossClass}">
-                        ${formatNumber(trade.profit_loss)}
-                    </td>
-                    <td class="p-3 text-right font-mono ${profitLossClass}">
-                        ${formatNumber(trade.profit_loss_percentage)}%
-                    </td>
-                    <td class="p-3 text-sm">${trade.reason}</td>
-                </tr>`;
+            <tr class="border-b border-gray-200 dark:border-dark-600 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-200">
+                <td class="p-3 font-mono text-sm">${new Date(trade.timestamp).toLocaleString('th-TH')}</td>
+                <td class="p-3 font-semibold">${trade.symbol}</td>
+                <td class="p-3">${trade.action}</td>
+                <td class="p-3 text-right font-mono">${formatNumber(trade.entry_price, 4)}</td>
+                <td class="p-3 text-right font-mono">${formatNumber(trade.exit_price, 4)}</td>
+                <td class="p-3 text-right font-mono">${formatNumber(trade.amount, 6)}</td>
+                <td class="p-3 text-right font-mono ${profitLossClass}">
+                    ${formatNumber(netProfit)}
+                </td>
+                <td class="p-3 text-right font-mono ${profitLossClass}">
+                    ${formatNumber(netProfitPercentage)}%
+                </td>
+                <td class="p-3 text-sm">${trade.reason}</td>
+            </tr>`;
         });
 
         if (trades.length === 0) {
             tableContent = `
-                <tr>
-                    <td colspan="9" class="p-4 text-center text-gray-500 dark:text-gray-400">
-                        ไม่พบข้อมูลการเทรด
-                    </td>
-                </tr>`;
+            <tr>
+                <td colspan="9" class="p-4 text-center text-gray-500 dark:text-gray-400">
+                    ไม่พบข้อมูลการเทรด
+                </td>
+            </tr>`;
         }
 
         $('#trade-records').html(tableContent);
@@ -829,18 +848,18 @@
             try {
                 const indexResponse = await fetch('json/index.json');
                 if (!indexResponse.ok) throw new Error('Cannot load symbols');
-                const symbols = await indexResponse.json();
+                const symbolConfigs = await indexResponse.json();
 
                 allTrades = [];
-                for (const symbol of symbols) {
+                for (const config of symbolConfigs) {
                     try {
-                        const response = await fetch(`json/trade_records/${symbol}.json`);
+                        const response = await fetch(`json/trade_records/${config.symbol}.json`);
                         if (response.ok) {
                             const trades = await response.json();
                             allTrades = allTrades.concat(trades);
                         }
                     } catch (error) {
-                        console.log(`No trades found for ${symbol}`);
+                        console.log(`No trades found for ${config.symbol}`);
                     }
                 }
 
@@ -848,6 +867,7 @@
 
                 // Populate symbol filter
                 const uniqueSymbols = [...new Set(allTrades.map(trade => trade.symbol))];
+                $('#symbolFilter').empty().append('<option value="all">ทั้งหมด</option>');
                 uniqueSymbols.sort().forEach(symbol => {
                     $('#symbolFilter').append(`<option value="${symbol}">${symbol}</option>`);
                 });
@@ -866,14 +886,15 @@
             } catch (error) {
                 console.error('Error loading trade data:', error);
                 $('#trade-records').html(`
-                    <tr>
-                        <td colspan="9" class="p-4 text-center text-red-500">
-                            เกิดข้อผิดพลาดในการโหลดข้อมูล: ${error.message}
-                        </td>
-                    </tr>
-                `);
+            <tr>
+                <td colspan="9" class="p-4 text-center text-red-500">
+                    เกิดข้อผิดพลาดในการโหลดข้อมูล: ${error.message}
+                </td>
+            </tr>
+        `);
             }
         }
+
 
         // Start updates
         loadAllTrades();

@@ -1,0 +1,23 @@
+[
+  {
+    "timestamp": "2024-10-29T22:47:38.562902",
+    "symbol": "DOGEUSDT",
+    "action": "BUY",
+    "entry_price": 0.15209,
+    "exit_price": 0.1714,
+    "amount": 66.0,
+    "profit_loss": 1.2744599999999995,
+    "profit_loss_percentage": 12.696429745545396,
+    "fees": 0.0,
+    "reason": "Close Position",
+    "leverage": 20.0,
+    "margin_type": "cross",
+    "break_even_price": 0.0,
+    "unrealized_profit": 0.0,
+    "position_size_usd": 10.03794,
+    "entry_order_id": "52610520934",
+    "exit_order_id": "52610585706",
+    "entry_time": "2024-10-28T18:10:38.092Z",
+    "exit_time": "2024-10-28T18:11:36.703Z"
+  }
+]

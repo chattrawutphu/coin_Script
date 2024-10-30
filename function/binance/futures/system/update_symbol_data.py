@@ -5,42 +5,6 @@ from config import TRADING_CONFIG
 from function.binance.futures.system.create_future_exchange import create_future_exchange
 from function.message import message
 
-async def update_symbol_index():
-    """อัพเดทหรือสร้างไฟล์ index.json สำหรับเก็บรายการ symbol"""
-    try:
-        # เตรียม path ไฟล์
-        index_file = 'json/index.json'
-        os.makedirs(os.path.dirname(index_file), exist_ok=True)
-        
-        # ดึงรายการ symbol จาก TRADING_CONFIG
-        symbols = list(TRADING_CONFIG.keys())
-        
-        # เขียนไฟล์
-        with open(index_file, 'w') as f:
-            json.dump(symbols, f, indent=2)
-            
-        message("SYSTEM", f"อัพเดท index.json สำเร็จ: {symbols}", "cyan")
-        return True
-        
-    except Exception as e:
-        error_traceback = traceback.format_exc()
-        message("SYSTEM", f"เกิดข้อผิดพลาดในการอัพเดท index.json: {str(e)}", "red")
-        message("SYSTEM", f"Error: {error_traceback}", "red")
-        return False
-
-async def load_symbol_index():
-    """โหลดรายการ symbol จากไฟล์ index.json"""
-    try:
-        index_file = 'json/index.json'
-        if os.path.exists(index_file):
-            with open(index_file, 'r') as f:
-                symbols = json.load(f)
-            return symbols
-        return []
-    except Exception as e:
-        message("SYSTEM", f"เกิดข้อผิดพลาดในการโหลด index.json: {str(e)}", "red")
-        return []
-
 async def update_symbol_data(api_key, api_secret):
     exchange = None
     try:

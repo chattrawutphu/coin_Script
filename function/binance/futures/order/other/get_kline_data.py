@@ -59,7 +59,7 @@ class BinanceKlineTracker:
             exchange = await create_future_exchange(api_key, api_secret)
             
             try:
-                ohlcv = await exchange.fetch_ohlcv(exchange_symbol, timeframe, limit=10)
+                ohlcv = await exchange.fetch_ohlcv(exchange_symbol, timeframe, limit=100)
                 
                 if ohlcv and len(ohlcv) > 0:
                     async with self._lock:

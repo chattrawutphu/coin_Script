@@ -1,3 +1,47 @@
 [
-  "ETHUSDT"
+  {
+    "symbol": "ATOMUSDT",
+    "timeframe": "4h",
+    "entry_amount": "50$",
+    "rsi_period": 7,
+    "rsi_overbought": 68,
+    "rsi_oversold": 32,
+    "fix_stoploss": 2
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "timeframe": "4h",
+    "entry_amount": "50$",
+    "rsi_period": 7,
+    "rsi_overbought": 68,
+    "rsi_oversold": 32,
+    "fix_stoploss": 2
+  },
+  {
+    "symbol": "API3USDT",
+    "timeframe": "4h",
+    "entry_amount": "50$",
+    "rsi_period": 7,
+    "rsi_overbought": 68,
+    "rsi_oversold": 32,
+    "fix_stoploss": 2
+  },
+  {
+    "symbol": "XRPUSDT",
+    "timeframe": "4h",
+    "entry_amount": "50$",
+    "rsi_period": 7,
+    "rsi_overbought": 68,
+    "rsi_oversold": 32,
+    "fix_stoploss": 2
+  },
+  {
+    "symbol": "BCHUSDT",
+    "timeframe": "4h",
+    "entry_amount": "50$",
+    "rsi_period": 7,
+    "rsi_overbought": 68,
+    "rsi_oversold": 32,
+    "fix_stoploss": 2
+  }
 ]

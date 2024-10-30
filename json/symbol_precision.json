@@ -13880,6 +13880,46 @@
         }
     },
     {
+        "id": "SANTOSUSDT",
+        "symbol": "SANTOS/USDT:USDT",
+        "base": "SANTOS",
+        "quote": "USDT",
+        "precision": {
+            "amount": 1,
+            "price": 3,
+            "base": 8,
+            "quote": 8
+        },
+        "limits": {
+            "leverage": {
+                "min": null,
+                "max": null
+            },
+            "amount": {
+                "min": 0.1,
+                "max": 200000.0
+            },
+            "price": {
+                "min": 0.001,
+                "max": 2000.0
+            },
+            "cost": {
+                "min": 5.0,
+                "max": null
+            },
+            "market": {
+                "min": 0.1,
+                "max": 20000.0
+            }
+        },
+        "info": {
+            "pricePrecision": "7",
+            "quantityPrecision": "1",
+            "minQty": 0.1,
+            "minNotional": 25
+        }
+    },
+    {
         "id": "BTCUSD_PERP",
         "symbol": "BTC/USD:BTC",
         "base": "BTC",

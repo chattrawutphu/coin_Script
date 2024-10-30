@@ -1,3 +1,4 @@
+import traceback
 import ccxt.async_support as ccxt
 import pandas as pd
 import numpy as np
@@ -6,6 +7,7 @@ import pytz
 
 from function.binance.futures.order.other.get_kline_data import fetch_ohlcv
 from function.binance.futures.system.create_future_exchange import create_future_exchange
+from function.message import message
 
 def calculate_rsi(close_prices, length):
     if len(close_prices) < length + 1:
@@ -60,7 +62,7 @@ async def get_rsi_cross_last_candle(api_key, api_secret, symbol, timeframe, rsi_
     
     try:
         # ดึงข้อมูลมากขึ้นเพื่อให้แน่ใจว่ามีข้อมูลพอ
-        ohlcv = await fetch_ohlcv(symbol, timeframe, limit=200)  # เพิ่มจาก 100 เป็น 200
+        ohlcv = await fetch_ohlcv(symbol, timeframe, limit=100)  # เพิ่มจาก 100 เป็น 200
         
         if not ohlcv or len(ohlcv) < rsi_length + 10:  # ตรวจสอบว่ามีข้อมูลพอ
             return {
@@ -72,8 +74,11 @@ async def get_rsi_cross_last_candle(api_key, api_secret, symbol, timeframe, rsi_
             
         await exchange.close()
         
+        # ตัดแท่งเทียนปัจจุบันออก
+        closed_ohlcv = ohlcv[:-1]
+        
         # แปลงเป็น DataFrame
-        df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
+        df = pd.DataFrame(closed_ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
         
         # แปลงเวลา UTC เป็นเวลาท้องถิ่น
         local_tz = pytz.timezone('Asia/Bangkok')
@@ -84,7 +89,7 @@ async def get_rsi_cross_last_candle(api_key, api_secret, symbol, timeframe, rsi_
             df['rsi'] = calculate_rsi(df['close'].values, rsi_length)
         
         # ตรวจสอบว่ามีข้อมูลพอสำหรับการเช็ค crossover
-        if len(df) < 3 + candle_index:
+        if len(df) < 2 + candle_index:  # ปรับจาก 3 เป็น 2 เพราะตัดแท่งปัจจุบันออกแล้ว
             return {
                 'status': False,
                 'type': None,
@@ -92,9 +97,9 @@ async def get_rsi_cross_last_candle(api_key, api_secret, symbol, timeframe, rsi_
                 'error': 'ข้อมูลไม่เพียงพอสำหรับการตรวจสอบ crossover'
             }
             
-        # เช็ค crossover/crossunder
-        last_closed_rsi = df['rsi'].iloc[-(2 + candle_index)]
-        prev_closed_rsi = df['rsi'].iloc[-(3 + candle_index)]
+        # เช็ค crossover/crossunder จากแท่งที่ปิดแล้ว
+        last_closed_rsi = df['rsi'].iloc[-(1 + candle_index)]  # ปรับ index เพราะตัดแท่งปัจจุบันออกแล้ว
+        prev_closed_rsi = df['rsi'].iloc[-(2 + candle_index)]
         
         # ตรวจสอบค่า NaN
         if np.isnan(last_closed_rsi) or np.isnan(prev_closed_rsi):
@@ -109,12 +114,13 @@ async def get_rsi_cross_last_candle(api_key, api_secret, symbol, timeframe, rsi_
             'status': False,
             'type': None,
             'candle': {
-                'open': float(df['open'].iloc[-(2 + candle_index)]),
-                'high': float(df['high'].iloc[-(2 + candle_index)]),
-                'low': float(df['low'].iloc[-(2 + candle_index)]),
-                'close': float(df['close'].iloc[-(2 + candle_index)]),
-                'volume': float(df['volume'].iloc[-(2 + candle_index)]),
-                'time': df['timestamp'].iloc[-(2 + candle_index)].strftime('%d/%m/%Y %H:%M'),
+                'open': float(df['open'].iloc[-(1 + candle_index)]),  # ปรับ index
+                'high': float(df['high'].iloc[-(1 + candle_index)]),
+                'low': float(df['low'].iloc[-(1 + candle_index)]),
+                'close': float(df['close'].iloc[-(1 + candle_index)]),
+                'volume': float(df['volume'].iloc[-(1 + candle_index)]),
+                'timestamp': int(df['timestamp'].iloc[-(1 + candle_index)].timestamp() * 1000),  # เพิ่ม timestamp
+                'time': df['timestamp'].iloc[-(1 + candle_index)].strftime('%d/%m/%Y %H:%M'),
                 'rsi': round(float(last_closed_rsi), 2)
             }
         }
@@ -136,5 +142,7 @@ async def get_rsi_cross_last_candle(api_key, api_secret, symbol, timeframe, rsi_
         return result
 
     except Exception as e:
-        print(f"เกิดข้อผิดพลาด: {str(e)}")
+        error_traceback = traceback.format_exc()
+        message(symbol, f"เกิดข้อผิดพลาดในการคำนวณ RSI: {str(e)}", "red")
+        message(symbol, f"Error: {error_traceback}", "red")
         return None

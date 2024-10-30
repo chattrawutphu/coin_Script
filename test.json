@@ -1,0 +1,42 @@
+{
+    "global_entry_price": 2524.0,
+    "global_position_entry_time": "2024-10-28T15:00:08.275413+00:00",
+    "global_position_side": "sell",
+    "last_candle_time": "2024-10-28T15:48:00+00:00",
+    "last_candle_cross": {
+        "status": true,
+        "type": "crossunder",
+        "candle": {
+            "open": 2513.58,
+            "high": 2514.28,
+            "low": 2508.01,
+            "close": 2508.61,
+            "volume": 12609.184,
+            "time": "28/10/2024 22:30",
+            "rsi": 27.65
+        }
+    },
+    "last_focus_price": null,
+    "last_focus_stopprice": 2510.0,
+    "is_wait_candle": false,
+    "is_in_position": true,
+    "is_swapping": false,
+    "entry_candle": {
+        "timestamp": 1730127600000,
+        "open": 2524.99,
+        "high": 2525.44,
+        "low": 2524.0,
+        "close": 2524.71,
+        "volume": 426.25
+    },
+    "entry_price": null,
+    "entry_side": null,
+    "entry_stoploss_price": null,
+    "entry_orders": null,
+    "tp_levels_hit": {
+        "tp1": true,
+        "tp2": false,
+        "tp3": false,
+        "tp4": false
+    }
+}
