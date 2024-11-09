@@ -6,11 +6,12 @@ import time
 import traceback
 from functools import wraps
 import pytz
+import pandas as pd
+import numpy as np
 
 from function.binance.futures.check.check_position import check_position
 from function.binance.futures.check.check_server_status import check_server_status
 from function.binance.futures.check.check_user_api_status import check_user_api_status
-from function.binance.futures.get.get_rsi_cross_last_candle import get_rsi_cross_last_candle
 from function.binance.futures.order.change_stoploss_to_price import change_stoploss_to_price
 from function.binance.futures.order.create_order import create_order, get_adjusted_quantity
 from function.binance.futures.order.get_all_order import clear_all_orders, clear_stoploss
@@ -55,6 +56,9 @@ class SymbolState:
             'atr': None,
             'atr_last_update': None
         }
+        self.current_rsi_period = None
+        self.current_atr_length_1 = None
+        self.current_atr_length_2 = None
         
         # Position tracking
         self.is_in_position = False
@@ -193,75 +197,110 @@ class SymbolState:
     def save_state(self):
         """บันทึกสถานะทั้งหมดลงไฟล์"""
         def datetime_to_iso(dt):
-            """Helper function to convert datetime to ISO format string"""
+            """แปลง datetime เป็น ISO format string"""
             if isinstance(dt, datetime):
                 return dt.isoformat()
             return dt
 
         def process_dict(d):
-            """Helper function to process dictionary values"""
-            return {k: datetime_to_iso(v) if isinstance(v, datetime) else v 
+            """แปลงค่าใน dictionary"""
+            if not isinstance(d, dict):
+                return d
+            return {k: datetime_to_iso(v) if isinstance(v, datetime) else process_dict(v) 
                 for k, v in d.items()}
 
-        current_state = {
-            'current_orders': self.current_orders,
-            'current_candle': self.current_candle,
-            'current_price': self.current_price,
-            'current_stoploss': self.current_stoploss,
-            'current_market_data': process_dict(self.current_market_data),
-            'is_in_position': self.is_in_position,
-            'is_swapping': self.is_swapping,
-            'is_wait_candle': self.is_wait_candle,
-            'global_position_data': process_dict(self.global_position_data),
-            'entry_orders': self.entry_orders,
-            'entry_side': self.entry_side,
-            'entry_price': self.entry_price,
-            'entry_stoploss_price': self.entry_stoploss_price,
-            'last_candle_time': datetime_to_iso(self.last_candle_time),
-            'last_candle_cross': self.last_candle_cross,
-            'entry_candle': self.entry_candle,
-            'last_focus_price': self.last_focus_price,
-            'last_focus_stopprice': self.last_focus_stopprice,
-            'tp_levels_hit': self.tp_levels_hit,
-            'performance_data': process_dict(self.performance_data)
-        }
-        
-        os.makedirs(os.path.dirname(self.state_file), exist_ok=True)
-        with open(self.state_file, 'w') as f:
-            json.dump(current_state, f, indent=2)
+        try:
+            current_state = {
+                'current_orders': self.current_orders,
+                'current_candle': self.current_candle,
+                'current_price': self.current_price,
+                'current_stoploss': self.current_stoploss,
+                'current_market_data': process_dict(self.current_market_data),
+                'current_rsi_period': self.current_rsi_period,
+                'current_atr_length_1': self.current_atr_length_1,
+                'current_atr_length_2': self.current_atr_length_2,
+                'is_in_position': self.is_in_position,
+                'is_swapping': self.is_swapping,
+                'is_wait_candle': self.is_wait_candle,
+                'global_position_data': process_dict(self.global_position_data),
+                'entry_orders': self.entry_orders,
+                'entry_side': self.entry_side,
+                'entry_price': self.entry_price,
+                'entry_stoploss_price': self.entry_stoploss_price,
+                'last_candle_time': datetime_to_iso(self.last_candle_time),
+                'last_candle_cross': self.last_candle_cross,
+                'entry_candle': self.entry_candle,
+                'last_focus_price': self.last_focus_price,
+                'last_focus_stopprice': self.last_focus_stopprice,
+                'tp_levels_hit': self.tp_levels_hit,
+                'performance_data': process_dict(self.performance_data)
+            }
+            
+            os.makedirs(os.path.dirname(self.state_file), exist_ok=True)
+            with open(self.state_file, 'w') as f:
+                json.dump(current_state, f, indent=2)
+
+        except Exception as e:
+            error_traceback = traceback.format_exc()
+            message(self.symbol, f"เกิดข้อผิดพลาดในการบันทึกสถานะ: {str(e)}", "red")
+            message(self.symbol, f"Error: {error_traceback}", "red")
 
     def load_state(self):
         """โหลดสถานะทั้งหมดจากไฟล์"""
-        if os.path.exists(self.state_file):
+        try:
+            # ตรวจสอบไฟล์มีอยู่จริง
+            if not os.path.exists(self.state_file):
+                message(self.symbol, f"ไม่พบไฟล์สถานะ เริ่มต้นด้วยค่าเริ่มต้น", "yellow")
+                return False
+
+            # พยายามอ่านไฟล์
             try:
                 with open(self.state_file, 'r') as f:
                     saved_state = json.load(f)
+            except json.JSONDecodeError:
+                message(self.symbol, f"ไฟล์สถานะเสียหาย ลบไฟล์เดิมและเริ่มใหม่", "yellow")
+                os.remove(self.state_file)
+                return False
                     
-                def parse_datetime(dt_str):
-                    """Helper function to parse datetime string"""
-                    if dt_str and isinstance(dt_str, str):
+            def parse_datetime(dt_str):
+                """แปลง ISO format string กลับเป็น datetime"""
+                if dt_str and isinstance(dt_str, str):
+                    try:
                         return datetime.fromisoformat(dt_str)
-                    return dt_str
+                    except:
+                        return dt_str
+                return dt_str
 
-                def process_dict(d):
-                    """Helper function to process dictionary values"""
-                    if not isinstance(d, dict):
-                        return d
-                    return {k: parse_datetime(v) if k.endswith('_time') or k.endswith('_update') else v 
-                        for k, v in d.items()}
-
-                # Load all cached data
-                self.current_orders = saved_state.get('current_orders')
+            def process_dict(d):
+                """แปลงค่าใน dictionary"""
+                if not isinstance(d, dict):
+                    return d
+                return {k: parse_datetime(v) if k.endswith('_time') or k.endswith('_update') 
+                    else process_dict(v) for k, v in d.items()}
+            
+            # Reset state ก่อนโหลดค่าใหม่
+            self._initialize_state()
+            
+            # Load state values with validation
+            try:
+                # Load current market data
+                if 'current_market_data' in saved_state:
+                    self.current_market_data = process_dict(saved_state['current_market_data'])
+                self.current_orders = saved_state.get('current_orders', [])
                 self.current_candle = saved_state.get('current_candle')
                 self.current_price = saved_state.get('current_price')
                 self.current_stoploss = saved_state.get('current_stoploss')
-                self.current_market_data = process_dict(saved_state.get('current_market_data', self.current_market_data))
+                self.current_rsi_period = saved_state.get('current_rsi_period')
+                self.current_atr_length_1 = saved_state.get('current_atr_length_1')
+                self.current_atr_length_2 = saved_state.get('current_atr_length_2')
                 
                 # Load position states
                 self.is_in_position = saved_state.get('is_in_position', False)
                 self.is_swapping = saved_state.get('is_swapping', False)
                 self.is_wait_candle = saved_state.get('is_wait_candle', False)
-                self.global_position_data = process_dict(saved_state.get('global_position_data', self.global_position_data))
+                
+                if 'global_position_data' in saved_state:
+                    self.global_position_data = process_dict(saved_state['global_position_data'])
                 
                 # Load order states
                 self.entry_orders = saved_state.get('entry_orders')
@@ -279,21 +318,94 @@ class SymbolState:
                 self.last_focus_stopprice = saved_state.get('last_focus_stopprice')
                 
                 # Load TP states
-                self.tp_levels_hit = saved_state.get('tp_levels_hit', self.tp_levels_hit)
+                self.tp_levels_hit = saved_state.get('tp_levels_hit', {})
                 
                 # Load performance data
-                self.performance_data = process_dict(saved_state.get('performance_data', self.performance_data))
+                if 'performance_data' in saved_state:
+                    self.performance_data = process_dict(saved_state['performance_data'])
                 
-                #message(self.symbol, f"โหลดสถานะเสร็จสมบูรณ์ (Timeframe: {self.config.timeframe})", "cyan")
+                #message(self.symbol, f"โหลดสถานะเสร็จสมบูรณ์", "cyan")
                 return True
-                    
+                
             except Exception as e:
-                message(self.symbol, f"เกิดข้อผิดพลาดในการโหลดสถานะ: {str(e)}", "red")
+                error_traceback = traceback.format_exc()
+                message(self.symbol, f"เกิดข้อผิดพลาดในการแปลงข้อมูล: {str(e)}", "red")
+                message(self.symbol, f"Error: {error_traceback}", "red")
+                
+                # ถ้าเกิดข้อผิดพลาดให้ลบไฟล์เดิมและเริ่มใหม่
+                os.remove(self.state_file)
+                self._initialize_state()
                 return False
-                    
-        message(self.symbol, f"ไม่พบไฟล์สถานะ เริ่มต้นด้วยค่าเริ่มต้น (Timeframe: {self.config.timeframe})", "yellow")
-        return False
-
+                
+        except Exception as e:
+            error_traceback = traceback.format_exc()
+            message(self.symbol, f"เกิดข้อผิดพลาดในการโหลดสถานะ: {str(e)}", "red")
+            message(self.symbol, f"Error: {error_traceback}", "red")
+            return False
+    
+    def _initialize_state(self):
+        """รีเซ็ตค่าเริ่มต้นของ state"""
+        # Market data cache
+        self.current_orders = []
+        self.current_candle = None
+        self.current_price = None
+        self.current_stoploss = None
+        self.current_market_data = {
+            'ohlcv': None,
+            'last_update': None,
+            'position_side': None,
+            'available_balance': None,
+            'atr': None,
+            'atr_last_update': None,
+            'atr_cache': {}
+        }
+        self.current_rsi_period = None
+        self.current_atr_length_1 = None
+        self.current_atr_length_2 = None
+        
+        # Position tracking
+        self.is_in_position = False
+        self.is_swapping = False
+        self.is_wait_candle = False
+        self.global_position_data = {
+            'entry_price': None,
+            'entry_time': None,
+            'position_side': None,
+            'position_size': None,
+            'leverage': None,
+            'margin_type': None
+        }
+        
+        # Order tracking
+        self.entry_orders = None
+        self.entry_side = None
+        self.entry_price = None
+        self.entry_stoploss_price = None
+        
+        # Candle tracking
+        self.last_candle_time = None
+        self.last_candle_cross = None
+        self.entry_candle = None
+        
+        # Price focus points
+        self.last_focus_price = None
+        self.last_focus_stopprice = None
+        
+        # Take profit tracking
+        self.tp_levels_hit = {}
+        
+        # Performance metrics
+        self.performance_data = {
+            'trades_count': 0,
+            'winning_trades': 0,
+            'losing_trades': 0,
+            'total_profit': 0,
+            'total_fees': 0,
+            'start_time': None,
+            'largest_profit': 0,
+            'largest_loss': 0
+        }
+    
 class TradingConfig:
     def __init__(self, symbol: str):
         self.symbol = symbol
@@ -372,6 +484,10 @@ async def run_sequential_bot(api_key: str, api_secret: str, symbol: str, state: 
     try:
         state.load_state()
         exchange = await create_future_exchange(api_key, api_secret)
+
+        if not await update_market_indicators(api_key, api_secret, symbol, state):
+            message(symbol, "ไม่สามารถอัพเดทค่าตลาดได้ ข้ามรอบนี้", "yellow")
+            return
         
         # อัพเดทข้อมูลตลาดทั้งหมดในครั้งเดียว
         await state.update_market_data(api_key, api_secret)
@@ -414,9 +530,7 @@ async def run_sequential_bot(api_key: str, api_secret: str, symbol: str, state: 
             rsi_cross = await get_rsi_cross_last_candle(
                 api_key, api_secret, symbol,
                 state.config.timeframe,
-                state.config.rsi_period,
-                state.config.rsi_oversold,
-                state.config.rsi_overbought
+                state
             )
 
             if ohlcv and len(ohlcv) >= 3:
@@ -707,7 +821,7 @@ async def setup_take_profit_orders(api_key, api_secret, symbol, entry_price, pos
             return []
 
         # ดึง ATR
-        atr = await calculate_atr(api_key, api_secret, symbol, timeframe, state, length=7)
+        atr = await calculate_atr_for_tp(api_key, api_secret, symbol, timeframe, state, length=7)
         if atr is None:
             message(symbol, "ไม่สามารถคำนวณค่า ATR ได้", "red")
             return []
@@ -1223,17 +1337,22 @@ async def check_and_recreate_stoploss(api_key: str, api_secret: str, symbol: str
         message(symbol, f"เกิดข้อผิดพลาดในการตรวจสอบ/สร้าง Stoploss: {str(e)}", "red")
         message(symbol, f"Error: {error_traceback}", "red")
 
-async def calculate_atr(api_key, api_secret, symbol, timeframe, state: SymbolState, length=7):
-    """คำนวณ ATR (Average True Range)"""
+async def update_market_indicators(api_key: str, api_secret: str, symbol: str, state: SymbolState):
+    """อัพเดทค่า ATR และ RSI Period เมื่อมีแท่งเทียนใหม่"""
     try:
-        if timeframe not in state.current_market_data.get('atr_cache', {}):
-            exchange = await create_future_exchange(api_key, api_secret)
-            ohlcv = await fetch_ohlcv(symbol, timeframe, limit=length + 1)
-            
-            if len(ohlcv) < length + 1:
-                message(symbol, f"ข้อมูลไม่พอสำหรับคำนวณ ATR (ต้องการ {length + 1} แท่ง)", "yellow")
-                return None
+        # ดึงข้อมูลแท่งเทียน
+        rsi_config = state.config.rsi_period
+        max_length = max(rsi_config['atr']['length2'], rsi_config['atr']['length1'])
+        required_candles = int(max_length * 1.2)
+        
+        ohlcv = await fetch_ohlcv(symbol, state.config.timeframe, limit=required_candles)
+        
+        if not ohlcv or len(ohlcv) < max_length + 1:
+            message(symbol, f"ข้อมูลไม่พอสำหรับคำนวณ ATR (มี {len(ohlcv)} แท่ง)", "yellow")
+            return False
 
+        # คำนวณ ATR สำหรับทั้งสองช่วง
+        def calculate_atr_value(length):
             tr_values = []
             for i in range(1, len(ohlcv)):
                 high = ohlcv[i][2]
@@ -1251,22 +1370,239 @@ async def calculate_atr(api_key, api_secret, symbol, timeframe, state: SymbolSta
             rma = tr_values[0]
             for tr in tr_values[1:]:
                 rma = (alpha * tr) + ((1 - alpha) * rma)
-
-            # Cache the result
-            if 'atr_cache' not in state.current_market_data:
-                state.current_market_data['atr_cache'] = {}
-            state.current_market_data['atr_cache'][timeframe] = rma
-            state.current_market_data['atr_last_update'] = datetime.now(pytz.UTC)
-            
             return rma
+
+        # คำนวณ ATR ทั้งสองค่า
+        atr_short = calculate_atr_value(rsi_config['atr']['length1'])
+        atr_long = calculate_atr_value(rsi_config['atr']['length2'])
         
-        return state.current_market_data['atr_cache'][timeframe]
+        # เก็บค่า ATR ล่าสุด
+        state.current_atr_length_1 = atr_short
+        state.current_atr_length_2 = atr_long
+
+        # คำนวณ RSI Period
+        if rsi_config.get('use_dynamic_period', True):
+            atr_diff_percent = ((atr_short - atr_long) / atr_long) * 100
+            
+            """message(symbol, 
+                f"ATR Diff: {atr_diff_percent:.2f}% " +
+                f"(ATR{rsi_config['atr']['length1']}: {atr_short:.8f}, " +
+                f"ATR{rsi_config['atr']['length2']}: {atr_long:.8f})", 
+                "blue"
+            )"""
+            
+            if atr_diff_percent >= rsi_config['atr']['max_percent']:
+                current_rsi_period = rsi_config['rsi_period_max']
+            elif atr_diff_percent <= rsi_config['atr']['min_percent']:
+                current_rsi_period = rsi_config['rsi_period_min']
+            else:
+                period_range = rsi_config['rsi_period_max'] - rsi_config['rsi_period_min']
+                volatility_range = rsi_config['atr']['max_percent'] - rsi_config['atr']['min_percent']
+                period_step = (atr_diff_percent - rsi_config['atr']['min_percent']) / volatility_range
+                current_rsi_period = int(round(rsi_config['rsi_period_min'] + (period_range * period_step)))
+        else:
+            current_rsi_period = rsi_config['rsi_period_min']
+
+        state.current_rsi_period = current_rsi_period
+        #message(symbol, f"ใช้ RSI Period: {current_rsi_period}", "blue")
+        
+        return True
+
+    except Exception as e:
+        error_traceback = traceback.format_exc()
+        message(symbol, f"เกิดข้อผิดพลาดในการอัพเดทค่าตลาด: {str(e)}", "red")
+        message(symbol, f"Error: {error_traceback}", "red")
+        return False
+
+async def calculate_atr(api_key, api_secret, symbol, timeframe, length=7):
+    """คำนวณ ATR (Average True Range) โดยใช้ RMA smoothing"""
+    try:
+        # ดึงข้อมูลเพิ่มเพื่อให้มีพอสำหรับคำนวณ
+        ohlcv = await fetch_ohlcv(symbol, timeframe, limit=length + 1)
+        
+        if len(ohlcv) < length + 1:
+            message(symbol, f"ข้อมูลไม่พอสำหรับคำนวณ ATR (ต้องการ {length + 1} แท่ง)", "yellow")
+            return None
+
+        # คำนวณ True Range
+        tr_values = []
+        for i in range(1, len(ohlcv)):
+            high = ohlcv[i][2]
+            low = ohlcv[i][3]
+            prev_close = ohlcv[i-1][4]
+            
+            tr = max(
+                high - low,  # Current high - low
+                abs(high - prev_close),  # Current high - previous close
+                abs(low - prev_close)  # Current low - previous close
+            )
+            tr_values.append(tr)
+
+        # คำนวณ RMA (Rolling Moving Average)
+        alpha = 1.0 / length
+        rma = tr_values[0]  # ค่าเริ่มต้น
+        
+        for tr in tr_values[1:]:
+            rma = (alpha * tr) + ((1 - alpha) * rma)
+
+        return rma
 
     except Exception as e:
         error_traceback = traceback.format_exc()
         message(symbol, f"เกิดข้อผิดพลาดในการคำนวณ ATR: {str(e)}", "red")
         message(symbol, f"Error: {error_traceback}", "red")
         return None
+    
+def calculate_rsi(close_prices, length):
+    """คำนวณ RSI โดยใช้ numpy (คงฟังก์ชันเดิมไว้เพราะทำงานได้ดีอยู่แล้ว)"""
+    if len(close_prices) < length + 1:
+        return np.zeros_like(close_prices)
+        
+    deltas = np.diff(close_prices)
+    seed = deltas[:length+1]
+    up = seed[seed >= 0].sum()/length
+    down = -seed[seed < 0].sum()/length
+    
+    if down == 0:
+        if up == 0:
+            rs = 1.0
+        else:
+            rs = float('inf')
+    else:
+        rs = up/down
+        
+    rsi = np.zeros_like(close_prices)
+    rsi[:length] = 100. - 100./(1. + rs)
+
+    for i in range(length, len(close_prices)):
+        delta = deltas[i-1]
+        if delta > 0:
+            upval = delta
+            downval = 0.
+        else:
+            upval = 0.
+            downval = -delta
+
+        up = (up*(length-1) + upval)/length
+        down = (down*(length-1) + downval)/length
+        
+        if down == 0:
+            if up == 0:
+                rs = 1.0
+            else:
+                rs = float('inf')
+        else:
+            rs = up/down
+            
+        rsi[i] = 100. - 100./(1. + rs)
+
+    return np.clip(rsi, 0, 100)
+
+async def get_rsi_cross_last_candle(api_key, api_secret, symbol, timeframe, state, candle_index=0):
+    """คำนวณ RSI cross โดยใช้ค่า period ที่คำนวณไว้แล้ว"""
+    exchange = None
+    try:
+        # ใช้ค่า RSI Period ที่คำนวณไว้แล้ว
+        current_rsi_period = state.current_rsi_period
+        if current_rsi_period is None:
+            message(symbol, "ไม่พบค่า RSI Period ที่คำนวณไว้", "yellow")
+            return {
+                'status': False,
+                'type': None,
+                'candle': None,
+                'error': 'ไม่พบค่า RSI Period'
+            }
+
+        # ดึงข้อมูลและคำนวณ RSI
+        ohlcv = await fetch_ohlcv(symbol, timeframe, limit=100)
+        
+        if not ohlcv or len(ohlcv) < current_rsi_period + 10:
+            return {
+                'status': False,
+                'type': None,
+                'candle': None,
+                'error': 'ข้อมูลไม่เพียงพอสำหรับการคำนวณ RSI'
+            }
+        
+        closed_ohlcv = ohlcv[:-1]
+        df = pd.DataFrame(closed_ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
+        
+        local_tz = pytz.timezone('Asia/Bangkok')
+        df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms').dt.tz_localize(pytz.UTC).dt.tz_convert(local_tz)
+        
+        with np.errstate(divide='ignore', invalid='ignore'):
+            df['rsi'] = calculate_rsi(df['close'].values, current_rsi_period)
+        
+        if len(df) < 2 + candle_index:
+            return {
+                'status': False,
+                'type': None,
+                'candle': None,
+                'error': 'ข้อมูลไม่เพียงพอสำหรับการตรวจสอบ crossover'
+            }
+            
+        last_closed_rsi = df['rsi'].iloc[-(1 + candle_index)]
+        prev_closed_rsi = df['rsi'].iloc[-(2 + candle_index)]
+        
+        if np.isnan(last_closed_rsi) or np.isnan(prev_closed_rsi):
+            return {
+                'status': False,
+                'type': None,
+                'candle': None,
+                'error': 'ค่า RSI เป็น NaN'
+            }
+        
+        result = {
+            'status': False,
+            'type': None,
+            'rsi_period_used': current_rsi_period,
+            'atr_values': {
+                f'atr_{state.config.rsi_period["atr"]["length1"]}': state.current_atr_length_1,
+                f'atr_{state.config.rsi_period["atr"]["length2"]}': state.current_atr_length_2
+            },
+            'candle': {
+                'open': float(df['open'].iloc[-(1 + candle_index)]),
+                'high': float(df['high'].iloc[-(1 + candle_index)]),
+                'low': float(df['low'].iloc[-(1 + candle_index)]),
+                'close': float(df['close'].iloc[-(1 + candle_index)]),
+                'volume': float(df['volume'].iloc[-(1 + candle_index)]),
+                'timestamp': int(df['timestamp'].iloc[-(1 + candle_index)].timestamp() * 1000),
+                'time': df['timestamp'].iloc[-(1 + candle_index)].strftime('%d/%m/%Y %H:%M'),
+                'rsi': round(float(last_closed_rsi), 2)
+            }
+        }
+        
+        # ตรวจสอบจุดตัด RSI
+        if prev_closed_rsi >= state.config.rsi_overbought and last_closed_rsi < state.config.rsi_overbought:
+            result['status'] = True
+            result['type'] = 'crossunder'
+        elif prev_closed_rsi <= state.config.rsi_oversold and last_closed_rsi > state.config.rsi_oversold:
+            result['status'] = True
+            result['type'] = 'crossover'
+        elif prev_closed_rsi < state.config.rsi_overbought and last_closed_rsi >= state.config.rsi_overbought:
+            result['status'] = True
+            result['type'] = 'crossover'
+        elif prev_closed_rsi > state.config.rsi_oversold and last_closed_rsi <= state.config.rsi_oversold:
+            result['status'] = True
+            result['type'] = 'crossunder'
+
+        """message(symbol, f"RSI: {result['candle']['rsi']} " +
+                f"(Period: {current_rsi_period}, " +
+                f"ATR4: {state.current_atr_length_1:.8f}, " +
+                f"ATR200: {state.current_atr_length_2:.8f})", "blue")"""
+        
+        return result
+
+    except Exception as e:
+        error_traceback = traceback.format_exc()
+        message(symbol, f"เกิดข้อผิดพลาดในการคำนวณ RSI: {str(e)}", "red")
+        message(symbol, f"Error: {error_traceback}", "red")
+        return {
+            'status': False,
+            'type': None,
+            'candle': None,
+            'error': str(e)
+        }
 
 async def _handle_rsi_signals(api_key, api_secret, symbol, state, position_side, rsi_cross, ohlcv):
     """จัดการสัญญาณ RSI และสร้าง entry orders"""
@@ -1831,8 +2167,8 @@ async def main():
                     await asyncio.sleep(1)
                 
                 # เว้น 5 วินาทีก่อนเริ่มรอบใหม่
-                message("SYSTEM", "รอ 5 วินาทีก่อนเริ่มรอบใหม่...", "blue")
-                await asyncio.sleep(5)
+                #message("SYSTEM", "รอ 5 วินาทีก่อนเริ่มรอบใหม่...", "blue")
+                await asyncio.sleep(1)
                 
             except Exception as e:
                 error_traceback = traceback.format_exc()

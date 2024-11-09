@@ -9,6 +9,7 @@ from collections import defaultdict, deque
 from config import api_key, api_secret
 
 from function.binance.futures.system.create_future_exchange import create_future_exchange
+from function.message import message
 
 class KlineData:
     def __init__(self, data: dict):
@@ -51,15 +52,15 @@ class BinanceKlineTracker:
             return
 
         try:
-            # แก้ไขการแปลง symbol format
-            exchange_symbol = symbol.upper()  # แปลงเป็นตัวพิมพ์ใหญ่
+            exchange_symbol = symbol.upper()
             if 'USDT' in exchange_symbol and '/USDT:USDT' not in exchange_symbol:
                 exchange_symbol = exchange_symbol.replace('USDT', '/USDT:USDT')
             
             exchange = await create_future_exchange(api_key, api_secret)
             
             try:
-                ohlcv = await exchange.fetch_ohlcv(exchange_symbol, timeframe, limit=100)
+                # เพิ่มจำนวนแท่งเทียนเป็น 300
+                ohlcv = await exchange.fetch_ohlcv(exchange_symbol, timeframe, limit=300)
                 
                 if ohlcv and len(ohlcv) > 0:
                     async with self._lock:
@@ -77,9 +78,9 @@ class BinanceKlineTracker:
                             self.klines[symbol.lower()][timeframe].append(kline)
                     
                     self._initialized_pairs.add((symbol, timeframe))
-                    #self.logger.info(f"โหลดข้อมูลเริ่มต้นสำหรับ {symbol} {timeframe} สำเร็จ")
+                    #message(symbol, f"โหลดข้อมูล {len(ohlcv)} แท่งเทียนสำหรับ {timeframe} สำเร็จ", "blue")
                 else:
-                    self.logger.warning(f"ไม่สามารถโหลดข้อมูลเริ่มต้นสำหรับ {symbol} {timeframe}")
+                    message(symbol, f"ไม่สามารถโหลดข้อมูลเริ่มต้นสำหรับ {symbol} {timeframe}", "yellow")
 
             except Exception as e:
                 raise e
@@ -251,24 +252,25 @@ def get_kline_tracker() -> BinanceKlineTracker:
         _kline_tracker = BinanceKlineTracker()
     return _kline_tracker
 
-async def fetch_ohlcv(symbol: str, timeframe: str, limit: int = None) -> List[list]:
+async def fetch_ohlcv(symbol: str, timeframe: str, limit: int = None):
     """ดึงข้อมูล OHLCV โดยใช้ WebSocket หรือ API"""
     tracker = get_kline_tracker()
-    
-    # แปลงชื่อเหรียญเป็นตัวพิมพ์เล็ก
     symbol = symbol.lower()
     
-    # ถ้ายังไม่มีข้อมูล ให้สมัครและรอข้อมูลเริ่มต้น
     if timeframe not in tracker.subscribed_pairs[symbol]:
-        # เปลี่ยนจาก tracker.subscribe เป็น await tracker.subscribe
         await tracker.subscribe(symbol, timeframe)
         if not tracker.is_running:
             asyncio.create_task(tracker.start())
         
-        # รอให้โหลดข้อมูลเริ่มต้นเสร็จ
-        for _ in range(20):  # รอนานขึ้นเพื่อให้แน่ใจว่าได้ข้อมูลครบ
+        # เพิ่มเวลารอเป็น 10 วินาที
+        for _ in range(100):  # 100 * 0.1 = 10 วินาที
             if (symbol, timeframe) in tracker._initialized_pairs:
-                break
+                # รอให้มีข้อมูลพอสำหรับ ATR ระยะยาว
+                klines = await tracker.get_klines(symbol, timeframe)
+                if len(klines) >= 200:  # ตรวจสอบว่ามีข้อมูลพอ
+                    break
             await asyncio.sleep(0.1)
+        else:
+            message(symbol, f"ไม่สามารถโหลดข้อมูลเริ่มต้นได้ภายในเวลาที่กำหนด", "yellow")
     
     return await tracker.get_klines(symbol, timeframe, limit)

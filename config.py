@@ -13,8 +13,18 @@ TP_LEVELS = {
 
 DEFAULT_CONFIG = {
     'timeframe': '4h',
-    'entry_amount': '50$',
-    'rsi_period': 7,
+    'entry_amount': '20$',
+    'rsi_period': {
+        'rsi_period_min': 7,
+        'rsi_period_max': 14,
+        'use_dynamic_period': True,
+        'atr': {
+            'length1': 4,
+            'length2': 200,
+            'max_percent': 50,
+            'min_percent': 10,
+        }
+    },
     'rsi_overbought': 68,
     'rsi_oversold': 32,
     'fix_stoploss': 2,
@@ -26,19 +36,18 @@ DEFAULT_CONFIG = {
 
 # Trading pairs configuration
 TRADING_CONFIG = [
-    {**DEFAULT_CONFIG, 'symbol': 'ADAUSDT'},
-    {**DEFAULT_CONFIG, 'symbol': 'XRPUSDT'},
-    {**DEFAULT_CONFIG, 'symbol': 'BCHUSDT'},
-    {**DEFAULT_CONFIG, 'symbol': 'SUIUSDT'},
-    {**DEFAULT_CONFIG, 'symbol': 'DOGEUSDT',
+    {**DEFAULT_CONFIG, 'symbol': 'WIFUSDT'},
+    
+]
+
+"""{**DEFAULT_CONFIG, 'symbol': 'DOGEUSDT',
      'take_profits': {
             'move_sl_to_entry_at_tp1': False,
             'levels': [  # ปรับ TP levels เฉพาะ
                 {'id': 'tp1', 'size': 'MAX', 'target_atr': 1},
             ]
         }
-    }
-]
+    }"""
 
 PRICE_CHANGE_THRESHOLD = 0.00125  # 0.1%
 PRICE_INCREASE = 1 + PRICE_CHANGE_THRESHOLD  # 1.001
