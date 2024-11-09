@@ -1,0 +1,5370 @@
+[
+  {
+    "timestamp": "2024-11-02 17:37:15",
+    "date": "2024-11-02",
+    "time": "17:37:15",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.4% (SL ปัจจุบัน: 0.51%, ratio: 0.7876)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 17:37:17",
+    "date": "2024-11-02",
+    "time": "17:37:17",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 7.0, Parameters: {'type': 'stop_market', 'stopPrice': 2.2034}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 17:37:19",
+    "date": "2024-11-02",
+    "time": "17:37:19",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 17:37:23",
+    "date": "2024-11-02",
+    "time": "17:37:23",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 7.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1923}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 17:37:25",
+    "date": "2024-11-02",
+    "time": "17:37:25",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 17:37:25",
+    "date": "2024-11-02",
+    "time": "17:37:25",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 2.20349820",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 17:39:16",
+    "date": "2024-11-02",
+    "time": "17:39:16",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.4% (SL ปัจจุบัน: 0.48%, ratio: 0.8281)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 17:39:17",
+    "date": "2024-11-02",
+    "time": "17:39:17",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 7.5, Parameters: {'type': 'stop_market', 'stopPrice': 2.1937}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 17:39:18",
+    "date": "2024-11-02",
+    "time": "17:39:18",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 17:39:21",
+    "date": "2024-11-02",
+    "time": "17:39:21",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 7.5, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.2042}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 17:39:22",
+    "date": "2024-11-02",
+    "time": "17:39:22",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 17:39:22",
+    "date": "2024-11-02",
+    "time": "17:39:22",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 2.19370380",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 17:40:13",
+    "date": "2024-11-02",
+    "time": "17:40:13",
+    "symbol": "WIFUSDT",
+    "message": "Entry order ทำงานที่ราคา 2.19370000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 17:40:13",
+    "date": "2024-11-02",
+    "time": "17:40:13",
+    "symbol": "WIFUSDT",
+    "message": "เกิดข้อผิดพลาดในการสร้าง Take Profit Orders: name 'state' is not defined",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 17:40:13",
+    "date": "2024-11-02",
+    "time": "17:40:13",
+    "symbol": "WIFUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 666, in setup_take_profit_orders\n    atr = await calculate_atr(api_key, api_secret, symbol, timeframe, state, length=7)\n                                                                      ^^^^^\nNameError: name 'state' is not defined\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 17:41:11",
+    "date": "2024-11-02",
+    "time": "17:41:11",
+    "symbol": "WIFUSDT",
+    "message": "ข้อมูล OHLCV ไม่เพียงพอ ข้ามการปรับ stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 17:45:07",
+    "date": "2024-11-02",
+    "time": "17:45:07",
+    "symbol": "WIFUSDT",
+    "message": "ข้อมูล OHLCV ไม่เพียงพอ ข้ามการปรับ stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:09:10",
+    "date": "2024-11-02",
+    "time": "18:09:10",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:10:11",
+    "date": "2024-11-02",
+    "time": "18:10:11",
+    "symbol": "WIFUSDT",
+    "message": "ข้อมูล OHLCV ไม่เพียงพอ ข้ามการปรับ stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:10:11",
+    "date": "2024-11-02",
+    "time": "18:10:11",
+    "symbol": "WIFUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:11:09",
+    "date": "2024-11-02",
+    "time": "18:11:09",
+    "symbol": "WIFUSDT",
+    "message": "ข้อมูล OHLCV ไม่เพียงพอ ข้ามการปรับ stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:11:14",
+    "date": "2024-11-02",
+    "time": "18:11:14",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.2028",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:11:14",
+    "date": "2024-11-02",
+    "time": "18:11:14",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ Stop Loss เป็น 2.20280000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:12:04",
+    "date": "2024-11-02",
+    "time": "18:12:04",
+    "symbol": "WIFUSDT",
+    "message": "ข้อมูล OHLCV ไม่เพียงพอ ข้ามการปรับ stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:23:09",
+    "date": "2024-11-02",
+    "time": "18:23:09",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:24:06",
+    "date": "2024-11-02",
+    "time": "18:24:06",
+    "symbol": "WIFUSDT",
+    "message": "ข้อมูล OHLCV ไม่เพียงพอ ข้ามการปรับ stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:24:06",
+    "date": "2024-11-02",
+    "time": "18:24:06",
+    "symbol": "WIFUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:24:10",
+    "date": "2024-11-02",
+    "time": "18:24:10",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.2021",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:24:11",
+    "date": "2024-11-02",
+    "time": "18:24:11",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ Stop Loss เป็น 2.20210000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:24:36",
+    "date": "2024-11-02",
+    "time": "18:24:36",
+    "symbol": "WIFUSDT",
+    "message": "ไม่สามารถดึงราคาตลาดได้ ข้ามรอบนี้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:25:10",
+    "date": "2024-11-02",
+    "time": "18:25:10",
+    "symbol": "WIFUSDT",
+    "message": "ไม่พบชุดแท่งเทียนที่เข้าเงื่อนไข",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:27:17",
+    "date": "2024-11-02",
+    "time": "18:27:17",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.2012201",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:27:17",
+    "date": "2024-11-02",
+    "time": "18:27:17",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.20 เป็น 2.20",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:30:14",
+    "date": "2024-11-02",
+    "time": "18:30:14",
+    "symbol": "WIFUSDT",
+    "message": "ไม่พบชุดแท่งเทียนที่เข้าเงื่อนไข",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:32:38",
+    "date": "2024-11-02",
+    "time": "18:32:38",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:32:39",
+    "date": "2024-11-02",
+    "time": "18:32:39",
+    "symbol": "WIFUSDT",
+    "message": "เกิดข้อผิดพลาดในการบันทึกการเทรด: float() argument must be a string or a real number, not 'NoneType'",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:32:39",
+    "date": "2024-11-02",
+    "time": "18:32:39",
+    "symbol": "WIFUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 916, in record_trade\n    actual_entry_price = float(entry_price)\n                         ^^^^^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:23",
+    "date": "2024-11-02",
+    "time": "18:40:23",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.4% (SL ปัจจุบัน: 0.16%, ratio: 2.4891)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:25",
+    "date": "2024-11-02",
+    "time": "18:40:25",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 22.3, Parameters: {'type': 'stop_market', 'stopPrice': 2.203}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:26",
+    "date": "2024-11-02",
+    "time": "18:40:26",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:30",
+    "date": "2024-11-02",
+    "time": "18:40:30",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 22.3, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1994}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:32",
+    "date": "2024-11-02",
+    "time": "18:40:32",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:32",
+    "date": "2024-11-02",
+    "time": "18:40:32",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 2.20302028",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:21",
+    "date": "2024-11-02",
+    "time": "18:41:21",
+    "symbol": "WIFUSDT",
+    "message": "Entry order ทำงานที่ราคา 2.20300000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:21",
+    "date": "2024-11-02",
+    "time": "18:41:21",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.203, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:21",
+    "date": "2024-11-02",
+    "time": "18:41:21",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.20300000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:21",
+    "date": "2024-11-02",
+    "time": "18:41:21",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit ฐาน (ก่อนปรับ):",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:21",
+    "date": "2024-11-02",
+    "time": "18:41:21",
+    "symbol": "WIFUSDT",
+    "message": "tp2 base: 2.20750021 (2.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:21",
+    "date": "2024-11-02",
+    "time": "18:41:21",
+    "symbol": "WIFUSDT",
+    "message": "tp3 base: 2.20975032 (3.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:21",
+    "date": "2024-11-02",
+    "time": "18:41:21",
+    "symbol": "WIFUSDT",
+    "message": "tp4 base: 2.21200042 (4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:21",
+    "date": "2024-11-02",
+    "time": "18:41:21",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:21",
+    "date": "2024-11-02",
+    "time": "18:41:21",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.20860396 (0.25%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:21",
+    "date": "2024-11-02",
+    "time": "18:41:21",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.21129714 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:21",
+    "date": "2024-11-02",
+    "time": "18:41:21",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.21399122 (0.50%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:24",
+    "date": "2024-11-02",
+    "time": "18:41:24",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 4.4, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.2086}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:25",
+    "date": "2024-11-02",
+    "time": "18:41:25",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:25",
+    "date": "2024-11-02",
+    "time": "18:41:25",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.20860000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:28",
+    "date": "2024-11-02",
+    "time": "18:41:28",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 5.5, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.2112}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:29",
+    "date": "2024-11-02",
+    "time": "18:41:29",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:29",
+    "date": "2024-11-02",
+    "time": "18:41:29",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.21120000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:32",
+    "date": "2024-11-02",
+    "time": "18:41:32",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 5.5, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.2139}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:33",
+    "date": "2024-11-02",
+    "time": "18:41:33",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:33",
+    "date": "2024-11-02",
+    "time": "18:41:33",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.21390000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:33",
+    "date": "2024-11-02",
+    "time": "18:41:33",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (0/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:42:09",
+    "date": "2024-11-02",
+    "time": "18:42:09",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:43:04",
+    "date": "2024-11-02",
+    "time": "18:43:04",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:43:04",
+    "date": "2024-11-02",
+    "time": "18:43:04",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:44:04",
+    "date": "2024-11-02",
+    "time": "18:44:04",
+    "symbol": "WIFUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:39",
+    "date": "2024-11-02",
+    "time": "18:47:39",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:43",
+    "date": "2024-11-02",
+    "time": "18:47:43",
+    "symbol": "WIFUSDT",
+    "message": "เกิดข้อผิดพลาดในการบันทึกการเทรด: float() argument must be a string or a real number, not 'NoneType'",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:43",
+    "date": "2024-11-02",
+    "time": "18:47:43",
+    "symbol": "WIFUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 916, in record_trade\n    actual_entry_price = float(entry_price)\n                         ^^^^^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:43",
+    "date": "2024-11-02",
+    "time": "18:47:43",
+    "symbol": "WIFUSDT",
+    "message": "กำลังตรวจสอบเงื่อนไขการเข้า position ใหม่...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:45",
+    "date": "2024-11-02",
+    "time": "18:47:45",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.4% (SL ปัจจุบัน: 0.25%, ratio: 1.5927)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:45",
+    "date": "2024-11-02",
+    "time": "18:47:45",
+    "symbol": "WIFUSDT",
+    "message": "ราคาต่างจากจุด trigger 0.18% - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:46",
+    "date": "2024-11-02",
+    "time": "18:47:46",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: market, Amount: 14.3, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:48",
+    "date": "2024-11-02",
+    "time": "18:47:48",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 2.20",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:52",
+    "date": "2024-11-02",
+    "time": "18:47:52",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 14.3, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.2036}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "เข้า SELL ใหม่ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1996, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.19960000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit ฐาน (ก่อนปรับ):",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "tp2 base: 2.19509979 (2.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "tp3 base: 2.19284968 (3.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "tp4 base: 2.19059958 (4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.19400224 (0.25%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.19131469 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:54",
+    "date": "2024-11-02",
+    "time": "18:47:54",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.18862804 (0.50%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:47:58",
+    "date": "2024-11-02",
+    "time": "18:47:58",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 2.8, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.194}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:48:00",
+    "date": "2024-11-02",
+    "time": "18:48:00",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:48:00",
+    "date": "2024-11-02",
+    "time": "18:48:00",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.19400000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:48:04",
+    "date": "2024-11-02",
+    "time": "18:48:04",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 3.5, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1913}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:48:06",
+    "date": "2024-11-02",
+    "time": "18:48:06",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:48:06",
+    "date": "2024-11-02",
+    "time": "18:48:06",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.19130000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:48:10",
+    "date": "2024-11-02",
+    "time": "18:48:10",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 3.5, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1886}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:48:12",
+    "date": "2024-11-02",
+    "time": "18:48:12",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:48:12",
+    "date": "2024-11-02",
+    "time": "18:48:12",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.18860000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:48:14",
+    "date": "2024-11-02",
+    "time": "18:48:14",
+    "symbol": "WIFUSDT",
+    "message": "ไม่สามารถดึงข้อมูลด้านของ position ข้ามการปรับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:34",
+    "date": "2024-11-02",
+    "time": "18:56:34",
+    "symbol": "WIFUSDT",
+    "message": "กำไรถึงระดับ 1 (4.71 ATR, 0.48%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:34",
+    "date": "2024-11-02",
+    "time": "18:56:34",
+    "symbol": "WIFUSDT",
+    "message": "กำลังปรับ stoploss ไปที่จุดเข้า 2.19981996",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:38",
+    "date": "2024-11-02",
+    "time": "18:56:38",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.19981996",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:38",
+    "date": "2024-11-02",
+    "time": "18:56:38",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss เรียบร้อย",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:43",
+    "date": "2024-11-02",
+    "time": "18:56:43",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.19671965",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:44",
+    "date": "2024-11-02",
+    "time": "18:56:44",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.20 เป็น 2.20",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:44",
+    "date": "2024-11-02",
+    "time": "18:56:44",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:18",
+    "date": "2024-11-02",
+    "time": "18:57:18",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1922192000000003",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:18",
+    "date": "2024-11-02",
+    "time": "18:57:18",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.20 เป็น 2.19",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:18",
+    "date": "2024-11-02",
+    "time": "18:57:18",
+    "symbol": "WIFUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:08",
+    "date": "2024-11-02",
+    "time": "18:58:08",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1904190199999998",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:08",
+    "date": "2024-11-02",
+    "time": "18:58:08",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.19 เป็น 2.19",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:12",
+    "date": "2024-11-02",
+    "time": "18:58:12",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1902",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:13",
+    "date": "2024-11-02",
+    "time": "18:58:13",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ Stop Loss เป็น 2.19020000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:47",
+    "date": "2024-11-02",
+    "time": "18:58:47",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:48",
+    "date": "2024-11-02",
+    "time": "18:58:48",
+    "symbol": "WIFUSDT",
+    "message": "เกิดข้อผิดพลาดในการบันทึกการเทรด: float() argument must be a string or a real number, not 'NoneType'",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:48",
+    "date": "2024-11-02",
+    "time": "18:58:48",
+    "symbol": "WIFUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 916, in record_trade\n    actual_entry_price = float(position_info['entry_price'])\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:59:12",
+    "date": "2024-11-02",
+    "time": "18:59:12",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.2% (SL ปัจจุบัน: 0.26%, ratio: 0.7643)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:59:13",
+    "date": "2024-11-02",
+    "time": "18:59:13",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 6.9, Parameters: {'type': 'stop_market', 'stopPrice': 2.1926}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:59:14",
+    "date": "2024-11-02",
+    "time": "18:59:14",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:59:17",
+    "date": "2024-11-02",
+    "time": "18:59:17",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 6.9, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1868}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:59:18",
+    "date": "2024-11-02",
+    "time": "18:59:18",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:59:18",
+    "date": "2024-11-02",
+    "time": "18:59:18",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 2.19261924",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:01:29",
+    "date": "2024-11-02",
+    "time": "19:01:29",
+    "symbol": "WIFUSDT",
+    "message": "ไม่สามารถดึงราคาตลาดได้ ข้ามรอบนี้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:02",
+    "date": "2024-11-02",
+    "time": "19:02:02",
+    "symbol": "WIFUSDT",
+    "message": "Entry order ทำงานที่ราคา 2.19240000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:02",
+    "date": "2024-11-02",
+    "time": "19:02:02",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1924, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:02",
+    "date": "2024-11-02",
+    "time": "19:02:02",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.19240000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:02",
+    "date": "2024-11-02",
+    "time": "19:02:02",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit ฐาน (ก่อนปรับ):",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:02",
+    "date": "2024-11-02",
+    "time": "19:02:02",
+    "symbol": "WIFUSDT",
+    "message": "tp2 base: 2.19690021 (2.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:02",
+    "date": "2024-11-02",
+    "time": "19:02:02",
+    "symbol": "WIFUSDT",
+    "message": "tp3 base: 2.19915032 (3.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:02",
+    "date": "2024-11-02",
+    "time": "19:02:02",
+    "symbol": "WIFUSDT",
+    "message": "tp4 base: 2.20140042 (4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:02",
+    "date": "2024-11-02",
+    "time": "19:02:02",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:02",
+    "date": "2024-11-02",
+    "time": "19:02:02",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.19799866 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:02",
+    "date": "2024-11-02",
+    "time": "19:02:02",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.20068972 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:02",
+    "date": "2024-11-02",
+    "time": "19:02:02",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.20338168 (0.50%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:05",
+    "date": "2024-11-02",
+    "time": "19:02:05",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 1.3, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1979}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:06",
+    "date": "2024-11-02",
+    "time": "19:02:06",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:06",
+    "date": "2024-11-02",
+    "time": "19:02:06",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.19790000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:09",
+    "date": "2024-11-02",
+    "time": "19:02:09",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 1.7, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.2006}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:10",
+    "date": "2024-11-02",
+    "time": "19:02:10",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:10",
+    "date": "2024-11-02",
+    "time": "19:02:10",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.20060000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:13",
+    "date": "2024-11-02",
+    "time": "19:02:13",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 1.7, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.2033}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:14",
+    "date": "2024-11-02",
+    "time": "19:02:14",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:14",
+    "date": "2024-11-02",
+    "time": "19:02:14",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.20330000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:14",
+    "date": "2024-11-02",
+    "time": "19:02:14",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (0/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:31",
+    "date": "2024-11-02",
+    "time": "19:02:31",
+    "symbol": "WIFUSDT",
+    "message": "กำไรถึงระดับ 1 (1.95 ATR, 0.20%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:31",
+    "date": "2024-11-02",
+    "time": "19:02:31",
+    "symbol": "WIFUSDT",
+    "message": "กำลังปรับ stoploss ไปที่จุดเข้า 2.19218076",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:35",
+    "date": "2024-11-02",
+    "time": "19:02:35",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1921807600000003",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:02:35",
+    "date": "2024-11-02",
+    "time": "19:02:35",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss เรียบร้อย",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:03:10",
+    "date": "2024-11-02",
+    "time": "19:03:10",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:04:09",
+    "date": "2024-11-02",
+    "time": "19:04:09",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:06:15",
+    "date": "2024-11-02",
+    "time": "19:06:15",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.19418056",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:06:15",
+    "date": "2024-11-02",
+    "time": "19:06:15",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.19 เป็น 2.19",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:13",
+    "date": "2024-11-02",
+    "time": "19:08:13",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:14",
+    "date": "2024-11-02",
+    "time": "19:08:14",
+    "symbol": "WIFUSDT",
+    "message": "เกิดข้อผิดพลาดในการบันทึกการเทรด: float() argument must be a string or a real number, not 'NoneType'",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:14",
+    "date": "2024-11-02",
+    "time": "19:08:14",
+    "symbol": "WIFUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 927, in record_trade\n    actual_entry_price = float(entry_price)\n                         ^^^^^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:17",
+    "date": "2024-11-02",
+    "time": "19:08:17",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.2% (SL ปัจจุบัน: 0.56%, ratio: 0.3583)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:19",
+    "date": "2024-11-02",
+    "time": "19:08:19",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 3.2, Parameters: {'type': 'stop_market', 'stopPrice': 2.1928}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:20",
+    "date": "2024-11-02",
+    "time": "19:08:20",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:23",
+    "date": "2024-11-02",
+    "time": "19:08:23",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 3.2, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.2051}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:24",
+    "date": "2024-11-02",
+    "time": "19:08:24",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:24",
+    "date": "2024-11-02",
+    "time": "19:08:24",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 2.19288069",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:10",
+    "date": "2024-11-02",
+    "time": "19:29:10",
+    "symbol": "WIFUSDT",
+    "message": "Entry order ทำงานที่ราคา 2.19270000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:10",
+    "date": "2024-11-02",
+    "time": "19:29:10",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1927, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:10",
+    "date": "2024-11-02",
+    "time": "19:29:10",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.19270000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:10",
+    "date": "2024-11-02",
+    "time": "19:29:10",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit ฐาน (ก่อนปรับ):",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:10",
+    "date": "2024-11-02",
+    "time": "19:29:10",
+    "symbol": "WIFUSDT",
+    "message": "tp2 base: 2.18819979 (2.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:10",
+    "date": "2024-11-02",
+    "time": "19:29:10",
+    "symbol": "WIFUSDT",
+    "message": "tp3 base: 2.18594968 (3.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:10",
+    "date": "2024-11-02",
+    "time": "19:29:10",
+    "symbol": "WIFUSDT",
+    "message": "tp4 base: 2.18369958 (4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:10",
+    "date": "2024-11-02",
+    "time": "19:29:10",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:10",
+    "date": "2024-11-02",
+    "time": "19:29:10",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.18710569 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:10",
+    "date": "2024-11-02",
+    "time": "19:29:10",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.18441952 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:10",
+    "date": "2024-11-02",
+    "time": "19:29:10",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.18173425 (0.50%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:13",
+    "date": "2024-11-02",
+    "time": "19:29:13",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 0.6, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1871}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:14",
+    "date": "2024-11-02",
+    "time": "19:29:14",
+    "symbol": "WIFUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:14",
+    "date": "2024-11-02",
+    "time": "19:29:14",
+    "symbol": "WIFUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:14",
+    "date": "2024-11-02",
+    "time": "19:29:14",
+    "symbol": "WIFUSDT",
+    "message": "Parameters: {'symbol': 'WIFUSDT', 'side': 'buy', 'type': 'market', 'amount': 0.6, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:15",
+    "date": "2024-11-02",
+    "time": "19:29:15",
+    "symbol": "WIFUSDT",
+    "message": "พบข้อผิดพลาด",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:15",
+    "date": "2024-11-02",
+    "time": "19:29:15",
+    "symbol": "WIFUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 142, in create_order\n    order = await exchange.create_order(**order_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OrderImmediatelyFillable: binance {\"code\":-2021,\"msg\":\"Order would immediately trigger.\"}\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 175, in create_order\n    order = await exchange.create_order(**market_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OperationRejected: binance {\"code\":-4164,\"msg\":\"Order's notional must be no smaller than 5 (unless you choose reduce only).\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:15",
+    "date": "2024-11-02",
+    "time": "19:29:15",
+    "symbol": "WIFUSDT",
+    "message": "ไม่สามารถสร้างคำสั่ง tp2 ได้",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:17",
+    "date": "2024-11-02",
+    "time": "19:29:17",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 0.8, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1844}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:19",
+    "date": "2024-11-02",
+    "time": "19:29:19",
+    "symbol": "WIFUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:19",
+    "date": "2024-11-02",
+    "time": "19:29:19",
+    "symbol": "WIFUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:19",
+    "date": "2024-11-02",
+    "time": "19:29:19",
+    "symbol": "WIFUSDT",
+    "message": "Parameters: {'symbol': 'WIFUSDT', 'side': 'buy', 'type': 'market', 'amount': 0.8, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:19",
+    "date": "2024-11-02",
+    "time": "19:29:19",
+    "symbol": "WIFUSDT",
+    "message": "พบข้อผิดพลาด",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:19",
+    "date": "2024-11-02",
+    "time": "19:29:19",
+    "symbol": "WIFUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 142, in create_order\n    order = await exchange.create_order(**order_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OrderImmediatelyFillable: binance {\"code\":-2021,\"msg\":\"Order would immediately trigger.\"}\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 175, in create_order\n    order = await exchange.create_order(**market_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OperationRejected: binance {\"code\":-4164,\"msg\":\"Order's notional must be no smaller than 5 (unless you choose reduce only).\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:19",
+    "date": "2024-11-02",
+    "time": "19:29:19",
+    "symbol": "WIFUSDT",
+    "message": "ไม่สามารถสร้างคำสั่ง tp3 ได้",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:57",
+    "date": "2024-11-02",
+    "time": "19:29:57",
+    "symbol": "WIFUSDT",
+    "message": "Entry order ทำงานที่ราคา 2.19270000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:57",
+    "date": "2024-11-02",
+    "time": "19:29:57",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1927, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:57",
+    "date": "2024-11-02",
+    "time": "19:29:57",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.19270000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:57",
+    "date": "2024-11-02",
+    "time": "19:29:57",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit ฐาน (ก่อนปรับ):",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:57",
+    "date": "2024-11-02",
+    "time": "19:29:57",
+    "symbol": "WIFUSDT",
+    "message": "tp2 base: 2.18819979 (2.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:57",
+    "date": "2024-11-02",
+    "time": "19:29:57",
+    "symbol": "WIFUSDT",
+    "message": "tp3 base: 2.18594968 (3.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:57",
+    "date": "2024-11-02",
+    "time": "19:29:57",
+    "symbol": "WIFUSDT",
+    "message": "tp4 base: 2.18369958 (4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:57",
+    "date": "2024-11-02",
+    "time": "19:29:57",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:57",
+    "date": "2024-11-02",
+    "time": "19:29:57",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.18710569 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:57",
+    "date": "2024-11-02",
+    "time": "19:29:57",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.18441952 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:29:57",
+    "date": "2024-11-02",
+    "time": "19:29:57",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.18173425 (0.50%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:00",
+    "date": "2024-11-02",
+    "time": "19:30:00",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 0.6, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1871}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:01",
+    "date": "2024-11-02",
+    "time": "19:30:01",
+    "symbol": "WIFUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:01",
+    "date": "2024-11-02",
+    "time": "19:30:01",
+    "symbol": "WIFUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:01",
+    "date": "2024-11-02",
+    "time": "19:30:01",
+    "symbol": "WIFUSDT",
+    "message": "Parameters: {'symbol': 'WIFUSDT', 'side': 'buy', 'type': 'market', 'amount': 0.6, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:01",
+    "date": "2024-11-02",
+    "time": "19:30:01",
+    "symbol": "WIFUSDT",
+    "message": "พบข้อผิดพลาด",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:01",
+    "date": "2024-11-02",
+    "time": "19:30:01",
+    "symbol": "WIFUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 142, in create_order\n    order = await exchange.create_order(**order_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OrderImmediatelyFillable: binance {\"code\":-2021,\"msg\":\"Order would immediately trigger.\"}\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 175, in create_order\n    order = await exchange.create_order(**market_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OperationRejected: binance {\"code\":-4164,\"msg\":\"Order's notional must be no smaller than 5 (unless you choose reduce only).\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:01",
+    "date": "2024-11-02",
+    "time": "19:30:01",
+    "symbol": "WIFUSDT",
+    "message": "ไม่สามารถสร้างคำสั่ง tp2 ได้",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:04",
+    "date": "2024-11-02",
+    "time": "19:30:04",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 0.8, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1844}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:05",
+    "date": "2024-11-02",
+    "time": "19:30:05",
+    "symbol": "WIFUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:05",
+    "date": "2024-11-02",
+    "time": "19:30:05",
+    "symbol": "WIFUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:05",
+    "date": "2024-11-02",
+    "time": "19:30:05",
+    "symbol": "WIFUSDT",
+    "message": "Parameters: {'symbol': 'WIFUSDT', 'side': 'buy', 'type': 'market', 'amount': 0.8, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:06",
+    "date": "2024-11-02",
+    "time": "19:30:06",
+    "symbol": "WIFUSDT",
+    "message": "พบข้อผิดพลาด",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:06",
+    "date": "2024-11-02",
+    "time": "19:30:06",
+    "symbol": "WIFUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 142, in create_order\n    order = await exchange.create_order(**order_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OrderImmediatelyFillable: binance {\"code\":-2021,\"msg\":\"Order would immediately trigger.\"}\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 175, in create_order\n    order = await exchange.create_order(**market_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OperationRejected: binance {\"code\":-4164,\"msg\":\"Order's notional must be no smaller than 5 (unless you choose reduce only).\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:06",
+    "date": "2024-11-02",
+    "time": "19:30:06",
+    "symbol": "WIFUSDT",
+    "message": "ไม่สามารถสร้างคำสั่ง tp3 ได้",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:08",
+    "date": "2024-11-02",
+    "time": "19:30:08",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 0.8, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1817}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:10",
+    "date": "2024-11-02",
+    "time": "19:30:10",
+    "symbol": "WIFUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:10",
+    "date": "2024-11-02",
+    "time": "19:30:10",
+    "symbol": "WIFUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:10",
+    "date": "2024-11-02",
+    "time": "19:30:10",
+    "symbol": "WIFUSDT",
+    "message": "Parameters: {'symbol': 'WIFUSDT', 'side': 'buy', 'type': 'market', 'amount': 0.8, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:10",
+    "date": "2024-11-02",
+    "time": "19:30:10",
+    "symbol": "WIFUSDT",
+    "message": "พบข้อผิดพลาด",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:10",
+    "date": "2024-11-02",
+    "time": "19:30:10",
+    "symbol": "WIFUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 142, in create_order\n    order = await exchange.create_order(**order_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OrderImmediatelyFillable: binance {\"code\":-2021,\"msg\":\"Order would immediately trigger.\"}\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 175, in create_order\n    order = await exchange.create_order(**market_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OperationRejected: binance {\"code\":-4164,\"msg\":\"Order's notional must be no smaller than 5 (unless you choose reduce only).\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:10",
+    "date": "2024-11-02",
+    "time": "19:30:10",
+    "symbol": "WIFUSDT",
+    "message": "ไม่สามารถสร้างคำสั่ง tp4 ได้",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:10",
+    "date": "2024-11-02",
+    "time": "19:30:10",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:37",
+    "date": "2024-11-02",
+    "time": "19:30:37",
+    "symbol": "WIFUSDT",
+    "message": "กำไรถึงระดับ 1 (8.49 ATR, 0.87%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:37",
+    "date": "2024-11-02",
+    "time": "19:30:37",
+    "symbol": "WIFUSDT",
+    "message": "กำลังปรับ stoploss ไปที่จุดเข้า 2.19291927",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:42",
+    "date": "2024-11-02",
+    "time": "19:30:42",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.19291927",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:43",
+    "date": "2024-11-02",
+    "time": "19:30:43",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss เรียบร้อย",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:31:08",
+    "date": "2024-11-02",
+    "time": "19:31:08",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:33:26",
+    "date": "2024-11-02",
+    "time": "19:33:26",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.17691767",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:33:26",
+    "date": "2024-11-02",
+    "time": "19:33:26",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.19 เป็น 2.18",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:34:28",
+    "date": "2024-11-02",
+    "time": "19:34:28",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.17471745",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:34:29",
+    "date": "2024-11-02",
+    "time": "19:34:29",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.18 เป็น 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:36:26",
+    "date": "2024-11-02",
+    "time": "19:36:26",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:37:04",
+    "date": "2024-11-02",
+    "time": "19:37:04",
+    "symbol": "WIFUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:39:23",
+    "date": "2024-11-02",
+    "time": "19:39:23",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.17341732",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:39:23",
+    "date": "2024-11-02",
+    "time": "19:39:23",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.17 เป็น 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:40:19",
+    "date": "2024-11-02",
+    "time": "19:40:19",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.17331731",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:40:19",
+    "date": "2024-11-02",
+    "time": "19:40:19",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.17 เป็น 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:41:25",
+    "date": "2024-11-02",
+    "time": "19:41:25",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.17261724",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:41:25",
+    "date": "2024-11-02",
+    "time": "19:41:25",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.17 เป็น 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:42:41",
+    "date": "2024-11-02",
+    "time": "19:42:41",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1716171400000004",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:42:41",
+    "date": "2024-11-02",
+    "time": "19:42:41",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.17 เป็น 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:43:16",
+    "date": "2024-11-02",
+    "time": "19:43:16",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1700169799999998",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:43:16",
+    "date": "2024-11-02",
+    "time": "19:43:16",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.17 เป็น 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:43:23",
+    "date": "2024-11-02",
+    "time": "19:43:23",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1732",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:43:24",
+    "date": "2024-11-02",
+    "time": "19:43:24",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ Stop Loss เป็น 2.17320000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:44:42",
+    "date": "2024-11-02",
+    "time": "19:44:42",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1680167800000003",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:44:43",
+    "date": "2024-11-02",
+    "time": "19:44:43",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.17 เป็น 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:45:17",
+    "date": "2024-11-02",
+    "time": "19:45:17",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.16391637",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:45:17",
+    "date": "2024-11-02",
+    "time": "19:45:17",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.17 เป็น 2.16",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:56:52",
+    "date": "2024-11-02",
+    "time": "19:56:52",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:56:57",
+    "date": "2024-11-02",
+    "time": "19:56:57",
+    "symbol": "WIFUSDT",
+    "message": "บันทึกการเทรด: SELL WIFUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:56:57",
+    "date": "2024-11-02",
+    "time": "19:56:57",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.19 | Exit: 2.15",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:56:57",
+    "date": "2024-11-02",
+    "time": "19:56:57",
+    "symbol": "WIFUSDT",
+    "message": "จำนวน: 9.10000000 (19.95 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:56:57",
+    "date": "2024-11-02",
+    "time": "19:56:57",
+    "symbol": "WIFUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:56:57",
+    "date": "2024-11-02",
+    "time": "19:56:57",
+    "symbol": "WIFUSDT",
+    "message": "กำไร/ขาดทุน: 0.42 USDT (2.13%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:58:07",
+    "date": "2024-11-02",
+    "time": "19:58:07",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.44%, ratio: 1.1355)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:58:09",
+    "date": "2024-11-02",
+    "time": "19:58:09",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 10.5, Parameters: {'type': 'stop_market', 'stopPrice': 2.1412}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:58:10",
+    "date": "2024-11-02",
+    "time": "19:58:10",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:58:13",
+    "date": "2024-11-02",
+    "time": "19:58:13",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 10.5, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1507}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:58:14",
+    "date": "2024-11-02",
+    "time": "19:58:14",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:58:14",
+    "date": "2024-11-02",
+    "time": "19:58:14",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 2.14128585",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:27",
+    "date": "2024-11-02",
+    "time": "19:59:27",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.20%, ratio: 2.5386)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:29",
+    "date": "2024-11-02",
+    "time": "19:59:29",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 23.6, Parameters: {'type': 'stop_market', 'stopPrice': 2.1471}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:31",
+    "date": "2024-11-02",
+    "time": "19:59:31",
+    "symbol": "WIFUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:31",
+    "date": "2024-11-02",
+    "time": "19:59:31",
+    "symbol": "WIFUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:31",
+    "date": "2024-11-02",
+    "time": "19:59:31",
+    "symbol": "WIFUSDT",
+    "message": "Parameters: {'symbol': 'WIFUSDT', 'side': 'buy', 'type': 'market', 'amount': 23.6, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:32",
+    "date": "2024-11-02",
+    "time": "19:59:32",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 2.15",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:36",
+    "date": "2024-11-02",
+    "time": "19:59:36",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 23.6, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1428}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:38",
+    "date": "2024-11-02",
+    "time": "19:59:38",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:39",
+    "date": "2024-11-02",
+    "time": "19:59:39",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 2.14711469",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:58",
+    "date": "2024-11-02",
+    "time": "19:59:58",
+    "symbol": "WIFUSDT",
+    "message": "Entry order ทำงานที่ราคา 2.14990000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:58",
+    "date": "2024-11-02",
+    "time": "19:59:58",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1499, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:58",
+    "date": "2024-11-02",
+    "time": "19:59:58",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.14990000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:58",
+    "date": "2024-11-02",
+    "time": "19:59:58",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:58",
+    "date": "2024-11-02",
+    "time": "19:59:58",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.15547741 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:58",
+    "date": "2024-11-02",
+    "time": "19:59:58",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.15815997 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:59:58",
+    "date": "2024-11-02",
+    "time": "19:59:58",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.16084343 (0.51%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:02",
+    "date": "2024-11-02",
+    "time": "20:00:02",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 4.7, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1554}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:04",
+    "date": "2024-11-02",
+    "time": "20:00:04",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:04",
+    "date": "2024-11-02",
+    "time": "20:00:04",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.15540000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:07",
+    "date": "2024-11-02",
+    "time": "20:00:07",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 5.9, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1581}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:09",
+    "date": "2024-11-02",
+    "time": "20:00:09",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:09",
+    "date": "2024-11-02",
+    "time": "20:00:09",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.15810000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:14",
+    "date": "2024-11-02",
+    "time": "20:00:14",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 5.9, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1608}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:16",
+    "date": "2024-11-02",
+    "time": "20:00:16",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:16",
+    "date": "2024-11-02",
+    "time": "20:00:16",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.16080000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:17",
+    "date": "2024-11-02",
+    "time": "20:00:17",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:35",
+    "date": "2024-11-02",
+    "time": "20:00:35",
+    "symbol": "WIFUSDT",
+    "message": "กำไรถึงระดับ 1 (1.73 ATR, 0.18%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:35",
+    "date": "2024-11-02",
+    "time": "20:00:35",
+    "symbol": "WIFUSDT",
+    "message": "กำลังปรับ stoploss ไปที่จุดเข้า 2.14968501",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:39",
+    "date": "2024-11-02",
+    "time": "20:00:39",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1496850100000002",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:00:39",
+    "date": "2024-11-02",
+    "time": "20:00:39",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss เรียบร้อย",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:01:04",
+    "date": "2024-11-02",
+    "time": "20:01:04",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:05:30",
+    "date": "2024-11-02",
+    "time": "20:05:30",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1498849900000003",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:05:30",
+    "date": "2024-11-02",
+    "time": "20:05:30",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.15 เป็น 2.15",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:06:24",
+    "date": "2024-11-02",
+    "time": "20:06:24",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.15028495",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:06:24",
+    "date": "2024-11-02",
+    "time": "20:06:24",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.15 เป็น 2.15",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:06:24",
+    "date": "2024-11-02",
+    "time": "20:06:24",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:01",
+    "date": "2024-11-02",
+    "time": "20:07:01",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.15768421",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:01",
+    "date": "2024-11-02",
+    "time": "20:07:01",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ Stop Loss เป็น 2.15768421",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:09:13",
+    "date": "2024-11-02",
+    "time": "20:09:13",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:10:16",
+    "date": "2024-11-02",
+    "time": "20:10:16",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1591840600000003",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:10:17",
+    "date": "2024-11-02",
+    "time": "20:10:17",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.16 เป็น 2.16",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:10:17",
+    "date": "2024-11-02",
+    "time": "20:10:17",
+    "symbol": "WIFUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:11:07",
+    "date": "2024-11-02",
+    "time": "20:11:07",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1602839499999997",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:11:07",
+    "date": "2024-11-02",
+    "time": "20:11:07",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.16 เป็น 2.16",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:11:11",
+    "date": "2024-11-02",
+    "time": "20:11:11",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1605",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:11:12",
+    "date": "2024-11-02",
+    "time": "20:11:12",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ Stop Loss เป็น 2.16050000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:13:12",
+    "date": "2024-11-02",
+    "time": "20:13:12",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.16248373",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:13:12",
+    "date": "2024-11-02",
+    "time": "20:13:12",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.16 เป็น 2.16",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:13:12",
+    "date": "2024-11-02",
+    "time": "20:13:12",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:01",
+    "date": "2024-11-02",
+    "time": "20:14:01",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:04",
+    "date": "2024-11-02",
+    "time": "20:14:04",
+    "symbol": "WIFUSDT",
+    "message": "บันทึกการเทรด: BUY WIFUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:04",
+    "date": "2024-11-02",
+    "time": "20:14:04",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.15 | Exit: 2.16",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:04",
+    "date": "2024-11-02",
+    "time": "20:14:04",
+    "symbol": "WIFUSDT",
+    "message": "จำนวน: 9.30000000 (19.99 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:04",
+    "date": "2024-11-02",
+    "time": "20:14:04",
+    "symbol": "WIFUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:04",
+    "date": "2024-11-02",
+    "time": "20:14:04",
+    "symbol": "WIFUSDT",
+    "message": "กำไร/ขาดทุน: 0.11 USDT (0.57%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:04",
+    "date": "2024-11-02",
+    "time": "20:14:04",
+    "symbol": "WIFUSDT",
+    "message": "กำลังตรวจสอบเงื่อนไขการเข้า position ใหม่...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:05",
+    "date": "2024-11-02",
+    "time": "20:14:05",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.31%, ratio: 1.6095)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:06",
+    "date": "2024-11-02",
+    "time": "20:14:06",
+    "symbol": "WIFUSDT",
+    "message": "ราคาต่างจากจุด trigger 0.13% - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:07",
+    "date": "2024-11-02",
+    "time": "20:14:07",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: market, Amount: 14.8, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:08",
+    "date": "2024-11-02",
+    "time": "20:14:08",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 2.16",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:11",
+    "date": "2024-11-02",
+    "time": "20:14:11",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 14.8, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1688}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:12",
+    "date": "2024-11-02",
+    "time": "20:14:12",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:12",
+    "date": "2024-11-02",
+    "time": "20:14:12",
+    "symbol": "WIFUSDT",
+    "message": "เข้า SELL ใหม่ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:12",
+    "date": "2024-11-02",
+    "time": "20:14:12",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1612, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:12",
+    "date": "2024-11-02",
+    "time": "20:14:12",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.16120000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:12",
+    "date": "2024-11-02",
+    "time": "20:14:12",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:12",
+    "date": "2024-11-02",
+    "time": "20:14:12",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.15562144 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:12",
+    "date": "2024-11-02",
+    "time": "20:14:12",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.15294157 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:12",
+    "date": "2024-11-02",
+    "time": "20:14:12",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.15026260 (0.51%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:15",
+    "date": "2024-11-02",
+    "time": "20:14:15",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 2.9, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1556}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:17",
+    "date": "2024-11-02",
+    "time": "20:14:17",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:17",
+    "date": "2024-11-02",
+    "time": "20:14:17",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.15560000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:20",
+    "date": "2024-11-02",
+    "time": "20:14:20",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 3.7, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1529}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:21",
+    "date": "2024-11-02",
+    "time": "20:14:21",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:21",
+    "date": "2024-11-02",
+    "time": "20:14:21",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.15290000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:24",
+    "date": "2024-11-02",
+    "time": "20:14:24",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 3.7, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1502}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:25",
+    "date": "2024-11-02",
+    "time": "20:14:25",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:14:25",
+    "date": "2024-11-02",
+    "time": "20:14:25",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.15020000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:18:23",
+    "date": "2024-11-02",
+    "time": "20:18:23",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.17%, ratio: 2.9863)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:18:25",
+    "date": "2024-11-02",
+    "time": "20:18:25",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 27.3, Parameters: {'type': 'stop_market', 'stopPrice': 2.1702}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:18:26",
+    "date": "2024-11-02",
+    "time": "20:18:26",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:18:29",
+    "date": "2024-11-02",
+    "time": "20:18:29",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 27.3, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1665}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:18:30",
+    "date": "2024-11-02",
+    "time": "20:18:30",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:18:30",
+    "date": "2024-11-02",
+    "time": "20:18:30",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 2.17021700",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:20",
+    "date": "2024-11-02",
+    "time": "20:19:20",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.11%, ratio: 4.4533)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:22",
+    "date": "2024-11-02",
+    "time": "20:19:22",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 40.8, Parameters: {'type': 'stop_market', 'stopPrice': 2.1676}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:23",
+    "date": "2024-11-02",
+    "time": "20:19:23",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:26",
+    "date": "2024-11-02",
+    "time": "20:19:26",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 40.7, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1701}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:27",
+    "date": "2024-11-02",
+    "time": "20:19:27",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:27",
+    "date": "2024-11-02",
+    "time": "20:19:27",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 2.16768321",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:58",
+    "date": "2024-11-02",
+    "time": "20:19:58",
+    "symbol": "WIFUSDT",
+    "message": "Entry order ทำงานที่ราคา 2.16745809",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:58",
+    "date": "2024-11-02",
+    "time": "20:19:58",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.16745809, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:58",
+    "date": "2024-11-02",
+    "time": "20:19:58",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.16745809",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:58",
+    "date": "2024-11-02",
+    "time": "20:19:58",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:59",
+    "date": "2024-11-02",
+    "time": "20:19:59",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.16187640 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:59",
+    "date": "2024-11-02",
+    "time": "20:19:59",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.15919528 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:19:59",
+    "date": "2024-11-02",
+    "time": "20:19:59",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.15651505 (0.50%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:01",
+    "date": "2024-11-02",
+    "time": "20:20:01",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 8.1, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1618}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:03",
+    "date": "2024-11-02",
+    "time": "20:20:03",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:03",
+    "date": "2024-11-02",
+    "time": "20:20:03",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.16180000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:06",
+    "date": "2024-11-02",
+    "time": "20:20:06",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 10.1, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1591}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:07",
+    "date": "2024-11-02",
+    "time": "20:20:07",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:07",
+    "date": "2024-11-02",
+    "time": "20:20:07",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.15910000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:10",
+    "date": "2024-11-02",
+    "time": "20:20:10",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 10.1, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1565}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:11",
+    "date": "2024-11-02",
+    "time": "20:20:11",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:11",
+    "date": "2024-11-02",
+    "time": "20:20:11",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.15650000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:12",
+    "date": "2024-11-02",
+    "time": "20:20:12",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:39",
+    "date": "2024-11-02",
+    "time": "20:20:39",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:43",
+    "date": "2024-11-02",
+    "time": "20:20:43",
+    "symbol": "WIFUSDT",
+    "message": "บันทึกการเทรด: SELL WIFUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:43",
+    "date": "2024-11-02",
+    "time": "20:20:43",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.17 | Exit: 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:43",
+    "date": "2024-11-02",
+    "time": "20:20:43",
+    "symbol": "WIFUSDT",
+    "message": "จำนวน: 9.20000000 (19.94 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:44",
+    "date": "2024-11-02",
+    "time": "20:20:44",
+    "symbol": "WIFUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:44",
+    "date": "2024-11-02",
+    "time": "20:20:44",
+    "symbol": "WIFUSDT",
+    "message": "กำไร/ขาดทุน: -0.03 USDT (-0.15%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:20",
+    "date": "2024-11-02",
+    "time": "20:21:20",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.24%, ratio: 2.1223)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:20",
+    "date": "2024-11-02",
+    "time": "20:21:20",
+    "symbol": "WIFUSDT",
+    "message": "ราคาผ่านจุด trigger แล้ว - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:21",
+    "date": "2024-11-02",
+    "time": "20:21:21",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: market, Amount: 19.5, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:24",
+    "date": "2024-11-02",
+    "time": "20:21:24",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 2.17",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:26",
+    "date": "2024-11-02",
+    "time": "20:21:26",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 19.5, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1666}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:28",
+    "date": "2024-11-02",
+    "time": "20:21:28",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:28",
+    "date": "2024-11-02",
+    "time": "20:21:28",
+    "symbol": "WIFUSDT",
+    "message": "เข้า BUY ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:28",
+    "date": "2024-11-02",
+    "time": "20:21:28",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1747, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:28",
+    "date": "2024-11-02",
+    "time": "20:21:28",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.17470000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:28",
+    "date": "2024-11-02",
+    "time": "20:21:28",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:28",
+    "date": "2024-11-02",
+    "time": "20:21:28",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.18028981 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:28",
+    "date": "2024-11-02",
+    "time": "20:21:28",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.18297733 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:28",
+    "date": "2024-11-02",
+    "time": "20:21:28",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.18566575 (0.50%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:31",
+    "date": "2024-11-02",
+    "time": "20:21:31",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 3.9, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1802}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:32",
+    "date": "2024-11-02",
+    "time": "20:21:32",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:32",
+    "date": "2024-11-02",
+    "time": "20:21:32",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.18020000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:35",
+    "date": "2024-11-02",
+    "time": "20:21:35",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 4.8, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1829}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:36",
+    "date": "2024-11-02",
+    "time": "20:21:36",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:36",
+    "date": "2024-11-02",
+    "time": "20:21:36",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.18290000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:39",
+    "date": "2024-11-02",
+    "time": "20:21:39",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 4.8, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1856}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:40",
+    "date": "2024-11-02",
+    "time": "20:21:40",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:40",
+    "date": "2024-11-02",
+    "time": "20:21:40",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.18560000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:22:16",
+    "date": "2024-11-02",
+    "time": "20:22:16",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:23:11",
+    "date": "2024-11-02",
+    "time": "20:23:11",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:24:07",
+    "date": "2024-11-02",
+    "time": "20:24:07",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:06",
+    "date": "2024-11-02",
+    "time": "20:25:06",
+    "symbol": "WIFUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:34",
+    "date": "2024-11-02",
+    "time": "20:26:34",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.16988299",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:34",
+    "date": "2024-11-02",
+    "time": "20:26:34",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.17 เป็น 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:50",
+    "date": "2024-11-02",
+    "time": "20:26:50",
+    "symbol": "WIFUSDT",
+    "message": "กำไรถึงระดับ 1 (1.11 ATR, 0.11%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:50",
+    "date": "2024-11-02",
+    "time": "20:26:50",
+    "symbol": "WIFUSDT",
+    "message": "กำลังปรับ stoploss ไปที่จุดเข้า 2.17448253",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:54",
+    "date": "2024-11-02",
+    "time": "20:26:54",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.17448253",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:54",
+    "date": "2024-11-02",
+    "time": "20:26:54",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss เรียบร้อย",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:27:17",
+    "date": "2024-11-02",
+    "time": "20:27:17",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1701",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:27:17",
+    "date": "2024-11-02",
+    "time": "20:27:17",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ Stop Loss เป็น 2.17010000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:28:12",
+    "date": "2024-11-02",
+    "time": "20:28:12",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.17138284",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:28:12",
+    "date": "2024-11-02",
+    "time": "20:28:12",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.17 เป็น 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:13",
+    "date": "2024-11-02",
+    "time": "20:30:13",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.17218276",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:14",
+    "date": "2024-11-02",
+    "time": "20:30:14",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss จาก 2.17 เป็น 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:15",
+    "date": "2024-11-02",
+    "time": "20:31:15",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:33",
+    "date": "2024-11-02",
+    "time": "20:31:33",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:37",
+    "date": "2024-11-02",
+    "time": "20:31:37",
+    "symbol": "WIFUSDT",
+    "message": "บันทึกการเทรด: BUY WIFUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:37",
+    "date": "2024-11-02",
+    "time": "20:31:37",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.17 | Exit: 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:37",
+    "date": "2024-11-02",
+    "time": "20:31:37",
+    "symbol": "WIFUSDT",
+    "message": "จำนวน: 9.10000000 (19.79 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:37",
+    "date": "2024-11-02",
+    "time": "20:31:37",
+    "symbol": "WIFUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:37",
+    "date": "2024-11-02",
+    "time": "20:31:37",
+    "symbol": "WIFUSDT",
+    "message": "กำไร/ขาดทุน: -0.02 USDT (-0.11%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:37",
+    "date": "2024-11-02",
+    "time": "20:31:37",
+    "symbol": "WIFUSDT",
+    "message": "กำลังตรวจสอบเงื่อนไขการเข้า position ใหม่...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:38",
+    "date": "2024-11-02",
+    "time": "20:31:38",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.26%, ratio: 1.8995)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:38",
+    "date": "2024-11-02",
+    "time": "20:31:38",
+    "symbol": "WIFUSDT",
+    "message": "ราคาต่างจากจุด trigger 0.11% - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:40",
+    "date": "2024-11-02",
+    "time": "20:31:40",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: market, Amount: 17.3, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:41",
+    "date": "2024-11-02",
+    "time": "20:31:41",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 2.17",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:44",
+    "date": "2024-11-02",
+    "time": "20:31:44",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 17.3, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1779}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:45",
+    "date": "2024-11-02",
+    "time": "20:31:45",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:45",
+    "date": "2024-11-02",
+    "time": "20:31:45",
+    "symbol": "WIFUSDT",
+    "message": "เข้า SELL ใหม่ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:45",
+    "date": "2024-11-02",
+    "time": "20:31:45",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1712, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:45",
+    "date": "2024-11-02",
+    "time": "20:31:45",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.17120000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:45",
+    "date": "2024-11-02",
+    "time": "20:31:45",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:45",
+    "date": "2024-11-02",
+    "time": "20:31:45",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.16561644 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:45",
+    "date": "2024-11-02",
+    "time": "20:31:45",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.16293457 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:45",
+    "date": "2024-11-02",
+    "time": "20:31:45",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.16025360 (0.50%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:48",
+    "date": "2024-11-02",
+    "time": "20:31:48",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 3.4, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1656}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:50",
+    "date": "2024-11-02",
+    "time": "20:31:50",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:50",
+    "date": "2024-11-02",
+    "time": "20:31:50",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.16560000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:53",
+    "date": "2024-11-02",
+    "time": "20:31:53",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 4.3, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1629}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:54",
+    "date": "2024-11-02",
+    "time": "20:31:54",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:54",
+    "date": "2024-11-02",
+    "time": "20:31:54",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.16290000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:57",
+    "date": "2024-11-02",
+    "time": "20:31:57",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 4.3, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1602}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:59",
+    "date": "2024-11-02",
+    "time": "20:31:59",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:59",
+    "date": "2024-11-02",
+    "time": "20:31:59",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.16020000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:10",
+    "date": "2024-11-02",
+    "time": "20:36:10",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.57%, ratio: 0.8751)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:11",
+    "date": "2024-11-02",
+    "time": "20:36:11",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 8.0, Parameters: {'type': 'stop_market', 'stopPrice': 2.1583}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:13",
+    "date": "2024-11-02",
+    "time": "20:36:13",
+    "symbol": "WIFUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:13",
+    "date": "2024-11-02",
+    "time": "20:36:13",
+    "symbol": "WIFUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:13",
+    "date": "2024-11-02",
+    "time": "20:36:13",
+    "symbol": "WIFUSDT",
+    "message": "Parameters: {'symbol': 'WIFUSDT', 'side': 'sell', 'type': 'market', 'amount': 8.0, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:13",
+    "date": "2024-11-02",
+    "time": "20:36:13",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 2.16",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:16",
+    "date": "2024-11-02",
+    "time": "20:36:16",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 13.3, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1707}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:17",
+    "date": "2024-11-02",
+    "time": "20:36:17",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:17",
+    "date": "2024-11-02",
+    "time": "20:36:17",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 2.15838414",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:39",
+    "date": "2024-11-02",
+    "time": "20:36:39",
+    "symbol": "WIFUSDT",
+    "message": "Entry order ทำงานที่ราคา 2.15750000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:39",
+    "date": "2024-11-02",
+    "time": "20:36:39",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1575, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:39",
+    "date": "2024-11-02",
+    "time": "20:36:39",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.15750000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:39",
+    "date": "2024-11-02",
+    "time": "20:36:39",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:39",
+    "date": "2024-11-02",
+    "time": "20:36:39",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.15192329 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:39",
+    "date": "2024-11-02",
+    "time": "20:36:39",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.14924416 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:39",
+    "date": "2024-11-02",
+    "time": "20:36:39",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.14656593 (0.51%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:42",
+    "date": "2024-11-02",
+    "time": "20:36:42",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 2.6, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1519}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:43",
+    "date": "2024-11-02",
+    "time": "20:36:43",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:43",
+    "date": "2024-11-02",
+    "time": "20:36:43",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.15190000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:46",
+    "date": "2024-11-02",
+    "time": "20:36:46",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 3.3, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1492}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:48",
+    "date": "2024-11-02",
+    "time": "20:36:48",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:48",
+    "date": "2024-11-02",
+    "time": "20:36:48",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.14920000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:52",
+    "date": "2024-11-02",
+    "time": "20:36:52",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 3.3, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1465}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:53",
+    "date": "2024-11-02",
+    "time": "20:36:53",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:53",
+    "date": "2024-11-02",
+    "time": "20:36:53",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.14650000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:37:13",
+    "date": "2024-11-02",
+    "time": "20:37:13",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:37:13",
+    "date": "2024-11-02",
+    "time": "20:37:13",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:38:08",
+    "date": "2024-11-02",
+    "time": "20:38:08",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:38:08",
+    "date": "2024-11-02",
+    "time": "20:38:08",
+    "symbol": "WIFUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:38:13",
+    "date": "2024-11-02",
+    "time": "20:38:13",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.1653",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:38:13",
+    "date": "2024-11-02",
+    "time": "20:38:13",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ Stop Loss เป็น 2.16530000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:09",
+    "date": "2024-11-02",
+    "time": "20:39:09",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:14",
+    "date": "2024-11-02",
+    "time": "20:39:14",
+    "symbol": "WIFUSDT",
+    "message": "บันทึกการเทรด: SELL WIFUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:14",
+    "date": "2024-11-02",
+    "time": "20:39:14",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.16 | Exit: 2.17",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:14",
+    "date": "2024-11-02",
+    "time": "20:39:14",
+    "symbol": "WIFUSDT",
+    "message": "จำนวน: 9.20000000 (19.85 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:14",
+    "date": "2024-11-02",
+    "time": "20:39:14",
+    "symbol": "WIFUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:14",
+    "date": "2024-11-02",
+    "time": "20:39:14",
+    "symbol": "WIFUSDT",
+    "message": "กำไร/ขาดทุน: -0.10 USDT (-0.50%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:18",
+    "date": "2024-11-02",
+    "time": "20:39:18",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.52%, ratio: 0.9666)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:18",
+    "date": "2024-11-02",
+    "time": "20:39:18",
+    "symbol": "WIFUSDT",
+    "message": "ราคาผ่านจุด trigger แล้ว - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:19",
+    "date": "2024-11-02",
+    "time": "20:39:19",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: market, Amount: 8.8, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:20",
+    "date": "2024-11-02",
+    "time": "20:39:20",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 2.17",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:23",
+    "date": "2024-11-02",
+    "time": "20:39:23",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 8.8, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1569}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:25",
+    "date": "2024-11-02",
+    "time": "20:39:25",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:25",
+    "date": "2024-11-02",
+    "time": "20:39:25",
+    "symbol": "WIFUSDT",
+    "message": "เข้า BUY ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:25",
+    "date": "2024-11-02",
+    "time": "20:39:25",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1694, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:25",
+    "date": "2024-11-02",
+    "time": "20:39:25",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.16940000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:25",
+    "date": "2024-11-02",
+    "time": "20:39:25",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:25",
+    "date": "2024-11-02",
+    "time": "20:39:25",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.17498716 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:25",
+    "date": "2024-11-02",
+    "time": "20:39:25",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.17767362 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:25",
+    "date": "2024-11-02",
+    "time": "20:39:25",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.18036098 (0.51%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:27",
+    "date": "2024-11-02",
+    "time": "20:39:27",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 1.7, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1749}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:29",
+    "date": "2024-11-02",
+    "time": "20:39:29",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:29",
+    "date": "2024-11-02",
+    "time": "20:39:29",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.17490000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:32",
+    "date": "2024-11-02",
+    "time": "20:39:32",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 2.2, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1776}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:33",
+    "date": "2024-11-02",
+    "time": "20:39:33",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:33",
+    "date": "2024-11-02",
+    "time": "20:39:33",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.17760000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:36",
+    "date": "2024-11-02",
+    "time": "20:39:36",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 2.2, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1803}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:38",
+    "date": "2024-11-02",
+    "time": "20:39:38",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:38",
+    "date": "2024-11-02",
+    "time": "20:39:38",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.18030000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:40:21",
+    "date": "2024-11-02",
+    "time": "20:40:21",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:41:15",
+    "date": "2024-11-02",
+    "time": "20:41:15",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:15",
+    "date": "2024-11-02",
+    "time": "20:46:15",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:20",
+    "date": "2024-11-02",
+    "time": "20:46:20",
+    "symbol": "WIFUSDT",
+    "message": "บันทึกการเทรด: BUY WIFUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:20",
+    "date": "2024-11-02",
+    "time": "20:46:20",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.17 | Exit: 2.16",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:20",
+    "date": "2024-11-02",
+    "time": "20:46:20",
+    "symbol": "WIFUSDT",
+    "message": "จำนวน: 9.20000000 (19.96 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:20",
+    "date": "2024-11-02",
+    "time": "20:46:20",
+    "symbol": "WIFUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:20",
+    "date": "2024-11-02",
+    "time": "20:46:20",
+    "symbol": "WIFUSDT",
+    "message": "กำไร/ขาดทุน: -0.12 USDT (-0.58%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:49:07",
+    "date": "2024-11-02",
+    "time": "20:49:07",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.31%, ratio: 1.5979)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:49:08",
+    "date": "2024-11-02",
+    "time": "20:49:08",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 14.6, Parameters: {'type': 'stop_market', 'stopPrice': 2.1509}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:49:10",
+    "date": "2024-11-02",
+    "time": "20:49:10",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:49:13",
+    "date": "2024-11-02",
+    "time": "20:49:13",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 14.5, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1577}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:49:14",
+    "date": "2024-11-02",
+    "time": "20:49:14",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:49:14",
+    "date": "2024-11-02",
+    "time": "20:49:14",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 2.15098488",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:49:35",
+    "date": "2024-11-02",
+    "time": "20:49:35",
+    "symbol": "WIFUSDT",
+    "message": "ยกเลิก Entry Orders เนื่องจากราคาสูงกว่า stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:11",
+    "date": "2024-11-02",
+    "time": "20:50:11",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.30%, ratio: 1.6534)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:13",
+    "date": "2024-11-02",
+    "time": "20:50:13",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 15.1, Parameters: {'type': 'stop_market', 'stopPrice': 2.1597}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:14",
+    "date": "2024-11-02",
+    "time": "20:50:14",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:18",
+    "date": "2024-11-02",
+    "time": "20:50:18",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 15.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1531}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:19",
+    "date": "2024-11-02",
+    "time": "20:50:19",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:19",
+    "date": "2024-11-02",
+    "time": "20:50:19",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 2.15971595",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:41",
+    "date": "2024-11-02",
+    "time": "20:50:41",
+    "symbol": "WIFUSDT",
+    "message": "Entry order ทำงานที่ราคา 2.15990000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:41",
+    "date": "2024-11-02",
+    "time": "20:50:41",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1599, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:41",
+    "date": "2024-11-02",
+    "time": "20:50:41",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.15990000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:41",
+    "date": "2024-11-02",
+    "time": "20:50:41",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:41",
+    "date": "2024-11-02",
+    "time": "20:50:41",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.16548241 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:41",
+    "date": "2024-11-02",
+    "time": "20:50:41",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.16816697 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:41",
+    "date": "2024-11-02",
+    "time": "20:50:41",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.17085243 (0.51%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:44",
+    "date": "2024-11-02",
+    "time": "20:50:44",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 3.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1654}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:45",
+    "date": "2024-11-02",
+    "time": "20:50:45",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:45",
+    "date": "2024-11-02",
+    "time": "20:50:45",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.16540000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:48",
+    "date": "2024-11-02",
+    "time": "20:50:48",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 3.7, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1681}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:49",
+    "date": "2024-11-02",
+    "time": "20:50:49",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:49",
+    "date": "2024-11-02",
+    "time": "20:50:49",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.16810000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:52",
+    "date": "2024-11-02",
+    "time": "20:50:52",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 3.7, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1708}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:54",
+    "date": "2024-11-02",
+    "time": "20:50:54",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:54",
+    "date": "2024-11-02",
+    "time": "20:50:54",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.17080000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:51:12",
+    "date": "2024-11-02",
+    "time": "20:51:12",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:16",
+    "date": "2024-11-02",
+    "time": "20:52:16",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:21",
+    "date": "2024-11-02",
+    "time": "20:52:21",
+    "symbol": "WIFUSDT",
+    "message": "บันทึกการเทรด: BUY WIFUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:21",
+    "date": "2024-11-02",
+    "time": "20:52:21",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.16 | Exit: 2.15",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:21",
+    "date": "2024-11-02",
+    "time": "20:52:21",
+    "symbol": "WIFUSDT",
+    "message": "จำนวน: 9.20000000 (19.87 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:21",
+    "date": "2024-11-02",
+    "time": "20:52:21",
+    "symbol": "WIFUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:21",
+    "date": "2024-11-02",
+    "time": "20:52:21",
+    "symbol": "WIFUSDT",
+    "message": "กำไร/ขาดทุน: -0.09 USDT (-0.46%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:10",
+    "date": "2024-11-02",
+    "time": "20:53:10",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.59%, ratio: 0.8421)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:11",
+    "date": "2024-11-02",
+    "time": "20:53:11",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 7.7, Parameters: {'type': 'stop_market', 'stopPrice': 2.1438}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:13",
+    "date": "2024-11-02",
+    "time": "20:53:13",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:16",
+    "date": "2024-11-02",
+    "time": "20:53:16",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 7.7, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1566}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:17",
+    "date": "2024-11-02",
+    "time": "20:53:17",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:17",
+    "date": "2024-11-02",
+    "time": "20:53:17",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 2.14388559",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:42",
+    "date": "2024-11-02",
+    "time": "20:53:42",
+    "symbol": "WIFUSDT",
+    "message": "Entry order ทำงานที่ราคา 2.14380000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:42",
+    "date": "2024-11-02",
+    "time": "20:53:42",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1438, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:42",
+    "date": "2024-11-02",
+    "time": "20:53:42",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.14380000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:42",
+    "date": "2024-11-02",
+    "time": "20:53:42",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:42",
+    "date": "2024-11-02",
+    "time": "20:53:42",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.13823014 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:42",
+    "date": "2024-11-02",
+    "time": "20:53:42",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.13555375 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:42",
+    "date": "2024-11-02",
+    "time": "20:53:42",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.13287826 (0.51%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:45",
+    "date": "2024-11-02",
+    "time": "20:53:45",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 1.5, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1382}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:47",
+    "date": "2024-11-02",
+    "time": "20:53:47",
+    "symbol": "WIFUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:47",
+    "date": "2024-11-02",
+    "time": "20:53:47",
+    "symbol": "WIFUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:47",
+    "date": "2024-11-02",
+    "time": "20:53:47",
+    "symbol": "WIFUSDT",
+    "message": "Parameters: {'symbol': 'WIFUSDT', 'side': 'buy', 'type': 'market', 'amount': 1.5, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:47",
+    "date": "2024-11-02",
+    "time": "20:53:47",
+    "symbol": "WIFUSDT",
+    "message": "พบข้อผิดพลาด",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:47",
+    "date": "2024-11-02",
+    "time": "20:53:47",
+    "symbol": "WIFUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 142, in create_order\n    order = await exchange.create_order(**order_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OrderImmediatelyFillable: binance {\"code\":-2021,\"msg\":\"Order would immediately trigger.\"}\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 175, in create_order\n    order = await exchange.create_order(**market_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OperationRejected: binance {\"code\":-4164,\"msg\":\"Order's notional must be no smaller than 5 (unless you choose reduce only).\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:47",
+    "date": "2024-11-02",
+    "time": "20:53:47",
+    "symbol": "WIFUSDT",
+    "message": "ไม่สามารถสร้างคำสั่ง tp2 ได้",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:50",
+    "date": "2024-11-02",
+    "time": "20:53:50",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 1.9, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1355}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:52",
+    "date": "2024-11-02",
+    "time": "20:53:52",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:52",
+    "date": "2024-11-02",
+    "time": "20:53:52",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.13550000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:55",
+    "date": "2024-11-02",
+    "time": "20:53:55",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 1.9, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1328}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:56",
+    "date": "2024-11-02",
+    "time": "20:53:56",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:56",
+    "date": "2024-11-02",
+    "time": "20:53:56",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.13280000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:28",
+    "date": "2024-11-02",
+    "time": "20:54:28",
+    "symbol": "WIFUSDT",
+    "message": "กำไรถึงระดับ 1 (2.22 ATR, 0.23%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:28",
+    "date": "2024-11-02",
+    "time": "20:54:28",
+    "symbol": "WIFUSDT",
+    "message": "กำลังปรับ stoploss ไปที่จุดเข้า 2.14401438",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:33",
+    "date": "2024-11-02",
+    "time": "20:54:33",
+    "symbol": "WIFUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 2.14401438",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:33",
+    "date": "2024-11-02",
+    "time": "20:54:33",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ stoploss เรียบร้อย",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:34",
+    "date": "2024-11-02",
+    "time": "20:54:34",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:55:17",
+    "date": "2024-11-02",
+    "time": "20:55:17",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:07",
+    "date": "2024-11-02",
+    "time": "20:57:07",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:50",
+    "date": "2024-11-02",
+    "time": "20:57:50",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:53",
+    "date": "2024-11-02",
+    "time": "20:57:53",
+    "symbol": "WIFUSDT",
+    "message": "บันทึกการเทรด: SELL WIFUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:53",
+    "date": "2024-11-02",
+    "time": "20:57:53",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.14 | Exit: 2.14",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:53",
+    "date": "2024-11-02",
+    "time": "20:57:53",
+    "symbol": "WIFUSDT",
+    "message": "จำนวน: 9.30000000 (19.94 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:53",
+    "date": "2024-11-02",
+    "time": "20:57:53",
+    "symbol": "WIFUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:53",
+    "date": "2024-11-02",
+    "time": "20:57:53",
+    "symbol": "WIFUSDT",
+    "message": "กำไร/ขาดทุน: 0.00 USDT (0.00%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:53",
+    "date": "2024-11-02",
+    "time": "20:57:53",
+    "symbol": "WIFUSDT",
+    "message": "กำลังตรวจสอบเงื่อนไขการเข้า position ใหม่...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:54",
+    "date": "2024-11-02",
+    "time": "20:57:54",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.51%, ratio: 0.9822)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:54",
+    "date": "2024-11-02",
+    "time": "20:57:54",
+    "symbol": "WIFUSDT",
+    "message": "ราคาต่างจากจุด trigger 0.12% - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:55",
+    "date": "2024-11-02",
+    "time": "20:57:55",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: market, Amount: 9.0, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:57",
+    "date": "2024-11-02",
+    "time": "20:57:57",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 2.14",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:01",
+    "date": "2024-11-02",
+    "time": "20:58:01",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 9.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1327}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:02",
+    "date": "2024-11-02",
+    "time": "20:58:02",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:02",
+    "date": "2024-11-02",
+    "time": "20:58:02",
+    "symbol": "WIFUSDT",
+    "message": "เข้า BUY ใหม่ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:02",
+    "date": "2024-11-02",
+    "time": "20:58:02",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1433, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:02",
+    "date": "2024-11-02",
+    "time": "20:58:02",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.14330000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:02",
+    "date": "2024-11-02",
+    "time": "20:58:02",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:02",
+    "date": "2024-11-02",
+    "time": "20:58:02",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.14887411 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:02",
+    "date": "2024-11-02",
+    "time": "20:58:02",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.15155535 (0.39%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:02",
+    "date": "2024-11-02",
+    "time": "20:58:02",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.15423749 (0.51%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:05",
+    "date": "2024-11-02",
+    "time": "20:58:05",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 1.8, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1488}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:06",
+    "date": "2024-11-02",
+    "time": "20:58:06",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:06",
+    "date": "2024-11-02",
+    "time": "20:58:06",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.14880000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:09",
+    "date": "2024-11-02",
+    "time": "20:58:09",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 2.2, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1515}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:10",
+    "date": "2024-11-02",
+    "time": "20:58:10",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:10",
+    "date": "2024-11-02",
+    "time": "20:58:10",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.15150000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:13",
+    "date": "2024-11-02",
+    "time": "20:58:13",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 2.2, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1542}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:14",
+    "date": "2024-11-02",
+    "time": "20:58:14",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:15",
+    "date": "2024-11-02",
+    "time": "20:58:15",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.15420000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:17",
+    "date": "2024-11-02",
+    "time": "21:24:17",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.25%, ratio: 2.0241)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:20",
+    "date": "2024-11-02",
+    "time": "21:24:20",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 18.6, Parameters: {'type': 'stop_market', 'stopPrice': 2.1581}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:22",
+    "date": "2024-11-02",
+    "time": "21:24:22",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:27",
+    "date": "2024-11-02",
+    "time": "21:24:27",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 2.7, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1527}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:29",
+    "date": "2024-11-02",
+    "time": "21:24:29",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:29",
+    "date": "2024-11-02",
+    "time": "21:24:29",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 2.15811579",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:19",
+    "date": "2024-11-02",
+    "time": "21:25:19",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.15%, ratio: 3.2334)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:21",
+    "date": "2024-11-02",
+    "time": "21:25:21",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 29.6, Parameters: {'type': 'stop_market', 'stopPrice': 2.1541}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:24",
+    "date": "2024-11-02",
+    "time": "21:25:24",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:29",
+    "date": "2024-11-02",
+    "time": "21:25:29",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 2.7, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1575}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:31",
+    "date": "2024-11-02",
+    "time": "21:25:31",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:31",
+    "date": "2024-11-02",
+    "time": "21:25:31",
+    "symbol": "WIFUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 2.15418456",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:23",
+    "date": "2024-11-02",
+    "time": "21:26:23",
+    "symbol": "WIFUSDT",
+    "message": "ยกเลิก Entry Orders เนื่องจากราคาสูงกว่า stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:28",
+    "date": "2024-11-02",
+    "time": "21:26:28",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.20%, ratio: 2.4453)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:28",
+    "date": "2024-11-02",
+    "time": "21:26:28",
+    "symbol": "WIFUSDT",
+    "message": "ราคาผ่านจุด trigger แล้ว - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:30",
+    "date": "2024-11-02",
+    "time": "21:26:30",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: market, Amount: 22.3, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:33",
+    "date": "2024-11-02",
+    "time": "21:26:33",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 2.16",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:38",
+    "date": "2024-11-02",
+    "time": "21:26:38",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: stop_market, Amount: 25.1, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.155}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:40",
+    "date": "2024-11-02",
+    "time": "21:26:40",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:40",
+    "date": "2024-11-02",
+    "time": "21:26:40",
+    "symbol": "WIFUSDT",
+    "message": "เข้า BUY ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:40",
+    "date": "2024-11-02",
+    "time": "21:26:40",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1586, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:40",
+    "date": "2024-11-02",
+    "time": "21:26:40",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.15860000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:40",
+    "date": "2024-11-02",
+    "time": "21:26:40",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:40",
+    "date": "2024-11-02",
+    "time": "21:26:40",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.16418176 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:40",
+    "date": "2024-11-02",
+    "time": "21:26:40",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.16686606 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:40",
+    "date": "2024-11-02",
+    "time": "21:26:40",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.16955126 (0.51%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:46",
+    "date": "2024-11-02",
+    "time": "21:26:46",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 5.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1641}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:48",
+    "date": "2024-11-02",
+    "time": "21:26:48",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:48",
+    "date": "2024-11-02",
+    "time": "21:26:48",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.16410000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:55",
+    "date": "2024-11-02",
+    "time": "21:26:55",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 6.2, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1668}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:57",
+    "date": "2024-11-02",
+    "time": "21:26:57",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:57",
+    "date": "2024-11-02",
+    "time": "21:26:57",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.16680000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:27:02",
+    "date": "2024-11-02",
+    "time": "21:27:02",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: take_profit_market, Amount: 6.2, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1695}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:27:04",
+    "date": "2024-11-02",
+    "time": "21:27:04",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:27:04",
+    "date": "2024-11-02",
+    "time": "21:27:04",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.16950000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:27:34",
+    "date": "2024-11-02",
+    "time": "21:27:34",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:02",
+    "date": "2024-11-02",
+    "time": "21:28:02",
+    "symbol": "WIFUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:02",
+    "date": "2024-11-02",
+    "time": "21:28:02",
+    "symbol": "WIFUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:29",
+    "date": "2024-11-02",
+    "time": "21:28:29",
+    "symbol": "WIFUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:37",
+    "date": "2024-11-02",
+    "time": "21:28:37",
+    "symbol": "WIFUSDT",
+    "message": "บันทึกการเทรด: BUY WIFUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:37",
+    "date": "2024-11-02",
+    "time": "21:28:37",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.16 | Exit: 2.16",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:38",
+    "date": "2024-11-02",
+    "time": "21:28:38",
+    "symbol": "WIFUSDT",
+    "message": "จำนวน: 9.20000000 (19.86 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:38",
+    "date": "2024-11-02",
+    "time": "21:28:38",
+    "symbol": "WIFUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:38",
+    "date": "2024-11-02",
+    "time": "21:28:38",
+    "symbol": "WIFUSDT",
+    "message": "กำไร/ขาดทุน: -0.03 USDT (-0.13%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:38",
+    "date": "2024-11-02",
+    "time": "21:28:38",
+    "symbol": "WIFUSDT",
+    "message": "กำลังตรวจสอบเงื่อนไขการเข้า position ใหม่...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:40",
+    "date": "2024-11-02",
+    "time": "21:28:40",
+    "symbol": "WIFUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.23%, ratio: 2.1489)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:40",
+    "date": "2024-11-02",
+    "time": "21:28:40",
+    "symbol": "WIFUSDT",
+    "message": "ราคาต่างจากจุด trigger 0.01% - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:42",
+    "date": "2024-11-02",
+    "time": "21:28:42",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: sell, Type: market, Amount: 19.6, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:45",
+    "date": "2024-11-02",
+    "time": "21:28:45",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 2.16",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:50",
+    "date": "2024-11-02",
+    "time": "21:28:50",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: stop_market, Amount: 19.6, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 2.1608}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:52",
+    "date": "2024-11-02",
+    "time": "21:28:52",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:52",
+    "date": "2024-11-02",
+    "time": "21:28:52",
+    "symbol": "WIFUSDT",
+    "message": "เข้า SELL ใหม่ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:52",
+    "date": "2024-11-02",
+    "time": "21:28:52",
+    "symbol": "WIFUSDT",
+    "message": "คำนวณ TP จาก: Entry: 2.1567, ATR: 0.00225011 (0.10%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:52",
+    "date": "2024-11-02",
+    "time": "21:28:52",
+    "symbol": "WIFUSDT",
+    "message": "Entry: 2.15670000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:52",
+    "date": "2024-11-02",
+    "time": "21:28:52",
+    "symbol": "WIFUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:52",
+    "date": "2024-11-02",
+    "time": "21:28:52",
+    "symbol": "WIFUSDT",
+    "message": "tp2: 2.15112369 (0.26%, 2.5 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:52",
+    "date": "2024-11-02",
+    "time": "21:28:52",
+    "symbol": "WIFUSDT",
+    "message": "tp3: 2.14844472 (0.38%, 3.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:52",
+    "date": "2024-11-02",
+    "time": "21:28:52",
+    "symbol": "WIFUSDT",
+    "message": "tp4: 2.14576665 (0.51%, 4.9 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:57",
+    "date": "2024-11-02",
+    "time": "21:28:57",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 3.9, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1511}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:59",
+    "date": "2024-11-02",
+    "time": "21:28:59",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:29:00",
+    "date": "2024-11-02",
+    "time": "21:29:00",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 2.15110000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:29:05",
+    "date": "2024-11-02",
+    "time": "21:29:05",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 4.9, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1484}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:29:08",
+    "date": "2024-11-02",
+    "time": "21:29:08",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:29:08",
+    "date": "2024-11-02",
+    "time": "21:29:08",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 2.14840000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:29:12",
+    "date": "2024-11-02",
+    "time": "21:29:12",
+    "symbol": "WIFUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: WIFUSDT, Side: buy, Type: take_profit_market, Amount: 4.9, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 2.1457}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:29:15",
+    "date": "2024-11-02",
+    "time": "21:29:15",
+    "symbol": "WIFUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:29:15",
+    "date": "2024-11-02",
+    "time": "21:29:15",
+    "symbol": "WIFUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 2.14570000",
+    "color": "cyan"
+  }
+]

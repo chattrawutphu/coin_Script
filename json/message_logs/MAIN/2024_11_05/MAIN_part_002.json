@@ -1,0 +1,66 @@
+[
+  {
+    "timestamp": "2024-11-05T17:33:40.034584",
+    "time": "17:33:40",
+    "date": "2024-11-05",
+    "symbol": "MAIN",
+    "message": "พบข้อผิดพลาด",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-05T17:33:40.034584",
+    "time": "17:33:40",
+    "date": "2024-11-05",
+    "symbol": "MAIN",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_available_balance.py\", line 11, in get_future_available_balance\n    balance = await exchange.fetch_balance()\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3219, in fetch_balance\n    response = await self.fapiPrivateV2GetAccount(self.extend(request, query))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.AuthenticationError: binance {\"code\":-2015,\"msg\":\"Invalid API-key, IP, or permissions for action, request ip: 115.87.198.16\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-05T17:33:51.185445",
+    "time": "17:33:51",
+    "date": "2024-11-05",
+    "symbol": "MAIN",
+    "message": "พบข้อผิดพลาด",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-05T17:33:51.185445",
+    "time": "17:33:51",
+    "date": "2024-11-05",
+    "symbol": "MAIN",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_available_balance.py\", line 11, in get_future_available_balance\n    balance = await exchange.fetch_balance()\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3219, in fetch_balance\n    response = await self.fapiPrivateV2GetAccount(self.extend(request, query))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.AuthenticationError: binance {\"code\":-2015,\"msg\":\"Invalid API-key, IP, or permissions for action, request ip: 115.87.198.16\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-05T17:34:02.596077",
+    "time": "17:34:02",
+    "date": "2024-11-05",
+    "symbol": "MAIN",
+    "message": "พบข้อผิดพลาด",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-05T17:34:02.603586",
+    "time": "17:34:02",
+    "date": "2024-11-05",
+    "symbol": "MAIN",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_available_balance.py\", line 11, in get_future_available_balance\n    balance = await exchange.fetch_balance()\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3219, in fetch_balance\n    response = await self.fapiPrivateV2GetAccount(self.extend(request, query))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.AuthenticationError: binance {\"code\":-2015,\"msg\":\"Invalid API-key, IP, or permissions for action, request ip: 115.87.198.16\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-05T17:34:13.989370",
+    "time": "17:34:13",
+    "date": "2024-11-05",
+    "symbol": "MAIN",
+    "message": "พบข้อผิดพลาด",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-05T17:34:14.005077",
+    "time": "17:34:14",
+    "date": "2024-11-05",
+    "symbol": "MAIN",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\other\\get_future_available_balance.py\", line 11, in get_future_available_balance\n    balance = await exchange.fetch_balance()\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 3219, in fetch_balance\n    response = await self.fapiPrivateV2GetAccount(self.extend(request, query))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.AuthenticationError: binance {\"code\":-2015,\"msg\":\"Invalid API-key, IP, or permissions for action, request ip: 115.87.198.16\"}\n",
+    "color": "red"
+  }
+]

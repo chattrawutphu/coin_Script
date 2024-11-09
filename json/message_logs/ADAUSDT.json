@@ -1,0 +1,4786 @@
+[
+  {
+    "timestamp": "2024-11-02 18:38:05",
+    "date": "2024-11-02",
+    "time": "18:38:05",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.4% (SL ปัจจุบัน: 0.13%, ratio: 3.0457)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:06",
+    "date": "2024-11-02",
+    "time": "18:38:06",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 167.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.3592}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:08",
+    "date": "2024-11-02",
+    "time": "18:38:08",
+    "symbol": "ADAUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:08",
+    "date": "2024-11-02",
+    "time": "18:38:08",
+    "symbol": "ADAUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:08",
+    "date": "2024-11-02",
+    "time": "18:38:08",
+    "symbol": "ADAUSDT",
+    "message": "Parameters: {'symbol': 'ADAUSDT', 'side': 'buy', 'type': 'market', 'amount': 167.0, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:08",
+    "date": "2024-11-02",
+    "time": "18:38:08",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 0.36",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:11",
+    "date": "2024-11-02",
+    "time": "18:38:11",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 167.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3587}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:12",
+    "date": "2024-11-02",
+    "time": "18:38:12",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:12",
+    "date": "2024-11-02",
+    "time": "18:38:12",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 0.35923592",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:27",
+    "date": "2024-11-02",
+    "time": "18:38:27",
+    "symbol": "ADAUSDT",
+    "message": "Entry order ทำงานที่ราคา 0.35930000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:27",
+    "date": "2024-11-02",
+    "time": "18:38:27",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3593, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:27",
+    "date": "2024-11-02",
+    "time": "18:38:27",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35930000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:27",
+    "date": "2024-11-02",
+    "time": "18:38:27",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit ฐาน (ก่อนปรับ):",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:27",
+    "date": "2024-11-02",
+    "time": "18:38:27",
+    "symbol": "ADAUSDT",
+    "message": "tp2 base: 0.35981104 (2.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:27",
+    "date": "2024-11-02",
+    "time": "18:38:27",
+    "symbol": "ADAUSDT",
+    "message": "tp3 base: 0.36006655 (3.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:27",
+    "date": "2024-11-02",
+    "time": "18:38:27",
+    "symbol": "ADAUSDT",
+    "message": "tp4 base: 0.36032207 (4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:27",
+    "date": "2024-11-02",
+    "time": "18:38:27",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:27",
+    "date": "2024-11-02",
+    "time": "18:38:27",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35999094 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:27",
+    "date": "2024-11-02",
+    "time": "18:38:27",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.36031860 (0.28%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:27",
+    "date": "2024-11-02",
+    "time": "18:38:27",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.36064636 (0.37%, 5.3 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:30",
+    "date": "2024-11-02",
+    "time": "18:38:30",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 33.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3599}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:31",
+    "date": "2024-11-02",
+    "time": "18:38:31",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:31",
+    "date": "2024-11-02",
+    "time": "18:38:31",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35990000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:34",
+    "date": "2024-11-02",
+    "time": "18:38:34",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 41.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3603}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:35",
+    "date": "2024-11-02",
+    "time": "18:38:35",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:35",
+    "date": "2024-11-02",
+    "time": "18:38:35",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.36030000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:38",
+    "date": "2024-11-02",
+    "time": "18:38:38",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 41.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3606}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:39",
+    "date": "2024-11-02",
+    "time": "18:38:39",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:38:39",
+    "date": "2024-11-02",
+    "time": "18:38:39",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.36060000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:39:12",
+    "date": "2024-11-02",
+    "time": "18:39:12",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:39:12",
+    "date": "2024-11-02",
+    "time": "18:39:12",
+    "symbol": "ADAUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:08",
+    "date": "2024-11-02",
+    "time": "18:40:08",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:08",
+    "date": "2024-11-02",
+    "time": "18:40:08",
+    "symbol": "ADAUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:39",
+    "date": "2024-11-02",
+    "time": "18:40:39",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:43",
+    "date": "2024-11-02",
+    "time": "18:40:43",
+    "symbol": "ADAUSDT",
+    "message": "เกิดข้อผิดพลาดในการบันทึกการเทรด: float() argument must be a string or a real number, not 'NoneType'",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:43",
+    "date": "2024-11-02",
+    "time": "18:40:43",
+    "symbol": "ADAUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 916, in record_trade\n    actual_entry_price = float(entry_price)\n                         ^^^^^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:43",
+    "date": "2024-11-02",
+    "time": "18:40:43",
+    "symbol": "ADAUSDT",
+    "message": "กำลังตรวจสอบเงื่อนไขการเข้า position ใหม่...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:45",
+    "date": "2024-11-02",
+    "time": "18:40:45",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.4% (SL ปัจจุบัน: 0.26%, ratio: 1.5317)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:45",
+    "date": "2024-11-02",
+    "time": "18:40:45",
+    "symbol": "ADAUSDT",
+    "message": "ราคาต่างจากจุด trigger 0.13% - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:46",
+    "date": "2024-11-02",
+    "time": "18:40:46",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: market, Amount: 84.0, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:48",
+    "date": "2024-11-02",
+    "time": "18:40:48",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 0.36",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:52",
+    "date": "2024-11-02",
+    "time": "18:40:52",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 84.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3593}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "เข้า SELL ใหม่ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3584, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35840000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit ฐาน (ก่อนปรับ):",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "tp2 base: 0.35788896 (2.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "tp3 base: 0.35763345 (3.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "tp4 base: 0.35737793 (4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35771002 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35738310 (0.28%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:53",
+    "date": "2024-11-02",
+    "time": "18:40:53",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35705629 (0.37%, 5.3 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:57",
+    "date": "2024-11-02",
+    "time": "18:40:57",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 16.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3577}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:59",
+    "date": "2024-11-02",
+    "time": "18:40:59",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:40:59",
+    "date": "2024-11-02",
+    "time": "18:40:59",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35770000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:03",
+    "date": "2024-11-02",
+    "time": "18:41:03",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 21.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3573}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:04",
+    "date": "2024-11-02",
+    "time": "18:41:04",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:04",
+    "date": "2024-11-02",
+    "time": "18:41:04",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35730000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:08",
+    "date": "2024-11-02",
+    "time": "18:41:08",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 21.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.357}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:10",
+    "date": "2024-11-02",
+    "time": "18:41:10",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:10",
+    "date": "2024-11-02",
+    "time": "18:41:10",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35700000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:41:11",
+    "date": "2024-11-02",
+    "time": "18:41:11",
+    "symbol": "ADAUSDT",
+    "message": "ไม่สามารถดึงข้อมูลด้านของ position ข้ามการปรับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:42:17",
+    "date": "2024-11-02",
+    "time": "18:42:17",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:43:16",
+    "date": "2024-11-02",
+    "time": "18:43:16",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35903589999999996",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:43:16",
+    "date": "2024-11-02",
+    "time": "18:43:16",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.36",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:44:17",
+    "date": "2024-11-02",
+    "time": "18:44:17",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35873587",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:44:17",
+    "date": "2024-11-02",
+    "time": "18:44:17",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.36",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:45:45",
+    "date": "2024-11-02",
+    "time": "18:45:45",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (1.17 ATR, 0.08%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:45:45",
+    "date": "2024-11-02",
+    "time": "18:45:45",
+    "symbol": "ADAUSDT",
+    "message": "กำลังปรับ stoploss ไปที่จุดเข้า 0.35843584",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:45:49",
+    "date": "2024-11-02",
+    "time": "18:45:49",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35843584",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:45:50",
+    "date": "2024-11-02",
+    "time": "18:45:50",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss เรียบร้อย",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:48:21",
+    "date": "2024-11-02",
+    "time": "18:48:21",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:49",
+    "date": "2024-11-02",
+    "time": "18:56:49",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:52",
+    "date": "2024-11-02",
+    "time": "18:56:52",
+    "symbol": "ADAUSDT",
+    "message": "เกิดข้อผิดพลาดในการบันทึกการเทรด: float() argument must be a string or a real number, not 'NoneType'",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:52",
+    "date": "2024-11-02",
+    "time": "18:56:52",
+    "symbol": "ADAUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 916, in record_trade\n    actual_entry_price = float(position_info['entry_price'])\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:56",
+    "date": "2024-11-02",
+    "time": "18:56:56",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.2% (SL ปัจจุบัน: 0.19%, ratio: 1.0663)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:57",
+    "date": "2024-11-02",
+    "time": "18:56:57",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 58.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.358}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:56:58",
+    "date": "2024-11-02",
+    "time": "18:56:58",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:01",
+    "date": "2024-11-02",
+    "time": "18:57:01",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 58.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3573}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:02",
+    "date": "2024-11-02",
+    "time": "18:57:02",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:02",
+    "date": "2024-11-02",
+    "time": "18:57:02",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 0.35803580",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:23",
+    "date": "2024-11-02",
+    "time": "18:57:23",
+    "symbol": "ADAUSDT",
+    "message": "Entry order ทำงานที่ราคา 0.35800000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:23",
+    "date": "2024-11-02",
+    "time": "18:57:23",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.358, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:23",
+    "date": "2024-11-02",
+    "time": "18:57:23",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35800000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:23",
+    "date": "2024-11-02",
+    "time": "18:57:23",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit ฐาน (ก่อนปรับ):",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:23",
+    "date": "2024-11-02",
+    "time": "18:57:23",
+    "symbol": "ADAUSDT",
+    "message": "tp2 base: 0.35851104 (2.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:23",
+    "date": "2024-11-02",
+    "time": "18:57:23",
+    "symbol": "ADAUSDT",
+    "message": "tp3 base: 0.35876655 (3.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:23",
+    "date": "2024-11-02",
+    "time": "18:57:23",
+    "symbol": "ADAUSDT",
+    "message": "tp4 base: 0.35902207 (4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:23",
+    "date": "2024-11-02",
+    "time": "18:57:23",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:23",
+    "date": "2024-11-02",
+    "time": "18:57:23",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35869029 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:23",
+    "date": "2024-11-02",
+    "time": "18:57:23",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35901769 (0.28%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:23",
+    "date": "2024-11-02",
+    "time": "18:57:23",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35934519 (0.38%, 5.3 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:26",
+    "date": "2024-11-02",
+    "time": "18:57:26",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 11.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3586}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:27",
+    "date": "2024-11-02",
+    "time": "18:57:27",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:27",
+    "date": "2024-11-02",
+    "time": "18:57:27",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35860000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:30",
+    "date": "2024-11-02",
+    "time": "18:57:30",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 14.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.359}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:31",
+    "date": "2024-11-02",
+    "time": "18:57:31",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:31",
+    "date": "2024-11-02",
+    "time": "18:57:31",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35900000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:34",
+    "date": "2024-11-02",
+    "time": "18:57:34",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 14.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3593}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:35",
+    "date": "2024-11-02",
+    "time": "18:57:35",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:35",
+    "date": "2024-11-02",
+    "time": "18:57:35",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35930000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:57:35",
+    "date": "2024-11-02",
+    "time": "18:57:35",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (0/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:19",
+    "date": "2024-11-02",
+    "time": "18:58:19",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:54",
+    "date": "2024-11-02",
+    "time": "18:58:54",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (1.17 ATR, 0.08%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:54",
+    "date": "2024-11-02",
+    "time": "18:58:54",
+    "symbol": "ADAUSDT",
+    "message": "กำลังปรับ stoploss ไปที่จุดเข้า 0.35796420",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:58",
+    "date": "2024-11-02",
+    "time": "18:58:58",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.3579642",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 18:58:58",
+    "date": "2024-11-02",
+    "time": "18:58:58",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss เรียบร้อย",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 18:59:25",
+    "date": "2024-11-02",
+    "time": "18:59:25",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:03:20",
+    "date": "2024-11-02",
+    "time": "19:03:20",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35806419",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:03:21",
+    "date": "2024-11-02",
+    "time": "19:03:21",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.36",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:03:54",
+    "date": "2024-11-02",
+    "time": "19:03:54",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:03:57",
+    "date": "2024-11-02",
+    "time": "19:03:57",
+    "symbol": "ADAUSDT",
+    "message": "เกิดข้อผิดพลาดในการบันทึกการเทรด: float() argument must be a string or a real number, not 'NoneType'",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:03:57",
+    "date": "2024-11-02",
+    "time": "19:03:57",
+    "symbol": "ADAUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 927, in record_trade\n    actual_entry_price = float(entry_price)\n                         ^^^^^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:05:21",
+    "date": "2024-11-02",
+    "time": "19:05:21",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.2% (SL ปัจจุบัน: 0.24%, ratio: 0.8237)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:05:22",
+    "date": "2024-11-02",
+    "time": "19:05:22",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 45.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.359}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:05:23",
+    "date": "2024-11-02",
+    "time": "19:05:23",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:05:26",
+    "date": "2024-11-02",
+    "time": "19:05:26",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 45.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3581}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:05:27",
+    "date": "2024-11-02",
+    "time": "19:05:27",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:05:27",
+    "date": "2024-11-02",
+    "time": "19:05:27",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 0.35903590",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:06:24",
+    "date": "2024-11-02",
+    "time": "19:06:24",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.2% (SL ปัจจุบัน: 0.13%, ratio: 1.5201)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:06:25",
+    "date": "2024-11-02",
+    "time": "19:06:25",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 83.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.3585}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:06:27",
+    "date": "2024-11-02",
+    "time": "19:06:27",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:06:29",
+    "date": "2024-11-02",
+    "time": "19:06:29",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 83.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.359}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:06:30",
+    "date": "2024-11-02",
+    "time": "19:06:30",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:06:30",
+    "date": "2024-11-02",
+    "time": "19:06:30",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 0.35856414",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:50",
+    "date": "2024-11-02",
+    "time": "19:07:50",
+    "symbol": "ADAUSDT",
+    "message": "Entry order ทำงานที่ราคา 0.35850000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:50",
+    "date": "2024-11-02",
+    "time": "19:07:50",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3585, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:50",
+    "date": "2024-11-02",
+    "time": "19:07:50",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35850000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:50",
+    "date": "2024-11-02",
+    "time": "19:07:50",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit ฐาน (ก่อนปรับ):",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:50",
+    "date": "2024-11-02",
+    "time": "19:07:50",
+    "symbol": "ADAUSDT",
+    "message": "tp2 base: 0.35798896 (2.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:50",
+    "date": "2024-11-02",
+    "time": "19:07:50",
+    "symbol": "ADAUSDT",
+    "message": "tp3 base: 0.35773345 (3.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:50",
+    "date": "2024-11-02",
+    "time": "19:07:50",
+    "symbol": "ADAUSDT",
+    "message": "tp4 base: 0.35747793 (4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:50",
+    "date": "2024-11-02",
+    "time": "19:07:50",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:50",
+    "date": "2024-11-02",
+    "time": "19:07:50",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35780997 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:50",
+    "date": "2024-11-02",
+    "time": "19:07:50",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35748303 (0.28%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:50",
+    "date": "2024-11-02",
+    "time": "19:07:50",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35715620 (0.37%, 5.3 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:53",
+    "date": "2024-11-02",
+    "time": "19:07:53",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 16.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3578}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:54",
+    "date": "2024-11-02",
+    "time": "19:07:54",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:54",
+    "date": "2024-11-02",
+    "time": "19:07:54",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35780000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:57",
+    "date": "2024-11-02",
+    "time": "19:07:57",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 20.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3574}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:58",
+    "date": "2024-11-02",
+    "time": "19:07:58",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:07:58",
+    "date": "2024-11-02",
+    "time": "19:07:58",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35740000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:01",
+    "date": "2024-11-02",
+    "time": "19:08:01",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 20.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3571}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:02",
+    "date": "2024-11-02",
+    "time": "19:08:02",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:02",
+    "date": "2024-11-02",
+    "time": "19:08:02",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35710000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:08:03",
+    "date": "2024-11-02",
+    "time": "19:08:03",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (0/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:09:19",
+    "date": "2024-11-02",
+    "time": "19:09:19",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:16",
+    "date": "2024-11-02",
+    "time": "19:30:16",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (12.13 ATR, 0.86%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:16",
+    "date": "2024-11-02",
+    "time": "19:30:16",
+    "symbol": "ADAUSDT",
+    "message": "กำลังปรับ stoploss ไปที่จุดเข้า 0.35853585",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:20",
+    "date": "2024-11-02",
+    "time": "19:30:20",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35853585",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:21",
+    "date": "2024-11-02",
+    "time": "19:30:21",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss เรียบร้อย",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:26",
+    "date": "2024-11-02",
+    "time": "19:30:26",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35613561000000005",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:30:26",
+    "date": "2024-11-02",
+    "time": "19:30:26",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.36",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:33:10",
+    "date": "2024-11-02",
+    "time": "19:33:10",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35563556",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:33:11",
+    "date": "2024-11-02",
+    "time": "19:33:11",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.36",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:34:12",
+    "date": "2024-11-02",
+    "time": "19:34:12",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35543554",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:34:12",
+    "date": "2024-11-02",
+    "time": "19:34:12",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.36",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:35:15",
+    "date": "2024-11-02",
+    "time": "19:35:15",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.3550355",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:35:15",
+    "date": "2024-11-02",
+    "time": "19:35:15",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.36",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:36:12",
+    "date": "2024-11-02",
+    "time": "19:36:12",
+    "symbol": "ADAUSDT",
+    "message": "ไม่สามารถตั้ง Stop Loss ได้เนื่องจากราคาใกล้เกินไป กำลังปรับราคา...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:36:12",
+    "date": "2024-11-02",
+    "time": "19:36:12",
+    "symbol": "ADAUSDT",
+    "message": "ลองตั้ง Stop Loss ใหม่ที่ราคา 0.36029249999999996",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:36:13",
+    "date": "2024-11-02",
+    "time": "19:36:13",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.35 เป็น 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:37:17",
+    "date": "2024-11-02",
+    "time": "19:37:17",
+    "symbol": "ADAUSDT",
+    "message": "ไม่สามารถตั้ง Stop Loss ได้เนื่องจากราคาใกล้เกินไป กำลังปรับราคา...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:37:17",
+    "date": "2024-11-02",
+    "time": "19:37:17",
+    "symbol": "ADAUSDT",
+    "message": "ลองตั้ง Stop Loss ใหม่ที่ราคา 0.36029249999999996",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:37:18",
+    "date": "2024-11-02",
+    "time": "19:37:18",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:37:18",
+    "date": "2024-11-02",
+    "time": "19:37:18",
+    "symbol": "ADAUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:38:24",
+    "date": "2024-11-02",
+    "time": "19:38:24",
+    "symbol": "ADAUSDT",
+    "message": "ไม่สามารถตั้ง Stop Loss ได้เนื่องจากราคาใกล้เกินไป กำลังปรับราคา...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:38:24",
+    "date": "2024-11-02",
+    "time": "19:38:24",
+    "symbol": "ADAUSDT",
+    "message": "ลองตั้ง Stop Loss ใหม่ที่ราคา 0.36029249999999996",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:38:25",
+    "date": "2024-11-02",
+    "time": "19:38:25",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:38:25",
+    "date": "2024-11-02",
+    "time": "19:38:25",
+    "symbol": "ADAUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:40:33",
+    "date": "2024-11-02",
+    "time": "19:40:33",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35523552",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:40:34",
+    "date": "2024-11-02",
+    "time": "19:40:34",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.36",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:42:10",
+    "date": "2024-11-02",
+    "time": "19:42:10",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35513551000000004",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:42:10",
+    "date": "2024-11-02",
+    "time": "19:42:10",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.36",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:42:17",
+    "date": "2024-11-02",
+    "time": "19:42:17",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.3552",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:42:18",
+    "date": "2024-11-02",
+    "time": "19:42:18",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ Stop Loss เป็น 0.35520000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:43:43",
+    "date": "2024-11-02",
+    "time": "19:43:43",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35493548999999996",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:43:43",
+    "date": "2024-11-02",
+    "time": "19:43:43",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:44:18",
+    "date": "2024-11-02",
+    "time": "19:44:18",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35453545",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:44:18",
+    "date": "2024-11-02",
+    "time": "19:44:18",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.35 เป็น 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:45:34",
+    "date": "2024-11-02",
+    "time": "19:45:34",
+    "symbol": "ADAUSDT",
+    "message": "ไม่สามารถตั้ง Stop Loss ได้เนื่องจากราคาใกล้เกินไป กำลังปรับราคา...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:45:34",
+    "date": "2024-11-02",
+    "time": "19:45:34",
+    "symbol": "ADAUSDT",
+    "message": "ลองตั้ง Stop Loss ใหม่ที่ราคา 0.36029249999999996",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:45:34",
+    "date": "2024-11-02",
+    "time": "19:45:34",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.35 เป็น 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:46:18",
+    "date": "2024-11-02",
+    "time": "19:46:18",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35343534",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 19:46:19",
+    "date": "2024-11-02",
+    "time": "19:46:19",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.36 เป็น 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:46:39",
+    "date": "2024-11-02",
+    "time": "19:46:39",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:46:42",
+    "date": "2024-11-02",
+    "time": "19:46:42",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: SELL ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:46:42",
+    "date": "2024-11-02",
+    "time": "19:46:42",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.36 | Exit: 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:46:42",
+    "date": "2024-11-02",
+    "time": "19:46:42",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 55.00000000 (19.72 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:46:42",
+    "date": "2024-11-02",
+    "time": "19:46:42",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:46:42",
+    "date": "2024-11-02",
+    "time": "19:46:42",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: 0.29 USDT (1.45%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:47:01",
+    "date": "2024-11-02",
+    "time": "19:47:01",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:47:06",
+    "date": "2024-11-02",
+    "time": "19:47:06",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: SELL ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:47:06",
+    "date": "2024-11-02",
+    "time": "19:47:06",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.36 | Exit: 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:47:06",
+    "date": "2024-11-02",
+    "time": "19:47:06",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 55.00000000 (19.72 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:47:06",
+    "date": "2024-11-02",
+    "time": "19:47:06",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:47:07",
+    "date": "2024-11-02",
+    "time": "19:47:07",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: 0.31 USDT (1.56%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:47:08",
+    "date": "2024-11-02",
+    "time": "19:47:08",
+    "symbol": "ADAUSDT",
+    "message": "ไม่สามารถดึงข้อมูลด้านของ position ข้ามการปรับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 19:57:11",
+    "date": "2024-11-02",
+    "time": "19:57:11",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 19:57:15",
+    "date": "2024-11-02",
+    "time": "19:57:15",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: SELL ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:57:15",
+    "date": "2024-11-02",
+    "time": "19:57:15",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.36 | Exit: 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:57:15",
+    "date": "2024-11-02",
+    "time": "19:57:15",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 55.00000000 (19.72 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:57:15",
+    "date": "2024-11-02",
+    "time": "19:57:15",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 19:57:15",
+    "date": "2024-11-02",
+    "time": "19:57:15",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: 0.31 USDT (1.56%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:10",
+    "date": "2024-11-02",
+    "time": "20:07:10",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.16%, ratio: 3.1069)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:12",
+    "date": "2024-11-02",
+    "time": "20:07:12",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 173.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.3547}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:13",
+    "date": "2024-11-02",
+    "time": "20:07:13",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:16",
+    "date": "2024-11-02",
+    "time": "20:07:16",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 173.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3541}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:17",
+    "date": "2024-11-02",
+    "time": "20:07:17",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:17",
+    "date": "2024-11-02",
+    "time": "20:07:17",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 0.35473547",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:33",
+    "date": "2024-11-02",
+    "time": "20:07:33",
+    "symbol": "ADAUSDT",
+    "message": "Entry order ทำงานที่ราคา 0.35460000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:33",
+    "date": "2024-11-02",
+    "time": "20:07:33",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3546, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:33",
+    "date": "2024-11-02",
+    "time": "20:07:33",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35460000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:33",
+    "date": "2024-11-02",
+    "time": "20:07:33",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:33",
+    "date": "2024-11-02",
+    "time": "20:07:33",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35528859 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:33",
+    "date": "2024-11-02",
+    "time": "20:07:33",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35561531 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:33",
+    "date": "2024-11-02",
+    "time": "20:07:33",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35594213 (0.38%, 5.3 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:36",
+    "date": "2024-11-02",
+    "time": "20:07:36",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 34.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3552}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:38",
+    "date": "2024-11-02",
+    "time": "20:07:38",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:38",
+    "date": "2024-11-02",
+    "time": "20:07:38",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35520000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:41",
+    "date": "2024-11-02",
+    "time": "20:07:41",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 43.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3556}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:42",
+    "date": "2024-11-02",
+    "time": "20:07:42",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:42",
+    "date": "2024-11-02",
+    "time": "20:07:42",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35560000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:46",
+    "date": "2024-11-02",
+    "time": "20:07:46",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 43.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3559}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:47",
+    "date": "2024-11-02",
+    "time": "20:07:47",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:07:47",
+    "date": "2024-11-02",
+    "time": "20:07:47",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35590000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:08:06",
+    "date": "2024-11-02",
+    "time": "20:08:06",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:09:19",
+    "date": "2024-11-02",
+    "time": "20:09:19",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:09:54",
+    "date": "2024-11-02",
+    "time": "20:09:54",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:09:59",
+    "date": "2024-11-02",
+    "time": "20:09:59",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: BUY ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:09:59",
+    "date": "2024-11-02",
+    "time": "20:09:59",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35 | Exit: 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:09:59",
+    "date": "2024-11-02",
+    "time": "20:09:59",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 56.00000000 (19.86 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:09:59",
+    "date": "2024-11-02",
+    "time": "20:09:59",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:09:59",
+    "date": "2024-11-02",
+    "time": "20:09:59",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: 0.00 USDT (0.00%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:10:25",
+    "date": "2024-11-02",
+    "time": "20:10:25",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.22%, ratio: 2.2965)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:10:26",
+    "date": "2024-11-02",
+    "time": "20:10:26",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 128.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.354}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:10:27",
+    "date": "2024-11-02",
+    "time": "20:10:27",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:10:30",
+    "date": "2024-11-02",
+    "time": "20:10:30",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 128.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3548}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:10:32",
+    "date": "2024-11-02",
+    "time": "20:10:32",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:10:32",
+    "date": "2024-11-02",
+    "time": "20:10:32",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 0.35406459",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:16",
+    "date": "2024-11-02",
+    "time": "20:20:16",
+    "symbol": "ADAUSDT",
+    "message": "Entry order ทำงานที่ราคา 0.35400000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:16",
+    "date": "2024-11-02",
+    "time": "20:20:16",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.354, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:16",
+    "date": "2024-11-02",
+    "time": "20:20:16",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35400000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:16",
+    "date": "2024-11-02",
+    "time": "20:20:16",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:16",
+    "date": "2024-11-02",
+    "time": "20:20:16",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35331222 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:16",
+    "date": "2024-11-02",
+    "time": "20:20:16",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35298618 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:16",
+    "date": "2024-11-02",
+    "time": "20:20:16",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35266025 (0.38%, 5.2 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:19",
+    "date": "2024-11-02",
+    "time": "20:20:19",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 25.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3533}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:21",
+    "date": "2024-11-02",
+    "time": "20:20:21",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:21",
+    "date": "2024-11-02",
+    "time": "20:20:21",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35330000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:23",
+    "date": "2024-11-02",
+    "time": "20:20:23",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 32.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3529}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:24",
+    "date": "2024-11-02",
+    "time": "20:20:24",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:25",
+    "date": "2024-11-02",
+    "time": "20:20:25",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35290000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:27",
+    "date": "2024-11-02",
+    "time": "20:20:27",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 32.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3526}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:28",
+    "date": "2024-11-02",
+    "time": "20:20:28",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:29",
+    "date": "2024-11-02",
+    "time": "20:20:29",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35260000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:29",
+    "date": "2024-11-02",
+    "time": "20:20:29",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (0/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:20:50",
+    "date": "2024-11-02",
+    "time": "20:20:50",
+    "symbol": "ADAUSDT",
+    "message": "ไม่มีข้อมูลที่จำเป็นสำหรับการจัดการกำไร",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:07",
+    "date": "2024-11-02",
+    "time": "20:21:07",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:21:45",
+    "date": "2024-11-02",
+    "time": "20:21:45",
+    "symbol": "ADAUSDT",
+    "message": "ไม่มีข้อมูลที่จำเป็นสำหรับการจัดการกำไร",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:22:05",
+    "date": "2024-11-02",
+    "time": "20:22:05",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:22:21",
+    "date": "2024-11-02",
+    "time": "20:22:21",
+    "symbol": "ADAUSDT",
+    "message": "ไม่มีข้อมูลที่จำเป็นสำหรับการจัดการกำไร",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:23:17",
+    "date": "2024-11-02",
+    "time": "20:23:17",
+    "symbol": "ADAUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:23:34",
+    "date": "2024-11-02",
+    "time": "20:23:34",
+    "symbol": "ADAUSDT",
+    "message": "ไม่มีข้อมูลที่จำเป็นสำหรับการจัดการกำไร",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:24:13",
+    "date": "2024-11-02",
+    "time": "20:24:13",
+    "symbol": "ADAUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:24:16",
+    "date": "2024-11-02",
+    "time": "20:24:16",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.3562",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:24:17",
+    "date": "2024-11-02",
+    "time": "20:24:17",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ Stop Loss เป็น 0.35620000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:12",
+    "date": "2024-11-02",
+    "time": "20:25:12",
+    "symbol": "ADAUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:48",
+    "date": "2024-11-02",
+    "time": "20:25:48",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:54",
+    "date": "2024-11-02",
+    "time": "20:25:54",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: SELL ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:54",
+    "date": "2024-11-02",
+    "time": "20:25:54",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35 | Exit: 0.36",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:54",
+    "date": "2024-11-02",
+    "time": "20:25:54",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 56.00000000 (19.82 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:54",
+    "date": "2024-11-02",
+    "time": "20:25:54",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:54",
+    "date": "2024-11-02",
+    "time": "20:25:54",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: -0.12 USDT (-0.62%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:54",
+    "date": "2024-11-02",
+    "time": "20:25:54",
+    "symbol": "ADAUSDT",
+    "message": "กำลังตรวจสอบเงื่อนไขการเข้า position ใหม่...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:55",
+    "date": "2024-11-02",
+    "time": "20:25:55",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.18%, ratio: 2.8023)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:55",
+    "date": "2024-11-02",
+    "time": "20:25:55",
+    "symbol": "ADAUSDT",
+    "message": "ราคาต่างจากจุด trigger 0.07% - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:56",
+    "date": "2024-11-02",
+    "time": "20:25:56",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: market, Amount: 156.0, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:25:58",
+    "date": "2024-11-02",
+    "time": "20:25:58",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 0.36",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:01",
+    "date": "2024-11-02",
+    "time": "20:26:01",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 156.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3555}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:02",
+    "date": "2024-11-02",
+    "time": "20:26:02",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:02",
+    "date": "2024-11-02",
+    "time": "20:26:02",
+    "symbol": "ADAUSDT",
+    "message": "เข้า BUY ใหม่ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:02",
+    "date": "2024-11-02",
+    "time": "20:26:02",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3563, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:02",
+    "date": "2024-11-02",
+    "time": "20:26:02",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35630000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:02",
+    "date": "2024-11-02",
+    "time": "20:26:02",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:02",
+    "date": "2024-11-02",
+    "time": "20:26:02",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35698944 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:02",
+    "date": "2024-11-02",
+    "time": "20:26:02",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35731650 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:02",
+    "date": "2024-11-02",
+    "time": "20:26:02",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35764366 (0.38%, 5.3 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:05",
+    "date": "2024-11-02",
+    "time": "20:26:05",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 31.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3569}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:07",
+    "date": "2024-11-02",
+    "time": "20:26:07",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:07",
+    "date": "2024-11-02",
+    "time": "20:26:07",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35690000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:10",
+    "date": "2024-11-02",
+    "time": "20:26:10",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 39.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3573}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:12",
+    "date": "2024-11-02",
+    "time": "20:26:12",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:12",
+    "date": "2024-11-02",
+    "time": "20:26:12",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35730000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:14",
+    "date": "2024-11-02",
+    "time": "20:26:14",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 39.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3576}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:16",
+    "date": "2024-11-02",
+    "time": "20:26:16",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:26:16",
+    "date": "2024-11-02",
+    "time": "20:26:16",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35760000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:24",
+    "date": "2024-11-02",
+    "time": "20:30:24",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.27%, ratio: 1.8305)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:25",
+    "date": "2024-11-02",
+    "time": "20:30:25",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 102.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.3555}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:26",
+    "date": "2024-11-02",
+    "time": "20:30:26",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:31",
+    "date": "2024-11-02",
+    "time": "20:30:31",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 156.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3565}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:32",
+    "date": "2024-11-02",
+    "time": "20:30:32",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:32",
+    "date": "2024-11-02",
+    "time": "20:30:32",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 0.35556444",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:49",
+    "date": "2024-11-02",
+    "time": "20:30:49",
+    "symbol": "ADAUSDT",
+    "message": "Entry order ทำงานที่ราคา 0.35550000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:49",
+    "date": "2024-11-02",
+    "time": "20:30:49",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3555, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:49",
+    "date": "2024-11-02",
+    "time": "20:30:49",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35550000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:49",
+    "date": "2024-11-02",
+    "time": "20:30:49",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:49",
+    "date": "2024-11-02",
+    "time": "20:30:49",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35481147 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:49",
+    "date": "2024-11-02",
+    "time": "20:30:49",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35448513 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:49",
+    "date": "2024-11-02",
+    "time": "20:30:49",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35415890 (0.38%, 5.2 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:52",
+    "date": "2024-11-02",
+    "time": "20:30:52",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 10.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3548}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:54",
+    "date": "2024-11-02",
+    "time": "20:30:54",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:54",
+    "date": "2024-11-02",
+    "time": "20:30:54",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35480000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:58",
+    "date": "2024-11-02",
+    "time": "20:30:58",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 13.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3544}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:59",
+    "date": "2024-11-02",
+    "time": "20:30:59",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:30:59",
+    "date": "2024-11-02",
+    "time": "20:30:59",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35440000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:02",
+    "date": "2024-11-02",
+    "time": "20:31:02",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 13.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3541}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:04",
+    "date": "2024-11-02",
+    "time": "20:31:04",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:04",
+    "date": "2024-11-02",
+    "time": "20:31:04",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35410000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:31:04",
+    "date": "2024-11-02",
+    "time": "20:31:04",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:32:08",
+    "date": "2024-11-02",
+    "time": "20:32:08",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:32:40",
+    "date": "2024-11-02",
+    "time": "20:32:40",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (1.17 ATR, 0.08%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:33:13",
+    "date": "2024-11-02",
+    "time": "20:33:13",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (1.56 ATR, 0.11%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:33:46",
+    "date": "2024-11-02",
+    "time": "20:33:46",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (2.35 ATR, 0.17%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:34:03",
+    "date": "2024-11-02",
+    "time": "20:34:03",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (3.13 ATR, 0.23%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:34:04",
+    "date": "2024-11-02",
+    "time": "20:34:04",
+    "symbol": "ADAUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:34:20",
+    "date": "2024-11-02",
+    "time": "20:34:20",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (3.13 ATR, 0.23%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:34:37",
+    "date": "2024-11-02",
+    "time": "20:34:37",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (3.52 ATR, 0.25%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:34:53",
+    "date": "2024-11-02",
+    "time": "20:34:53",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (3.91 ATR, 0.28%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:11",
+    "date": "2024-11-02",
+    "time": "20:35:11",
+    "symbol": "ADAUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:27",
+    "date": "2024-11-02",
+    "time": "20:35:27",
+    "symbol": "ADAUSDT",
+    "message": "สลับ position จาก buy เนื่องจาก:",
+    "color": "magenta"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:27",
+    "date": "2024-11-02",
+    "time": "20:35:27",
+    "symbol": "ADAUSDT",
+    "message": "- มีสัญญาณ crossunder",
+    "color": "magenta"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:27",
+    "date": "2024-11-02",
+    "time": "20:35:27",
+    "symbol": "ADAUSDT",
+    "message": "- ราคาปัจจุบัน: 0.3538",
+    "color": "magenta"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:27",
+    "date": "2024-11-02",
+    "time": "20:35:27",
+    "symbol": "ADAUSDT",
+    "message": "- ราคาอ้างอิง: 0.3544",
+    "color": "magenta"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:36",
+    "date": "2024-11-02",
+    "time": "20:35:36",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 54.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3553}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:37",
+    "date": "2024-11-02",
+    "time": "20:35:37",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:37",
+    "date": "2024-11-02",
+    "time": "20:35:37",
+    "symbol": "ADAUSDT",
+    "message": "สลับ position จาก buy",
+    "color": "magenta"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:38",
+    "date": "2024-11-02",
+    "time": "20:35:38",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: SELL ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:38",
+    "date": "2024-11-02",
+    "time": "20:35:38",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.36 | Exit: 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:38",
+    "date": "2024-11-02",
+    "time": "20:35:38",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 56.00000000 (19.91 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:38",
+    "date": "2024-11-02",
+    "time": "20:35:38",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:38",
+    "date": "2024-11-02",
+    "time": "20:35:38",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: 0.10 USDT (0.48%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:39",
+    "date": "2024-11-02",
+    "time": "20:35:39",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3538, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:39",
+    "date": "2024-11-02",
+    "time": "20:35:39",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35380000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:39",
+    "date": "2024-11-02",
+    "time": "20:35:39",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:39",
+    "date": "2024-11-02",
+    "time": "20:35:39",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35311232 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:39",
+    "date": "2024-11-02",
+    "time": "20:35:39",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35278632 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:39",
+    "date": "2024-11-02",
+    "time": "20:35:39",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35246043 (0.38%, 5.2 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:42",
+    "date": "2024-11-02",
+    "time": "20:35:42",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 10.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3531}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:43",
+    "date": "2024-11-02",
+    "time": "20:35:43",
+    "symbol": "ADAUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:43",
+    "date": "2024-11-02",
+    "time": "20:35:43",
+    "symbol": "ADAUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:43",
+    "date": "2024-11-02",
+    "time": "20:35:43",
+    "symbol": "ADAUSDT",
+    "message": "Parameters: {'symbol': 'ADAUSDT', 'side': 'buy', 'type': 'market', 'amount': 10.0, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:44",
+    "date": "2024-11-02",
+    "time": "20:35:44",
+    "symbol": "ADAUSDT",
+    "message": "พบข้อผิดพลาด",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:44",
+    "date": "2024-11-02",
+    "time": "20:35:44",
+    "symbol": "ADAUSDT",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 142, in create_order\n    order = await exchange.create_order(**order_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OrderImmediatelyFillable: binance {\"code\":-2021,\"msg\":\"Order would immediately trigger.\"}\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\function\\binance\\futures\\order\\create_order.py\", line 175, in create_order\n    order = await exchange.create_order(**market_params)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 5217, in create_order\n    response = await self.fapiPrivatePostOrder(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9406, in request\n    response = await self.fetch2(path, api, method, params, headers, body, config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 781, in fetch2\n    return await self.fetch(request['url'], request['method'], request['headers'], request['body'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\base\\exchange.py\", line 243, in fetch\n    self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\async_support\\binance.py\", line 9373, in handle_errors\n    self.throw_exactly_matched_exception(self.get_exceptions_by_url(url, 'exact'), error, feedback)\n  File \"C:\\Users\\Chattrawut_P\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\ccxt\\base\\exchange.py\", line 3850, in throw_exactly_matched_exception\n    raise exact[string](message)\nccxt.base.errors.OperationRejected: binance {\"code\":-4164,\"msg\":\"Order's notional must be no smaller than 5 (unless you choose reduce only).\"}\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:44",
+    "date": "2024-11-02",
+    "time": "20:35:44",
+    "symbol": "ADAUSDT",
+    "message": "ไม่สามารถสร้างคำสั่ง tp2 ได้",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:47",
+    "date": "2024-11-02",
+    "time": "20:35:47",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 13.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3527}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:49",
+    "date": "2024-11-02",
+    "time": "20:35:49",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:49",
+    "date": "2024-11-02",
+    "time": "20:35:49",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35270000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:54",
+    "date": "2024-11-02",
+    "time": "20:35:54",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 13.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3524}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:55",
+    "date": "2024-11-02",
+    "time": "20:35:55",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:35:55",
+    "date": "2024-11-02",
+    "time": "20:35:55",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35240000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:22",
+    "date": "2024-11-02",
+    "time": "20:36:22",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (4.30 ATR, 0.31%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:22",
+    "date": "2024-11-02",
+    "time": "20:36:22",
+    "symbol": "ADAUSDT",
+    "message": "กำลังปรับ stoploss ไปที่จุดเข้า 0.35383538",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:27",
+    "date": "2024-11-02",
+    "time": "20:36:27",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35383538",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:27",
+    "date": "2024-11-02",
+    "time": "20:36:27",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss เรียบร้อย",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:36:29",
+    "date": "2024-11-02",
+    "time": "20:36:29",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:37:20",
+    "date": "2024-11-02",
+    "time": "20:37:20",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:43",
+    "date": "2024-11-02",
+    "time": "20:39:43",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:46",
+    "date": "2024-11-02",
+    "time": "20:39:46",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: SELL ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:46",
+    "date": "2024-11-02",
+    "time": "20:39:46",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35 | Exit: 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:46",
+    "date": "2024-11-02",
+    "time": "20:39:46",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 56.00000000 (19.81 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:46",
+    "date": "2024-11-02",
+    "time": "20:39:46",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:46",
+    "date": "2024-11-02",
+    "time": "20:39:46",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: 0.00 USDT (0.00%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:50",
+    "date": "2024-11-02",
+    "time": "20:39:50",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.41%, ratio: 1.2325)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:50",
+    "date": "2024-11-02",
+    "time": "20:39:50",
+    "symbol": "ADAUSDT",
+    "message": "ราคาผ่านจุด trigger แล้ว - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:51",
+    "date": "2024-11-02",
+    "time": "20:39:51",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: market, Amount: 69.0, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:52",
+    "date": "2024-11-02",
+    "time": "20:39:52",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 0.35",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:55",
+    "date": "2024-11-02",
+    "time": "20:39:55",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 69.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3523}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:57",
+    "date": "2024-11-02",
+    "time": "20:39:57",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:57",
+    "date": "2024-11-02",
+    "time": "20:39:57",
+    "symbol": "ADAUSDT",
+    "message": "เข้า BUY ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:57",
+    "date": "2024-11-02",
+    "time": "20:39:57",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3537, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:57",
+    "date": "2024-11-02",
+    "time": "20:39:57",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35370000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:57",
+    "date": "2024-11-02",
+    "time": "20:39:57",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:57",
+    "date": "2024-11-02",
+    "time": "20:39:57",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35438814 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:57",
+    "date": "2024-11-02",
+    "time": "20:39:57",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35471468 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:57",
+    "date": "2024-11-02",
+    "time": "20:39:57",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35504132 (0.38%, 5.2 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:39:59",
+    "date": "2024-11-02",
+    "time": "20:39:59",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 13.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3543}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:40:01",
+    "date": "2024-11-02",
+    "time": "20:40:01",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:40:01",
+    "date": "2024-11-02",
+    "time": "20:40:01",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35430000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:40:04",
+    "date": "2024-11-02",
+    "time": "20:40:04",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 17.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3547}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:40:05",
+    "date": "2024-11-02",
+    "time": "20:40:05",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:40:05",
+    "date": "2024-11-02",
+    "time": "20:40:05",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35470000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:40:08",
+    "date": "2024-11-02",
+    "time": "20:40:08",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 17.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.355}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:40:09",
+    "date": "2024-11-02",
+    "time": "20:40:09",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:40:09",
+    "date": "2024-11-02",
+    "time": "20:40:09",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35500000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:40:27",
+    "date": "2024-11-02",
+    "time": "20:40:27",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:41:22",
+    "date": "2024-11-02",
+    "time": "20:41:22",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:18",
+    "date": "2024-11-02",
+    "time": "20:42:18",
+    "symbol": "ADAUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:35",
+    "date": "2024-11-02",
+    "time": "20:42:35",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:39",
+    "date": "2024-11-02",
+    "time": "20:42:39",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: BUY ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:39",
+    "date": "2024-11-02",
+    "time": "20:42:39",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35 | Exit: 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:40",
+    "date": "2024-11-02",
+    "time": "20:42:40",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 56.00000000 (19.81 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:40",
+    "date": "2024-11-02",
+    "time": "20:42:40",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:40",
+    "date": "2024-11-02",
+    "time": "20:42:40",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: -0.07 USDT (-0.34%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:40",
+    "date": "2024-11-02",
+    "time": "20:42:40",
+    "symbol": "ADAUSDT",
+    "message": "กำลังตรวจสอบเงื่อนไขการเข้า position ใหม่...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:41",
+    "date": "2024-11-02",
+    "time": "20:42:41",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.27%, ratio: 1.8843)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:41",
+    "date": "2024-11-02",
+    "time": "20:42:41",
+    "symbol": "ADAUSDT",
+    "message": "ราคาต่างจากจุด trigger 0.04% - เข้าด้วย MARKET",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:42",
+    "date": "2024-11-02",
+    "time": "20:42:42",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: market, Amount: 105.0, Parameters: {'type': 'market'}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:43",
+    "date": "2024-11-02",
+    "time": "20:42:43",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 0.35",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:46",
+    "date": "2024-11-02",
+    "time": "20:42:46",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 105.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3534}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:48",
+    "date": "2024-11-02",
+    "time": "20:42:48",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:48",
+    "date": "2024-11-02",
+    "time": "20:42:48",
+    "symbol": "ADAUSDT",
+    "message": "เข้า SELL ใหม่ด้วย MARKET ORDER สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:48",
+    "date": "2024-11-02",
+    "time": "20:42:48",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3525, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:48",
+    "date": "2024-11-02",
+    "time": "20:42:48",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35250000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:48",
+    "date": "2024-11-02",
+    "time": "20:42:48",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:48",
+    "date": "2024-11-02",
+    "time": "20:42:48",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35181297 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:48",
+    "date": "2024-11-02",
+    "time": "20:42:48",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35148723 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:48",
+    "date": "2024-11-02",
+    "time": "20:42:48",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35116160 (0.38%, 5.2 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:51",
+    "date": "2024-11-02",
+    "time": "20:42:51",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 21.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3518}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:52",
+    "date": "2024-11-02",
+    "time": "20:42:52",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:52",
+    "date": "2024-11-02",
+    "time": "20:42:52",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35180000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:55",
+    "date": "2024-11-02",
+    "time": "20:42:55",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 26.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3514}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:56",
+    "date": "2024-11-02",
+    "time": "20:42:56",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:56",
+    "date": "2024-11-02",
+    "time": "20:42:56",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35140000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:42:59",
+    "date": "2024-11-02",
+    "time": "20:42:59",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 26.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3511}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:43:00",
+    "date": "2024-11-02",
+    "time": "20:43:00",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:43:00",
+    "date": "2024-11-02",
+    "time": "20:43:00",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35110000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:44:13",
+    "date": "2024-11-02",
+    "time": "20:44:13",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.42%, ratio: 1.2030)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:44:15",
+    "date": "2024-11-02",
+    "time": "20:44:15",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 67.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.3538}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:44:16",
+    "date": "2024-11-02",
+    "time": "20:44:16",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:44:19",
+    "date": "2024-11-02",
+    "time": "20:44:19",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 67.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3523}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:44:20",
+    "date": "2024-11-02",
+    "time": "20:44:20",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:44:20",
+    "date": "2024-11-02",
+    "time": "20:44:20",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 0.35383538",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:45",
+    "date": "2024-11-02",
+    "time": "20:46:45",
+    "symbol": "ADAUSDT",
+    "message": "Entry order ทำงานที่ราคา 0.35390000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:45",
+    "date": "2024-11-02",
+    "time": "20:46:45",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3539, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:45",
+    "date": "2024-11-02",
+    "time": "20:46:45",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35390000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:45",
+    "date": "2024-11-02",
+    "time": "20:46:45",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:45",
+    "date": "2024-11-02",
+    "time": "20:46:45",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35458824 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:45",
+    "date": "2024-11-02",
+    "time": "20:46:45",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35491482 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:45",
+    "date": "2024-11-02",
+    "time": "20:46:45",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35524150 (0.38%, 5.3 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:48",
+    "date": "2024-11-02",
+    "time": "20:46:48",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 13.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3545}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:49",
+    "date": "2024-11-02",
+    "time": "20:46:49",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:49",
+    "date": "2024-11-02",
+    "time": "20:46:49",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35450000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:52",
+    "date": "2024-11-02",
+    "time": "20:46:52",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 16.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3549}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:53",
+    "date": "2024-11-02",
+    "time": "20:46:53",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:53",
+    "date": "2024-11-02",
+    "time": "20:46:53",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35490000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:56",
+    "date": "2024-11-02",
+    "time": "20:46:56",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 16.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3552}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:58",
+    "date": "2024-11-02",
+    "time": "20:46:58",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:46:58",
+    "date": "2024-11-02",
+    "time": "20:46:58",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35520000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:47:14",
+    "date": "2024-11-02",
+    "time": "20:47:14",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:48:05",
+    "date": "2024-11-02",
+    "time": "20:48:05",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:30",
+    "date": "2024-11-02",
+    "time": "20:50:30",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35266473000000004",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:50:31",
+    "date": "2024-11-02",
+    "time": "20:50:31",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.35 เป็น 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:51:23",
+    "date": "2024-11-02",
+    "time": "20:51:23",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35296469999999996",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:51:23",
+    "date": "2024-11-02",
+    "time": "20:51:23",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.35 เป็น 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:00",
+    "date": "2024-11-02",
+    "time": "20:52:00",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:05",
+    "date": "2024-11-02",
+    "time": "20:52:05",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: BUY ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:05",
+    "date": "2024-11-02",
+    "time": "20:52:05",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35 | Exit: 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:05",
+    "date": "2024-11-02",
+    "time": "20:52:05",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 56.00000000 (19.82 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:05",
+    "date": "2024-11-02",
+    "time": "20:52:05",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:52:05",
+    "date": "2024-11-02",
+    "time": "20:52:05",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: -0.05 USDT (-0.25%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:25",
+    "date": "2024-11-02",
+    "time": "20:53:25",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.33%, ratio: 1.5027)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:27",
+    "date": "2024-11-02",
+    "time": "20:53:27",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 84.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.3517}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:28",
+    "date": "2024-11-02",
+    "time": "20:53:28",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:31",
+    "date": "2024-11-02",
+    "time": "20:53:31",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 84.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3529}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:32",
+    "date": "2024-11-02",
+    "time": "20:53:32",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:53:32",
+    "date": "2024-11-02",
+    "time": "20:53:32",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 0.35176482",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:01",
+    "date": "2024-11-02",
+    "time": "20:54:01",
+    "symbol": "ADAUSDT",
+    "message": "Entry order ทำงานที่ราคา 0.35170000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:01",
+    "date": "2024-11-02",
+    "time": "20:54:01",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3517, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:01",
+    "date": "2024-11-02",
+    "time": "20:54:01",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35170000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:01",
+    "date": "2024-11-02",
+    "time": "20:54:01",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:01",
+    "date": "2024-11-02",
+    "time": "20:54:01",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35101337 (0.20%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:01",
+    "date": "2024-11-02",
+    "time": "20:54:01",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35068779 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:02",
+    "date": "2024-11-02",
+    "time": "20:54:02",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35036232 (0.38%, 5.2 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:05",
+    "date": "2024-11-02",
+    "time": "20:54:05",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 16.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.351}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:06",
+    "date": "2024-11-02",
+    "time": "20:54:06",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:06",
+    "date": "2024-11-02",
+    "time": "20:54:06",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35100000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:09",
+    "date": "2024-11-02",
+    "time": "20:54:09",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 21.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3506}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:11",
+    "date": "2024-11-02",
+    "time": "20:54:11",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:11",
+    "date": "2024-11-02",
+    "time": "20:54:11",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35060000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:15",
+    "date": "2024-11-02",
+    "time": "20:54:15",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: take_profit_market, Amount: 21.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3503}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:16",
+    "date": "2024-11-02",
+    "time": "20:54:16",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:16",
+    "date": "2024-11-02",
+    "time": "20:54:16",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35030000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:17",
+    "date": "2024-11-02",
+    "time": "20:54:17",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (0/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:59",
+    "date": "2024-11-02",
+    "time": "20:54:59",
+    "symbol": "ADAUSDT",
+    "message": "กำไรถึงระดับ 1 (1.56 ATR, 0.11%) - ปรับ stoploss",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:54:59",
+    "date": "2024-11-02",
+    "time": "20:54:59",
+    "symbol": "ADAUSDT",
+    "message": "กำลังปรับ stoploss ไปที่จุดเข้า 0.35173517",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:55:03",
+    "date": "2024-11-02",
+    "time": "20:55:03",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35173517",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 20:55:04",
+    "date": "2024-11-02",
+    "time": "20:55:04",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss เรียบร้อย",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:55:05",
+    "date": "2024-11-02",
+    "time": "20:55:05",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:55:22",
+    "date": "2024-11-02",
+    "time": "20:55:22",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 20:55:26",
+    "date": "2024-11-02",
+    "time": "20:55:26",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: SELL ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:55:26",
+    "date": "2024-11-02",
+    "time": "20:55:26",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35 | Exit: 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:55:26",
+    "date": "2024-11-02",
+    "time": "20:55:26",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 56.00000000 (19.70 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:55:27",
+    "date": "2024-11-02",
+    "time": "20:55:27",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:55:27",
+    "date": "2024-11-02",
+    "time": "20:55:27",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: 0.01 USDT (0.06%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:16",
+    "date": "2024-11-02",
+    "time": "20:57:16",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.33%, ratio: 1.5045)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:18",
+    "date": "2024-11-02",
+    "time": "20:57:18",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 84.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.3521}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:19",
+    "date": "2024-11-02",
+    "time": "20:57:19",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:22",
+    "date": "2024-11-02",
+    "time": "20:57:22",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 84.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3509}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:23",
+    "date": "2024-11-02",
+    "time": "20:57:23",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:57:23",
+    "date": "2024-11-02",
+    "time": "20:57:23",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 0.35213521",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:22",
+    "date": "2024-11-02",
+    "time": "20:58:22",
+    "symbol": "ADAUSDT",
+    "message": "Entry order ทำงานที่ราคา 0.35210000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:22",
+    "date": "2024-11-02",
+    "time": "20:58:22",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3521, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:22",
+    "date": "2024-11-02",
+    "time": "20:58:22",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35210000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:22",
+    "date": "2024-11-02",
+    "time": "20:58:22",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:22",
+    "date": "2024-11-02",
+    "time": "20:58:22",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35278734 (0.20%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:22",
+    "date": "2024-11-02",
+    "time": "20:58:22",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35311356 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:22",
+    "date": "2024-11-02",
+    "time": "20:58:22",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35343988 (0.38%, 5.2 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:25",
+    "date": "2024-11-02",
+    "time": "20:58:25",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 16.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3527}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:27",
+    "date": "2024-11-02",
+    "time": "20:58:27",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:27",
+    "date": "2024-11-02",
+    "time": "20:58:27",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35270000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:30",
+    "date": "2024-11-02",
+    "time": "20:58:30",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 21.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3531}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:31",
+    "date": "2024-11-02",
+    "time": "20:58:31",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:31",
+    "date": "2024-11-02",
+    "time": "20:58:31",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35310000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:34",
+    "date": "2024-11-02",
+    "time": "20:58:34",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 21.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3534}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:35",
+    "date": "2024-11-02",
+    "time": "20:58:35",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:35",
+    "date": "2024-11-02",
+    "time": "20:58:35",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35340000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 20:58:36",
+    "date": "2024-11-02",
+    "time": "20:58:36",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (0/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 20:59:13",
+    "date": "2024-11-02",
+    "time": "20:59:13",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:00:03",
+    "date": "2024-11-02",
+    "time": "21:00:03",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:02:32",
+    "date": "2024-11-02",
+    "time": "21:02:32",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 21:02:37",
+    "date": "2024-11-02",
+    "time": "21:02:37",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: BUY ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:02:37",
+    "date": "2024-11-02",
+    "time": "21:02:37",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35 | Exit: 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:02:37",
+    "date": "2024-11-02",
+    "time": "21:02:37",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 56.00000000 (19.72 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:02:37",
+    "date": "2024-11-02",
+    "time": "21:02:37",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:02:37",
+    "date": "2024-11-02",
+    "time": "21:02:37",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: -0.06 USDT (-0.28%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:03:11",
+    "date": "2024-11-02",
+    "time": "21:03:11",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.36%, ratio: 1.3795)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:03:12",
+    "date": "2024-11-02",
+    "time": "21:03:12",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 78.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.3504}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:03:13",
+    "date": "2024-11-02",
+    "time": "21:03:13",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOP_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:03:16",
+    "date": "2024-11-02",
+    "time": "21:03:16",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 78.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3517}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:03:17",
+    "date": "2024-11-02",
+    "time": "21:03:17",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:03:17",
+    "date": "2024-11-02",
+    "time": "21:03:17",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง SELL STOP_MARKET ที่ราคา 0.35046495",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:09",
+    "date": "2024-11-02",
+    "time": "21:04:09",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.25%, ratio: 2.0203)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:11",
+    "date": "2024-11-02",
+    "time": "21:04:11",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 113.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.3516}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:12",
+    "date": "2024-11-02",
+    "time": "21:04:12",
+    "symbol": "ADAUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:12",
+    "date": "2024-11-02",
+    "time": "21:04:12",
+    "symbol": "ADAUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:12",
+    "date": "2024-11-02",
+    "time": "21:04:12",
+    "symbol": "ADAUSDT",
+    "message": "Parameters: {'symbol': 'ADAUSDT', 'side': 'buy', 'type': 'market', 'amount': 113.0, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:12",
+    "date": "2024-11-02",
+    "time": "21:04:12",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 0.35",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:15",
+    "date": "2024-11-02",
+    "time": "21:04:15",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 113.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3507}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:17",
+    "date": "2024-11-02",
+    "time": "21:04:17",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:17",
+    "date": "2024-11-02",
+    "time": "21:04:17",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 0.35163516",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:32",
+    "date": "2024-11-02",
+    "time": "21:04:32",
+    "symbol": "ADAUSDT",
+    "message": "Entry order ทำงานที่ราคา 0.35210000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:32",
+    "date": "2024-11-02",
+    "time": "21:04:32",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3521, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:32",
+    "date": "2024-11-02",
+    "time": "21:04:32",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35210000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:32",
+    "date": "2024-11-02",
+    "time": "21:04:32",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:32",
+    "date": "2024-11-02",
+    "time": "21:04:32",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35278734 (0.20%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:32",
+    "date": "2024-11-02",
+    "time": "21:04:32",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35311356 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:32",
+    "date": "2024-11-02",
+    "time": "21:04:32",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35343988 (0.38%, 5.2 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:35",
+    "date": "2024-11-02",
+    "time": "21:04:35",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 22.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3527}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:36",
+    "date": "2024-11-02",
+    "time": "21:04:36",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:36",
+    "date": "2024-11-02",
+    "time": "21:04:36",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35270000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:40",
+    "date": "2024-11-02",
+    "time": "21:04:40",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 28.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3531}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:41",
+    "date": "2024-11-02",
+    "time": "21:04:41",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:41",
+    "date": "2024-11-02",
+    "time": "21:04:41",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35310000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:44",
+    "date": "2024-11-02",
+    "time": "21:04:44",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 28.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3534}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:45",
+    "date": "2024-11-02",
+    "time": "21:04:45",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:04:45",
+    "date": "2024-11-02",
+    "time": "21:04:45",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35340000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:05:02",
+    "date": "2024-11-02",
+    "time": "21:05:02",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:06:10",
+    "date": "2024-11-02",
+    "time": "21:06:10",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:10:27",
+    "date": "2024-11-02",
+    "time": "21:10:27",
+    "symbol": "ADAUSDT",
+    "message": "สร้างคำสั่ง stop loss ใหม่ที่ราคา 0.35106489",
+    "color": "white"
+  },
+  {
+    "timestamp": "2024-11-02 21:10:27",
+    "date": "2024-11-02",
+    "time": "21:10:27",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ stoploss จาก 0.35 เป็น 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:11:28",
+    "date": "2024-11-02",
+    "time": "21:11:28",
+    "symbol": "ADAUSDT",
+    "message": "Position ถูกปิด!",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-02 21:11:33",
+    "date": "2024-11-02",
+    "time": "21:11:33",
+    "symbol": "ADAUSDT",
+    "message": "บันทึกการเทรด: BUY ADAUSDT",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:11:33",
+    "date": "2024-11-02",
+    "time": "21:11:33",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35 | Exit: 0.35",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:11:33",
+    "date": "2024-11-02",
+    "time": "21:11:33",
+    "symbol": "ADAUSDT",
+    "message": "จำนวน: 56.00000000 (19.72 USD)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:11:33",
+    "date": "2024-11-02",
+    "time": "21:11:33",
+    "symbol": "ADAUSDT",
+    "message": "Leverage: Nonex | Margin Type: None",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:11:33",
+    "date": "2024-11-02",
+    "time": "21:11:33",
+    "symbol": "ADAUSDT",
+    "message": "กำไร/ขาดทุน: -0.06 USDT (-0.28%)",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:43",
+    "date": "2024-11-02",
+    "time": "21:24:43",
+    "symbol": "ADAUSDT",
+    "message": "ปรับ quantity ตาม fix stoploss 0.5% (SL ปัจจุบัน: 0.22%, ratio: 2.2891)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:45",
+    "date": "2024-11-02",
+    "time": "21:24:45",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: buy, Type: stop_market, Amount: 128.0, Parameters: {'type': 'stop_market', 'stopPrice': 0.3527}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:47",
+    "date": "2024-11-02",
+    "time": "21:24:47",
+    "symbol": "ADAUSDT",
+    "message": "คำสั่งจะทำงานทันที",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:47",
+    "date": "2024-11-02",
+    "time": "21:24:47",
+    "symbol": "ADAUSDT",
+    "message": "เปลี่ยนเป็นคำสั่ง Market:",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:47",
+    "date": "2024-11-02",
+    "time": "21:24:47",
+    "symbol": "ADAUSDT",
+    "message": "Parameters: {'symbol': 'ADAUSDT', 'side': 'buy', 'type': 'market', 'amount': 128.0, 'params': {'type': 'market'}}",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:47",
+    "date": "2024-11-02",
+    "time": "21:24:47",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง Market Order สำเร็จที่ราคา 0.35",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:53",
+    "date": "2024-11-02",
+    "time": "21:24:53",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: stop_market, Amount: 128.0, Parameters: {'closePosition': True, 'type': 'stop_market', 'stopPrice': 0.3519}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:55",
+    "date": "2024-11-02",
+    "time": "21:24:55",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง STOPLOSS_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:24:56",
+    "date": "2024-11-02",
+    "time": "21:24:56",
+    "symbol": "ADAUSDT",
+    "message": "ตั้งคำสั่ง BUY STOP_MARKET ที่ราคา 0.35273527",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:40",
+    "date": "2024-11-02",
+    "time": "21:25:40",
+    "symbol": "ADAUSDT",
+    "message": "Entry order ทำงานที่ราคา 0.35280000",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:40",
+    "date": "2024-11-02",
+    "time": "21:25:40",
+    "symbol": "ADAUSDT",
+    "message": "คำนวณ TP จาก: Entry: 0.3528, ATR: 0.00025552 (0.07%)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:40",
+    "date": "2024-11-02",
+    "time": "21:25:40",
+    "symbol": "ADAUSDT",
+    "message": "Entry: 0.35280000",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:40",
+    "date": "2024-11-02",
+    "time": "21:25:40",
+    "symbol": "ADAUSDT",
+    "message": "ราคา Take Profit หลังปรับ:",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:40",
+    "date": "2024-11-02",
+    "time": "21:25:40",
+    "symbol": "ADAUSDT",
+    "message": "tp2: 0.35348769 (0.19%, 2.7 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:40",
+    "date": "2024-11-02",
+    "time": "21:25:40",
+    "symbol": "ADAUSDT",
+    "message": "tp3: 0.35381405 (0.29%, 4.0 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:40",
+    "date": "2024-11-02",
+    "time": "21:25:40",
+    "symbol": "ADAUSDT",
+    "message": "tp4: 0.35414051 (0.38%, 5.2 ATR)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:45",
+    "date": "2024-11-02",
+    "time": "21:25:45",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 25.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3534}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:48",
+    "date": "2024-11-02",
+    "time": "21:25:48",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:48",
+    "date": "2024-11-02",
+    "time": "21:25:48",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp2 (20%) ที่ราคา 0.35340000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:53",
+    "date": "2024-11-02",
+    "time": "21:25:53",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 32.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3538}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:56",
+    "date": "2024-11-02",
+    "time": "21:25:56",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:25:56",
+    "date": "2024-11-02",
+    "time": "21:25:56",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp3 (25%) ที่ราคา 0.35380000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:02",
+    "date": "2024-11-02",
+    "time": "21:26:02",
+    "symbol": "ADAUSDT",
+    "message": "กำลังส่งคำสั่ง: Symbol: ADAUSDT, Side: sell, Type: take_profit_market, Amount: 32.0, Parameters: {'reduceOnly': True, 'type': 'take_profit_market', 'stopPrice': 0.3541}",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:04",
+    "date": "2024-11-02",
+    "time": "21:26:04",
+    "symbol": "ADAUSDT",
+    "message": "ส่งคำสั่ง TAKE_PROFIT_MARKET สำเร็จ",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:04",
+    "date": "2024-11-02",
+    "time": "21:26:04",
+    "symbol": "ADAUSDT",
+    "message": "ตั้ง tp4 (25%) ที่ราคา 0.35410000",
+    "color": "cyan"
+  },
+  {
+    "timestamp": "2024-11-02 21:26:05",
+    "date": "2024-11-02",
+    "time": "21:26:05",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (1/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:27:17",
+    "date": "2024-11-02",
+    "time": "21:27:17",
+    "symbol": "ADAUSDT",
+    "message": "มีแท่งเทียนหลัง entry ไม่พอ (2/3)",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:28:14",
+    "date": "2024-11-02",
+    "time": "21:28:14",
+    "symbol": "ADAUSDT",
+    "message": "พบสัญญาณตรงกันข้าม! รอปิดแท่งเทียน!",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-02 21:29:31",
+    "date": "2024-11-02",
+    "time": "21:29:31",
+    "symbol": "ADAUSDT",
+    "message": "ปิดแท่งเทียนหลังเจอสัญญาณตรงกันข้าม! รอดูว่าจะสลับ position หรือขยับ Stoploss",
+    "color": "yellow"
+  }
+]

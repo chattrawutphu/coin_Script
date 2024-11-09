@@ -1,47 +1,157 @@
 [
   {
-    "symbol": "ATOMUSDT",
     "timeframe": "4h",
     "entry_amount": "50$",
     "rsi_period": 7,
     "rsi_overbought": 68,
     "rsi_oversold": 32,
-    "fix_stoploss": 2
+    "fix_stoploss": 2,
+    "take_profits": {
+      "move_sl_to_entry_at_tp1": true,
+      "levels": [
+        {
+          "id": "tp1",
+          "size": "5%",
+          "target_atr": 1
+        },
+        {
+          "id": "tp2",
+          "size": "20%",
+          "target_atr": 2
+        },
+        {
+          "id": "tp3",
+          "size": "25%",
+          "target_atr": 3
+        },
+        {
+          "id": "tp4",
+          "size": "25%",
+          "target_atr": 4
+        }
+      ]
+    },
+    "symbol": "ADAUSDT"
   },
   {
-    "symbol": "DOGEUSDT",
     "timeframe": "4h",
     "entry_amount": "50$",
     "rsi_period": 7,
     "rsi_overbought": 68,
     "rsi_oversold": 32,
-    "fix_stoploss": 2
+    "fix_stoploss": 2,
+    "take_profits": {
+      "move_sl_to_entry_at_tp1": true,
+      "levels": [
+        {
+          "id": "tp1",
+          "size": "5%",
+          "target_atr": 1
+        },
+        {
+          "id": "tp2",
+          "size": "20%",
+          "target_atr": 2
+        },
+        {
+          "id": "tp3",
+          "size": "25%",
+          "target_atr": 3
+        },
+        {
+          "id": "tp4",
+          "size": "25%",
+          "target_atr": 4
+        }
+      ]
+    },
+    "symbol": "XRPUSDT"
   },
   {
-    "symbol": "API3USDT",
     "timeframe": "4h",
     "entry_amount": "50$",
     "rsi_period": 7,
     "rsi_overbought": 68,
     "rsi_oversold": 32,
-    "fix_stoploss": 2
+    "fix_stoploss": 2,
+    "take_profits": {
+      "move_sl_to_entry_at_tp1": true,
+      "levels": [
+        {
+          "id": "tp1",
+          "size": "5%",
+          "target_atr": 1
+        },
+        {
+          "id": "tp2",
+          "size": "20%",
+          "target_atr": 2
+        },
+        {
+          "id": "tp3",
+          "size": "25%",
+          "target_atr": 3
+        },
+        {
+          "id": "tp4",
+          "size": "25%",
+          "target_atr": 4
+        }
+      ]
+    },
+    "symbol": "BCHUSDT"
   },
   {
-    "symbol": "XRPUSDT",
     "timeframe": "4h",
     "entry_amount": "50$",
     "rsi_period": 7,
     "rsi_overbought": 68,
     "rsi_oversold": 32,
-    "fix_stoploss": 2
+    "fix_stoploss": 2,
+    "take_profits": {
+      "move_sl_to_entry_at_tp1": true,
+      "levels": [
+        {
+          "id": "tp1",
+          "size": "5%",
+          "target_atr": 1
+        },
+        {
+          "id": "tp2",
+          "size": "20%",
+          "target_atr": 2
+        },
+        {
+          "id": "tp3",
+          "size": "25%",
+          "target_atr": 3
+        },
+        {
+          "id": "tp4",
+          "size": "25%",
+          "target_atr": 4
+        }
+      ]
+    },
+    "symbol": "SUIUSDT"
   },
   {
-    "symbol": "BCHUSDT",
     "timeframe": "4h",
     "entry_amount": "50$",
     "rsi_period": 7,
     "rsi_overbought": 68,
     "rsi_oversold": 32,
-    "fix_stoploss": 2
+    "fix_stoploss": 2,
+    "take_profits": {
+      "move_sl_to_entry_at_tp1": false,
+      "levels": [
+        {
+          "id": "tp1",
+          "size": "MAX",
+          "target_atr": 1
+        }
+      ]
+    },
+    "symbol": "DOGEUSDT"
   }
 ]

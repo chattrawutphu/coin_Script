@@ -2,5 +2,7 @@ fastapi
 uvicorn
 ccxt
 redis
-aiomotor
+motor
+websockets
+pandas
 ccxt.async_support

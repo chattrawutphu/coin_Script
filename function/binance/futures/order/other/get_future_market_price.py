@@ -60,7 +60,7 @@ class BinancePriceTracker:
             try:
                 async with websockets.connect(self.ws_url) as websocket:
                     self.websocket = websocket
-                    self.logger.info("เชื่อมต่อ WebSocket สำเร็จ")
+                    #self.logger.info("เชื่อมต่อ WebSocket สำเร็จ")
 
                     # สมัครติดตามราคาทุกเหรียญที่ต้องการ
                     for symbol in self.subscribed_symbols:

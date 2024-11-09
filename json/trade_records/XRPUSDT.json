@@ -1,0 +1,23 @@
+[
+  {
+    "timestamp": "2024-11-01T21:47:11.480859",
+    "symbol": "XRPUSDT",
+    "action": "BUY",
+    "entry_price": 0.5203,
+    "exit_price": 0.5182,
+    "amount": 52.1,
+    "profit_loss": -0.10940999999999952,
+    "profit_loss_percentage": -0.40361330001921797,
+    "fees": 0.0,
+    "reason": "Close Position",
+    "leverage": 20.0,
+    "margin_type": "cross",
+    "break_even_price": 0.0,
+    "unrealized_profit": 0.0,
+    "position_size_usd": 27.10763,
+    "entry_order_id": "69257945310",
+    "exit_order_id": null,
+    "entry_time": "2024-11-01T04:00:52.640Z",
+    "exit_time": null
+  }
+]

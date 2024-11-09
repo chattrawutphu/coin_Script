@@ -1,0 +1,162 @@
+[
+  {
+    "timestamp": "2024-11-05T17:22:09.172467",
+    "time": "17:22:09",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูล WIFUSDT (1m)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-05T17:22:11.416826",
+    "time": "17:22:11",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูล ADAUSDT (1m)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-05T17:22:13.640205",
+    "time": "17:22:13",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูล API3USDT (1m)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-05T17:22:16.424873",
+    "time": "17:22:16",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-05T17:22:27.020156",
+    "time": "17:22:27",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "สร้างไฟล์ index.json จาก TRADING_CONFIG",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-05T17:22:27.028667",
+    "time": "17:22:27",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "เกิดข้อผิดพลาดในการโหลด Trading Config: string indices must be integers, not 'str'",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-05T17:22:27.038281",
+    "time": "17:22:27",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 1539, in load_trading_config\n    trading_config = {config['symbol']: config for config in config_list}\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 1539, in <dictcomp>\n    trading_config = {config['symbol']: config for config in config_list}\n                      ~~~~~~^^^^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-05T17:22:27.049729",
+    "time": "17:22:27",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "เกิดข้อผิดพลาดใน main: string indices must be integers, not 'str'",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-05T17:22:27.060736",
+    "time": "17:22:27",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 1539, in load_trading_config\n    trading_config = {config['symbol']: config for config in config_list}\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 1539, in <dictcomp>\n    trading_config = {config['symbol']: config for config in config_list}\n                      ~~~~~~^^^^^^^^^^\nTypeError: string indices must be integers, not 'str'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 1707, in main\n    trading_config = await load_trading_config()\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 1546, in load_trading_config\n    trading_config = {config['symbol']: config for config in TRADING_CONFIG}\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 1546, in <dictcomp>\n    trading_config = {config['symbol']: config for config in TRADING_CONFIG}\n                      ~~~~~~^^^^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-05T17:22:27.077440",
+    "time": "17:22:27",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "กำลังปิดระบบ...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-05T17:22:27.091381",
+    "time": "17:22:27",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "ปิดระบบเรียบร้อย",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-05T17:26:44.451936",
+    "time": "17:26:44",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูล DOGEUSDT (4h)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-05T17:26:46.790926",
+    "time": "17:26:46",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "เกิดข้อผิดพลาดในการโหลดการตั้งค่า: string indices must be integers, not 'str'",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-05T17:26:46.795943",
+    "time": "17:26:46",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "กำลังปิดระบบ...",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-05T17:26:46.809238",
+    "time": "17:26:46",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "ปิดระบบเรียบร้อย",
+    "color": "green"
+  },
+  {
+    "timestamp": "2024-11-05T17:28:58.277181",
+    "time": "17:28:58",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "เกิดข้อผิดพลาดในการโหลด Trading Config: string indices must be integers, not 'str'",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-05T17:28:58.277181",
+    "time": "17:28:58",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "Error: Traceback (most recent call last):\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 1539, in load_trading_config\n    trading_config = {config['symbol']: config for config in config_list}\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Chattrawut_P\\Desktop\\SuperRSIFollowBot\\coin_Script\\main.py\", line 1539, in <dictcomp>\n    trading_config = {config['symbol']: config for config in config_list}\n                      ~~~~~~^^^^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+    "color": "red"
+  },
+  {
+    "timestamp": "2024-11-05T17:28:58.301448",
+    "time": "17:28:58",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "ใช้ค่า default จาก TRADING_CONFIG แทน",
+    "color": "yellow"
+  },
+  {
+    "timestamp": "2024-11-05T17:28:59.604560",
+    "time": "17:28:59",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูล DOGEUSDT (4h)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-05T17:29:02.124514",
+    "time": "17:29:02",
+    "date": "2024-11-05",
+    "symbol": "SYSTEM",
+    "message": "เกิดข้อผิดพลาดในการโหลดการตั้งค่า: string indices must be integers, not 'str'",
+    "color": "red"
+  }
+]

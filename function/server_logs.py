@@ -7,7 +7,7 @@ from function.create_mongodb_client import create_mongodb_client
 from function.message import message
 
 # MongoDB client setup
-client = create_mongodb_client(mongodb_url)
+"""client = create_mongodb_client(mongodb_url)
 db = client['log_database']  # Adjust the database name as necessary
 logs_collection = db['logs']
 from config import default_log_database
@@ -42,7 +42,7 @@ async def save_server_logs(api_key, api_secret, log_type, log_level, catagory, s
         if not default_log_secondary_language:
             message("", text, color)
         else:
-            message("", secondary_text, color)
+            message("", secondary_text, color)"""
 
 #สำหรับใช้ไฟล์ json แทน database
 # async def save_server_logs(api_key, api_secret, log_type, log_level, catagory, sub_catagory, text, secondary_text=""):

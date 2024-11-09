@@ -77,7 +77,7 @@ class BinanceKlineTracker:
                             self.klines[symbol.lower()][timeframe].append(kline)
                     
                     self._initialized_pairs.add((symbol, timeframe))
-                    self.logger.info(f"โหลดข้อมูลเริ่มต้นสำหรับ {symbol} {timeframe} สำเร็จ")
+                    #self.logger.info(f"โหลดข้อมูลเริ่มต้นสำหรับ {symbol} {timeframe} สำเร็จ")
                 else:
                     self.logger.warning(f"ไม่สามารถโหลดข้อมูลเริ่มต้นสำหรับ {symbol} {timeframe}")
 
@@ -143,7 +143,7 @@ class BinanceKlineTracker:
                 try:
                     async with websockets.connect(self.ws_url) as websocket:
                         self.websocket = websocket
-                        self.logger.info("เชื่อมต่อ WebSocket สำเร็จ")
+                        #self.logger.info("เชื่อมต่อ WebSocket สำเร็จ")
 
                         # สมัครติดตามทุกคู่เหรียญและ timeframe
                         for symbol, timeframes in self.subscribed_pairs.items():

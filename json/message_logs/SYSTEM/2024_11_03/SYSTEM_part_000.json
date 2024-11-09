@@ -1,0 +1,42 @@
+[
+  {
+    "timestamp": "2024-11-03T19:48:13.110631",
+    "time": "19:48:13",
+    "date": "2024-11-03",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูล WIFUSDT (1m)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-03T19:48:15.791105",
+    "time": "19:48:15",
+    "date": "2024-11-03",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูล ADAUSDT (1m)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-03T19:48:18.407205",
+    "time": "19:48:18",
+    "date": "2024-11-03",
+    "symbol": "SYSTEM",
+    "message": "กำลังโหลดข้อมูล API3USDT (1m)",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-03T19:48:55.757100",
+    "time": "19:48:55",
+    "date": "2024-11-03",
+    "symbol": "SYSTEM",
+    "message": "รอ 5 วินาทีก่อนเริ่มรอบใหม่...",
+    "color": "blue"
+  },
+  {
+    "timestamp": "2024-11-03T19:49:15.019685",
+    "time": "19:49:15",
+    "date": "2024-11-03",
+    "symbol": "SYSTEM",
+    "message": "ปิดโปรแกรมโดยผู้ใช้",
+    "color": "yellow"
+  }
+]

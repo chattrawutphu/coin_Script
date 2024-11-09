@@ -1,4 +1,4 @@
-import redis
+"""import redis
 from config import REDIS_HOST, REDIS_PORT, REDIS_PASSWORD
 
 def create_redis_client():
@@ -6,4 +6,4 @@ def create_redis_client():
         host=REDIS_HOST,
         port=REDIS_PORT,
         password=REDIS_PASSWORD
-    )
+    )"""

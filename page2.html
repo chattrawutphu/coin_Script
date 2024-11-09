@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-
+<html lang="th" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Bot Messages</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <title>Message Logs</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -30,210 +28,368 @@
             }
         }
     </script>
-</head>
+    <style>
+        /* Scrollbar styles remain the same */
+        .dark ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
 
-<body class="bg-gray-100 dark:bg-dark-900 min-h-screen">
+        .dark ::-webkit-scrollbar-track {
+            background: #374151;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #4b5563;
+            border-radius: 6px;
+            border: 3px solid #374151;
+        }
+
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background-color: #6b7280;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f3f4f6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #d1d5db;
+            border-radius: 6px;
+            border: 3px solid #f3f4f6;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #9ca3af;
+        }
+
+        /* Message colors */
+        .text-black { color: #000000; }
+        .text-red { color: #EF4444; }
+        .text-green { color: #10B981; }
+        .text-yellow { color: #F59E0B; }
+        .text-blue { color: #3B82F6; }
+        .text-magenta { color: #EC4899; }
+        .text-cyan { color: #06B6D4; }
+        .text-white { color: #FFFFFF; }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-dark-900 min-h-screen text-gray-800 dark:text-gray-200">
     <div class="container mx-auto px-4 py-8">
         <!-- Header -->
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Trading Bot Messages</h1>
+            <h1 class="text-2xl font-bold">Message Logs</h1>
             <button id="darkModeToggle"
-                class="p-2 rounded-lg bg-gray-200 dark:bg-dark-700 text-gray-800 dark:text-gray-200">
-                Toggle Dark Mode
+                class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-dark-700 hover:bg-gray-300 dark:hover:bg-dark-600 transition-colors duration-200">
+                <span class="dark:hidden">🌙 Dark Mode</span>
+                <span class="hidden dark:inline">☀️ Light Mode</span>
             </button>
         </div>
 
-        <!-- Controls -->
+        <!-- Filters -->
         <div class="bg-white dark:bg-dark-800 rounded-lg shadow-lg p-4 mb-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <select id="symbolFilter"
-                    class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 text-gray-900 dark:text-gray-100">
-                    <option value="all">All Symbols</option>
-                </select>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Symbol Selection -->
+                <div>
+                    <label class="block text-sm font-medium mb-2">Symbol:</label>
+                    <select id="symbolSelect"
+                        class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700">
+                        <option value="">Select Symbol</option>
+                    </select>
+                </div>
 
-                <select id="colorFilter"
-                    class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 text-gray-900 dark:text-gray-100">
-                    <option value="all">All Colors</option>
-                    <option value="red">Red</option>
-                    <option value="green">Green</option>
-                    <option value="yellow">Yellow</option>
-                    <option value="blue">Blue</option>
-                    <option value="magenta">Magenta</option>
-                    <option value="cyan">Cyan</option>
-                    <option value="white">White</option>
-                </select>
+                <!-- Date Selection -->
+                <div>
+                    <label class="block text-sm font-medium mb-2">Date:</label>
+                    <select id="dateSelect"
+                        class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700">
+                        <option value="">Select Date</option>
+                    </select>
+                </div>
 
-                <input type="datetime-local" id="startDate"
-                    class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 text-gray-900 dark:text-gray-100">
-
-                <input type="datetime-local" id="endDate"
-                    class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 text-gray-900 dark:text-gray-100">
-            </div>
-
-            <div class="flex items-center mt-4 space-x-4">
-                <button onclick="loadMessages()" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg">
-                    Refresh
-                </button>
-
-                <label class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-                    <input type="checkbox" id="autoRefresh" class="rounded">
-                    <span>Auto refresh (5s)</span>
-                </label>
+                <!-- Auto Refresh -->
+                <div class="flex items-end">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="autoRefresh" class="mr-2">
+                        Auto Refresh (5s)
+                    </label>
+                </div>
             </div>
         </div>
 
         <!-- Messages Container -->
-        <div id="messages" class="bg-white dark:bg-dark-800 rounded-lg shadow-lg p-4 max-h-[600px] overflow-y-auto">
-            <!-- Messages will be inserted here -->
+        <div class="bg-white dark:bg-dark-800 rounded-lg shadow-lg p-4">
+            <!-- Status Bar -->
+            <div id="statusBar" class="mb-4 flex justify-between items-center text-sm text-gray-500">
+                <span id="currentFile"></span>
+                <span id="messageCount"></span>
+            </div>
+            
+            <div id="messagesContainer" class="space-y-2 min-h-[200px] max-h-[600px] overflow-y-auto">
+                <div class="text-center text-gray-500 dark:text-gray-400">
+                    Select a symbol and date to view messages
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div id="loadMoreContainer" class="mt-4 text-center hidden">
+                <button id="loadMoreBtn"
+                    class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-200">
+                    Load More
+                </button>
+            </div>
         </div>
     </div>
 
     <script>
-        let autoRefreshInterval;
-        const isDarkMode = () => document.documentElement.classList.contains('dark');
+        let currentSymbol = '';
+        let currentDate = '';
+        let currentPart = null;
+        let isLoading = false;
+        let autoRefreshInterval = null;
+        let totalMessages = 0;
 
-        // Dark mode toggle
-        document.getElementById('darkModeToggle').addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('darkMode', isDarkMode());
-        });
-
-        // Load dark mode preference
-        if (localStorage.getItem('darkMode') === 'true') {
-            document.documentElement.classList.add('dark');
+        // Function to find latest message file
+        async function findLatestMessageFile(symbol, date) {
+            let part = 0;
+            let found = false;
+            
+            while (!found && part < 100) { // Limit to prevent infinite loop
+                try {
+                    const paddedPart = part.toString().padStart(3, '0');
+                    const response = await fetch(
+                        `json/message_logs/${symbol}/${date}/${symbol}_part_${paddedPart}.json`
+                    );
+                    
+                    if (response.ok) {
+                        part++;
+                    } else {
+                        found = true;
+                        part--;
+                    }
+                } catch {
+                    found = true;
+                    part--;
+                }
+            }
+            
+            return part >= 0 ? part : null;
         }
 
-        function getMessageColorClass(color) {
-            const colorClasses = {
-                red: 'text-red-500 dark:text-red-400',
-                green: 'text-green-500 dark:text-green-400',
-                yellow: 'text-yellow-500 dark:text-yellow-400',
-                blue: 'text-blue-500 dark:text-blue-400',
-                magenta: 'text-pink-500 dark:text-pink-400',
-                cyan: 'text-cyan-500 dark:text-cyan-400',
-                white: 'text-gray-700 dark:text-gray-300'
-            };
-            return colorClasses[color] || colorClasses.white;
-        }
-
-        // แก้ไขฟังก์ชัน loadMessages
-        async function loadMessages() {
-            const symbol = $('#symbolFilter').val();
-            const color = $('#colorFilter').val();
-            const startDate = $('#startDate').val();
-            const endDate = $('#endDate').val();
-
+        // Function to load available symbols
+        async function loadSymbols() {
             try {
-                let allMessages = [];
-                let symbolsToLoad = [];
+                const response = await fetch('json/index.json');
+                if (!response.ok) throw new Error('Cannot load symbols');
+                const symbolConfigs = await response.json();
+                
+                const symbolSelect = $('#symbolSelect');
+                symbolSelect.empty().append('<option value="">Select Symbol</option>');
+                
+                symbolConfigs.forEach(config => {
+                    symbolSelect.append(`<option value="${config.symbol}">${config.symbol}</option>`);
+                });
+            } catch (error) {
+                console.error('Error loading symbols:', error);
+            }
+        }
 
-                // ถ้าเลือก all ให้โหลดจาก index.json
-                if (symbol === 'all') {
-                    try {
-                        const response = await fetch('json/index.json');
-                        if (response.ok) {
-                            symbolsToLoad = await response.json();
-                        } else {
-                            symbolsToLoad = ['ETHUSDT', 'ATOMUSDT', 'SOLUSDT']; // ค่าเริ่มต้น
-                        }
-                    } catch (error) {
-                        console.error('Error loading symbols:', error);
-                        symbolsToLoad = ['ETHUSDT', 'ATOMUSDT', 'SOLUSDT']; // ค่าเริ่มต้น
+        // Function to get today and yesterday's dates
+        function getRecentDates() {
+            const dates = [];
+            const today = new Date();
+            
+            for (let i = 0; i < 2; i++) {
+                const date = new Date(today);
+                date.setDate(today.getDate() - i);
+                dates.push(date.toISOString().split('T')[0].replace(/-/g, '_'));
+            }
+            
+            return dates;
+        }
+
+        // Function to check date has messages
+        async function checkDateHasMessages(symbol, date) {
+            try {
+                const response = await fetch(
+                    `json/message_logs/${symbol}/${date}/${symbol}_part_000.json`
+                );
+                return response.ok;
+            } catch {
+                return false;
+            }
+        }
+
+        // Function to load recent dates with messages
+        async function loadDates(symbol) {
+            try {
+                const dates = getRecentDates();
+                const dateSelect = $('#dateSelect');
+                dateSelect.empty().append('<option value="">Select Date</option>');
+                
+                for (const date of dates) {
+                    if (await checkDateHasMessages(symbol, date)) {
+                        const formattedDate = date.replace(/_/g, '-');
+                        dateSelect.append(`<option value="${date}">${formattedDate}</option>`);
                     }
+                }
+                
+                // Select first date if available
+                const firstDate = dateSelect.find('option:eq(1)').val();
+                if (firstDate) {
+                    dateSelect.val(firstDate);
+                    currentDate = firstDate;
+                    loadLatestMessages();
+                }
+            } catch (error) {
+                console.error('Error loading dates:', error);
+            }
+        }
+
+        // Function to format message color
+        function getMessageColor(color) {
+            return color ? `text-${color}` : 'text-white';
+        }
+
+        // Function to load messages from a specific part
+        async function loadMessagePart(part, append = false) {
+            if (!currentSymbol || !currentDate || isLoading) return;
+            
+            isLoading = true;
+            $('#loadMoreBtn').prop('disabled', true).text('Loading...');
+            
+            try {
+                const paddedPart = part.toString().padStart(3, '0');
+                const response = await fetch(
+                    `json/message_logs/${currentSymbol}/${currentDate}/${currentSymbol}_part_${paddedPart}.json`
+                );
+                
+                if (!response.ok) {
+                    throw new Error('No messages found');
+                }
+
+                const messages = await response.json();
+                const reversedMessages = [...messages].reverse(); // Reverse messages to show newest first
+                
+                const messageElements = reversedMessages.map(msg => `
+                    <div class="p-2 rounded bg-gray-50 dark:bg-dark-700 flex items-start gap-3">
+                        <span class="text-sm text-gray-500 whitespace-nowrap">${msg.time}</span>
+                        <span class="flex-1 ${getMessageColor(msg.color)}">${msg.message}</span>
+                    </div>
+                `).join('');
+
+                if (append) {
+                    $('#messagesContainer').append(messageElements);
                 } else {
-                    symbolsToLoad = [symbol];
+                    $('#messagesContainer').html(messageElements);
                 }
 
-                // โหลดข้อความจากทุก symbol ที่ต้องการ
-                for (const sym of symbolsToLoad) {
-                    try {
-                        const response = await fetch(`json/message_logs/${sym}.json`);
-                        if (response.ok) {
-                            const messages = await response.json();
-                            allMessages = allMessages.concat(messages);
-                        }
-                    } catch (error) {
-                        console.log(`No messages found for ${sym}`);
-                    }
-                }
+                // Update status bar
+                totalMessages += messages.length;
+                $('#currentFile').text(`Part: ${paddedPart}`);
+                $('#messageCount').text(`Messages: ${totalMessages}`);
 
-                // Filter messages
-                const filteredMessages = allMessages.filter(msg => {
-                    const msgDate = moment(`${msg.date} ${msg.time}`, 'YYYY-MM-DD HH:mm:ss');
-                    const matchesColor = color === 'all' || msg.color === color;
-                    const matchesStartDate = !startDate || msgDate.isSameOrAfter(moment(startDate));
-                    const matchesEndDate = !endDate || msgDate.isSameOrBefore(moment(endDate));
-                    return matchesColor && matchesStartDate && matchesEndDate;
-                });
-
-                // Sort messages (newest first)
-                filteredMessages.sort((a, b) => {
-                    const timeA = moment(`${a.date} ${a.time}`, 'YYYY-MM-DD HH:mm:ss');
-                    const timeB = moment(`${b.date} ${b.time}`, 'YYYY-MM-DD HH:mm:ss');
-                    return timeB - timeA;
-                });
-
-                // Render messages
-                const messagesHtml = filteredMessages.map(msg => `
-            <div class="message mb-1 py-1 px-2">
-                <div class="${getMessageColorClass(msg.color)} flex items-center gap-2">
-                    <span class="font-semibold text-blue-500 dark:text-blue-400">${msg.symbol}</span>
-                    <span class="font-mono text-gray-500 dark:text-gray-400">${msg.date} ${msg.time}</span>
-                    <span>${msg.message}</span>
-                </div>
-            </div>
-        `).join('');
-
-                $('#messages').html(messagesHtml || '<div class="text-center text-gray-500 dark:text-gray-400">No messages found</div>');
-
-                // Scroll to top for newest messages
-                const messagesContainer = document.getElementById('messages');
-                messagesContainer.scrollTop = 0;
+                // Show/hide load more button
+                $('#loadMoreContainer').toggleClass('hidden', part <= 0);
+                
+                currentPart = part;
 
             } catch (error) {
                 console.error('Error loading messages:', error);
-                $('#messages').html('<div class="text-center text-red-500">Error loading messages</div>');
-            }
-        }
-
-        // Update symbol filter options
-        async function updateSymbolOptions() {
-            try {
-                const response = await fetch('json/index.json');
-                if (response.ok) {
-                    const symbols = await response.json();
-                    const options = symbols
-                        .sort()
-                        .map(symbol => `<option value="${symbol}">${symbol}</option>`)
-                        .join('');
-                    $('#symbolFilter').html('<option value="all">All Symbols</option>' + options);
-                } else {
-                    throw new Error('Could not load symbols');
+                if (!append) {
+                    $('#messagesContainer').html(
+                        '<div class="text-center text-gray-500 dark:text-gray-400">No messages found</div>'
+                    );
                 }
-            } catch (error) {
-                console.error('Error loading symbols:', error);
-                // ใช้ค่าเริ่มต้นถ้าโหลดไม่สำเร็จ
-                const defaultSymbols = ['ETHUSDT', 'ATOMUSDT', 'SOLUSDT'];
-                const options = defaultSymbols
-                    .map(symbol => `<option value="${symbol}">${symbol}</option>`)
-                    .join('');
-                $('#symbolFilter').html('<option value="all">All Symbols</option>' + options);
+                $('#loadMoreContainer').addClass('hidden');
+            } finally {
+                isLoading = false;
+                $('#loadMoreBtn').prop('disabled', false).text('Load More');
             }
         }
 
-        // Auto refresh handling
-        $('#autoRefresh').change(function () {
-            if (this.checked) {
-                autoRefreshInterval = setInterval(loadMessages, 5000);
+        // Function to load latest messages
+        async function loadLatestMessages() {
+            if (!currentSymbol || !currentDate) return;
+            
+            totalMessages = 0;
+            $('#messagesContainer').html(
+                '<div class="text-center text-gray-500 dark:text-gray-400">Loading messages...</div>'
+            );
+            
+            const latestPart = await findLatestMessageFile(currentSymbol, currentDate);
+            if (latestPart !== null) {
+                await loadMessagePart(latestPart);
+            } else {
+                $('#messagesContainer').html(
+                    '<div class="text-center text-gray-500 dark:text-gray-400">No messages found</div>'
+                );
+            }
+        }
+
+        // Auto refresh handler
+        function handleAutoRefresh() {
+            if ($('#autoRefresh').is(':checked')) {
+                autoRefreshInterval = setInterval(loadLatestMessages, 5000);
             } else {
                 clearInterval(autoRefreshInterval);
             }
-        });
+        }
 
-        // Initial load
-        updateSymbolOptions();
-        loadMessages();
+        // Event Handlers
+        $(document).ready(function() {
+            // Dark Mode Toggle
+            $('#darkModeToggle').click(function() {
+                document.documentElement.classList.toggle('dark');
+                localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+            });
+
+            // Load Dark Mode Preference
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.documentElement.classList.add('dark');
+            }
+
+            // Load symbols on start
+            loadSymbols();
+
+            // Symbol change handler
+            $('#symbolSelect').change(function() {
+                currentSymbol = $(this).val();
+                currentDate = '';
+                currentPart = null;
+                totalMessages = 0;
+                $('#dateSelect').val('');
+                $('#messagesContainer').html(
+                    '<div class="text-center text-gray-500 dark:text-gray-400">Select a date to view messages</div>'
+                );
+                if (currentSymbol) {
+                    loadDates(currentSymbol);
+                }
+            });
+
+            // Date change handler
+            $('#dateSelect').change(function() {
+                currentDate = $(this).val();
+                if (currentDate) {
+                    loadLatestMessages();
+                }
+            });
+
+            // Load more handler
+            $('#loadMoreBtn').click(function() {
+                if (!isLoading && currentPart > 0) {
+                    loadMessagePart(currentPart - 1, true);
+                }
+            });
+
+            // Auto refresh handler
+            $('#autoRefresh').change(handleAutoRefresh);
+        });
     </script>
 </body>
-
 </html>
