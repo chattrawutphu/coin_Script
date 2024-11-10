@@ -257,12 +257,17 @@
                         <label class="inline-flex items-center">
                             <input type="radio" name="chartType" value="date" checked
                                 class="form-radio text-blue-500 focus:ring-blue-500 dark:bg-dark-700">
-                            <span class="ml-2">แสดงตามวันที่</span>
+                            <span class="ml-2">แยกตามเหรียญ</span>
                         </label>
                         <label class="inline-flex items-center">
                             <input type="radio" name="chartType" value="trade"
                                 class="form-radio text-blue-500 focus:ring-blue-500 dark:bg-dark-700">
-                            <span class="ml-2">แสดงตามการเทรด</span>
+                            <span class="ml-2">ตามจำนวนเทรด</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="chartType" value="daily"
+                                class="form-radio text-blue-500 focus:ring-blue-500 dark:bg-dark-700">
+                            <span class="ml-2">รวมทุกเหรียญ</span>
                         </label>
                     </div>
                 </div>
@@ -800,42 +805,85 @@
             const isDark = document.documentElement.classList.contains('dark');
             const chartType = $('input[name="chartType"]:checked').val();
             const feePercentage = getFeePercentage();
-            const symbols = [...new Set(trades.map(trade => trade.symbol))];
 
-            const datasets = symbols.map(symbol => {
-                const symbolTrades = trades.filter(trade => trade.symbol === symbol)
-                    .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            let datasets = [];
 
-                let cumulativeProfit = 0;
-                const data = symbolTrades.map((trade, index) => {
-                    // คำนวณ fees
+            if (chartType === 'daily') {
+                // Group trades by date and calculate daily profits
+                const dailyProfits = trades.reduce((acc, trade) => {
+                    const date = new Date(trade.timestamp).toISOString().split('T')[0];
+
+                    // Calculate net profit after fees
                     const entryPositionSize = trade.entry_price * trade.amount;
                     const exitPositionSize = trade.exit_price * trade.amount;
                     const entryFee = feePercentage ? (entryPositionSize * feePercentage / 100) : 0;
                     const exitFee = feePercentage ? (exitPositionSize * feePercentage / 100) : 0;
                     const totalFees = entryFee + exitFee;
-
-                    // คำนวณกำไรสุทธิ
                     const netProfit = trade.profit_loss - totalFees;
-                    cumulativeProfit += netProfit;
 
+                    if (!acc[date]) {
+                        acc[date] = 0;
+                    }
+                    acc[date] += netProfit;
+                    return acc;
+                }, {});
+
+                // Convert to array and sort by date
+                const sortedDates = Object.keys(dailyProfits).sort();
+                let cumulativeProfit = 0;
+                const dailyData = sortedDates.map(date => {
+                    cumulativeProfit += dailyProfits[date];
                     return {
-                        x: chartType === 'date' ? new Date(trade.timestamp) : index + 1,
+                        x: new Date(date),
                         y: cumulativeProfit
                     };
                 });
 
-                return {
-                    label: symbol,
-                    data: data,
+                datasets = [{
+                    label: 'กำไรสะสมรวมทุกเหรียญ',
+                    data: dailyData,
                     fill: false,
-                    borderColor: getRandomColor(),
+                    borderColor: '#2563eb',
                     borderWidth: 2,
                     tension: 0.1,
                     pointRadius: 3,
                     pointHoverRadius: 5
-                };
-            });
+                }];
+            } else {
+                // Original cumulative profit chart code
+                const symbols = [...new Set(trades.map(trade => trade.symbol))];
+                datasets = symbols.map(symbol => {
+                    const symbolTrades = trades.filter(trade => trade.symbol === symbol)
+                        .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+
+                    let cumulativeProfit = 0;
+                    const data = symbolTrades.map((trade, index) => {
+                        const entryPositionSize = trade.entry_price * trade.amount;
+                        const exitPositionSize = trade.exit_price * trade.amount;
+                        const entryFee = feePercentage ? (entryPositionSize * feePercentage / 100) : 0;
+                        const exitFee = feePercentage ? (exitPositionSize * feePercentage / 100) : 0;
+                        const totalFees = entryFee + exitFee;
+                        const netProfit = trade.profit_loss - totalFees;
+                        cumulativeProfit += netProfit;
+
+                        return {
+                            x: chartType === 'date' ? new Date(trade.timestamp) : index + 1,
+                            y: cumulativeProfit
+                        };
+                    });
+
+                    return {
+                        label: symbol,
+                        data: data,
+                        fill: false,
+                        borderColor: getRandomColor(),
+                        borderWidth: 2,
+                        tension: 0.1,
+                        pointRadius: 3,
+                        pointHoverRadius: 5
+                    };
+                });
+            }
 
             const options = {
                 responsive: true,
@@ -846,8 +894,8 @@
                 },
                 scales: {
                     x: {
-                        type: chartType === 'date' ? 'time' : 'linear',
-                        time: chartType === 'date' ? {
+                        type: chartType === 'trade' ? 'linear' : 'time',
+                        time: chartType !== 'trade' ? {
                             unit: 'day',
                             tooltipFormat: 'PPP'
                         } : undefined,
@@ -859,7 +907,7 @@
                         },
                         title: {
                             display: true,
-                            text: chartType === 'date' ? 'วันที่' : 'จำนวนเทรด',
+                            text: chartType === 'trade' ? 'จำนวนเทรด' : 'วันที่',
                             color: isDark ? '#9ca3af' : '#4b5563'
                         }
                     },
