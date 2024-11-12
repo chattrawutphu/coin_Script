@@ -6,3 +6,5 @@ motor
 websockets
 pandas
 ccxt.async_support
+
+#pip install fastapi uvicorn ccxt redis motor websockets pandas numpy matplotlib aiofiles pytz

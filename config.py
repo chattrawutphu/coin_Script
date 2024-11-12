@@ -29,6 +29,8 @@ DEFAULT_CONFIG = {
     'rsi_oversold': 32,
     'fix_stoploss': 2,
     'take_profits': {
+        'use_dynamic_tp': True,
+        'average_with_entry': True,
         'move_sl_to_entry_at_tp1': True,
         'levels': list(TP_LEVELS.values())
     }
@@ -36,8 +38,11 @@ DEFAULT_CONFIG = {
 
 # Trading pairs configuration
 TRADING_CONFIG = [
-    {**DEFAULT_CONFIG, 'symbol': 'WIFUSDT'},
-    
+    {**DEFAULT_CONFIG, 'symbol': 'ADAUSDT'},
+    {**DEFAULT_CONFIG, 'symbol': 'XRPUSDT'},
+    {**DEFAULT_CONFIG, 'symbol': 'BCHUSDT'},
+    {**DEFAULT_CONFIG, 'symbol': 'SUIUSDT'},
+    {**DEFAULT_CONFIG, 'symbol': 'DOGEUSDT'}
 ]
 
 """{**DEFAULT_CONFIG, 'symbol': 'DOGEUSDT',

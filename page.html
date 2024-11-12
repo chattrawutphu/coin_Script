@@ -7,8 +7,7 @@
     <title>บันทึกการเทรด</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -114,24 +113,101 @@
             </div>
         </div>
 
-        <!-- Fee Settings -->
-        <div class="bg-white dark:bg-dark-800 rounded-lg shadow-lg p-4 mb-6">
-            <h2 class="text-xl font-bold mb-4">Fee Settings</h2>
-            <div class="flex items-center gap-4">
-                <div class="flex-1">
-                    <label class="block text-sm font-medium mb-2">Trading Fee (%):</label>
-                    <input type="number" id="feePercentage" step="0.01" min="0" max="100" placeholder="e.g., 0.1"
-                        class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
+
+<!-- State Overview Section -->
+<div class="bg-white dark:bg-dark-800 rounded-lg shadow-lg p-4 mb-6">
+    <h2 class="text-xl font-bold mb-4">State Overview</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="state-cards">
+        <!-- Cards will be populated here -->
+    </div>
+</div>
+
+<!-- State Details Modal -->
+<div id="state-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white dark:bg-dark-800 rounded-lg shadow-xl max-w-6xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+        <div class="sticky top-0 bg-white dark:bg-dark-800 px-6 py-4 border-b border-gray-200 dark:border-dark-600 z-10">
+            <div class="flex justify-between items-center">
+                <h3 class="text-xl font-bold" id="state-modal-title">Symbol State Details</h3>
+                <button class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200" onclick="closeStateModal()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Market Data -->
+                <div class="bg-gray-50 dark:bg-dark-700 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-4">Market Data</h4>
+                    <div class="space-y-2" id="market-data">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
                 </div>
-                <div class="flex-1">
-                    <label class="block text-sm font-medium mb-2">Status:</label>
-                    <div id="feeStatus" class="p-2 text-sm"></div>
+
+                <!-- Current Candle -->
+                <div class="bg-gray-50 dark:bg-dark-700 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-4">Current Candle</h4>
+                    <div class="space-y-2" id="current-candle">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Position Data -->
+                <div class="bg-gray-50 dark:bg-dark-700 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-4">Position Data</h4>
+                    <div class="space-y-2" id="position-data">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Technical Indicators -->
+                <div class="bg-gray-50 dark:bg-dark-700 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-4">Technical Indicators</h4>
+                    <div class="space-y-2" id="technical-indicators">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Orders -->
+                <div class="bg-gray-50 dark:bg-dark-700 p-4 rounded-lg col-span-1 lg:col-span-2">
+                    <h4 class="font-semibold mb-4">Current Orders</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full" id="orders-table">
+                            <thead class="bg-gray-100 dark:bg-dark-600">
+                                <tr>
+                                    <th class="p-2 text-left">Type</th>
+                                    <th class="p-2 text-left">Side</th>
+                                    <th class="p-2 text-right">Price</th>
+                                    <th class="p-2 text-right">Amount</th>
+                                    <th class="p-2 text-left">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-data">
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
         <!-- Filters -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                    <!-- Fee Settings -->
+                <div class="flex items-center gap-4">
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium mb-2">Trading Fee (%):</label>
+                        <input type="number" id="feePercentage" step="0.01" min="0" max="100" placeholder="e.g., 0.1"
+                            class="w-full p-2 rounded-lg border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
+                    </div>
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium mb-2">Status:</label>
+                        <div id="feeStatus" class="p-2 text-sm"></div>
+                    </div>
+                </div>
             <div>
                 <label class="block text-sm font-medium mb-2">กรองตาม Symbol:</label>
                 <select id="symbolFilter"
@@ -278,7 +354,22 @@
         </div>
         <!-- Trade Records Table -->
         <div class="bg-white dark:bg-dark-800 rounded-lg shadow-lg p-4">
-            <h2 class="text-xl font-bold mb-4">รายการเทรดล่าสุด</h2>
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">รายการเทรดล่าสุด</h2>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm text-gray-600 dark:text-gray-400">
+                        แสดง
+                        <select id="page-size"
+                            class="mx-2 rounded border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700">
+                            <option value="10">10</option>
+                            <option value="50">50</option>
+                            <option value="100" selected>100</option>
+                            <option value="200">200</option>
+                        </select>
+                        รายการต่อหน้า
+                    </span>
+                </div>
+            </div>
             <div class="overflow-x-auto">
                 <table class="w-full">
                     <thead class="bg-gray-50 dark:bg-dark-700">
@@ -302,6 +393,24 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <!-- Pagination controls -->
+            <div class="flex justify-between items-center mt-4">
+                <div class="text-sm text-gray-600 dark:text-gray-400">
+                    แสดง <span id="showing-start">0</span> ถึง <span id="showing-end">0</span> จาก <span
+                        id="total-records">0</span> รายการ
+                </div>
+                <div class="flex gap-2">
+                    <button id="prev-page"
+                        class="px-3 py-1 rounded border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 disabled:opacity-50">
+                        ก่อนหน้า
+                    </button>
+                    <div id="page-numbers" class="flex gap-1"></div>
+                    <button id="next-page"
+                        class="px-3 py-1 rounded border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700 disabled:opacity-50">
+                        ถัดไป
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -703,12 +812,30 @@
             // Show modal
             $('#position-modal').removeClass('hidden').addClass('flex');
         }
+
+        // Pagination state
+        let currentPage = 1;
+        let pageSize = 100;
+        let totalPages = 1;
         // ฟังก์ชันอัพเดตตาราง
         function updateTable(trades) {
             const feePercentage = getFeePercentage();
             let tableContent = '';
 
-            trades.slice(0, 10).forEach(function (trade) {
+            // Calculate pagination
+            const start = (currentPage - 1) * pageSize;
+            const end = Math.min(start + pageSize, trades.length);
+            const displayedTrades = trades.slice(start, end);
+
+            totalPages = Math.ceil(trades.length / pageSize);
+
+            // Update pagination info
+            document.getElementById('showing-start').textContent = trades.length ? start + 1 : 0;
+            document.getElementById('showing-end').textContent = end;
+            document.getElementById('total-records').textContent = trades.length;
+
+            // Generate table content
+            displayedTrades.forEach(function (trade) {
                 // Calculate fees based on position size
                 const entryPositionSize = trade.entry_price * trade.amount;
                 const exitPositionSize = trade.exit_price * trade.amount;
@@ -751,6 +878,38 @@
             }
 
             $('#trade-records').html(tableContent);
+            updatePaginationButtons();
+        }
+
+        function updatePaginationButtons() {
+            const pageNumbers = document.getElementById('page-numbers');
+            pageNumbers.innerHTML = '';
+
+            // Enable/disable prev/next buttons
+            document.getElementById('prev-page').disabled = currentPage === 1;
+            document.getElementById('next-page').disabled = currentPage === totalPages;
+
+            // Calculate visible page numbers
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + 4);
+
+            if (endPage - startPage < 4) {
+                startPage = Math.max(1, endPage - 4);
+            }
+
+            // Add page buttons
+            for (let i = startPage; i <= endPage; i++) {
+                const button = document.createElement('button');
+                button.className = `px-3 py-1 rounded ${i === currentPage
+                    ? 'bg-blue-500 text-white'
+                    : 'border border-gray-300 dark:border-dark-600 bg-gray-50 dark:bg-dark-700'}`;
+                button.textContent = i;
+                button.onclick = () => {
+                    currentPage = i;
+                    filterTrades();
+                };
+                pageNumbers.appendChild(button);
+            }
         }
 
         // ฟังก์ชันอัพเดตสถิติ
@@ -1080,6 +1239,209 @@
                 filterTrades();
             });
         });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Page size change
+            document.getElementById('page-size').addEventListener('change', function (e) {
+                pageSize = parseInt(e.target.value);
+                currentPage = 1;
+                filterTrades();
+            });
+
+            // Previous page
+            document.getElementById('prev-page').addEventListener('click', function () {
+                if (currentPage > 1) {
+                    currentPage--;
+                    filterTrades();
+                }
+            });
+
+            // Next page
+            document.getElementById('next-page').addEventListener('click', function () {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    filterTrades();
+                }
+            });
+        });
+
+        
+
+    </script>
+
+<script>
+
+async function updateStateCards() {
+    try {
+        const indexResponse = await fetch('json/index.json');
+        if (!indexResponse.ok) throw new Error('Cannot load symbols');
+        const symbolConfigs = await indexResponse.json();
+
+        let cardsHtml = '';
+
+        for (const config of symbolConfigs) {
+            try {
+                const stateResponse = await fetch(`json/state/${config.symbol}.json`);
+                if (!stateResponse.ok) continue;
+                const state = await stateResponse.json();
+
+                const statusColor = state.is_in_position ? 'bg-green-100 dark:bg-green-900' : 'bg-gray-100 dark:bg-gray-700';
+                const positionStatus = state.is_in_position ? 'In Position' : 'No Position';
+                const currentPrice = state.current_price ? formatNumber(state.current_price, 4) : 'N/A';
+
+                cardsHtml += `
+                    <div class="border dark:border-dark-600 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-200">
+                        <div class="p-4 ${statusColor}">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold">${config.symbol}</h3>
+                                <span class="text-sm ${state.is_in_position ? 'text-green-600 dark:text-green-400' : 'text-gray-600 dark:text-gray-400'}">
+                                    ${positionStatus}
+                                </span>
+                            </div>
+                            <p class="mt-2 font-mono">${currentPrice}</p>
+                        </div>
+                        <div class="p-4 bg-white dark:bg-dark-800">
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Orders</span>
+                                    <span class="font-mono">${state.current_orders.length}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Status</span>
+                                    <span>${state.is_wait_candle ? 'Waiting' : 'Ready'}</span>
+                                </div>
+                            </div>
+                            <button onclick='openStateModal(${JSON.stringify(state)}, "${config.symbol}")'
+                                class="mt-3 px-3 py-1 text-sm text-blue-500 hover:text-blue-600 hover:underline transition-colors duration-200">
+                                View Details →
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error(`Error loading state for ${config.symbol}:`, error);
+            }
+        }
+
+        document.getElementById('state-cards').innerHTML = cardsHtml;
+
+    } catch (error) {
+        console.error('Error updating state cards:', error);
+        document.getElementById('state-cards').innerHTML = `
+            <div class="col-span-full p-4 text-center text-red-500">
+                Error loading state data: ${error.message}
+            </div>
+        `;
+    }
+}
+
+// เริ่มการทำงานและอัพเดตทุก 1 วินาที
+document.addEventListener('DOMContentLoaded', function() {
+    updateStateCards();
+    setInterval(updateStateCards, 1000);
+});
+
+    function openStateModal(state, symbol) {
+        document.getElementById('state-modal-title').textContent = `${symbol} State Details`;
+    
+        // Market Data
+        const marketDataHtml = `
+            <div class="grid grid-cols-2 gap-2">
+                <span class="text-gray-600 dark:text-gray-400">Available Balance</span>
+                <span class="font-mono">${state.current_market_data.available_balance || 'N/A'}</span>
+                <span class="text-gray-600 dark:text-gray-400">Current Price</span>
+                <span class="font-mono">${formatNumber(state.current_price, 4) || 'N/A'}</span>
+                <span class="text-gray-600 dark:text-gray-400">Last Update</span>
+                <span class="font-mono text-sm">${new Date(state.current_market_data.last_update).toLocaleString()}</span>
+            </div>
+        `;
+        document.getElementById('market-data').innerHTML = marketDataHtml;
+    
+        // Current Candle
+        const candleHtml = `
+            <div class="grid grid-cols-2 gap-2">
+                <span class="text-gray-600 dark:text-gray-400">Open</span>
+                <span class="font-mono">${formatNumber(state.current_candle.open, 4)}</span>
+                <span class="text-gray-600 dark:text-gray-400">High</span>
+                <span class="font-mono">${formatNumber(state.current_candle.high, 4)}</span>
+                <span class="text-gray-600 dark:text-gray-400">Low</span>
+                <span class="font-mono">${formatNumber(state.current_candle.low, 4)}</span>
+                <span class="text-gray-600 dark:text-gray-400">Close</span>
+                <span class="font-mono">${formatNumber(state.current_candle.close, 4)}</span>
+                <span class="text-gray-600 dark:text-gray-400">Volume</span>
+                <span class="font-mono">${formatNumber(state.current_candle.volume, 2)}</span>
+            </div>
+        `;
+        document.getElementById('current-candle').innerHTML = candleHtml;
+    
+        // Position Data
+        const positionData = state.global_position_data;
+        const positionHtml = `
+            <div class="grid grid-cols-2 gap-2">
+                <span class="text-gray-600 dark:text-gray-400">Status</span>
+                <span class="${state.is_in_position ? 'text-green-500' : 'text-gray-500'}">
+                    ${state.is_in_position ? 'In Position' : 'No Position'}
+                </span>
+                <span class="text-gray-600 dark:text-gray-400">Entry Price</span>
+                <span class="font-mono">${positionData.entry_price ? formatNumber(positionData.entry_price, 4) : 'N/A'}</span>
+                <span class="text-gray-600 dark:text-gray-400">Position Side</span>
+                <span class="font-mono">${positionData.position_side || 'N/A'}</span>
+                <span class="text-gray-600 dark:text-gray-400">Position Size</span>
+                <span class="font-mono">${positionData.position_size ? formatNumber(positionData.position_size, 4) : 'N/A'}</span>
+                <span class="text-gray-600 dark:text-gray-400">Leverage</span>
+                <span class="font-mono">${positionData.leverage || 'N/A'}</span>
+            </div>
+        `;
+        document.getElementById('position-data').innerHTML = positionHtml;
+    
+        // Technical Indicators
+        const techHtml = `
+            <div class="grid grid-cols-2 gap-2">
+                <span class="text-gray-600 dark:text-gray-400">RSI Period</span>
+                <span class="font-mono">${state.current_rsi_period}</span>
+                <span class="text-gray-600 dark:text-gray-400">ATR Length 1</span>
+                <span class="font-mono">${formatNumber(state.current_atr_length_1, 6)}</span>
+                <span class="text-gray-600 dark:text-gray-400">ATR Length 2</span>
+                <span class="font-mono">${formatNumber(state.current_atr_length_2, 6)}</span>
+                <span class="text-gray-600 dark:text-gray-400">Stoploss</span>
+                <span class="font-mono">${state.current_stoploss || 'N/A'}</span>
+            </div>
+        `;
+        document.getElementById('technical-indicators').innerHTML = techHtml;
+    
+        // Orders
+        let ordersHtml = '';
+        if (state.current_orders.length > 0) {
+            state.current_orders.forEach(order => {
+                ordersHtml += `
+                    <tr class="border-b dark:border-dark-600">
+                        <td class="p-2">${order.type}</td>
+                        <td class="p-2 ${order.side === 'buy' ? 'text-green-500' : 'text-red-500'}">${order.side.toUpperCase()}</td>
+                        <td class="p-2 text-right font-mono">${order.price ? formatNumber(order.price, 4) : formatNumber(order.stopPrice, 4)}</td>
+                        <td class="p-2 text-right font-mono">${order.amount ? formatNumber(order.amount, 4) : 'Market'}</td>
+                        <td class="p-2">${order.status}</td>
+                    </tr>
+                `;
+            });
+        } else {
+            ordersHtml = `
+                <tr>
+                    <td colspan="5" class="p-4 text-center text-gray-500">No active orders</td>
+                </tr>
+            `;
+        }
+        document.getElementById('orders-data').innerHTML = ordersHtml;
+    
+        // Show modal
+        document.getElementById('state-modal').classList.remove('hidden');
+        document.getElementById('state-modal').classList.add('flex');
+    }
+    
+    function closeStateModal() {
+
+        document.getElementById('state-modal').classList.remove('flex');
+        document.getElementById('state-modal').classList.add('hidden');
+    }
     </script>
 
 </body>

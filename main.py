@@ -59,6 +59,7 @@ class SymbolState:
         self.current_rsi_period = None
         self.current_atr_length_1 = None
         self.current_atr_length_2 = None
+        self.last_checked_candle = None
         
         # Position tracking
         self.is_in_position = False
@@ -107,6 +108,14 @@ class SymbolState:
             'largest_profit': 0,
             'largest_loss': 0
         }
+
+    def reset_order_state(self):
+        """รีเซ็ตสถานะที่เกี่ยวข้องกับ orders"""
+        self.entry_orders = None
+        self.entry_side = None
+        self.entry_price = None
+        self.entry_stoploss_price = None
+        self.last_checked_candle = None
 
     async def update_market_data(self, api_key: str, api_secret: str):
         """อัพเดทข้อมูลตลาดทั้งหมดในครั้งเดียว"""
@@ -211,6 +220,7 @@ class SymbolState:
                 'current_rsi_period': self.current_rsi_period,
                 'current_atr_length_1': self.current_atr_length_1,
                 'current_atr_length_2': self.current_atr_length_2,
+                'last_checked_candle': self.last_checked_candle,
                 'is_in_position': self.is_in_position,
                 'is_swapping': self.is_swapping,
                 'is_wait_candle': self.is_wait_candle,
@@ -285,6 +295,7 @@ class SymbolState:
                 self.current_rsi_period = saved_state.get('current_rsi_period')
                 self.current_atr_length_1 = saved_state.get('current_atr_length_1')
                 self.current_atr_length_2 = saved_state.get('current_atr_length_2')
+                self.last_checked_candle = saved_state.get('last_checked_candle')
                 
                 # Load position states
                 self.is_in_position = saved_state.get('is_in_position', False)
@@ -403,6 +414,7 @@ class TradingConfig:
         self.symbol = symbol
         self._load_config()
         
+    # แก้ไขส่วน TradingConfig.__init__ เพิ่ม config ใหม่
     def _load_config(self):
         try:
             symbol_config = None
@@ -433,17 +445,23 @@ class TradingConfig:
                 self.min_stoploss = symbol_config.get('min_stoploss', None)
                 self.max_stoploss = symbol_config.get('max_stoploss', None)
                 self.fix_stoploss = symbol_config.get('fix_stoploss', 2)
-                self.take_profits = symbol_config.get('take_profits', {
-                    'move_sl_to_entry_at_tp1': True,
-                    'levels': [
+                
+                # เพิ่ม config ใหม่สำหรับ dynamic take profit
+                tp_config = symbol_config.get('take_profits', {})
+                self.take_profits = {
+                    'move_sl_to_entry_at_tp1': tp_config.get('move_sl_to_entry_at_tp1', True),
+                    'use_dynamic_tp': tp_config.get('use_dynamic_tp', True),  # เพิ่มตัวเลือกเปิด/ปิด dynamic TP
+                    'average_with_entry': tp_config.get('average_with_entry', True),  # เพิ่มตัวเลือกการใช้ค่าเฉลี่ย
+                    'levels': tp_config.get('levels', [
                         {'id': 'tp1', 'size': '5%', 'target_atr': 1},
                         {'id': 'tp2', 'size': '20%', 'target_atr': 2},
                         {'id': 'tp3', 'size': '25%', 'target_atr': 3},
                         {'id': 'tp4', 'size': '25%', 'target_atr': 4}
-                    ]
-                })
+                    ])
+                }
+                
             else:
-                # Use default settings if no config found
+                # Use default settings
                 message(self.symbol, f"ไม่พบการตั้งค่าสำหรับ {self.symbol} ใช้ค่า default", "yellow")
                 self.timeframe = DEFAULT_CONFIG['timeframe']
                 self.entry_amount = DEFAULT_CONFIG['entry_amount']
@@ -454,7 +472,7 @@ class TradingConfig:
                 self.max_stoploss = None
                 self.fix_stoploss = DEFAULT_CONFIG['fix_stoploss']
                 self.take_profits = DEFAULT_CONFIG['take_profits']
-                
+
         except Exception as e:
             error_traceback = traceback.format_exc()
             message(self.symbol, f"เกิดข้อผิดพลาดในการโหลด config: {str(e)}", "red")
@@ -929,99 +947,99 @@ async def setup_take_profit_orders(api_key, api_secret, symbol, entry_price, pos
 async def _handle_entry_orders(api_key, api_secret, symbol, state, price, exchange):
     """จัดการ entry orders"""
     try:
+        # 1. ตรวจสอบว่ามี state entry_orders หรือไม่
         if not state.entry_orders:
             return
 
-        # เช็คสถานะ position
+        # 2. เช็คสถานะ position
         has_position = await check_position(api_key, api_secret, symbol)
         
-        # ถ้า state บอกว่าไม่มี position แต่จริงๆ มี แสดงว่า order ทำงานแล้ว
+        # 3. ถ้า state บอกว่าไม่มี position แต่จริงๆ มี แสดงว่า order ทำงานแล้ว
         if not state.is_in_position and has_position:
-            message(symbol, f"Entry order ทำงานแล้ว กำลังอัพเดทสถานะ", "green")
-            
-            # อัพเดทสถานะ position
-            state.reset_position_data()
-            state.is_in_position = True
-            
-            # ดึงข้อมูล position จริงจาก exchange
-            try:
-                positions = await exchange.fetch_positions([symbol])
-                current_position = next((pos for pos in positions if float(pos['contracts']) != 0), None)
-                
-                if current_position:
-                    state.global_position_data.update({
-                        'entry_price': float(current_position['entryPrice']),
-                        'entry_time': datetime.now(pytz.UTC),
-                        # แปลง side จาก long/short เป็น buy/sell
-                        'position_side': 'buy' if current_position['side'] == 'long' else 'sell',
-                        'position_size': float(current_position['contracts']),
-                        'leverage': int(current_position['leverage']),
-                        'margin_type': current_position['marginType']
-                    })
-                    
-                    # ตั้งค่า entry candle
-                    state.entry_candle = state.current_candle
-                    
-                    # สร้าง Take Profit Orders
-                    tp_orders = await setup_take_profit_orders(
-                        api_key, api_secret, symbol,
-                        state.global_position_data['entry_price'],
-                        state.global_position_data['position_side'],
-                        state.config.timeframe,
-                        state
-                    )
-                    
-                    # รีเซ็ตข้อมูล entry orders
-                    state.entry_orders = None
-                    state.entry_side = None
-                    state.entry_price = None
-                    state.entry_stoploss_price = None
-                else:
-                    message(symbol, "ไม่พบข้อมูล position", "red")
-                    
-            except Exception as e:
-                message(symbol, f"เกิดข้อผิดพลาดในการดึงข้อมูล position: {str(e)}", "red")
-            
-            state.save_state()
+            await _handle_position_entered(api_key, api_secret, symbol, state, exchange)
             return
 
-        # ถ้ายังไม่มี position ให้เช็คว่าต้องยกเลิก order หรือไม่
-        if current_candle := state.current_candle:
-            max_price = float(current_candle['high'])
-            min_price = float(current_candle['low'])
+        # 6. ตรวจสอบเงื่อนไขการยกเลิก orders
+        current_candle = state.current_candle
+        if not current_candle:
+            return
             
-            # เช็ค stoploss
-            if state.entry_side == 'long' and min_price < state.entry_stoploss_price:
-                await clear_all_orders(api_key, api_secret, symbol)
-                message(symbol, f"ยกเลิก Orders เนื่องจากราคาต่ำกว่า stoploss", "yellow")
-                message(symbol, f"ข้อมูลเพิ่มเติม: min_price:{min_price} entry_stoploss_price:{state.entry_stoploss_price}", "yellow")
-                
-                # รีเซ็ตสถานะ
-                state.reset_position_data()
-                state.entry_orders = None
-                state.entry_side = None
-                state.entry_price = None
-                state.entry_stoploss_price = None
-                
-            elif state.entry_side == 'short' and max_price > state.entry_stoploss_price:
-                await clear_all_orders(api_key, api_secret, symbol)
-                message(symbol, f"ยกเลิก Orders เนื่องจากราคาสูงกว่า stoploss", "yellow")
-                message(symbol, f"ข้อมูลเพิ่มเติม: max_price:{max_price} entry_stoploss_price:{state.entry_stoploss_price}", "yellow")
-                
-                # รีเซ็ตสถานะ
-                state.reset_position_data()
-                state.entry_orders = None
-                state.entry_side = None
-                state.entry_price = None
-                state.entry_stoploss_price = None
-            
+        
+        current_low = float(current_candle['low'])
+        current_high = float(current_candle['high'])
+        
+        # Debug log
+        """message(symbol, f"ตรวจสอบเงื่อนไขยกเลิก Orders สำหรับแท่งใหม่:", "yellow")
+        message(symbol, f"Entry Side: {state.entry_side}", "yellow")
+        message(symbol, f"Stoploss Price: {state.entry_stoploss_price}", "yellow")
+        message(symbol, f"Current High: {current_high}", "yellow")
+        message(symbol, f"Current Low: {current_low}", "yellow")"""
+        
+        should_cancel = False
+        reason = ""
+        
+        # เช็คเงื่อนไขการยกเลิก
+        if state.entry_side == 'buy' and current_low <= state.entry_stoploss_price:
+            should_cancel = True
+            reason = f"ราคาต่ำสุดของแท่ง ({current_low:.8f}) ต่ำกว่าหรือเท่ากับ stoploss ({state.entry_stoploss_price:.8f})"
+        elif state.entry_side == 'sell' and current_high >= state.entry_stoploss_price:
+            should_cancel = True
+            reason = f"ราคาสูงสุดของแท่ง ({current_high:.8f}) สูงกว่าหรือเท่ากับ stoploss ({state.entry_stoploss_price:.8f})"
+        
+        if should_cancel:
+            message(symbol, f"ยกเลิก Orders เนื่องจาก: {reason}", "yellow")
+            await clear_all_orders(api_key, api_secret, symbol)
+            state.reset_order_state()
             state.save_state()
 
     except Exception as e:
         error_traceback = traceback.format_exc()
         message(symbol, f"เกิดข้อผิดพลาดในการจัดการ Entry Orders: {str(e)}", "red")
         message(symbol, f"Error Traceback: {error_traceback}", "red")
+
+async def _handle_position_entered(api_key, api_secret, symbol, state, exchange):
+    """จัดการกรณี position ถูกเปิดแล้ว"""
+    message(symbol, f"Entry order ทำงานแล้ว กำลังอัพเดทสถานะ", "green")
+    
+    # อัพเดทสถานะ position
+    state.reset_position_data()
+    state.is_in_position = True
+    
+    try:
+        positions = await exchange.fetch_positions([symbol])
+        current_position = next((pos for pos in positions if float(pos['contracts']) != 0), None)
         
+        if current_position:
+            state.global_position_data.update({
+                'entry_price': float(current_position['entryPrice']),
+                'entry_time': datetime.now(pytz.UTC),
+                'position_side': 'buy' if current_position['side'] == 'long' else 'sell',
+                'position_size': float(current_position['contracts']),
+                'leverage': int(current_position['leverage']),
+                'margin_type': current_position['marginType']
+            })
+            
+            state.entry_candle = state.current_candle
+            
+            # สร้าง Take Profit Orders
+            await setup_take_profit_orders(
+                api_key, api_secret, symbol,
+                state.global_position_data['entry_price'],
+                state.global_position_data['position_side'],
+                state.config.timeframe,
+                state
+            )
+            
+            state.reset_order_state()
+            
+        else:
+            message(symbol, "ไม่พบข้อมูล position", "red")
+            
+    except Exception as e:
+        message(symbol, f"เกิดข้อผิดพลาดในการดึงข้อมูล position: {str(e)}", "red")
+    
+    state.save_state()
+
 async def manage_position_profit(api_key: str, api_secret: str, symbol: str, state: SymbolState):
     """จัดการ position profit รวมถึงการย้าย stoploss ตามการตั้งค่า"""
     exchange = None
@@ -1112,6 +1130,10 @@ async def manage_position_profit(api_key: str, api_secret: str, symbol: str, sta
 async def should_adjust_tp(state: SymbolState) -> bool:
     """ตรวจสอบว่าควรปรับ TP หรือไม่"""
     try:
+        # เช็คการเปิดใช้งาน dynamic TP
+        if not state.config.take_profits.get('use_dynamic_tp', True):
+            return False
+            
         if not state.entry_candle or not state.current_candle:
             return False
             
@@ -1150,9 +1172,18 @@ async def get_tp_reference_price(state: SymbolState, position_side: str) -> tupl
         if position_side == 'buy':
             # ใช้ high ถ้าเป็น long position
             reference_price = max(float(reference_candle[2]), entry_price)
+            
+            # คำนวณค่าเฉลี่ยถ้า config เปิดใช้งาน
+            if state.config.take_profits.get('average_with_entry', True):
+                reference_price = (reference_price + entry_price) / 2
+                
         else:
             # ใช้ low ถ้าเป็น short position
             reference_price = min(float(reference_candle[3]), entry_price)
+            
+            # คำนวณค่าเฉลี่ยถ้า config เปิดใช้งาน
+            if state.config.take_profits.get('average_with_entry', True):
+                reference_price = (reference_price + entry_price) / 2
             
         return reference_price, reference_candle
 
