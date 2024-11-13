@@ -256,6 +256,41 @@
             return color ? `text-${color}` : 'text-white';
         }
 
+        // Update the message formatting function to handle ATR information
+        function formatMessage(msg) {
+            let messageText = msg.message;
+            
+            // Check if message contains ATR information
+            if (messageText.includes('ATR(7)')) {
+                // Add special styling for ATR information
+                messageText = messageText.replace(
+                    /(ATR\(7\): [\d.]+)/g, 
+                    '<span class="font-mono bg-blue-500/10 px-1 rounded">$1</span>'
+                );
+            }
+            
+            // Add special styling for TP levels
+            if (messageText.includes('tp1:') || messageText.includes('tp2:') || messageText.includes('tp3:')) {
+                messageText = messageText.replace(
+                    /(tp[123]): ([\d.]+)/g,
+                    '<span class="font-bold">$1:</span> <span class="font-mono">$2</span>'
+                );
+            }
+
+            // Add special styling for percentages
+            messageText = messageText.replace(
+                /(\d+\.?\d*%)/g,
+                '<span class="font-mono text-green-400">$1</span>'
+            );
+
+            return `
+                <div class="p-2 rounded bg-gray-50 dark:bg-dark-700 flex items-start gap-3">
+                    <span class="text-sm text-gray-500 whitespace-nowrap">${msg.time}</span>
+                    <span class="flex-1 ${getMessageColor(msg.color)} break-words">${messageText}</span>
+                </div>
+            `;
+        }
+
         // Function to load messages from a specific part
         async function loadMessagePart(part, append = false) {
             if (!currentSymbol || !currentDate || isLoading) return;
@@ -274,14 +309,9 @@
                 }
 
                 const messages = await response.json();
-                const reversedMessages = [...messages].reverse(); // Reverse messages to show newest first
+                const reversedMessages = [...messages].reverse();
                 
-                const messageElements = reversedMessages.map(msg => `
-                    <div class="p-2 rounded bg-gray-50 dark:bg-dark-700 flex items-start gap-3">
-                        <span class="text-sm text-gray-500 whitespace-nowrap">${msg.time}</span>
-                        <span class="flex-1 ${getMessageColor(msg.color)}">${msg.message}</span>
-                    </div>
-                `).join('');
+                const messageElements = reversedMessages.map(msg => formatMessage(msg)).join('');
 
                 if (append) {
                     $('#messagesContainer').append(messageElements);
@@ -289,12 +319,10 @@
                     $('#messagesContainer').html(messageElements);
                 }
 
-                // Update status bar
+                // Update status and counters
                 totalMessages += messages.length;
                 $('#currentFile').text(`Part: ${paddedPart}`);
                 $('#messageCount').text(`Messages: ${totalMessages}`);
-
-                // Show/hide load more button
                 $('#loadMoreContainer').toggleClass('hidden', part <= 0);
                 
                 currentPart = part;

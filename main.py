@@ -59,6 +59,7 @@ class SymbolState:
         self.current_rsi_period = None
         self.current_atr_length_1 = None
         self.current_atr_length_2 = None
+        self.current_atr_tp = None
         self.last_checked_candle = None
         
         # Position tracking
@@ -220,6 +221,7 @@ class SymbolState:
                 'current_rsi_period': self.current_rsi_period,
                 'current_atr_length_1': self.current_atr_length_1,
                 'current_atr_length_2': self.current_atr_length_2,
+                'current_atr_tp': self.current_atr_tp,  # เพิ่ม ATR 7
                 'last_checked_candle': self.last_checked_candle,
                 'is_in_position': self.is_in_position,
                 'is_swapping': self.is_swapping,
@@ -295,6 +297,7 @@ class SymbolState:
                 self.current_rsi_period = saved_state.get('current_rsi_period')
                 self.current_atr_length_1 = saved_state.get('current_atr_length_1')
                 self.current_atr_length_2 = saved_state.get('current_atr_length_2')
+                self.current_atr_tp = saved_state.get('current_atr_tp')  # โหลด ATR 7
                 self.last_checked_candle = saved_state.get('last_checked_candle')
                 
                 # Load position states
@@ -327,7 +330,6 @@ class SymbolState:
                 if 'performance_data' in saved_state:
                     self.performance_data = process_dict(saved_state['performance_data'])
                 
-                #message(self.symbol, f"โหลดสถานะเสร็จสมบูรณ์", "cyan")
                 return True
                 
             except Exception as e:
@@ -365,6 +367,7 @@ class SymbolState:
         self.current_rsi_period = None
         self.current_atr_length_1 = None
         self.current_atr_length_2 = None
+        self.current_atr_tp = None
         
         # Position tracking
         self.is_in_position = False
@@ -1158,7 +1161,7 @@ async def should_adjust_tp(state: SymbolState) -> bool:
         return False
 
 async def get_tp_reference_price(state: SymbolState, position_side: str) -> tuple:
-    """หาราคาอ้างอิงสำหรับคำนวณ TP และ ATR"""
+    """หาราคาอ้างอิงสำหรับคำนวณ TP และ ATR โดยใช้ percentage weight"""
     try:
         # ดึงข้อมูล 3 แท่งล่าสุดที่ปิดแล้ว
         candles = await fetch_ohlcv(state.symbol, state.config.timeframe, limit=4)
@@ -1169,21 +1172,38 @@ async def get_tp_reference_price(state: SymbolState, position_side: str) -> tupl
         reference_candle = candles[-4]
         entry_price = state.global_position_data['entry_price']
         
+        # ดึงค่า weight percentage จาก config
+        weight_percent = state.config.take_profits.get('average_with_entry', 50)
+        # แปลงเป็นทศนิยม (0-1)
+        weight = weight_percent / 100.0
+        
         if position_side == 'buy':
             # ใช้ high ถ้าเป็น long position
-            reference_price = max(float(reference_candle[2]), entry_price)
+            candle_price = float(reference_candle[2])
             
-            # คำนวณค่าเฉลี่ยถ้า config เปิดใช้งาน
-            if state.config.take_profits.get('average_with_entry', True):
-                reference_price = (reference_price + entry_price) / 2
+            # คำนวณราคาอ้างอิงตาม weight
+            if weight == 0:  # ใช้ entry price อย่างเดียว
+                reference_price = entry_price
+            elif weight == 1:  # ใช้ราคา candle อย่างเดียว
+                reference_price = candle_price
+            else:
+                # คำนวณราคาตาม weight
+                # ใช้ entry price * (1-weight) + candle price * weight
+                reference_price = (entry_price * (1 - weight)) + (candle_price * weight)
                 
-        else:
+        else:  # position_side == 'sell'
             # ใช้ low ถ้าเป็น short position
-            reference_price = min(float(reference_candle[3]), entry_price)
+            candle_price = float(reference_candle[3])
             
-            # คำนวณค่าเฉลี่ยถ้า config เปิดใช้งาน
-            if state.config.take_profits.get('average_with_entry', True):
-                reference_price = (reference_price + entry_price) / 2
+            # คำนวณราคาอ้างอิงตาม weight
+            if weight == 0:  # ใช้ entry price อย่างเดียว
+                reference_price = entry_price
+            elif weight == 1:  # ใช้ราคา candle อย่างเดียว
+                reference_price = candle_price
+            else:
+                # คำนวณราคาตาม weight
+                # ใช้ entry price * (1-weight) + candle price * weight
+                reference_price = (entry_price * (1 - weight)) + (candle_price * weight)
             
         return reference_price, reference_candle
 
@@ -1236,15 +1256,16 @@ async def adjust_take_profit_orders(api_key: str, api_secret: str, symbol: str, 
         message(symbol, f"Error: {error_traceback}", "red")
 
 async def create_dynamic_tp_orders(api_key, api_secret, symbol, reference_price, position_side, timeframe, state, atr=None):
-    """สร้าง take profit orders แบบไดนามิก"""
+    """สร้าง take profit orders แบบไดนามิก โดยใช้ ATR 7"""
     try:
+        # ใช้ ATR 7 สำหรับ TP
         if not atr:
-            atr = state.current_atr_length_2
+            atr = state.current_atr_tp  # ใช้ ATR period 7
             if not atr:
                 return []
 
         atr_percent = (atr / reference_price) * 100
-        message(symbol, f"คำนวณ TP จาก: Price: {reference_price:.8f}, ATR: {atr:.8f} ({atr_percent:.2f}%)", "blue")
+        message(symbol, f"คำนวณ TP จาก: Price: {reference_price:.8f}, ATR(7): {atr:.8f} ({atr_percent:.2f}%)", "blue")
 
         # ดึงการตั้งค่า TP จาก config
         tp_config = state.config.take_profits
@@ -1580,12 +1601,94 @@ async def check_and_recreate_stoploss(api_key: str, api_secret: str, symbol: str
         message(symbol, f"เกิดข้อผิดพลาดในการตรวจสอบ/สร้าง Stoploss: {str(e)}", "red")
         message(symbol, f"Error: {error_traceback}", "red")
 
+async def setup_take_profit_orders(api_key, api_secret, symbol, entry_price, position_side, timeframe, state):
+    """สร้าง take profit orders โดยใช้การตั้งค่าจาก config และ ATR 7"""
+    try:
+        if entry_price is None:
+            message(symbol, "ไม่มีข้อมูล entry price สำหรับคำนวณ Take Profit", "red")
+            return []
+
+        # ใช้ ATR 7 สำหรับ TP
+        atr = state.current_atr_tp
+        if atr is None:
+            message(symbol, "ไม่สามารถคำนวณค่า ATR(7) ได้", "red")
+            return []
+            
+        atr_percent = (atr / entry_price) * 100
+        message(symbol, f"คำนวณ TP จาก: Entry: {entry_price}, ATR(7): {atr:.8f} ({atr_percent:.2f}%)", "blue")
+
+        # ดึงการตั้งค่า TP จาก config
+        tp_config = state.config.take_profits
+        if not tp_config or not tp_config.get('levels'):
+            message(symbol, "ไม่พบการตั้งค่า Take Profit ใน config", "yellow")
+            return []
+
+        # เตรียมคำสั่ง TP
+        orders = []
+        
+        for level in tp_config['levels']:
+            level_id = level['id']
+            target_atr = level['target_atr']
+            size = level['size']
+
+            # คำนวณราคา TP
+            if position_side == 'buy':
+                tp_base = entry_price + (atr * target_atr)
+                tp_price = tp_base * (PRICE_INCREASE + (PRICE_CHANGE_THRESHOLD * (target_atr * 2)))
+            else:
+                tp_base = entry_price - (atr * target_atr)
+                tp_price = tp_base * (PRICE_DECREASE - (PRICE_CHANGE_THRESHOLD * (target_atr * 2)))
+
+            # ปรับราคาตามข้อจำกัดของ exchange
+            adjusted_price = await get_adjusted_price(
+                api_key, api_secret, str(tp_price), entry_price, position_side, symbol
+            )
+
+            if adjusted_price is None:
+                message(symbol, f"ไม่สามารถปรับราคา {level_id} ได้", "red")
+                continue
+
+            # คำนวณกำไรเป็นเปอร์เซ็นต์
+            profit_percent = abs((adjusted_price - entry_price) / entry_price * 100)
+            distance_in_atr = abs(adjusted_price - entry_price) / atr
+            message(symbol, 
+                f"{level_id}: {adjusted_price:.8f} ({profit_percent:.2f}%, " +
+                f"{distance_in_atr:.1f} ATR, Size: {size})", "blue"
+            )
+
+            # สร้างคำสั่ง TP
+            side = 'sell' if position_side == 'buy' else 'buy'
+            tp_order = await create_order(
+                api_key, api_secret,
+                symbol=symbol,
+                side=side,
+                price=str(adjusted_price),
+                quantity=size,
+                order_type='TAKE_PROFIT_MARKET'
+            )
+
+            if tp_order:
+                orders.append(tp_order)
+                message(symbol, f"ตั้ง {level_id} ({size}) ที่ราคา {adjusted_price:.8f}", "cyan")
+            else:
+                message(symbol, f"ไม่สามารถสร้างคำสั่ง {level_id} ได้", "red")
+
+        return orders
+
+    except Exception as e:
+        error_traceback = traceback.format_exc()
+        message(symbol, f"เกิดข้อผิดพลาดในการสร้าง Take Profit Orders: {str(e)}", "red")
+        message(symbol, f"Error: {error_traceback}", "red")
+        return []
+    
 async def update_market_indicators(api_key: str, api_secret: str, symbol: str, state: SymbolState):
     """อัพเดทค่า ATR และ RSI Period เมื่อมีแท่งเทียนใหม่"""
     try:
         # ดึงข้อมูลแท่งเทียน
         rsi_config = state.config.rsi_period
-        max_length = max(rsi_config['atr']['length2'], rsi_config['atr']['length1'])
+        
+        # เพิ่ม ATR period 7 สำหรับ TP
+        max_length = max(rsi_config['atr']['length2'], rsi_config['atr']['length1'], 7)  # เพิ่ม ATR 7
         required_candles = int(max_length * 1.2)
         
         ohlcv = await fetch_ohlcv(symbol, state.config.timeframe, limit=required_candles)
@@ -1594,7 +1697,7 @@ async def update_market_indicators(api_key: str, api_secret: str, symbol: str, s
             message(symbol, f"ข้อมูลไม่พอสำหรับคำนวณ ATR (มี {len(ohlcv)} แท่ง)", "yellow")
             return False
 
-        # คำนวณ ATR สำหรับทั้งสองช่วง
+        # คำนวณ ATR สำหรับทุกช่วง
         def calculate_atr_value(length):
             tr_values = []
             for i in range(1, len(ohlcv)):
@@ -1615,24 +1718,19 @@ async def update_market_indicators(api_key: str, api_secret: str, symbol: str, s
                 rma = (alpha * tr) + ((1 - alpha) * rma)
             return rma
 
-        # คำนวณ ATR ทั้งสองค่า
+        # คำนวณ ATR ทั้งสามค่า
         atr_short = calculate_atr_value(rsi_config['atr']['length1'])
         atr_long = calculate_atr_value(rsi_config['atr']['length2'])
+        atr_tp = calculate_atr_value(7)  # ATR period 7 สำหรับ TP
         
         # เก็บค่า ATR ล่าสุด
         state.current_atr_length_1 = atr_short
         state.current_atr_length_2 = atr_long
+        state.current_atr_tp = atr_tp  # เพิ่มการเก็บค่า ATR 7
 
         # คำนวณ RSI Period
         if rsi_config.get('use_dynamic_period', True):
             atr_diff_percent = ((atr_short - atr_long) / atr_long) * 100
-            
-            """message(symbol, 
-                f"ATR Diff: {atr_diff_percent:.2f}% " +
-                f"(ATR{rsi_config['atr']['length1']}: {atr_short:.8f}, " +
-                f"ATR{rsi_config['atr']['length2']}: {atr_long:.8f})", 
-                "blue"
-            )"""
             
             if atr_diff_percent >= rsi_config['atr']['max_percent']:
                 current_rsi_period = rsi_config['rsi_period_max']
@@ -1647,7 +1745,6 @@ async def update_market_indicators(api_key: str, api_secret: str, symbol: str, s
             current_rsi_period = rsi_config['rsi_period_min']
 
         state.current_rsi_period = current_rsi_period
-        #message(symbol, f"ใช้ RSI Period: {current_rsi_period}", "blue")
         
         return True
 
