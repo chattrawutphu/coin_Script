@@ -13,7 +13,7 @@ from function.binance.futures.order.other.get_future_market_price import get_fut
 from function.binance.futures.order.other.get_create_order_adjusted_price import get_adjusted_price
 from function.binance.futures.order.other.get_create_order_adjusted_stop_price import get_adjusted_stop_price
 
-async def create_order(api_key, api_secret, symbol, side, price="now", quantity="30$", order_type="MARKET", stop_price=None):
+async def create_order(api_key, api_secret, symbol, side, price="now", quantity="30$", order_type="MARKET", stop_price=None, martingale_multiplier=1):
     exchange = None
     try:
         exchange = await create_future_exchange(api_key, api_secret)
@@ -32,7 +32,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                 return None
             
             temp_quantity = quantity
-            quantity = await get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, order_type)
+            quantity = await get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, order_type, martingale_multiplier)
             if quantity is None or quantity <= 0:
                 message(symbol, f"ปริมาณที่ปรับแล้วไม่ถูกต้อง: {quantity}", "red")
                 return None
@@ -228,7 +228,7 @@ async def create_order(api_key, api_secret, symbol, side, price="now", quantity=
                 message(symbol, f"เกิดข้อผิดพลาดในการปิด exchange: {str(e)}", "red")
     return None
 
-async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, order_type=None):
+async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, order_type=None, martingale_multiplier=1.0):
     """ปรับปริมาณการเทรดตามรูปแบบที่กำหนด"""
     try:
         # ตรวจสอบค่า price
@@ -300,6 +300,10 @@ async def get_adjusted_quantity(api_key, api_secret, quantity, price, symbol, or
             except (ValueError, TypeError) as e:
                 message(symbol, f"รูปแบบปริมาณไม่ถูกต้อง: {quantity_str}", "red")
                 return None
+
+        # เพิ่มการคูณด้วย martingale_multiplier
+        btc_quantity *= martingale_multiplier
+        message(symbol, f"ปรับ Quantity ตาม Martingale: {btc_quantity}", "blue")
 
         # ปรับความละเอียดของปริมาณ
         adjusted_quantity = await get_adjust_precision_quantity(symbol, btc_quantity)

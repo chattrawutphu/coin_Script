@@ -97,6 +97,10 @@ class SymbolState:
             'tp3': False,
             'tp4': False
         }
+
+        # Martingale tracking
+        self.martingale_multiplier = 1.0
+        self.consecutive_losses = 0
         
         # Performance metrics
         self.performance_data = {
@@ -237,6 +241,8 @@ class SymbolState:
                 'last_focus_price': self.last_focus_price,
                 'last_focus_stopprice': self.last_focus_stopprice,
                 'tp_levels_hit': self.tp_levels_hit,
+                'martingale_multiplier': self.martingale_multiplier,
+                'consecutive_losses': self.consecutive_losses,
                 'performance_data': process_dict(self.performance_data)
             }
             
@@ -326,6 +332,9 @@ class SymbolState:
                 # Load TP states
                 self.tp_levels_hit = saved_state.get('tp_levels_hit', {})
                 
+                # Load Martingale state
+                self.martingale_multiplier = saved_state.get('martingale_multiplier', 1.0)
+                self.consecutive_losses = saved_state.get('consecutive_losses', 0)
                 # Load performance data
                 if 'performance_data' in saved_state:
                     self.performance_data = process_dict(saved_state['performance_data'])
@@ -399,6 +408,10 @@ class SymbolState:
         
         # Take profit tracking
         self.tp_levels_hit = {}
+
+        # Reset Martingale state
+        self.martingale_multiplier = 1.0
+        self.consecutive_losses = 0
         
         # Performance metrics
         self.performance_data = {
@@ -462,6 +475,13 @@ class TradingConfig:
                         {'id': 'tp4', 'size': '25%', 'target_atr': 4}
                     ])
                 }
+
+                # Martingale configuration
+                martingale_config = symbol_config.get('martingale', {})
+                self.martingale_enabled = martingale_config.get('enabled', False)
+                self.martingale_max_multiplier = martingale_config.get('max_multiplier', 3.0)
+                self.martingale_step = martingale_config.get('step', 0.5)
+                self.martingale_reset_on_win = martingale_config.get('reset_on_win', True)
                 
             else:
                 # Use default settings
@@ -649,7 +669,8 @@ async def _handle_position_close(api_key, api_secret, symbol, state, price):
                             side=entry_side,
                             price='now',
                             quantity=str(adjusted_quantity),
-                            order_type='MARKET'
+                            order_type='MARKET',
+                            martingale_multiplier=state.martingale_multiplier
                         )
                     elif price_condition_met:
                         # เข้าด้วย LIMIT order เมื่อราคาอยู่ในช่วงที่เหมาะสม
@@ -661,7 +682,8 @@ async def _handle_position_close(api_key, api_secret, symbol, state, price):
                             side=entry_side,
                             price=str(limit_price),
                             quantity=str(adjusted_quantity),
-                            order_type='LIMIT'
+                            order_type='LIMIT',
+                            martingale_multiplier=state.martingale_multiplier
                         )
                     else:
                         message(symbol, f"ตั้ง STOP_MARKET ที่ {entry_trigger_price:.8f}", "yellow")
@@ -671,7 +693,8 @@ async def _handle_position_close(api_key, api_secret, symbol, state, price):
                             side=entry_side,
                             price=str(entry_trigger_price),
                             quantity=str(adjusted_quantity),
-                            order_type='STOP_MARKET'
+                            order_type='STOP_MARKET',
+                            martingale_multiplier=state.martingale_multiplier
                         )
 
                     if entry_order:
@@ -682,7 +705,8 @@ async def _handle_position_close(api_key, api_secret, symbol, state, price):
                             side=stoploss_side,
                             price=str(stoploss_price),
                             quantity='MAX',
-                            order_type='STOPLOSS_MARKET'
+                            order_type='STOPLOSS_MARKET',
+                            martingale_multiplier=state.martingale_multiplier
                         )
 
                         if stoploss_order:
@@ -930,7 +954,8 @@ async def setup_take_profit_orders(api_key, api_secret, symbol, entry_price, pos
                 side=side,
                 price=str(adjusted_price),
                 quantity=size,
-                order_type='TAKE_PROFIT_MARKET'
+                order_type='TAKE_PROFIT_MARKET',
+                martingale_multiplier=state.martingale_multiplier
             )
 
             if tp_order:
@@ -1044,7 +1069,7 @@ async def _handle_position_entered(api_key, api_secret, symbol, state, exchange)
     state.save_state()
 
 async def manage_position_profit(api_key: str, api_secret: str, symbol: str, state: SymbolState):
-    """จัดการ position profit รวมถึงการย้าย stoploss ตามการตั้งค่า"""
+    """จัดการ position profit รวมถึงการย้าย stoploss ตามระดับ TP ต่างๆ"""
     exchange = None
     try:
         if not state.is_in_position:
@@ -1053,7 +1078,7 @@ async def manage_position_profit(api_key: str, api_secret: str, symbol: str, sta
         exchange = await create_future_exchange(api_key, api_secret)
 
         current_stoploss = state.current_stoploss
-        atr = state.current_atr_length_2
+        atr = state.current_atr_tp
         current_candle = state.current_candle
 
         if current_candle is None or current_stoploss is None or atr is None:
@@ -1071,53 +1096,68 @@ async def manage_position_profit(api_key: str, api_secret: str, symbol: str, sta
         if not tp_config:
             return
 
-        # หา TP1 จากการตั้งค่า
-        tp1_config = next((level for level in tp_config['levels'] if level['id'] == 'tp1'), None)
-        if not tp1_config:
-            return
+        # เรียงลำดับ TP levels ตาม target_atr จากน้อยไปมาก
+        tp_levels = sorted(tp_config['levels'], key=lambda x: x['target_atr'])
+        
+        # สร้าง dictionary เพื่อเก็บราคา TP แต่ละระดับ
+        tp_prices = {}
+        prev_tp_price = entry_price  # เริ่มต้นด้วยราคา entry
 
-        # คำนวณราคา TP1
-        if position_side == 'buy':
-            tp1_base = entry_price + (atr * tp1_config['target_atr'])
-            tp1_price = tp1_base * (PRICE_INCREASE + (PRICE_CHANGE_THRESHOLD * (tp1_config['target_atr'] * 2)))
-            current_profit_atr = (max_price - entry_price) / atr
-            current_profit_percent = ((max_price - entry_price) / entry_price) * 100
-        else:
-            tp1_base = entry_price - (atr * tp1_config['target_atr'])
-            tp1_price = tp1_base * (PRICE_DECREASE - (PRICE_CHANGE_THRESHOLD * (tp1_config['target_atr'] * 2)))
-            current_profit_atr = (entry_price - min_price) / atr
-            current_profit_percent = ((entry_price - min_price) / entry_price) * 100
+        for level in tp_levels:
+            level_id = level['id']
+            target_atr = level['target_atr']
 
-        # จัดการ TP1 - ย้าย stoploss ตามการตั้งค่า
-        if ((position_side == 'buy' and max_price >= tp1_price) or
-            (position_side == 'sell' and min_price <= tp1_price)) and not state.tp_levels_hit['tp1']:
-            
-            message(symbol, f"กำไรถึงระดับ TP1 ({current_profit_atr:.2f} ATR, {current_profit_percent:.2f}%)", "cyan")
-
-            # ตรวจสอบว่าต้องย้าย SL มาที่จุดเข้าหรือไม่
-            if tp_config.get('move_sl_to_entry_at_tp1', True):
-                try:
-                    if position_side == 'buy':
-                        new_stoploss = entry_price * ( PRICE_DECREASE - PRICE_CHANGE_THRESHOLD )
-                        if current_stoploss < new_stoploss:
-                            message(symbol, f"กำลังปรับ stoploss ไปที่จุดเข้า {new_stoploss:.8f}", "cyan")
-                            await change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss)
-                            state.tp_levels_hit['tp1'] = True
-                            state.current_stoploss = new_stoploss
-                            message(symbol, "ปรับ stoploss เรียบร้อย", "cyan")
-                    else:  # sell
-                        new_stoploss = entry_price * ( PRICE_INCREASE + PRICE_CHANGE_THRESHOLD)
-                        if current_stoploss > new_stoploss:
-                            message(symbol, f"กำลังปรับ stoploss ไปที่จุดเข้า {new_stoploss:.8f}", "cyan")
-                            await change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss)
-                            state.tp_levels_hit['tp1'] = True
-                            state.current_stoploss = new_stoploss
-                            message(symbol, "ปรับ stoploss เรียบร้อย", "cyan")
-                except Exception as e:
-                    message(symbol, f"เกิดข้อผิดพลาดในการปรับ stoploss: {str(e)}", "red")
+            # คำนวณราคา TP
+            if position_side == 'buy':
+                tp_base = entry_price + (atr * target_atr)
+                tp_price = tp_base * (PRICE_INCREASE + (PRICE_CHANGE_THRESHOLD * (target_atr * 2)))
             else:
-                message(symbol, "ข้าม การย้าย stoploss ไปจุดเข้าตามการตั้งค่า", "cyan")
-                state.tp_levels_hit['tp1'] = True
+                tp_base = entry_price - (atr * target_atr)
+                tp_price = tp_base * (PRICE_DECREASE - (PRICE_CHANGE_THRESHOLD * (target_atr * 2)))
+
+            tp_prices[level_id] = tp_price
+
+            # ตรวจสอบว่าถึง TP หรือไม่
+            price_reached_tp = False
+            if position_side == 'buy':
+                price_reached_tp = max_price >= tp_price
+            else:
+                price_reached_tp = min_price <= tp_price
+
+            if price_reached_tp and not state.tp_levels_hit[level_id]:
+                message(symbol, f"ราคาถึงระดับ {level_id}", "cyan")
+                state.tp_levels_hit[level_id] = True
+
+                # ตรวจสอบการย้าย stoploss
+                if level.get('move_sl_to_prev_level', False):
+                    try:
+                        # กำหนดราคา stoploss ใหม่
+                        new_stoploss = None
+                        
+                        if prev_tp_price == entry_price:
+                            # ถ้าเป็น TP แรก ใช้ราคา entry
+                            if position_side == 'buy':
+                                new_stoploss = entry_price * (PRICE_DECREASE - PRICE_CHANGE_THRESHOLD)
+                            else:
+                                new_stoploss = entry_price * (PRICE_INCREASE + PRICE_CHANGE_THRESHOLD)
+                            message(symbol, f"ย้าย stoploss ไปที่จุดเข้า {new_stoploss:.8f}", "cyan")
+                        else:
+                            # ถ้าเป็น TP ถัดไป ใช้ราคา TP ก่อนหน้า
+                            new_stoploss = prev_tp_price
+                            message(symbol, f"ย้าย stoploss ไปที่ TP ก่อนหน้า {new_stoploss:.8f}", "cyan")
+
+                        if new_stoploss is not None:
+                            if ((position_side == 'buy' and current_stoploss < new_stoploss) or
+                                (position_side == 'sell' and current_stoploss > new_stoploss)):
+                                await change_stoploss_to_price(api_key, api_secret, symbol, new_stoploss)
+                                state.current_stoploss = new_stoploss
+                                message(symbol, "ปรับ stoploss เรียบร้อย", "cyan")
+
+                    except Exception as e:
+                        message(symbol, f"เกิดข้อผิดพลาดในการปรับ stoploss: {str(e)}", "red")
+
+            # อัพเดทราคา TP ก่อนหน้า
+            prev_tp_price = tp_price
 
     except Exception as e:
         error_traceback = traceback.format_exc()
@@ -1212,7 +1252,7 @@ async def get_tp_reference_price(state: SymbolState, position_side: str) -> tupl
         return None, None
 
 async def adjust_take_profit_orders(api_key: str, api_secret: str, symbol: str, state: SymbolState):
-    """ปรับปรุง take profit orders ตามสภาพตลาด"""
+    """ปรับปรุง take profit orders ตามสภาพตลาด โดยใช้ ATR 7"""
     try:
         if not state.is_in_position:
             return
@@ -1228,23 +1268,23 @@ async def adjust_take_profit_orders(api_key: str, api_secret: str, symbol: str, 
         if not reference_price or not reference_candle:
             return
             
-        # คำนวณ ATR ใหม่ - แก้ไขลำดับพารามิเตอร์
-        atr = state.current_atr_length_2
-
+        # ใช้ ATR period 7 สำหรับ dynamic TP
+        atr = state.current_atr_tp  # ATR period 7
         if not atr:
+            message(symbol, "ไม่สามารถคำนวณค่า ATR(7) ได้สำหรับ dynamic TP", "red")
             return
             
-        message(symbol, f"ปรับ TP ใหม่ จากราคา {reference_price:.8f} (ATR: {atr:.8f})", "cyan")
+        message(symbol, f"ปรับ TP ใหม่ จากราคา {reference_price:.8f} (ATR7: {atr:.8f})", "cyan")
         
         # ลบ TP orders เก่า
         await clear_tp_orders(api_key, api_secret, symbol)
         
-        # สร้าง TP ใหม่
+        # สร้าง TP ใหม่โดยใช้ ATR 7
         tp_orders = await create_dynamic_tp_orders(
             api_key, api_secret, symbol,
             reference_price, position_side,
             state.config.timeframe, state,
-            atr
+            atr=atr  # ส่ง ATR 7 ไปใช้งาน
         )
         
         if tp_orders:
@@ -1258,10 +1298,11 @@ async def adjust_take_profit_orders(api_key: str, api_secret: str, symbol: str, 
 async def create_dynamic_tp_orders(api_key, api_secret, symbol, reference_price, position_side, timeframe, state, atr=None):
     """สร้าง take profit orders แบบไดนามิก โดยใช้ ATR 7"""
     try:
-        # ใช้ ATR 7 สำหรับ TP
+        # ใช้ ATR 7 ที่ส่งมา หรือดึงจาก state ถ้าไม่ได้ส่งมา
         if not atr:
-            atr = state.current_atr_tp  # ใช้ ATR period 7
+            atr = state.current_atr_tp
             if not atr:
+                message(symbol, "ไม่สามารถคำนวณค่า ATR(7) ได้", "red")
                 return []
 
         atr_percent = (atr / reference_price) * 100
@@ -1275,10 +1316,10 @@ async def create_dynamic_tp_orders(api_key, api_secret, symbol, reference_price,
 
         # สร้างคำสั่ง TP
         orders = []
+        previous_tp_price = reference_price  # เริ่มต้นที่ราคา reference
+
         for level in tp_config['levels']:
             level_id = level['id']
-
-            # ตรวจสอบว่า TP level นี้โดนทำไปแล้วหรือไม่
             if state.tp_levels_hit.get(level_id, False):
                 message(symbol, f"ข้าม {level_id} เนื่องจากทำสำเร็จแล้ว", "blue")
                 continue
@@ -1286,11 +1327,19 @@ async def create_dynamic_tp_orders(api_key, api_secret, symbol, reference_price,
             target_atr = level['target_atr']
             size = level['size']
 
-            # คำนวณราคา TP
+            # คำนวณราคา TP โดยใช้ ATR 7
             if position_side == 'buy':
                 tp_price = reference_price + (atr * target_atr)
+                
+                # ป้องกันไม่ให้TP ถอยหลัง
+                if tp_price <= previous_tp_price:
+                    tp_price = (previous_tp_price + tp_price) / 2
             else:
                 tp_price = reference_price - (atr * target_atr)
+                
+                # ป้องกันไม่ให้TP ถอยหลัง
+                if tp_price >= previous_tp_price:
+                    tp_price = (previous_tp_price + tp_price) / 2
 
             # ปรับราคาตามข้อจำกัดของ exchange
             adjusted_price = await get_adjusted_price(
@@ -1305,13 +1354,16 @@ async def create_dynamic_tp_orders(api_key, api_secret, symbol, reference_price,
                 message(symbol, f"ไม่สามารถปรับราคา {level_id} ได้", "red")
                 continue
 
+            # อัพเดท previous_tp_price
+            previous_tp_price = adjusted_price
+
             # คำนวณกำไรเป็นเปอร์เซ็นต์
             profit_percent = abs((adjusted_price - reference_price) / reference_price * 100)
             distance_in_atr = abs(adjusted_price - reference_price) / atr
             
             message(symbol, 
                 f"{level_id}: {adjusted_price:.8f} " +
-                f"({profit_percent:.2f}%, {distance_in_atr:.1f} ATR, Size: {size})",
+                f"({profit_percent:.2f}%, {distance_in_atr:.1f} ATR7, Size: {size})",
                 "blue"
             )
 
@@ -1336,10 +1388,11 @@ async def create_dynamic_tp_orders(api_key, api_secret, symbol, reference_price,
 
     except Exception as e:
         error_traceback = traceback.format_exc()
-        message(symbol, f"เกิดข้อผิดพลาดในการสร้าง Take Profit Orders: {str(e)}", "red")
+        message(symbol, f"เกิดข้อผิดพลาดในการสร้าง Dynamic Take Profit Orders: {str(e)}", "red")
         message(symbol, f"Error: {error_traceback}", "red")
         return []
 
+        
 async def record_trade(api_key, api_secret, symbol, action, entry_price, exit_price, amount, reason, state):
     """บันทึกข้อมูลการเทรด"""
     try:
@@ -1366,12 +1419,50 @@ async def record_trade(api_key, api_secret, symbol, action, entry_price, exit_pr
                 adjusted_amount = await get_adjusted_quantity(api_key, api_secret, amount, actual_entry_price, symbol)
                 actual_amount = adjusted_amount if adjusted_amount is not None else 0
 
-            # คำนวณกำไร/ขาดทุน
+            # Calculate actual profit/loss
             if action in ['BUY', 'SELL']:
                 profit_loss = ((actual_exit_price - actual_entry_price) if action == 'BUY' else 
-                             (actual_entry_price - actual_exit_price)) * actual_amount
+                            (actual_entry_price - actual_exit_price)) * actual_amount
             else:  # action == 'SWAP'
                 profit_loss = (actual_exit_price - actual_entry_price) * actual_amount
+
+            # Martingale Logic
+            if state.config.martingale_enabled:
+                if profit_loss < -1:  # Loss greater than $1
+                    state.consecutive_losses += 1
+                    
+                    # Calculate multiplier with configurable max and step
+                    state.martingale_multiplier = min(
+                        1.0 + (state.config.martingale_step * min(state.consecutive_losses, 4)), 
+                        state.config.martingale_max_multiplier
+                    )
+                    
+                    message(symbol, 
+                        f"Martingale: Consecutive Loss {state.consecutive_losses}, " +
+                        f"Multiplier increased to {state.martingale_multiplier}", "red"
+                    )
+                else:  # Profitable trade
+                    # Reset Martingale state based on config
+                    if state.config.martingale_reset_on_win:
+                        state.martingale_multiplier = 1.0
+                        state.consecutive_losses = 0
+                        
+                        message(symbol, 
+                            f"Martingale: Trade profitable, resetting multiplier", "green"
+                        )
+
+            # Adjust entry amount based on multiplier
+            adjusted_entry_amount = state.config.entry_amount.replace('$', '')
+            adjusted_entry_amount = f"${float(adjusted_entry_amount) * state.martingale_multiplier}"
+
+            # Update trade record with Martingale details
+            trade['martingale_details'] = {
+                'enabled': state.config.martingale_enabled,
+                'multiplier': state.martingale_multiplier,
+                'consecutive_losses': state.consecutive_losses,
+                'original_entry_amount': state.config.entry_amount,
+                'adjusted_entry_amount': adjusted_entry_amount
+            }
 
             # คำนวณเปอร์เซ็นต์กำไร/ขาดทุน
             profit_loss_percentage = (profit_loss / (actual_entry_price * actual_amount)) * 100
@@ -1587,7 +1678,8 @@ async def check_and_recreate_stoploss(api_key: str, api_secret: str, symbol: str
                 side='sell' if position_side == 'buy' else 'buy',
                 price=str(stoploss_price),
                 quantity='MAX',
-                order_type='STOPLOSS_MARKET'
+                order_type='STOPLOSS_MARKET',
+                martingale_multiplier=state.martingale_multiplier
             )
 
             if stoploss_order:
@@ -1664,7 +1756,8 @@ async def setup_take_profit_orders(api_key, api_secret, symbol, entry_price, pos
                 side=side,
                 price=str(adjusted_price),
                 quantity=size,
-                order_type='TAKE_PROFIT_MARKET'
+                order_type='TAKE_PROFIT_MARKET',
+                martingale_multiplier=state.martingale_multiplier
             )
 
             if tp_order:
@@ -1688,7 +1781,7 @@ async def update_market_indicators(api_key: str, api_secret: str, symbol: str, s
         rsi_config = state.config.rsi_period
         
         # เพิ่ม ATR period 7 สำหรับ TP
-        max_length = max(rsi_config['atr']['length2'], rsi_config['atr']['length1'], 7)  # เพิ่ม ATR 7
+        max_length = max(rsi_config['atr']['length2'], rsi_config['atr']['length1'], 7)
         required_candles = int(max_length * 1.2)
         
         ohlcv = await fetch_ohlcv(symbol, state.config.timeframe, limit=required_candles)
@@ -1718,15 +1811,23 @@ async def update_market_indicators(api_key: str, api_secret: str, symbol: str, s
                 rma = (alpha * tr) + ((1 - alpha) * rma)
             return rma
 
-        # คำนวณ ATR ทั้งสามค่า
+                # คำนวณ ATR ทั้งสามค่า
         atr_short = calculate_atr_value(rsi_config['atr']['length1'])
         atr_long = calculate_atr_value(rsi_config['atr']['length2'])
-        atr_tp = calculate_atr_value(7)  # ATR period 7 สำหรับ TP
+        
+        # คำนวณ ATR สำหรับ TP แบบ dynamic
+        atr_tp_period = calculate_atr_value(rsi_config['atr']['length_tp'])
+        
+        # คำนวณ weight จาก percent (0-100)
+        weight = rsi_config['atr']['weight_percent'] / 100.0
+        
+        # คำนวณ ATR TP โดยใช้ weighted average
+        atr_tp = (atr_tp_period * weight) + (atr_long * (1 - weight))
         
         # เก็บค่า ATR ล่าสุด
         state.current_atr_length_1 = atr_short
         state.current_atr_length_2 = atr_long
-        state.current_atr_tp = atr_tp  # เพิ่มการเก็บค่า ATR 7
+        state.current_atr_tp = atr_tp  # เก็บค่า ATR 7
 
         # คำนวณ RSI Period
         if rsi_config.get('use_dynamic_period', True):
@@ -1986,7 +2087,8 @@ async def _handle_rsi_signals(api_key, api_secret, symbol, state, position_side,
                             side=entry_side,
                             price='now',
                             quantity=str(adjusted_quantity),
-                            order_type='MARKET'
+                            order_type='MARKET',
+                            martingale_multiplier=state.martingale_multiplier
                         )
                     else:
                         entry_order = await create_order(
@@ -1995,7 +2097,8 @@ async def _handle_rsi_signals(api_key, api_secret, symbol, state, position_side,
                             side=entry_side,
                             price=str(entry_trigger_price),
                             quantity=str(adjusted_quantity),
-                            order_type='STOP_MARKET'
+                            order_type='STOP_MARKET',
+                            martingale_multiplier=state.martingale_multiplier
                         )
 
                     if entry_order:
@@ -2006,7 +2109,8 @@ async def _handle_rsi_signals(api_key, api_secret, symbol, state, position_side,
                             side=stoploss_side,
                             price=str(stoploss_price),
                             quantity='MAX',
-                            order_type='STOPLOSS_MARKET'
+                            order_type='STOPLOSS_MARKET',
+                            martingale_multiplier=state.martingale_multiplier
                         )
                         
                         if stoploss_order:
@@ -2128,7 +2232,7 @@ async def _handle_position_swap(api_key, api_secret, symbol, state, price, posit
                 message(symbol, "เคลียร์ orders ทั้งหมดก่อน swap position", "yellow")
                 await clear_all_orders(api_key, api_secret, symbol)
                 
-                # รอให้แน่ใจว่า orders ถูกเคลียร์จริงๆ
+                """# รอให้แน่ใจว่า orders ถูกเคลียร์จริงๆ
                 await asyncio.sleep(1)  # รอสักครู่
                 
                 # ตรวจสอบว่าไม่มี orders ค้าง
@@ -2136,7 +2240,7 @@ async def _handle_position_swap(api_key, api_secret, symbol, state, price, posit
                 if orders:
                     message(symbol, f"ยังมี orders ค้างอยู่ {len(orders)} orders รอเคลียร์อีกครั้ง", "yellow")
                     await clear_all_orders(api_key, api_secret, symbol)
-                    await asyncio.sleep(1)  # รออีกครั้ง
+                    await asyncio.sleep(1)  # รออีกครั้ง"""
                 
                 # ดำเนินการ swap
                 message(symbol, "เริ่มทำการ swap position", "yellow")
@@ -2148,7 +2252,8 @@ async def _handle_position_swap(api_key, api_secret, symbol, state, price, posit
                     side='buy' if new_side == 'sell' else 'sell',
                     price=str(new_stoploss),
                     quantity='MAX',
-                    order_type='STOPLOSS_MARKET'
+                    order_type='STOPLOSS_MARKET',
+                    martingale_multiplier=state.martingale_multiplier
                 )
 
                 if stoploss_order:

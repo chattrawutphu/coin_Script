@@ -6,14 +6,14 @@ api_secret = '560764a399e23e9bc5e24d041bd3b085ee710bf08755d26ff4822bfd9393b11e'"
 
 # Default settings
 TP_LEVELS = {
-    'TP1': {'id': 'tp1', 'size': '30%', 'target_atr': 1},
-    'TP2': {'id': 'tp2', 'size': '35%', 'target_atr': 2},
-    'TP3': {'id': 'tp3', 'size': 'MAX', 'target_atr': 3},
+    'TP1': {'id': 'tp1', 'size': '30%', 'target_atr': 1, 'move_sl_to_prev_level': True},
+    'TP2': {'id': 'tp2', 'size': '35%', 'target_atr': 2, 'move_sl_to_prev_level': True},
+    'TP3': {'id': 'tp3', 'size': 'MAX', 'target_atr': 3.5, 'move_sl_to_prev_level': True}
 }
 
 DEFAULT_CONFIG = {
     'timeframe': '4h',
-    'entry_amount': '20$',
+    'entry_amount': '50$',
     'rsi_period': {
         'rsi_period_min': 7,
         'rsi_period_max': 14,
@@ -21,18 +21,25 @@ DEFAULT_CONFIG = {
         'atr': {
             'length1': 4,
             'length2': 200,
-            'max_percent': 50,
+            "length_tp": 7,
+            "weight_percent": 50,
+            'max_percent': 75,
             'min_percent': 10,
         }
     },
     'rsi_overbought': 68,
     'rsi_oversold': 32,
-    'fix_stoploss': 2,
+    'fix_stoploss': 4,
     'take_profits': {
         'use_dynamic_tp': True,
-        'average_with_entry': True,
-        'move_sl_to_entry_at_tp1': True,
+        'average_with_entry': 50,
         'levels': list(TP_LEVELS.values())
+    },
+    'martingale': {
+        'enabled': True,
+        'max_multiplier': 3.0,
+        'step': 0.5,
+        'reset_on_win': True
     }
 }
 
@@ -42,7 +49,8 @@ TRADING_CONFIG = [
     {**DEFAULT_CONFIG, 'symbol': 'XRPUSDT'},
     {**DEFAULT_CONFIG, 'symbol': 'BCHUSDT'},
     {**DEFAULT_CONFIG, 'symbol': 'SUIUSDT'},
-    {**DEFAULT_CONFIG, 'symbol': 'DOGEUSDT'}
+    {**DEFAULT_CONFIG, 'symbol': 'DOGEUSDT'},
+    {**DEFAULT_CONFIG, 'symbol': 'WIFUSDT'}
 ]
 
 """{**DEFAULT_CONFIG, 'symbol': 'DOGEUSDT',
@@ -54,10 +62,10 @@ TRADING_CONFIG = [
         }
     }"""
 
-PRICE_CHANGE_THRESHOLD = 0.00125  # 0.1%
+PRICE_CHANGE_THRESHOLD = 0.00225  # 0.1%
 PRICE_INCREASE = 1 + PRICE_CHANGE_THRESHOLD  # 1.001
 PRICE_DECREASE = 1 - PRICE_CHANGE_THRESHOLD  # 0.999
-PRICE_CHANGE_MAXPERCENT = 0.5
+PRICE_CHANGE_MAXPERCENT = 2
 MAX_CANDLES_TO_FETCH = 5
 MIN_CANDLES_TO_FETCH = 3
 MIN_NOTIONAL = 20 
